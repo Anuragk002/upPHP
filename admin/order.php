@@ -144,10 +144,11 @@ if($success_message != '') {
                     <th>Customer</th>
 			        <th>Product Details</th>
                     <th>
-                    	Payment Information
+                        Payment Information
                     </th>
                     <th>Paid Amount</th>
                     <th>Payment Status</th>
+                    <th>Shipping Address</th>
                     <th>Shipping Status</th>
 			        <th>Action</th>
 			    </tr>
@@ -155,7 +156,12 @@ if($success_message != '') {
             <tbody>
             	<?php
             	$i=0;
-            	$statement = $pdo->prepare("SELECT * FROM tbl_payment ORDER by id DESC");
+            	$statement = $pdo->prepare("SELECT * FROM `tbl_payment`
+                LEFT JOIN `tbl_customer`
+                ON `tbl_payment`.`customer_id` = `tbl_customer`.`cust_id`
+                ORDER by id DESC
+                ");
+            	// $statement = $pdo->prepare("SELECT * FROM tbl_payment ORDER by id DESC");
             	$statement->execute();
             	$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
             	foreach ($result as $row) {
@@ -237,10 +243,10 @@ if($success_message != '') {
                         		<b>Expire Month:</b> <?php echo $row['card_month']; ?><br>
                         		<b>Expire Year:</b> <?php echo $row['card_year']; ?><br>
                         	<?php elseif($row['payment_method'] == 'Bank Deposit'): ?>
-                        		<b>Payment Method:</b> <?php echo '<span style="color:red;"><b>'.$row['payment_method'].'</b></span>'; ?><br>
-                        		<b>Payment Id:</b> <?php echo $row['payment_id']; ?><br>
+                        		<b>Payment Method:</b> <?php echo '<span style="color:red;"><b>COD/PayLater</b></span>'; ?><br>
+                        		<!-- <b>Payment Id:</b> <?php echo $row['payment_id']; ?><br> -->
 								<b>Date:</b> <?php echo $row['payment_date']; ?><br>
-                        		<b>Transaction Information:</b> <br><?php echo $row['bank_transaction_info']; ?><br>
+                        		<!-- <b>Transaction Information:</b> <br><?php echo $row['bank_transaction_info']; ?><br> -->
                         	<?php endif; ?>
                         </td>
                         <td>$<?php echo $row['paid_amount']; ?></td>
@@ -254,6 +260,11 @@ if($success_message != '') {
                                     <?php
                                 }
                             ?>
+                        </td>
+                        <td>
+                            <!-- Address coloumn-->
+                            <b>Phone:</b><?php echo $row['cust_phone']; ?><br>
+                            <?php echo $row['cust_address']; ?>, <?php echo $row['cust_city']; ?>, <?php echo $row['cust_state']; ?>,<br> Zip: <?php echo $row['cust_zip']; ?> 
                         </td>
                         <td>
                             <?php echo $row['shipping_status']; ?>

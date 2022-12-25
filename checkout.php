@@ -14,6 +14,71 @@ if(!isset($_SESSION['cart_p_id'])) {
     header('location: cart.php');
     exit;
 }
+
+//address
+if (isset($_POST['form1'])) {
+
+
+    // update data into the database
+    $statement = $pdo->prepare("UPDATE tbl_customer SET 
+                            cust_b_name=?, 
+                            cust_b_cname=?, 
+                            cust_b_phone=?, 
+                            cust_b_country=?, 
+                            cust_b_address=?, 
+                            cust_b_city=?, 
+                            cust_b_state=?, 
+                            cust_b_zip=?,
+                            cust_s_name=?, 
+                            cust_s_cname=?, 
+                            cust_s_phone=?, 
+                            cust_s_country=?, 
+                            cust_s_address=?, 
+                            cust_s_city=?, 
+                            cust_s_state=?, 
+                            cust_s_zip=? 
+
+                            WHERE cust_id=?");
+    $statement->execute(array(
+                            strip_tags($_POST['cust_b_name']),
+                            strip_tags($_POST['cust_b_cname']),
+                            strip_tags($_POST['cust_b_phone']),
+                            strip_tags($_POST['cust_b_country']),
+                            strip_tags($_POST['cust_b_address']),
+                            strip_tags($_POST['cust_b_city']),
+                            strip_tags($_POST['cust_b_state']),
+                            strip_tags($_POST['cust_b_zip']),
+                            strip_tags($_POST['cust_s_name']),
+                            strip_tags($_POST['cust_s_cname']),
+                            strip_tags($_POST['cust_s_phone']),
+                            strip_tags($_POST['cust_s_country']),
+                            strip_tags($_POST['cust_s_address']),
+                            strip_tags($_POST['cust_s_city']),
+                            strip_tags($_POST['cust_s_state']),
+                            strip_tags($_POST['cust_s_zip']),
+                            $_SESSION['customer']['cust_id']
+                        ));  
+   
+    $success_message = LANG_VALUE_122;
+
+    $_SESSION['customer']['cust_b_name'] = strip_tags($_POST['cust_s_name']);
+    $_SESSION['customer']['cust_b_cname'] = strip_tags($_POST['cust_s_cname']);
+    $_SESSION['customer']['cust_b_phone'] = strip_tags($_POST['cust_s_phone']);
+    $_SESSION['customer']['cust_b_country'] = strip_tags($_POST['cust_s_country']);
+    $_SESSION['customer']['cust_b_address'] = strip_tags($_POST['cust_s_address']);
+    $_SESSION['customer']['cust_b_city'] = strip_tags($_POST['cust_s_city']);
+    $_SESSION['customer']['cust_b_state'] = strip_tags($_POST['cust_s_state']);
+    $_SESSION['customer']['cust_b_zip'] = strip_tags($_POST['cust_s_zip']);
+    $_SESSION['customer']['cust_s_name'] = strip_tags($_POST['cust_s_name']);
+    $_SESSION['customer']['cust_s_cname'] = strip_tags($_POST['cust_s_cname']);
+    $_SESSION['customer']['cust_s_phone'] = strip_tags($_POST['cust_s_phone']);
+    $_SESSION['customer']['cust_s_country'] = strip_tags($_POST['cust_s_country']);
+    $_SESSION['customer']['cust_s_address'] = strip_tags($_POST['cust_s_address']);
+    $_SESSION['customer']['cust_s_city'] = strip_tags($_POST['cust_s_city']);
+    $_SESSION['customer']['cust_s_state'] = strip_tags($_POST['cust_s_state']);
+    $_SESSION['customer']['cust_s_zip'] = strip_tags($_POST['cust_s_zip']);
+
+}
 ?>
 
 <div class="page-banner" style="background-image: url(assets/uploads/<?php echo $banner_checkout; ?>)">
@@ -173,106 +238,104 @@ if(!isset($_SESSION['cart_p_id'])) {
 
                 
 
-                <div class="billing-address">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h3 class="special"><?php echo LANG_VALUE_161; ?></h3>
-                            <table class="table table-responsive table-bordered table-hover table-striped bill-address">
-                                <tr>
-                                    <td><?php echo LANG_VALUE_102; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_b_name']; ?></p></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo LANG_VALUE_103; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_b_cname']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo LANG_VALUE_104; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_b_phone']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo LANG_VALUE_106; ?></td>
-                                    <td>
+                <form action="" method="post">
+                        <?php $csrf->echoInputField(); ?>
+                        <div class="row">
+                            <div class="col-md-6 hidden">
+                                <h3><?php echo LANG_VALUE_86; ?></h3>
+                                <div class="form-group">
+                                    <label for=""><?php echo LANG_VALUE_102; ?></label>
+                                    <input type="text" class="form-control" name="cust_b_name" value="<?php echo $_SESSION['customer']['cust_b_name']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><?php echo LANG_VALUE_103; ?></label>
+                                    <input type="text" class="form-control" name="cust_b_cname" value="<?php echo $_SESSION['customer']['cust_b_cname']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><?php echo LANG_VALUE_104; ?></label>
+                                    <input type="text" class="form-control" name="cust_b_phone" value="<?php echo $_SESSION['customer']['cust_b_phone']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><?php echo LANG_VALUE_106; ?></label>
+                                    <select name="cust_b_country" class="form-control">
                                         <?php
-                                        $statement = $pdo->prepare("SELECT * FROM tbl_country WHERE country_id=?");
-                                        $statement->execute(array($_SESSION['customer']['cust_b_country']));
+                                        $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
+                                        $statement->execute();
                                         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                                         foreach ($result as $row) {
-                                            echo $row['country_name'];
+                                            ?>
+                                            <option value="<?php echo $row['country_id']; ?>" <?php if($row['country_id'] == $_SESSION['customer']['cust_b_country']) {echo 'selected';} ?>><?php echo $row['country_name']; ?></option>
+                                            <?php
                                         }
                                         ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo LANG_VALUE_105; ?></td>
-                                    <td>
-                                        <?php echo nl2br($_SESSION['customer']['cust_b_address']); ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo LANG_VALUE_107; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_b_city']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo LANG_VALUE_108; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_b_state']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo LANG_VALUE_109; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_b_zip']; ?></td>
-                                </tr>                                
-                            </table>
-                        </div>
-                        <div class="col-md-6">
-                            <h3 class="special"><?php echo LANG_VALUE_162; ?></h3>
-                            <table class="table table-responsive table-bordered table-hover table-striped bill-address">
-                                <tr>
-                                    <td><?php echo LANG_VALUE_102; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_s_name']; ?></p></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo LANG_VALUE_103; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_s_cname']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo LANG_VALUE_104; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_s_phone']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo LANG_VALUE_106; ?></td>
-                                    <td>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><?php echo LANG_VALUE_105; ?></label>
+                                    <textarea name="cust_b_address" class="form-control" cols="30" rows="10" style="height:100px;"><?php echo $_SESSION['customer']['cust_b_address']; ?></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><?php echo LANG_VALUE_107; ?></label>
+                                    <input type="text" class="form-control" name="cust_b_city" value="<?php echo $_SESSION['customer']['cust_b_city']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><?php echo LANG_VALUE_108; ?></label>
+                                    <input type="text" class="form-control" name="cust_b_state" value="<?php echo $_SESSION['customer']['cust_b_state']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><?php echo LANG_VALUE_109; ?></label>
+                                    <input type="text" class="form-control" name="cust_b_zip" value="<?php echo $_SESSION['customer']['cust_b_zip']; ?>">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h3><?php echo LANG_VALUE_87; ?></h3>
+                                <div class="form-group">
+                                    <label for=""><?php echo LANG_VALUE_102; ?></label>
+                                    <input type="text" class="form-control" name="cust_s_name" value="<?php echo $_SESSION['customer']['cust_s_name']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><?php echo LANG_VALUE_103; ?></label>
+                                    <input type="text" class="form-control" name="cust_s_cname" value="<?php echo $_SESSION['customer']['cust_s_cname']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><?php echo LANG_VALUE_104; ?></label>
+                                    <input type="text" class="form-control" name="cust_s_phone" value="<?php echo $_SESSION['customer']['cust_s_phone']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><?php echo LANG_VALUE_106; ?></label>
+                                    <select name="cust_s_country" class="form-control">
                                         <?php
-                                        $statement = $pdo->prepare("SELECT * FROM tbl_country WHERE country_id=?");
-                                        $statement->execute(array($_SESSION['customer']['cust_s_country']));
+                                        $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
+                                        $statement->execute();
                                         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                                         foreach ($result as $row) {
-                                            echo $row['country_name'];
+                                            ?>
+                                            <option value="<?php echo $row['country_id']; ?>" <?php if($row['country_id'] == $_SESSION['customer']['cust_s_country']) {echo 'selected';} ?>><?php echo $row['country_name']; ?></option>
+                                            <?php
                                         }
                                         ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo LANG_VALUE_105; ?></td>
-                                    <td>
-                                        <?php echo nl2br($_SESSION['customer']['cust_s_address']); ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo LANG_VALUE_107; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_s_city']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo LANG_VALUE_108; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_s_state']; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><?php echo LANG_VALUE_109; ?></td>
-                                    <td><?php echo $_SESSION['customer']['cust_s_zip']; ?></td>
-                                </tr> 
-                            </table>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><?php echo LANG_VALUE_105; ?></label>
+                                    <textarea name="cust_s_address" class="form-control" cols="30" rows="10" style="height:100px;"><?php echo $_SESSION['customer']['cust_s_address']; ?></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><?php echo LANG_VALUE_107; ?></label>
+                                    <input type="text" class="form-control" name="cust_s_city" value="<?php echo $_SESSION['customer']['cust_s_city']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><?php echo LANG_VALUE_108; ?></label>
+                                    <input type="text" class="form-control" name="cust_s_state" value="<?php echo $_SESSION['customer']['cust_s_state']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label for=""><?php echo LANG_VALUE_109; ?></label>
+                                    <input type="text" class="form-control" name="cust_s_zip" value="<?php echo $_SESSION['customer']['cust_s_zip']; ?>">
+                                </div>
+                            </div>
                         </div>
-                    </div>                    
-                </div>
+                        <input type="submit" class="btn btn-primary" value="<?php echo LANG_VALUE_5; ?>" name="form1">
+                    </form>
 
                 
 
@@ -286,7 +349,7 @@ if(!isset($_SESSION['cart_p_id'])) {
                 <h3 class="special"><?php echo LANG_VALUE_33; ?></h3>
                 <div class="row">
                     
-                    	<?php
+                    	<!-- <?php
 		                $checkout_access = 1;
 		                if(
 		                    ($_SESSION['customer']['cust_b_name']=='') ||
@@ -308,14 +371,8 @@ if(!isset($_SESSION['cart_p_id'])) {
 		                ) {
 		                    $checkout_access = 0;
 		                }
-		                ?>
-		                <?php if($checkout_access == 0): ?>
-		                	<div class="col-md-12">
-				                <div style="color:red;font-size:22px;margin-bottom:50px;">
-			                        You must have to fill up all the billing and shipping information from your dashboard panel in order to checkout the order. Please fill up the information going to <a href="customer-billing-shipping-update.php" style="color:red;text-decoration:underline;">this link</a>.
-			                    </div>
-	                    	</div>
-	                	<?php else: ?>
+		                ?> -->
+
 		                	<div class="col-md-4">
 		                		
 	                            <div class="row">
@@ -324,8 +381,8 @@ if(!isset($_SESSION['cart_p_id'])) {
 	                                    <label for=""><?php echo LANG_VALUE_34; ?> *</label>
 	                                    <select name="payment_method" class="form-control select2" id="advFieldsStatus">
 	                                        <option value=""><?php echo LANG_VALUE_35; ?></option>
-	                                        <option value="PayPal"><?php echo LANG_VALUE_36; ?></option>
-	                                        <option value="Bank Deposit"><?php echo LANG_VALUE_38; ?></option>
+	                                        <!-- <option value="PayPal"><?php echo LANG_VALUE_36; ?></option> -->
+	                                        <option value="Bank Deposit">Cash On Delivery/ PayLater</option>
 	                                    </select>
 	                                </div>
 
@@ -346,7 +403,7 @@ if(!isset($_SESSION['cart_p_id'])) {
 
                                     <form action="payment/bank/init.php" method="post" id="bank_form">
                                         <input type="hidden" name="amount" value="<?php echo $final_total; ?>">
-                                        <div class="col-md-12 form-group">
+                                        <div class="col-md-12 form-group hidden">
                                             <label for=""><?php echo LANG_VALUE_43; ?></span></label><br>
                                             <?php
                                             $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
@@ -357,7 +414,8 @@ if(!isset($_SESSION['cart_p_id'])) {
                                             }
                                             ?>
                                         </div>
-                                        <div class="col-md-12 form-group">
+                                        <div class="col-md-12 form-group">You will be contacted by our representative to confirm the order.</div>
+                                        <div class="col-md-12 form-group hidden">
                                             <label for=""><?php echo LANG_VALUE_44; ?> <br><span style="font-size:12px;font-weight:normal;">(<?php echo LANG_VALUE_45; ?>)</span></label>
                                             <textarea name="transaction_info" class="form-control" cols="30" rows="10"></textarea>
                                         </div>
@@ -365,12 +423,10 @@ if(!isset($_SESSION['cart_p_id'])) {
                                             <input type="submit" class="btn btn-primary" value="<?php echo LANG_VALUE_46; ?>" name="form3">
                                         </div>
                                     </form>
-	                                
 	                            </div>
 		                            
 		                        
 		                    </div>
-		                <?php endif; ?>
                         
                 </div>
                 
