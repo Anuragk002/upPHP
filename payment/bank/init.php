@@ -15,9 +15,9 @@ foreach ($result as $row) {
 ?>
 <?php
 if( !isset($_REQUEST['msg']) ) {
-	if(empty($_POST['transaction_info'])) {
-		header('location: ../../checkout.php');
-	} else {
+	// if(empty($_POST['transaction_info'])) {
+	// 	header('location: ../../checkout.php');
+	// } else {
 		$payment_date = date('Y-m-d H:i:s');
 	    $payment_id = time();
 
@@ -154,6 +154,6 @@ if( !isset($_REQUEST['msg']) ) {
 	    unset($_SESSION['cart_p_featured_photo']);
 
 	    header('location: ../../payment_success.php');
-	}
+	// }
 }
 ?>
