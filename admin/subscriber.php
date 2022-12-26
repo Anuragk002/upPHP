@@ -5,7 +5,7 @@
 		<h1>Subscriber</h1>
 	</div>
 	<div class="content-header-right">
-		<a href="subscriber-remove.php" class="btn btn-primary btn-sm">Remove Pending Subscribers</a>
+		<?php if($_SESSION['user']['role']=='Super Admin') {?><a href="subscriber-remove.php" class="btn btn-primary btn-sm">Remove Pending Subscribers</a><?php } ?>
 		<a href="subscriber-csv.php" class="btn btn-primary btn-sm">Export as CSV</a>
 	</div>
 </section>
@@ -21,7 +21,9 @@
 			    <tr>
 			        <th>#</th>
 			        <th>Subscriber Email</th>
-			        <th>Action</th>
+					<th>Active</th>
+			        <?php if($_SESSION['user']['role']=='Super Admin'){?><th>Action</th><?php
+					}?>
 			    </tr>
 			</thead>
             <tbody>
@@ -36,7 +38,8 @@
 					<tr>
 	                    <td><?php echo $i; ?></td>
 	                    <td><?php echo $row['subs_email']; ?></td>
-	                    <td><a href="#" class="btn btn-danger btn-xs" data-href="subscriber-delete.php?id=<?php echo $row['subs_id']; ?>" data-toggle="modal" data-target="#confirm-delete">Delete</a></td>
+						<td><?php if($row['subs_active']==1) {echo "Yes";}else{echo "No";}?>
+	                    <?php if($_SESSION['user']['role']=='Super Admin'){?> <td><a href="#" class="btn btn-danger btn-xs" data-href="subscriber-delete.php?id=<?php echo $row['subs_id']; ?>" data-toggle="modal" data-target="#confirm-delete">Delete</a></td> <?php } ?>
 	                </tr>
             		<?php
             	}
