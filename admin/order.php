@@ -150,7 +150,7 @@ if($success_message != '') {
                     <th>Payment Status</th>
                     <th>Shipping Address</th>
                     <th>Shipping Status</th>
-			        <th>Action</th>
+			        <?php if($_SESSION['user']['role']=='Super Admin' ){?><th>Action</th><?php }?>
 			    </tr>
 			</thead>
             <tbody>
@@ -279,9 +279,11 @@ if($success_message != '') {
                             }
                             ?>
                         </td>
+                        <?php if($_SESSION['user']['role']=='Super Admin' ){?>
 	                    <td>
                             <a href="#" class="btn btn-danger btn-xs" data-href="order-delete.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete" style="width:100%;">Delete</a>
 	                    </td>
+                        <?php } ?>
 	                </tr>
             		<?php
             	}

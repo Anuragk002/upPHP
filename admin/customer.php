@@ -20,7 +20,7 @@
 								<th width="180">Country, City, State</th>
 								<th>Status</th>
 								<th width="100">Change Status</th>
-								<th width="100">Action</th>
+								<?php if($_SESSION['user']['role']=='Super Admin') {?><th width="100">Action</th> <?php } ?>
 							</tr>
 						</thead>
 						<tbody>
@@ -49,9 +49,11 @@
 									<td>
 										<a href="customer-change-status.php?id=<?php echo $row['cust_id']; ?>" class="btn btn-success btn-xs">Change Status</a>
 									</td>
+									<?php if($_SESSION['user']['role']=='Super Admin') {?>
 									<td>
 										<a href="#" class="btn btn-danger btn-xs" data-href="customer-delete.php?id=<?php echo $row['cust_id']; ?>" data-toggle="modal" data-target="#confirm-delete">Delete</a>
 									</td>
+									<?php } ?>
 								</tr>
 								<?php
 							}
