@@ -9,15 +9,15 @@ if(isset($_POST['form1'])) {
         $error_message .= "You must have to select a top level category<br>";
     }
 
-    if(empty($_POST['mcat_id'])) {
-        $valid = 0;
-        $error_message .= "You must have to select a mid level category<br>";
-    }
+    // if(empty($_POST['mcat_id'])) {
+    //     $valid = 0;
+    //     $error_message .= "You must have to select a mid level category<br>";
+    // }
 
-    if(empty($_POST['ecat_id'])) {
-        $valid = 0;
-        $error_message .= "You must have to select an end level category<br>";
-    }
+    // if(empty($_POST['ecat_id'])) {
+    //     $valid = 0;
+    //     $error_message .= "You must have to select an end level category<br>";
+    // }
 
     if(empty($_POST['p_name'])) {
         $valid = 0;
@@ -116,7 +116,7 @@ if(isset($_POST['form1'])) {
 										p_total_view,
 										p_is_featured,
 										p_is_active,
-										ecat_id
+										tcat_id
 									) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 		$statement->execute(array(
 										$_POST['p_name'],
@@ -132,7 +132,7 @@ if(isset($_POST['form1'])) {
 										0,
 										$_POST['p_is_featured'],
 										$_POST['p_is_active'],
-										$_POST['ecat_id']
+										$_POST['tcat_id']
 									));
 
 		
@@ -209,7 +209,7 @@ if(isset($_POST['form1'])) {
 								</select>
 							</div>
 						</div>
-						<div class="form-group">
+						<!-- <div class="form-group">
 							<label for="" class="col-sm-3 control-label">Mid Level Category Name <span>*</span></label>
 							<div class="col-sm-4">
 								<select name="mcat_id" class="form-control select2 mid-cat">
@@ -224,7 +224,7 @@ if(isset($_POST['form1'])) {
 									<option value="">Select End Level Category</option>
 								</select>
 							</div>
-						</div>
+						</div> -->
 						<div class="form-group">
 							<label for="" class="col-sm-3 control-label">Product Name <span>*</span></label>
 							<div class="col-sm-4">
