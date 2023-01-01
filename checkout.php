@@ -97,6 +97,9 @@ if (isset($_POST['form1'])) {
                     <p>
                         <a href="login.php" class="btn btn-md btn-danger"><?php echo LANG_VALUE_160; ?></a>
                     </p>
+                    <p>
+                        <a href="guest.php" class="btn btn-md btn-danger">Guest Checkout</a>
+                    </p>
                 <?php else: ?>
 
                 <h3 class="special"><?php echo LANG_VALUE_26; ?></h3>

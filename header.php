@@ -285,13 +285,20 @@ foreach ($result as $row) {
 			
 			<div class="col-md-5 right">
 				<ul>
-					
 					<?php
 					if(isset($_SESSION['customer'])) {
+						if($_SESSION['customer']['cust_guest']===1) {
+							?>
+							<li><i class="fa fa-user"></i> Hey, Guest</li>
+							<!-- <li><a href="dashboard.php"><i class="fa fa-home"></i> <?php echo LANG_VALUE_89; ?></a></li> -->
+							<?php
+						}
+						else{
 						?>
 						<li><i class="fa fa-user"></i> <?php echo LANG_VALUE_13; ?> <?php echo $_SESSION['customer']['cust_name']; ?></li>
 						<li><a href="dashboard.php"><i class="fa fa-home"></i> <?php echo LANG_VALUE_89; ?></a></li>
 						<?php
+						}
 					} else {
 						?>
 						<li><a href="login.php"><i class="fa fa-sign-in"></i> <?php echo LANG_VALUE_9; ?></a></li>
