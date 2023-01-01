@@ -47,61 +47,6 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
         }
 
         if($_REQUEST['type'] == 'top-category') {
-            if(!in_array($_REQUEST['id'],$top)) {
-                header('location: index.php');
-                exit;
-            } else {
-
-                // Getting Title
-                for ($i=0; $i < count($top); $i++) { 
-                    if($top[$i] == $_REQUEST['id']) {
-                        $title = $top1[$i];
-                        break;
-                    }
-                }
-                $arr1 = array();
-                $arr2 = array();
-                // Find out all ecat ids under this
-                for ($i=0; $i < count($mid); $i++) { 
-                    if($mid2[$i] == $_REQUEST['id']) {
-                        $arr1[] = $mid[$i];
-                    }
-                }
-                for ($j=0; $j < count($arr1); $j++) {
-                    for ($i=0; $i < count($end); $i++) { 
-                        if($end2[$i] == $arr1[$j]) {
-                            $arr2[] = $end[$i];
-                        }
-                    }   
-                }
-                $final_ecat_ids = $arr2;
-            }   
-        }
-
-        if($_REQUEST['type'] == 'mid-category') {
-            if(!in_array($_REQUEST['id'],$mid)) {
-                header('location: index.php');
-                exit;
-            } else {
-                // Getting Title
-                for ($i=0; $i < count($mid); $i++) { 
-                    if($mid[$i] == $_REQUEST['id']) {
-                        $title = $mid1[$i];
-                        break;
-                    }
-                }
-                $arr2 = array();        
-                // Find out all ecat ids under this
-                for ($i=0; $i < count($end); $i++) { 
-                    if($end2[$i] == $_REQUEST['id']) {
-                        $arr2[] = $end[$i];
-                    }
-                }
-                $final_ecat_ids = $arr2;
-            }
-        }
-
-        if($_REQUEST['type'] == 'end-category') {
             if(!in_array($_REQUEST['id'],$end)) {
                 header('location: index.php');
                 exit;
@@ -146,7 +91,7 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                         $statement->execute();
                         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                         foreach ($result as $row) {
-                            $prod_table_ecat_ids[] = $row['ecat_id'];
+                            $prod_table_ecat_ids[] = $row['tcat_id'];
                         }
 
                         for($ii=0;$ii<count($final_ecat_ids);$ii++):
@@ -159,7 +104,7 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                             echo '<div class="pl_15">'.LANG_VALUE_153.'</div>';
                         } else {
                             for($ii=0;$ii<count($final_ecat_ids);$ii++) {
-                                $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE ecat_id=? AND p_is_active=?");
+                                $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE tcat_id=? AND p_is_active=?");
                                 $statement->execute(array($final_ecat_ids[$ii],1));
                                 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 foreach ($result as $row) {

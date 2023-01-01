@@ -361,7 +361,7 @@ foreach ($result as $row) {
 							foreach ($result as $row) {
 								?>
 								<li><a href="product-category.php?id=<?php echo $row['tcat_id']; ?>&type=top-category"><?php echo $row['tcat_name']; ?></a>
-									<ul>
+									<!-- <ul>
 										<?php
 										$statement1 = $pdo->prepare("SELECT * FROM tbl_mid_category WHERE tcat_id=?");
 										$statement1->execute(array($row['tcat_id']));
@@ -385,7 +385,7 @@ foreach ($result as $row) {
 											<?php
 										}
 										?>
-									</ul>
+									</ul> -->
 								</li>
 								<?php
 							}
