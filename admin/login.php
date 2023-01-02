@@ -17,7 +17,7 @@ if(isset($_POST['form1'])) {
 		$password = strip_tags($_POST['password']);
 
     	$statement = $pdo->prepare("SELECT * FROM tbl_user WHERE email=? AND status=?");
-    	$statement->execute(array($email,'Active'));
+    	$statement->execute(array($email,1));
     	$total = $statement->rowCount();    
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);    
         if($total==0) {
