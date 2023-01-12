@@ -1,6 +1,10 @@
 <?php require_once('header.php'); ?>
 
 <?php
+if($_SESSION['user']['role']!="Super Admin") {
+	header('location: index.php');
+	exit;
+}
 if(isset($_POST['addAdmin'])) {
 	$valid = 1;
 
