@@ -116,6 +116,13 @@ if(!isset($_SESSION['user'])) {
 			        </li>
 
 					<?php if($_SESSION['user']['role']=="Super Admin"){ ?>
+
+						<li class="treeview <?php if( ($cur_page == 'admin-view.php') || ($cur_page == 'admin-add.php') || ($cur_page == 'admin-change-status.php') || ($cur_page == 'admin-delete.php')) {echo 'active';} ?>">
+                        <a href="admin-view.php">
+                            <i class="fa fa-wrench"></i> <span>Admin Management</span>
+                        </a>
+                    </li>
+
 						<li class="treeview <?php if( ($cur_page == 'product.php') || ($cur_page == 'product-add.php') || ($cur_page == 'product-edit.php') ) {echo 'active';} ?>">
                         <a href="product.php">
                             <i class="fa fa-shopping-bag"></i> <span>Product Management</span>
