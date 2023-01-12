@@ -184,6 +184,32 @@
 
         $(document).ready(function () {
 
+            $("#btnAddNewPkg").click(function () {
+
+		        var rowNumber = $("#ProductPkgTable tbody tr").length;
+
+		        var trNew = "";              
+
+		        var addLink1 = "<div class=\"upload-btn" + rowNumber + "\"><input type=\"text\" class=\"form-control\" name=\"pkg["+rowNumber+"][name]\" style=\"margin-bottom:5px; width:200px\">";
+		        var addLink2 = "<div class=\"upload-btn" + rowNumber + "\"><input type=\"text\" class=\"form-control\" name=\"pkg["+rowNumber+"][price]\" style=\"margin-bottom:5px; width:50px\">";
+		           
+		        var deleteRow = "<a href=\"javascript:void()\" class=\"Delete btn btn-danger btn-xs\">X</a>";
+ 
+		        trNew = trNew + "<tr> ";
+
+		        trNew += "<td>" + addLink1 + "</td>"+"<td>" + addLink2 + "</td>";
+		        trNew += "<td style=\"width:28px;\">" + deleteRow + "</td>";
+
+		        trNew = trNew + " </tr>";
+
+		        $("#ProductPkgTable tbody").append(trNew);
+
+		    });
+			$('#ProductPkgTable').delegate('a.Delete', 'click', function () {
+		        $(this).parent().parent().fadeOut('slow').remove();
+		        return false;
+		    });
+
             $("#btnAddNew").click(function () {
 
 		        var rowNumber = $("#ProductTable tbody tr").length;

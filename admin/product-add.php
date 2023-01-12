@@ -3,6 +3,22 @@
 <?php
 if(isset($_POST['form1'])) {
 	$valid = 1;
+	$pkgvalid= 0;
+
+	foreach($_POST['pkg'] as $pkg1){
+		if((empty($pkg1['name'])))
+		{
+			$valid = 0;
+        $error_message .= "Input Package Name<br>";
+		}
+		elseif((empty($pkg1['price'])))
+		{
+			$valid = 0;
+        $error_message .= "Input Package Price<br>";
+		}
+		else
+		$pkgvalid= 1;
+	}
 
     if(empty($_POST['tcat_id'])) {
         $valid = 0;
@@ -151,6 +167,15 @@ if(isset($_POST['form1'])) {
 			}
 		}
 	
+		if($pkgvalid == 1) {
+
+			foreach($_POST['pkg'] as $pkg) {
+				// print_r($pkg);
+				$statement = $pdo->prepare("INSERT INTO tbl_product_package (p_id,pkg_name,pkg_price) VALUES (?,?,?)");
+				$statement->execute(array($ai_id,$pkg['name'],$pkg['price']));
+			}
+		}
+
     	$success_message = 'Product is added successfully.';
     }
 }
@@ -231,13 +256,13 @@ if(isset($_POST['form1'])) {
 								<input type="text" name="p_name" class="form-control">
 							</div>
 						</div>	
-						<div class="form-group">
+						<div class="form-group hidden">
 							<label for="" class="col-sm-3 control-label">Old Price <br><span style="font-size:10px;font-weight:normal;">(In USD)</span></label>
 							<div class="col-sm-4">
 								<input type="text" name="p_old_price" class="form-control">
 							</div>
 						</div>
-						<div class="form-group">
+						<div class="form-group hidden">
 							<label for="" class="col-sm-3 control-label">Current Price <span>*</span><br><span style="font-size:10px;font-weight:normal;">(In USD)</span></label>
 							<div class="col-sm-4">
 								<input type="text" name="p_current_price" class="form-control">
@@ -249,7 +274,36 @@ if(isset($_POST['form1'])) {
 								<input type="text" name="p_qty" class="form-control">
 							</div>
 						</div>
+
+
 						<div class="form-group">
+							<label for="" class="col-sm-3 control-label">Add Packages</label>
+							<div class="col-sm-4" style="padding-top:4px;">
+								<table id="ProductPkgTable" style="width:100%;">
+			                        <tbody>
+			                            <tr>
+			                                <td>
+			                                    <div class="col-sm-4">
+			                                        <input type="text" placeholder="Package name" class="form-control" name="pkg[0][name]" style="margin-bottom:5px; width:200px">
+			                                    </div>
+			                                </td>
+			                                <td>
+												<div class="col-sm-4">
+													<input type="text" placeholder="price" class="form-control" name="pkg[0][price]" style="margin-bottom:5px; width:50px;">
+			                                    </div>
+			                                </td>
+			                                <td style="width:28px;"><a href="javascript:void()" class="Delete btn btn-danger btn-xs">X</a></td>
+			                            </tr>
+			                        </tbody>
+			                    </table>
+							</div>
+							<div class="col-sm-2">
+			                    <input type="button" id="btnAddNewPkg" value="Add Package" style="margin-top: 5px;margin-bottom:10px;border:0;color: #fff;font-size: 14px;border-radius:3px;" class="btn btn-warning btn-xs">
+			                </div>
+						</div>
+
+
+						<div class="form-group hidden">
 							<label for="" class="col-sm-3 control-label">Select Size</label>
 							<div class="col-sm-4">
 								<select name="size[]" class="form-control select2" multiple="multiple">
@@ -266,7 +320,7 @@ if(isset($_POST['form1'])) {
 								</select>
 							</div>
 						</div>
-						<div class="form-group">
+						<div class="form-group hidden">
 							<label for="" class="col-sm-3 control-label">Select Color</label>
 							<div class="col-sm-4">
 								<select name="color[]" class="form-control select2" multiple="multiple">
