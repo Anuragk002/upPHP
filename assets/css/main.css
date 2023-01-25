@@ -2124,6 +2124,7 @@ div.pagination span.disabled {
 .breadcrumb {
   background: #fff;
   margin-top: -40px;
+  font-weight: bold;
 }
 
 .breadcrumb ul li {

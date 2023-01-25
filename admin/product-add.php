@@ -1,6 +1,10 @@
 <?php require_once('header.php'); ?>
 
 <?php
+if($_SESSION['user']['role']!="Super Admin") {
+	header('location: logout.php');
+	exit;
+}
 if(isset($_POST['form1'])) {
 	$valid = 1;
 	$pkgvalid= 0;
@@ -40,10 +44,10 @@ if(isset($_POST['form1'])) {
         $error_message .= "Product name can not be empty<br>";
     }
 
-    if(empty($_POST['p_current_price'])) {
-        $valid = 0;
-        $error_message .= "Current Price can not be empty<br>";
-    }
+    // if(empty($_POST['p_current_price'])) {
+    //     $valid = 0;
+    //     $error_message .= "Current Price can not be empty<br>";
+    // }
 
     if(empty($_POST['p_qty'])) {
         $valid = 0;
@@ -120,8 +124,8 @@ if(isset($_POST['form1'])) {
 		//Saving data into the main table tbl_product
 		$statement = $pdo->prepare("INSERT INTO tbl_product(
 										p_name,
-										p_old_price,
-										p_current_price,
+										-- p_old_price,
+										-- p_current_price,
 										p_qty,
 										p_featured_photo,
 										p_description,
@@ -133,11 +137,11 @@ if(isset($_POST['form1'])) {
 										p_is_featured,
 										p_is_active,
 										tcat_id
-									) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+									) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)");
 		$statement->execute(array(
 										$_POST['p_name'],
-										$_POST['p_old_price'],
-										$_POST['p_current_price'],
+										// $_POST['p_old_price'],
+										// $_POST['p_current_price'],
 										$_POST['p_qty'],
 										$final_name,
 										$_POST['p_description'],
@@ -177,6 +181,12 @@ if(isset($_POST['form1'])) {
 		}
 
     	$success_message = 'Product is added successfully.';
+		echo "<script type='text/javascript'>
+		location='product.php';
+		alert('$success_message');
+		</script>";
+		// header('location: product.php');
+		
     }
 }
 ?>

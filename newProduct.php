@@ -1,183 +1,284 @@
 <?php require_once('header.php'); ?>
 
 <?php
-
-    $p_err_msg="";
-    $p_success_msg="";
-    // Checking if product id in valid or not-->
-    if (!isset($_REQUEST['id'])) {
-        header('location: index.php');
-        exit;
-    } else {
-        // Check the id is valid or not---->
-        $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_is_active =? AND p_id=? ");
-        $statement->execute(array(1,$_REQUEST['id']));
-        $total = $statement->rowCount();
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-        if ($total == 0) {
-            header('location: index.php');
-            exit;
-        }
-    }
-
-    // Getting product details start--->
-    foreach ($result as $row) {
-        $p_name = $row['p_name'];
-        $p_qty = $row['p_qty'];
-        $p_featured_photo = $row['p_featured_photo'];
-        $p_description = $row['p_description'];
-        $p_short_description = $row['p_short_description'];
-        $p_feature = $row['p_feature'];
-        $p_condition = $row['p_condition'];
-        $p_return_policy = $row['p_return_policy'];
-        $p_total_view = $row['p_total_view'];
-        $p_is_featured = $row['p_is_featured'];
-        $p_is_active = $row['p_is_active'];
-        $tcat_id = $row['tcat_id'];
-    }
-
-    // Getting category name for product-->
-    $statement = $pdo->prepare("SELECT
-                            t3.tcat_id,
-                            t3.tcat_name
-                            FROM tbl_top_category t3
-                            WHERE t3.tcat_id=?");
-    $statement->execute(array($tcat_id));
+// Checking if product id in valid or not-->
+if (!isset($_REQUEST['id'])) {
+    header('location: index.php');
+    exit;
+} else {
+    // Check the id is valid or not
+    $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
+    $statement->execute(array($_REQUEST['id']));
     $total = $statement->rowCount();
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($result as $row) {
-        $tcat_name = $row['tcat_name'];
-        $tcat_id = $row['tcat_id'];
+    if ($total == 0) {
+        header('location: index.php');
+        exit;
     }
-    // Updating the revies of the product--------->
-    $p_total_view = $p_total_view + 1;
-    $statement = $pdo->prepare("UPDATE tbl_product SET p_total_view=? WHERE p_id=?");
-    $statement->execute(array($p_total_view, $_REQUEST['id']));
+}
 
-    //  Getting package for the prodcut-------->
-    $statement = $pdo->prepare("SELECT * FROM tbl_product_package WHERE p_id=?");
-    $statement->execute(array($_REQUEST['id']));
-    $resultpkg = $statement->fetchAll(PDO::FETCH_ASSOC);
-    foreach ($resultpkg as $row) {
-        $pkg_name[] = $row['pkg_name'];
-        $pkg_price[] = $row['pkg_price'];
-    }
+// Getting product details start--->
+foreach ($result as $row) {
+    $p_name = $row['p_name'];
+    // $p_old_price = $row['p_old_price'];
+    // $p_current_price = 2;
+    // $p_current_price = $row['p_current_price'];
+    $p_qty = $row['p_qty'];
+    $p_featured_photo = $row['p_featured_photo'];
+    $p_description = $row['p_description'];
+    $p_short_description = $row['p_short_description'];
+    $p_feature = $row['p_feature'];
+    $p_condition = $row['p_condition'];
+    $p_return_policy = $row['p_return_policy'];
+    $p_total_view = $row['p_total_view'];
+    $p_is_featured = $row['p_is_featured'];
+    $p_is_active = $row['p_is_active'];
+    $tcat_id = $row['tcat_id'];
+}
 
-    // Submiting the review for the product ------>
-    if (isset($_POST['form_review'])) {
+// Getting category name for product-->
+$statement = $pdo->prepare("SELECT
+                        t3.tcat_id,
+                        t3.tcat_name
+                        FROM tbl_top_category t3
+                        WHERE t3.tcat_id=?");
+$statement->execute(array($tcat_id));
+$total = $statement->rowCount();
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+foreach ($result as $row) {
+    $tcat_name = $row['tcat_name'];
+    $tcat_id = $row['tcat_id'];
+}
 
-        $statement = $pdo->prepare("SELECT * FROM tbl_rating WHERE p_id=? AND cust_id=?");
-        $statement->execute(array($_REQUEST['id'], $_SESSION['customer']['cust_id']));
-        $total = $statement->rowCount();
+// Updating the revies of the product--------->
+$p_total_view = $p_total_view + 1;
+$statement = $pdo->prepare("UPDATE tbl_product SET p_total_view=? WHERE p_id=?");
+$statement->execute(array($p_total_view, $_REQUEST['id']));
 
-        if ($total) {
-            $error_message = LANG_VALUE_68;
-        } else {
-            $statement = $pdo->prepare("INSERT INTO tbl_rating (p_id,cust_id,comment,rating) VALUES (?,?,?,?)");
-            $statement->execute(array($_REQUEST['id'], $_SESSION['customer']['cust_id'], $_POST['comment'], $_POST['rating']));
-            $success_message = LANG_VALUE_163;
-        }
-    }
+//  Getting package for the prodcut-------->
+$statement = $pdo->prepare("SELECT * FROM tbl_product_package WHERE p_id=?");
+$statement->execute(array($_REQUEST['id']));
+$resultpkg = $statement->fetchAll(PDO::FETCH_ASSOC);
+foreach ($resultpkg as $row) {
+    $pkg_name[] = $row['pkg_name'];
+    $pkg_price[] = $row['pkg_price'];
+}
+// print_r($pkg_name);
 
-    // Getting the average rating for this product ---->
-    $t_rating = 0;
-    $statement = $pdo->prepare("SELECT * FROM tbl_rating WHERE p_id=?");
-    $statement->execute(array($_REQUEST['id']));
-    $tot_rating = $statement->rowCount();
-    if ($tot_rating == 0) {
-        $avg_rating = 0;
+$statement = $pdo->prepare("SELECT * FROM tbl_product_size WHERE p_id=?");
+$statement->execute(array($_REQUEST['id']));
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+foreach ($result as $row) {
+    $size[] = $row['size_id'];
+}
+
+$statement = $pdo->prepare("SELECT * FROM tbl_product_color WHERE p_id=?");
+$statement->execute(array($_REQUEST['id']));
+$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+foreach ($result as $row) {
+    $color[] = $row['color_id'];
+}
+
+// SUbmiting the review for the product ------>
+if (isset($_POST['form_review'])) {
+
+    $statement = $pdo->prepare("SELECT * FROM tbl_rating WHERE p_id=? AND cust_id=?");
+    $statement->execute(array($_REQUEST['id'], $_SESSION['customer']['cust_id']));
+    $total = $statement->rowCount();
+
+    if ($total) {
+        $error_message = LANG_VALUE_68;
     } else {
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($result as $row) {
-            $t_rating = $t_rating + $row['rating'];
-        }
-        $avg_rating = $t_rating / $tot_rating;
+        $statement = $pdo->prepare("INSERT INTO tbl_rating (p_id,cust_id,comment,rating) VALUES (?,?,?,?)");
+        $statement->execute(array($_REQUEST['id'], $_SESSION['customer']['cust_id'], $_POST['comment'], $_POST['rating']));
+        $success_message = LANG_VALUE_163;
     }
+}
 
-    // Adding product to the cart ------------>
-    if (isset($_POST['form_add_to_cart'])) {
-        // Checking the input validity---->
-        if(!isset($_POST['p_pkg_id'])){
-            $p_err_msg='Please select one package';
-            
-        }else if(!isset($_POST['p_qty'])){
-            $p_err_msg='Quantity should not be empty';
-        
-        }else {
-            $quantity=$_POST['p_qty'];
-            $pkg_id=$_POST['p_pkg_id'];
-            // Checking if the user is registered or the guest----->
-            if(!isset($_SESSION['customer'])) {
-                if (isset($_SESSION['cart_p_id']) && isset($_SESSION['cart_p_pkg_id']) && isset($_SESSION['cart_p_qty'])) {
-                    $arr_cart_p_id = array();
-                    $arr_cart_p_pkg_id = array();
-                    $arr_cart_p_qty = array();
-                    
-                    $i = 0;
-                    foreach ($_SESSION['cart_p_id'] as $key => $value) {
-                        $arr_cart_p_id[$i] = $value;
-                        $i++;                     
-                    }
-                    
-                    $i = 0;
-                    foreach ($_SESSION['cart_p_pkg_id'] as $key => $value) {
-                        $arr_cart_p_pkg_id[$i] = $value;
-                        $i++;                      
-                    }
+// Getting the average rating for this product ---->
+$t_rating = 0;
+$statement = $pdo->prepare("SELECT * FROM tbl_rating WHERE p_id=?");
+$statement->execute(array($_REQUEST['id']));
+$tot_rating = $statement->rowCount();
+if ($tot_rating == 0) {
+    $avg_rating = 0;
+} else {
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($result as $row) {
+        $t_rating = $t_rating + $row['rating'];
+    }
+    $avg_rating = $t_rating / $tot_rating;
+}
 
-                    $i = 0;
-                    foreach ($_SESSION['cart_p_qty'] as $key => $value) {
-                        $arr_cart_p_qty[$i] = $value;
-                        $i++;                      
-                    }
-                    
-                    // Checking if item is present in local cart with same package --->
-                    $added = 0;
-                    for ($i = 0; $i <count($arr_cart_p_id); $i++) {
-                        if (($arr_cart_p_id[$i] == $_REQUEST['id']) && ($arr_cart_p_pkg_id[$i] == $pkg_id)) {
-                            $added = 1;
-                                break;
-                        }
-                    }
-                    if ($added == 1) {
-                        $p_err_msg = 'This product already exist in the shopping cart.';
-                                        
-                    } else {
-                    
-                        $k = 0;
-                        foreach ($_SESSION['cart_p_id'] as $key => $res) {
-                            $k++;
-                        }   
-                        $new_key = $k;
-                        $_SESSION['cart_p_id'][$new_key] = $_REQUEST['id'];
-                        $_SESSION['cart_p_pkg_id'][$new_key] = $pkg_id;
-                        $_SESSION['cart_p_qty'][$new_key] = $quantity;
-                        $p_success_msg = 'Product added to the cart successfully.';                  
+// Adding product to the cart ------------>
+if (isset($_POST['form_add_to_cart'])) {
+
+    // getting the currect stock of this product
+    $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
+    $statement->execute(array($_REQUEST['id']));
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($result as $row) {
+        $current_p_qty = $row['p_qty'];
+    }
+    if ($_POST['p_qty'] > $current_p_qty) :
+        $temp_msg = 'Sorry! There are only ' . $current_p_qty . ' item(s) in stock';
+?>
+        <script type="text/javascript">
+            alert('<?php echo $temp_msg; ?>');
+        </script>
+<?php
+    else :
+        if (isset($_SESSION['cart_p_id'])) {
+            $arr_cart_p_id = array();
+            $arr_cart_size_id = array();
+            $arr_cart_color_id = array();
+            $arr_cart_p_qty = array();
+            $arr_cart_p_current_price = array();
+
+            $i = 0;
+            foreach ($_SESSION['cart_p_id'] as $key => $value) {
+                $i++;
+                $arr_cart_p_id[$i] = $value;
+            }
+
+            $i = 0;
+            foreach ($_SESSION['cart_size_id'] as $key => $value) {
+                $i++;
+                $arr_cart_size_id[$i] = $value;
+            }
+
+            $i = 0;
+            foreach ($_SESSION['cart_color_id'] as $key => $value) {
+                $i++;
+                $arr_cart_color_id[$i] = $value;
+            }
+
+
+            $added = 0;
+            if (!isset($_POST['size_id'])) {
+                $size_id = 0;
+            } else {
+                $size_id = $_POST['size_id'];
+            }
+            if (!isset($_POST['color_id'])) {
+                $color_id = 0;
+            } else {
+                $color_id = $_POST['color_id'];
+            }
+            for ($i = 1; $i <= count($arr_cart_p_id); $i++) {
+                if (($arr_cart_p_id[$i] == $_REQUEST['id']) && ($arr_cart_size_id[$i] == $size_id) && ($arr_cart_color_id[$i] == $color_id)) {
+                    $added = 1;
+                    break;
+                }
+            }
+            if ($added == 1) {
+                $error_message1 = 'This product is already added to the shopping cart.';
+            } else {
+
+                $i = 0;
+                foreach ($_SESSION['cart_p_id'] as $key => $res) {
+                    $i++;
+                }
+                $new_key = $i + 1;
+
+                if (isset($_POST['size_id'])) {
+
+                    $size_id = $_POST['size_id'];
+
+                    $statement = $pdo->prepare("SELECT * FROM tbl_size WHERE size_id=?");
+                    $statement->execute(array($size_id));
+                    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($result as $row) {
+                        $size_name = $row['size_name'];
                     }
                 } else {
-                    $_SESSION['cart_p_id'][0] = $_REQUEST['id'];
-                    $_SESSION['cart_p_pkg_id'][0] = $pkg_id;
-                    $_SESSION['cart_p_qty'][0] = $quantity;
-                    $p_success_msg = 'Product added to the cart successfully.';                    
-                }
-     
-            }else{
-                // Checking if the Item is present in cart with same package --->
-                $statement = $pdo->prepare("SELECT * FROM tbl_cart WHERE cust_id=? AND (product_id=? AND package_id=?)");
-                $statement->execute(array($_SESSION['customer']['cust_id'],$_REQUEST['id'],$pkg_id,));
-                $cart_count=$statement->rowCount();
-                if ($cart_count) {
-                    $p_err_msg= "Product already exist in cart.";
-                }else{
-                    $statement = $pdo->prepare("INSERT INTO tbl_cart (cust_id,product_id,package_id,quantity) VALUES (?,?,?,?)");
-                    $statement->execute(array($_SESSION['customer']['cust_id'],$_REQUEST['id'],$pkg_id, $quantity));
-                    $p_success_msg = "Product added to cart successfully.";
+                    $size_id = 0;
+                    $size_name = '';
                 }
 
+                if (isset($_POST['color_id'])) {
+                    $color_id = $_POST['color_id'];
+                    $statement = $pdo->prepare("SELECT * FROM tbl_color WHERE color_id=?");
+                    $statement->execute(array($color_id));
+                    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                    foreach ($result as $row) {
+                        $color_name = $row['color_name'];
+                    }
+                } else {
+                    $color_id = 0;
+                    $color_name = '';
+                }
+
+
+                $_SESSION['cart_p_id'][$new_key] = $_REQUEST['id'];
+                $_SESSION['cart_size_id'][$new_key] = $size_id;
+                $_SESSION['cart_size_name'][$new_key] = $_POST['p_pkg_name'];
+                $_SESSION['cart_color_id'][$new_key] = $color_id;
+                $_SESSION['cart_color_name'][$new_key] = $color_name;
+                $_SESSION['cart_p_qty'][$new_key] = $_POST['p_qty'];
+                $_SESSION['cart_p_current_price'][$new_key] = $_POST['p_current_price'];
+                $_SESSION['cart_p_name'][$new_key] = $_POST['p_name'];
+                $_SESSION['cart_p_featured_photo'][$new_key] = $_POST['p_featured_photo'];
+
+                $success_message1 = 'Product is added to the cart successfully!';
             }
+        } else {
+
+            if (isset($_POST['size_id'])) {
+
+                $size_id = $_POST['size_id'];
+
+                $statement = $pdo->prepare("SELECT * FROM tbl_size WHERE size_id=?");
+                $statement->execute(array($size_id));
+                $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($result as $row) {
+                    $size_name = $row['size_name'];
+                }
+            } else {
+                $size_id = 0;
+                $size_name = '';
+            }
+
+            if (isset($_POST['color_id'])) {
+                $color_id = $_POST['color_id'];
+                $statement = $pdo->prepare("SELECT * FROM tbl_color WHERE color_id=?");
+                $statement->execute(array($color_id));
+                $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($result as $row) {
+                    $color_name = $row['color_name'];
+                }
+            } else {
+                $color_id = 0;
+                $color_name = '';
+            }
+
+
+            $_SESSION['cart_p_id'][1] = $_REQUEST['id'];
+            $_SESSION['cart_size_id'][1] = $size_id;
+            $_SESSION['cart_size_name'][1] = $_POST['p_pkg_name'];
+            $_SESSION['cart_color_id'][1] = $color_id;
+            $_SESSION['cart_color_name'][1] = $color_name;
+            $_SESSION['cart_p_qty'][1] = $_POST['p_qty'];
+            $_SESSION['cart_p_current_price'][1] = $_POST['p_current_price'];
+            $_SESSION['cart_p_name'][1] = $_POST['p_name'];
+            $_SESSION['cart_p_featured_photo'][1] = $_POST['p_featured_photo'];
+
+            $success_message1 = 'Product is added to the cart successfully!';
         }
-    }
+    endif;
+}
 ?>
+
+<?php
+if ($error_message1 != '') {
+    echo "<script>alert('" . $error_message1 . "')</script>";
+}
+if ($success_message1 != '') {
+    echo "<script>alert('" . $success_message1 . "')</script>";
+    header('location: product.php?id=' . $_REQUEST['id']);
+}
+?>
+
 
 <div class="page">
     <div class="container">
@@ -297,24 +398,94 @@
                             <form action="" method="post">
                                 <div class="p-quantity">
                                     <div class="row">
-                                        <div class="col-md-12">
-                                            Select Package<sup>*</sup> <br>
-                                            <?php
+                                        <?php if (isset($size)) : ?>
+                                            <div class="col-md-12 mb_20">
+                                                <?php echo LANG_VALUE_52; ?> <br>
+                                                <select name="size_id" class="form-control select2" style="width:auto;">
+                                                    <?php
+                                                    $statement = $pdo->prepare("SELECT * FROM tbl_size");
+                                                    $statement->execute();
+                                                    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                                                    foreach ($result as $row) {
+                                                        if (in_array($row['size_id'], $size)) {
+                                                    ?>
+                                                            <option value="<?php echo $row['size_id']; ?>"><?php echo $row['size_name']; ?></option>
+                                                    <?php
+                                                        }
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        <?php endif; ?>
+
+                                        <?php if (isset($color)) : ?>
+                                            <div class="col-md-12">
+                                                <?php echo LANG_VALUE_53; ?> <br>
+                                                <select name="color_id" class="form-control select2" style="width:auto;">
+                                                    <?php
+                                                    $statement = $pdo->prepare("SELECT * FROM tbl_color");
+                                                    $statement->execute();
+                                                    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                                                    foreach ($result as $row) {
+                                                        if (in_array($row['color_id'], $color)) {
+                                                    ?>
+                                                            <option value="<?php echo $row['color_id']; ?>"><?php echo $row['color_name']; ?></option>
+                                                    <?php
+                                                        }
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        <?php endif; ?>
+                                        <?php
+                                                if (!empty($_GET['pkg'])) {
+                                                    $selectedpkg = $_GET['pkg'];
+                                                } else {
+                                                    $selectedpkg = 'select one package';
+                                                    // $error_message1='select one package';
+                                                }
+                                                ?>
+
+                                            <div class="col-md-12">
+                                                Select Package<sup>*</sup> <br>
+                                                <?php
                                                 foreach ($resultpkg as $row) {
                                                 ?>
-                                                <input type="radio" name="p_pkg_id" value="<?php echo $row['id']; ?>" required> <?php echo $row['pkg_name']; ?> - $<?php echo $row['pkg_price']; ?></input></br>
-                                            <?php
+                                                    <input type="radio" name="pkg" value="<?php echo $row['pkg_name']; ?>;<?php echo $row['pkg_price']; ?>"> <?php echo $row['pkg_name']; ?> - $<?php echo $row['pkg_price']; ?></input></br>
+                                                <?php
                                                 }
-                                            ?>
-                                        </div>
+                                                ?>
+                                            </div>
                                     </div>
 
                                 </div>
                                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                                
+                                <script>
+                                    $('input[type=radio]').click(function(e) { //jQuery works on clicking radio box
+                                        var value = $(this).val(); //Get the clicked checkbox value
+                                        // $('.p_current_price').html(value);
+                                        // console.log(value.split(';')[1])
+                                        $("#p_pkg_name").val(value.split(';')[0]);
+                                        $("#p_current_price").val(value.split(';')[1]);
+                                    });
+                                </script>
+                                <!-- <div class="p-price">
+                                    <span style="font-size:14px;"><?php echo LANG_VALUE_54; ?></span><br>
+                                    <span>
+
+                                        <?php echo LANG_VALUE_1; ?>
+                                    </span>
+                                    <span class="p_current_price">
+                                        <?php echo $p_current_price; ?>
+                                    </span>
+                                </div> -->
+                                <input type="hidden" name="p_current_price" id="p_current_price" value="<?php echo $p_current_price; ?>">
+                                <input type="hidden" name="p_pkg_name" id="p_pkg_name" value="<?php echo $p_pkg_name; ?>">
+                                <input type="hidden" name="p_name" value="<?php echo $p_name; ?>">
+                                <input type="hidden" name="p_featured_photo" value="<?php echo $p_featured_photo; ?>">
                                 <div class="p-quantity">
                                     <?php echo LANG_VALUE_55; ?><sup>*</sup><br>
-                                    <input type="number" class="input-text qty" step="1" min="1" max="" name="p_qty" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" required>
+                                    <input type="number" class="input-text qty" step="1" min="1" max="" name="p_qty" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric">
                                 </div>
                                 <div class="btn-cart btn-cart1">
                                     <input type="submit" value="<?php echo LANG_VALUE_154; ?>" name="form_add_to_cart">
@@ -442,12 +613,12 @@
 
                                         <h2><?php echo LANG_VALUE_65; ?></h2>
                                         <?php
-                                        // if ($error_message != '') {
-                                        //     echo "<script>alert('" . $error_message . "')</script>";
-                                        // }
-                                        // if ($success_message != '') {
-                                        //     echo "<script>alert('" . $success_message . "')</script>";
-                                        // }
+                                        if ($error_message != '') {
+                                            echo "<script>alert('" . $error_message . "')</script>";
+                                        }
+                                        if ($success_message != '') {
+                                            echo "<script>alert('" . $success_message . "')</script>";
+                                        }
                                         ?>
                                         <?php if (isset($_SESSION['customer'])) : ?>
 
@@ -526,26 +697,12 @@
                             <div class="text">
                                 <h3><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a></h3>
                                 <h4>
-                                    <?php #echo LANG_VALUE_1; ?><?php #echo $row['p_current_price']; ?>
-                                        <?php #if ($row['p_old_price'] != '') : ?>
-                                            <del>
-                                            <?php #echo LANG_VALUE_1; ?><?php #echo $row['p_old_price']; ?>
-                                            </del>
-                                    <?php #endif; ?>
-                                <?php
-                                    $statement = $pdo->prepare("SELECT * FROM tbl_product_package WHERE p_id=?");
-                                    $statement->execute(array($row['p_id']));
-                                    $count_pkg=$statement->rowCount();
-                                    $resultpkg = $statement->fetchAll(PDO::FETCH_ASSOC);
-                                    foreach ($resultpkg as $pkg) {
-                                        $pkg_price[] = $pkg['pkg_price'];
-                                    } 
-                                    if ($count_pkg==1){
-                                        echo "$".max($pkg_price);   
-                                    }else{
-                                        echo "$".min($pkg_price)." - $".max($pkg_price);
-                                    }
-                                ?>
+                                    <?php echo LANG_VALUE_1; ?><?php echo $row['p_current_price']; ?>
+                                    <?php if ($row['p_old_price'] != '') : ?>
+                                        <del>
+                                            <?php echo LANG_VALUE_1; ?><?php echo $row['p_old_price']; ?>
+                                        </del>
+                                    <?php endif; ?>
                                 </h4>
                                 <div class="rating">
                                     <?php
@@ -626,15 +783,3 @@
 </div>
 
 <?php require_once('footer.php'); ?>
-
-<?php
-if ($p_err_msg != '') {
-    echo "<script>alert('".$p_err_msg."')</script>";
-    $p_err_msg='';
-}
-if ($p_success_msg != '') {
-    echo "<script>alert('".$p_success_msg."')</script>";
-    $p_success_msg='';
-    // header('location: product.php?id=' . $_REQUEST['id']);
-}
-?>

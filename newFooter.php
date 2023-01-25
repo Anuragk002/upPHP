@@ -16,51 +16,14 @@ foreach ($result as $row)
 }
 ?>
 
-<footer class="user-footer">
-    <div class="container">
-    <div class="row sec">
-    <div class="col-sm-4 sec1">
-            <h4>Contact & Support</h4>
-            <p>If you are facing any issue or need support, please contact us: <p>
-            <ul>
-                <li><a href="contact.php"><span class="fa fa-link"> Contact us</a></li>
-                <li><span class="fa fa-phone"></span> <?php echo $contact_phone ?></li>
-                <li><span class="fa fa-envelope"></span> <?php echo $contact_email ?></li>
-                <li> Fallow us:
-						<?php
-							$statement = $pdo->prepare("SELECT * FROM tbl_social");
-							$statement->execute();
-							$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-							foreach ($result as $row) {
-								?>
-								<?php if($row['social_url'] != ''): ?>
-								<a href="<?php echo $row['social_url']; ?>"><i class="<?php echo $row['social_icon']; ?>"></i></a>
-								<?php endif; ?>
-								<?php
-							}
-						?>
-                </li>
-            </ul>
-        </div>
-        <div class="col-sm-4 sec2">
-            <h4>Product Categories</h4>
-            <ul>
-				<?php
-					$statement = $pdo->prepare("SELECT * FROM tbl_top_category WHERE show_on_menu=1");
-					$statement->execute();
-					$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-					foreach ($result as $row) { ?>
-                <li><a href="product-category.php?id=<?php echo $row['tcat_id']; ?>&type=top-category"><?php echo $row['tcat_name']; ?></a></li>
-                <?php } ?>
-            </ul>
-        </div>
-           
-       
-        <div class="col-sm-4 sec3">
-            <?php if($newsletter_on_off == 1): ?>
-            <h4> News Letter </h4>
-            <p> Subscribe to us for getting updates in your mailbox</p>
-            <?php
+
+<?php if($newsletter_on_off == 1): ?>
+<section class="home-newsletter">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="single">
+					<?php
 			if(isset($_POST['form_subscribe']))
 			{
 
@@ -109,7 +72,12 @@ foreach ($result as $row)
 							// Getting the url of the verification link
 							$verification_url = BASE_URL.'verify.php?email='.$to.'&key='.$key;
 
-							$message = 'Thanks for your interest to subscribe our newsletter!<br><br>Please click this link to confirm your subscription: '.$verification_url.'<br><br>This link will be active only for 24 hours.';
+							$message = '
+Thanks for your interest to subscribe our newsletter!<br><br>
+Please click this link to confirm your subscription:
+					'.$verification_url.'<br><br>
+This link will be active only for 24 hours.
+					';
 
 							$headers = 'From: ' . $contact_email . "\r\n" .
 								   'Reply-To: ' . $contact_email . "\r\n" .
@@ -132,26 +100,35 @@ foreach ($result as $row)
 				echo "<script>alert('".$success_message1."')</script>";
 			}
 			?>
-            <form class="footer-subscribe-form" action="" method="post">
-            <?php $csrf->echoInputField(); ?>
-                <div class="form-group">
-                    <input type="email" class="form-control" placeholder="<?php echo LANG_VALUE_95; ?>" />
-                </div>
-                <button class=" form-control btn btn-md btn-primary" name="form_subscribe" type="submit"><span class="fa fa-check-square-o"> <?php echo LANG_VALUE_92; ?></button>
-            </form>
-            <?php endif; ?>
-        </div>
-     
+				<form action="" method="post">
+					<?php $csrf->echoInputField(); ?>
+					<h2><?php echo LANG_VALUE_93; ?></h2>
+					<div class="input-group">
+			        	<input type="email" class="form-control" placeholder="<?php echo LANG_VALUE_95; ?>" name="email_subscribe">
+			         	<span class="input-group-btn">
+			         	<button class="btn btn-theme" type="submit" name="form_subscribe"><?php echo LANG_VALUE_92; ?></button>
+			         	</span>
+			        </div>
+				</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+<?php endif; ?>
+
+
+
+
+<div class="footer-bottom">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 copyright">
+				<?php echo $footer_copyright; ?>
+			</div>
+		</div>
+	</div>
 </div>
-    </div>
-    <div class="footer-bottom">
-        <div class="container-fluid">
-            <div class="row">
-                Copyright @2023 Unit Pharma. All Rights Reserved.
-            </div>
-        </div>
-    </div>
-</footer>
 
 
 <a href="#" class="scrollup">

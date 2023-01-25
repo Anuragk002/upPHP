@@ -117,7 +117,7 @@ foreach ($result as $row) {
 
 </div>
 
-
+<!-- Our services section -->
 <?php if ($home_service_on_off == 1) : ?>
     <div class="service bg-gray">
         <div class="container">
@@ -145,6 +145,7 @@ foreach ($result as $row) {
     </div>
 <?php endif; ?>
 
+<!-- Featured product slider section  -->
 <?php if ($home_featured_product_on_off == 1) : ?>
     <div class="product pt_70 pb_70">
         <div class="container">
@@ -272,7 +273,7 @@ foreach ($result as $row) {
     </div>
 <?php endif; ?>
 
-
+<!-- Latest product slider section -->
 <?php if ($home_latest_product_on_off == 1) : ?>
     <div class="product bg-gray pt_70 pb_30">
         <div class="container">
@@ -303,12 +304,20 @@ foreach ($result as $row) {
                                 <div class="text">
                                     <h3><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a></h3>
                                     <h4>
-                                        $<?php echo $row['p_current_price']; ?>
-                                        <?php if ($row['p_old_price'] != '') : ?>
-                                            <del>
-                                                $<?php echo $row['p_old_price']; ?>
-                                            </del>
-                                        <?php endif; ?>
+                                        <?php
+                                            $statement = $pdo->prepare("SELECT * FROM tbl_product_package WHERE p_id=?");
+                                            $statement->execute(array($row['p_id']));
+                                            $count_pkg=$statement->rowCount();
+                                            $resultpkg = $statement->fetchAll(PDO::FETCH_ASSOC);
+                                            foreach ($resultpkg as $pkg) {
+                                                $pkg_price[] = $pkg['pkg_price'];
+                                            } 
+                                            if ($count_pkg==1){
+                                                echo "$".max($pkg_price);   
+                                            }else{
+                                                echo "$".min($pkg_price)." - $".max($pkg_price);
+                                            }
+										?>
                                     </h4>
                                     <div class="rating">
                                         <?php
@@ -398,7 +407,7 @@ foreach ($result as $row) {
     </div>
 <?php endif; ?>
 
-
+<!-- Populer product section -->
 <?php if ($home_popular_product_on_off == 1) : ?>
     <div class="product pt_70 pb_70">
         <div class="container">
@@ -429,12 +438,20 @@ foreach ($result as $row) {
                                 <div class="text">
                                     <h3><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a></h3>
                                     <h4>
-                                        $<?php echo $row['p_current_price']; ?>
-                                        <?php if ($row['p_old_price'] != '') : ?>
-                                            <del>
-                                                $<?php echo $row['p_old_price']; ?>
-                                            </del>
-                                        <?php endif; ?>
+                                        <?php
+                                            $statement = $pdo->prepare("SELECT * FROM tbl_product_package WHERE p_id=?");
+                                            $statement->execute(array($row['p_id']));
+                                            $count_pkg=$statement->rowCount();
+                                            $resultpkg = $statement->fetchAll(PDO::FETCH_ASSOC);
+                                            foreach ($resultpkg as $pkg) {
+                                                $pkg_price[] = $pkg['pkg_price'];
+                                            } 
+                                            if ($count_pkg==1){
+                                                echo "$".max($pkg_price);   
+                                            }else{
+                                                echo "$".min($pkg_price)." - $".max($pkg_price);
+                                            }
+										?>
                                     </h4>
                                     <div class="rating">
                                         <?php

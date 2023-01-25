@@ -236,10 +236,10 @@ foreach ($result as $row) {
 <body>
 
 <?php echo $after_body; ?>
-<!--
+
 <div id="preloader">
 	<div id="status"></div>
-</div>-->
+</div>
 
 <!-- top bar -->
 <div class="top">
@@ -309,25 +309,33 @@ foreach ($result as $row) {
 
 					<li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_18; ?> (<?php echo LANG_VALUE_1; ?><?php
 					if(isset($_SESSION['cart_p_id'])) {
-						$table_total_price = 0;
+						$tmp=array();
 						$i=0;
-	                    foreach($_SESSION['cart_p_qty'] as $key => $value) 
+						foreach($_SESSION['cart_p_id'] as $key => $value) 
 	                    {
-	                        $i++;
-	                        $arr_cart_p_qty[$i] = $value;
-	                    }                    $i=0;
-	                    foreach($_SESSION['cart_p_current_price'] as $key => $value) 
-	                    {
-	                        $i++;
-	                        $arr_cart_p_current_price[$i] = $value;
+	                        $tmp[$i] = $value;
+							$i++;
 	                    }
-	                    for($i=1;$i<=count($arr_cart_p_qty);$i++) {
-	                    	$row_total_price = $arr_cart_p_current_price[$i]*$arr_cart_p_qty[$i];
-	                        $table_total_price = $table_total_price + $row_total_price;
-	                    }
-						echo $table_total_price;
+						echo count($tmp);
+						// $table_total_price = 0;
+						// $i=0;
+	                    // foreach($_SESSION['cart_p_qty'] as $key => $value) 
+	                    // {
+	                    //     $i++;
+	                    //     $arr_cart_p_qty[$i] = $value;
+	                    // }                    $i=0;
+	                    // foreach($_SESSION['cart_p_current_price'] as $key => $value) 
+	                    // {
+	                    //     $i++;
+	                    //     $arr_cart_p_current_price[$i] = $value;
+	                    // }
+	                    // for($i=1;$i<=count($arr_cart_p_qty);$i++) {
+	                    // 	$row_total_price = $arr_cart_p_current_price[$i]*$arr_cart_p_qty[$i];
+	                    //     $table_total_price = $table_total_price + $row_total_price;
+	                    // }
+						// echo $table_total_price;
 					} else {
-						echo '0.00';
+						echo 0;
 					}
 					?>)</a></li>
 				</ul>
@@ -406,9 +414,10 @@ foreach ($result as $row) {
 							?>
 
 							<li><a href="about.php"><?php echo $about_title; ?></a></li>
+							<li><a href="contact.php"><?php echo $contact_title; ?></a></li>
 							<li><a href="faq.php"><?php echo $faq_title; ?></a></li>
 
-							<li><a href="contact.php"><?php echo $contact_title; ?></a></li>
+							
 						</ul>
 					</div>
 				</div>
