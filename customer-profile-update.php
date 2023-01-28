@@ -27,6 +27,11 @@ if (isset($_POST['form1'])) {
         $error_message .= LANG_VALUE_123."<br>";
     }
 
+    if(empty($_POST['cust_gender'])) {
+        $valid = 0;
+        $error_message .= "Please select the gender. <br>";
+    }
+
     if(empty($_POST['cust_phone'])) {
         $valid = 0;
         $error_message .= LANG_VALUE_124."<br>";
@@ -60,10 +65,10 @@ if (isset($_POST['form1'])) {
     if($valid == 1) {
 
         // update data into the database
-        $statement = $pdo->prepare("UPDATE tbl_customer SET cust_name=?, cust_cname=?, cust_phone=?, cust_country=?, cust_address=?, cust_city=?, cust_state=?, cust_zip=? WHERE cust_id=?");
+        $statement = $pdo->prepare("UPDATE tbl_customer SET cust_name=?, cust_gender=?, cust_phone=?, cust_country=?, cust_address=?, cust_city=?, cust_state=?, cust_zip=? WHERE cust_id=?");
         $statement->execute(array(
                     strip_tags($_POST['cust_name']),
-                    strip_tags($_POST['cust_cname']),
+                    strip_tags($_POST['cust_gender']),
                     strip_tags($_POST['cust_phone']),
                     strip_tags($_POST['cust_country']),
                     strip_tags($_POST['cust_address']),
@@ -76,7 +81,7 @@ if (isset($_POST['form1'])) {
         $success_message = LANG_VALUE_130;
 
         $_SESSION['customer']['cust_name'] = $_POST['cust_name'];
-        $_SESSION['customer']['cust_cname'] = $_POST['cust_cname'];
+        $_SESSION['customer']['cust_gender'] = $_POST['cust_gender'];
         $_SESSION['customer']['cust_phone'] = $_POST['cust_phone'];
         $_SESSION['customer']['cust_country'] = $_POST['cust_country'];
         $_SESSION['customer']['cust_address'] = $_POST['cust_address'];
@@ -95,70 +100,92 @@ if (isset($_POST['form1'])) {
             </div>
             <div class="col-md-12">
                 <div class="user-content">
-                    <h3>
-                        <?php echo LANG_VALUE_117; ?>
-                    </h3>
-                    <?php
-                    if($error_message != '') {
-                        echo "<div class='error' style='padding: 10px;background:#f1f1f1;margin-bottom:20px;'>".$error_message."</div>";
-                    }
-                    if($success_message != '') {
-                        echo "<div class='success' style='padding: 10px;background:#f1f1f1;margin-bottom:20px;'>".$success_message."</div>";
-                    }
-                    ?>
+                    
                     <form action="" method="post">
                         <?php $csrf->echoInputField(); ?>
                         <div class="row">
-                            <div class="col-md-6 form-group">
-                                <label for=""><?php echo LANG_VALUE_102; ?> *</label>
-                                <input type="text" class="form-control" name="cust_name" value="<?php echo $_SESSION['customer']['cust_name']; ?>">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label for=""><?php echo LANG_VALUE_103; ?></label>
-                                <input type="text" class="form-control" name="cust_cname" value="<?php echo $_SESSION['customer']['cust_cname']; ?>">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label for=""><?php echo LANG_VALUE_94; ?> *</label>
-                                <input type="text" class="form-control" name="" value="<?php echo $_SESSION['customer']['cust_email']; ?>" disabled>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label for=""><?php echo LANG_VALUE_104; ?> *</label>
-                                <input type="text" class="form-control" name="cust_phone" value="<?php echo $_SESSION['customer']['cust_phone']; ?>">
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <label for=""><?php echo LANG_VALUE_105; ?> *</label>
-                                <textarea name="cust_address" class="form-control" cols="30" rows="10" style="height:70px;"><?php echo $_SESSION['customer']['cust_address']; ?></textarea>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label for=""><?php echo LANG_VALUE_106; ?> *</label>
-                                <select name="cust_country" class="form-control">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-8">
+                                <h3>
+                                    <?php echo LANG_VALUE_117; ?>
+                                </h3>
                                 <?php
-                                $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
-                                $statement->execute();
-                                $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-                                foreach ($result as $row) {
-                                    ?>
-                                    <option value="<?php echo $row['country_id']; ?>" <?php if($row['country_id'] == $_SESSION['customer']['cust_country']) {echo 'selected';} ?>><?php echo $row['country_name']; ?></option>
-                                    <?php
-                                }
+                                
+                                    if($success_message != '') {
+                                        echo '<div class="alert alert-success alert-dismissible">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                        <strong>'. $success_message .'</strong></div>';
+                                        $success_message='';
+                                    }
+                                    if($error_message != '') {
+                                        echo '<div class="alert alert-warning alert-dismissible">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                        <strong>'. $error_message .'</strong></div>';
+                                        $error_message='';
+                                    }
                                 ?>
-                                </select>                                    
+
+                                <div class="col-md-6 form-group">
+                                    <label for=""><?php echo LANG_VALUE_102; ?> *</label>
+                                    <input type="text" required class="form-control" name="cust_name" value="<?php echo $_SESSION['customer']['cust_name']; ?>">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for=""><?php echo "Gender";#LANG_VALUE_106; ?><sup>*</sup></label>
+                                    <select name="cust_gender" class="form-control" required >
+                                        <option value="" >Select Gender</option>                            
+                                        <option value="male" <?php if($_SESSION['customer']['cust_gender'] =='male') {echo 'selected';} ?>>Male</option> 
+                                        <option value="female" <?php if($_SESSION['customer']['cust_gender'] =='female') {echo 'selected';} ?>>Female</option>     
+                                        <option value="other" <?php if($_SESSION['customer']['cust_gender'] =='other') {echo 'selected';} ?>>Other</option>   
+                                    </select>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for=""><?php echo LANG_VALUE_94; ?> *</label>
+                                    <input type="text" class="form-control" name="" value="<?php echo $_SESSION['customer']['cust_email']; ?>" disabled>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for=""><?php echo LANG_VALUE_104; ?> *</label>
+                                    <input type="text" class="form-control" required name="cust_phone" value="<?php echo $_SESSION['customer']['cust_phone']; ?>">
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <label for=""><?php echo LANG_VALUE_105; ?> *</label>
+                                    <textarea name="cust_address" required class="form-control" cols="30" rows="10" style="height:70px;"><?php echo $_SESSION['customer']['cust_address']; ?></textarea>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for=""><?php echo LANG_VALUE_106; ?> *</label>
+                                    <select name="cust_country" class="form-control">
+                                        <option value="" >Select Country</option>
+                                    <?php
+                                    $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
+                                    $statement->execute();
+                                    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                                    foreach ($result as $row) {
+                                        ?>
+                                        <option value="<?php echo $row['country_id']; ?>" <?php if($row['country_id'] == $_SESSION['customer']['cust_country']) {echo 'selected';} ?>><?php echo $row['country_name']; ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                    </select>                                    
+                                </div>
+                                
+                                <div class="col-md-6 form-group">
+                                    <label for=""><?php echo LANG_VALUE_107; ?> *</label>
+                                    <input type="text" class="form-control" required name="cust_city" value="<?php echo $_SESSION['customer']['cust_city']; ?>">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for=""><?php echo LANG_VALUE_108; ?> *</label>
+                                    <input type="text" class="form-control" required name="cust_state" value="<?php echo $_SESSION['customer']['cust_state']; ?>">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for=""><?php echo LANG_VALUE_109; ?> *</label>
+                                    <input type="text" class="form-control" name="cust_zip" required value="<?php echo $_SESSION['customer']['cust_zip']; ?> ">
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <input type="submit" class="btn btn-lg btn-primary" value="<?php echo LANG_VALUE_5; ?>" name="form1">
+                                </div>
                             </div>
-                            
-                            <div class="col-md-6 form-group">
-                                <label for=""><?php echo LANG_VALUE_107; ?> *</label>
-                                <input type="text" class="form-control" name="cust_city" value="<?php echo $_SESSION['customer']['cust_city']; ?>">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label for=""><?php echo LANG_VALUE_108; ?> *</label>
-                                <input type="text" class="form-control" name="cust_state" value="<?php echo $_SESSION['customer']['cust_state']; ?>">
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label for=""><?php echo LANG_VALUE_109; ?> *</label>
-                                <input type="text" class="form-control" name="cust_zip" value="<?php echo $_SESSION['customer']['cust_zip']; ?>">
-                            </div>
+                            <div class="col-md-2"></div>
                         </div>
-                        <input type="submit" class="btn btn-primary" value="<?php echo LANG_VALUE_5; ?>" name="form1">
+                        
                     </form>
                 </div>                
             </div>

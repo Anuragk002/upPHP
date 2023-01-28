@@ -192,7 +192,21 @@
                         <li><?php echo $p_name; ?></li>
                     </ul>
                 </div>
+                <?php
+                    if($p_success_msg != '') {
+                        echo '<div class="alert alert-success alert-dismissible">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>'. $p_success_msg .'</strong></div>';
+                    $p_success_msg='';
+                    }
+                    if($p_err_msg != '') {
+                        echo '<div class="alert alert-warning alert-dismissible">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>'. $p_err_msg .'</strong></div>';
+                    $p_err_msg='';
+                    }
 
+                ?>
                 <div class="product">
                     <div class="row">
                         <div class="col-md-5">
@@ -628,13 +642,13 @@
 <?php require_once('footer.php'); ?>
 
 <?php
-if ($p_err_msg != '') {
-    echo "<script>alert('".$p_err_msg."')</script>";
-    $p_err_msg='';
-}
-if ($p_success_msg != '') {
-    echo "<script>alert('".$p_success_msg."')</script>";
-    $p_success_msg='';
-    // header('location: product.php?id=' . $_REQUEST['id']);
-}
+// if ($p_err_msg != '') {
+//     echo "<script>alert('".$p_err_msg."')</script>";
+//     $p_err_msg='';
+// }
+// if ($p_success_msg != '') {
+//     echo "<script>alert('".$p_success_msg."')</script>";
+//     $p_success_msg='';
+//     // header('location: product.php?id=' . $_REQUEST['id']);
+// }
 ?>

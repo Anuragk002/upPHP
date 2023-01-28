@@ -182,6 +182,21 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
+                <?php
+                    if($c_success_msg != '') {
+                        echo '<div class="alert alert-success alert-dismissible">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>'. $c_success_msg .'</strong></div>';
+                    $c_success_msg='';
+                    }
+                    if($c_err_msg != '') {
+                        echo '<div class="alert alert-warning alert-dismissible">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>'. $c_err_msg .'</strong></div>';
+                    $c_err_msg='';
+                    }
+
+                ?>
 
                 <?php if($TOTAL_ITEMES==0): ?>
                     <?php echo '<h2 class="text-center">Cart is Empty!!</h2></br>'; ?>
@@ -223,7 +238,7 @@
                                     </td>
                                     <td class="text-right">
                                         <?php
-                                        $row_total_price = $arr_cart_pkg_price[$i]*$arr_cart_p_qty[$i];
+                                        $row_total_price = $arr_cart_pkg_price[$i] * $arr_cart_p_qty[$i];
                                         $table_total_price = $table_total_price + $row_total_price;
                                         ?>
                                         <?php echo LANG_VALUE_1; ?><?php echo $row_total_price; ?>
@@ -257,13 +272,13 @@
 <?php require_once('footer.php'); ?>
 
 <?php
-if ($c_err_msg != '') {
-    echo "<script>alert('".$c_err_msg."')</script>";
-    $c_err_msg='';
-}
-if ($c_success_msg != '') {
-    echo "<script>alert('".$c_success_msg."')</script>";
-    $c_success_msg='';
-    // header('location: product.php?id=' . $_REQUEST['id']);
-}
+// if ($c_err_msg != '') {
+//     echo "<script>alert('".$c_err_msg."')</script>";
+//     $c_err_msg='';
+// }
+// if ($c_success_msg != '') {
+//     echo "<script>alert('".$c_success_msg."')</script>";
+//     $c_success_msg='';
+//     // header('location: product.php?id=' . $_REQUEST['id']);
+// }
 ?>

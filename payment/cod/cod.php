@@ -13,7 +13,7 @@ $csrf = new CSRF_Protect();
 <?php
     $c_err_msg = '';
     $c_success_msg = '';
-    $item_number = time();
+    $order_number = time();
     if(!isset($_SESSION['s_address'])){
         header('location: ../../cart.php');
         exit;
@@ -117,30 +117,24 @@ $csrf = new CSRF_Protect();
     }
     // Inserting payment details->
     $statement = $pdo->prepare("INSERT INTO tbl_payment (customer_id, customer_name, customer_email, payment_date, txnid, paid_amount, card_number, card_cvv, card_month, card_year, bank_transaction_info, payment_method, payment_status, shipping_status, payment_id, s_name, s_phone, s_email, s_address, s_city, s_state, s_country, s_zip) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-    $statement->execute(array($cust_id, $cust_name, $cust_email, '','', $table_total_price,'','','','','','COD/Pay Later','Pending','Pending',$item_number,$s_name,$s_phone,$s_email,$s_address,$s_city,$s_state,$s_country,$s_zip));
+    $statement->execute(array($cust_id, $cust_name, $cust_email, '','', $table_total_price,'','','','','','COD/Pay Later','Pending','Pending',$order_number,$s_name,$s_phone,$s_email,$s_address,$s_city,$s_state,$s_country,$s_zip));
 
     // Inserting the Order Details->
     for($i=0;$i<count($arr_cart_p_name);$i++) {
     	$statement = $pdo->prepare("INSERT INTO tbl_order (product_id,product_name,pkg_name,quantity, pkg_price, payment_id) VALUES (?,?,?,?,?,?)");
-		$statement->execute(array($arr_cart_p_id[$i],$arr_cart_p_name[$i],$arr_cart_pkg_name[$i],$arr_cart_p_qty[$i],$arr_cart_pkg_price[$i],$item_number));
+		$statement->execute(array($arr_cart_p_id[$i],$arr_cart_p_name[$i],$arr_cart_pkg_name[$i],$arr_cart_p_qty[$i],$arr_cart_pkg_price[$i],$order_number));
     }
-    // Reducing cart----->
+    // storing order number--->
+    $_SESSION['order_number']=$order_number;
 
     ?>
-    <div>
-        <?php 
-        echo "Address:->";
-        echo "". $cust_id .",". $cust_name.",".$cust_email.",".$item_number.",".$s_name.",".$s_phone.",".$s_email.",".$s_address.",".$s_city.",".$s_state.",".$s_country.",".$s_zip;
-        echo "<br/>";
-        echo "items:->";
-        for($i=0;$i<count($arr_cart_p_qty);$i++){
-            echo "qt: ".$arr_cart_p_qty[$i] ."id: ".$arr_cart_p_id[$i] ."qt: ".$arr_cart_p_name[$i]."pkg: ".$arr_cart_pkg_name[$i] ."price:".$arr_cart_pkg_price[$i];
-        }
-
-?>
+    <div style="text-align: center">
+      <h4>Your Order is Being Placed..</h4>
+      <h5>Note: Wait for sometime, Dont press anything.</h5>
     </div>
     
     <?php
+    // Reducing cart----->
     if(isset($_SESSION['customer'])){
         $statement = $pdo->prepare("DELETE FROM `tbl_cart` WHERE cust_id=?");
         $statement->execute(array($_SESSION['customer']['cust_id']));
@@ -153,7 +147,7 @@ $csrf = new CSRF_Protect();
         }
     }
     // redirecting to successfull page
-    // header('location: ../../payment_success.php');
+    header('location: ../../payment_success.php');
     // echo '<script>window.location="../../payment_success.php";</script>';
 
 

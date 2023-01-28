@@ -176,16 +176,20 @@ foreach ($result as $row) {
                                 <div class="text">
                                     <h3><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a></h3>
                                     <h4>
-                                        $<?php
-                                            $statement = $pdo->prepare("SELECT MIN(pkg_price) as 'min',MAX(pkg_price) AS 'max' FROM tbl_product_package WHERE p_id=?");
+                                        <?php
+                                            $statement = $pdo->prepare("SELECT * FROM tbl_product_package WHERE p_id=?");
                                             $statement->execute(array($row['p_id']));
-                                            $res = $statement->fetchAll(PDO::FETCH_ASSOC);
-                                            foreach ($res as $row1) { ?>
-                                        <span><?php echo $row1['min'] ?>-<?php echo $row1['max'] ?></span>
-
-                                         <?php
+                                            $count_pkg=$statement->rowCount();
+                                            $resultpkg = $statement->fetchAll(PDO::FETCH_ASSOC);
+                                            foreach ($resultpkg as $pkg) {
+                                                $pkg_price[] = $pkg['pkg_price'];
+                                            } 
+                                            if ($count_pkg==1){
+                                                echo "$".max($pkg_price);   
+                                            }else{
+                                                echo "$".min($pkg_price)." - $".max($pkg_price);
                                             }
-                                         ?>
+										 ?>
                                     </h4>
                                     <div class="rating">
                                         <?php
