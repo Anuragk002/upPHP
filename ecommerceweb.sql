@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 25, 2023 at 09:36 AM
+-- Generation Time: Jan 28, 2023 at 07:28 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -351,6 +351,7 @@ INSERT INTO `tbl_country` (`country_id`, `country_name`) VALUES
 CREATE TABLE `tbl_customer` (
   `cust_id` int(11) NOT NULL,
   `cust_name` varchar(100) NOT NULL,
+  `cust_gender` varchar(50) NOT NULL,
   `cust_cname` varchar(100) NOT NULL,
   `cust_email` varchar(100) NOT NULL,
   `cust_phone` varchar(50) NOT NULL,
@@ -368,6 +369,7 @@ CREATE TABLE `tbl_customer` (
   `cust_b_state` varchar(100) NOT NULL,
   `cust_b_zip` varchar(30) NOT NULL,
   `cust_s_name` varchar(100) NOT NULL,
+  `cust_s_gender` varchar(50) NOT NULL,
   `cust_s_cname` varchar(100) NOT NULL,
   `cust_s_phone` varchar(50) NOT NULL,
   `cust_s_email` varchar(250) NOT NULL,
@@ -388,26 +390,27 @@ CREATE TABLE `tbl_customer` (
 -- Dumping data for table `tbl_customer`
 --
 
-INSERT INTO `tbl_customer` (`cust_id`, `cust_name`, `cust_cname`, `cust_email`, `cust_phone`, `cust_country`, `cust_address`, `cust_city`, `cust_state`, `cust_zip`, `cust_b_name`, `cust_b_cname`, `cust_b_phone`, `cust_b_country`, `cust_b_address`, `cust_b_city`, `cust_b_state`, `cust_b_zip`, `cust_s_name`, `cust_s_cname`, `cust_s_phone`, `cust_s_email`, `cust_s_country`, `cust_s_address`, `cust_s_city`, `cust_s_state`, `cust_s_zip`, `cust_password`, `cust_token`, `cust_datetime`, `cust_timestamp`, `cust_status`, `cust_guest`) VALUES
-(1, 'Liam Moore', 'WV Company', 'liam@mail.com', '7458965410', 230, '788 Cottonwood Lane', 'Nashville', 'TN', '37072', '', '', '', 0, '', '', '', '', '', '', '', '', 0, '', 'sln', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', '0081e99a29cacd4b553db15c5c5c047e', '2022-03-17 11:09:34', '1647544174', 1, 0),
-(2, 'Chad N. Carney', 'none', 'chad@mail.com', '4785690000', 230, '469 Diamond Street', 'Charlotte', 'NC', '28808', 'Chad N. Carney', 'none', '7477474440', 230, '469 Diamond Street', 'Charlotte', 'NC', '28808', 'Chad N. Carney', 'none', '7477474440', '', 230, '469 Diamond Street', 'Charlotte', 'NC', '28808', '5f4dcc3b5aa765d61d8327deb882cf99', 'ca87666426f4bc5c5128a96dabfecefb', '2022-03-17 11:15:26', '1647544526', 1, 0),
-(3, 'Jean Collins', 'none', 'jean@mail.com', '1478523698', 230, '1508 Crosswind Drive', 'Owensboro', 'KY', '13040', 'Jean Collins', 'none', '1478523698', 230, '1508 Crosswind Drive', 'Owensboro', 'KY', '13040', 'Jean Collins', 'none', '1478523698', '', 230, '1508 Crosswind Drive', 'Owensboro', 'KY', '13040', '5f4dcc3b5aa765d61d8327deb882cf99', '6b3439bf95644a36a1ed92bef374ebb7', '2022-03-20 10:29:39', '1647797379', 1, 0),
-(4, 'Annie Young', 'XYZ Company', 'annie@mail.com', '7770001144', 230, '79 Burwell Heights Road', 'Beaumont', 'TX', '77400', '', '', '', 0, '', '', '', '', '', '', '', '', 0, '', '', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'fc8f07537cdd6b3f89eb94f1cad78060', '2022-03-20 10:31:35', '1647797495', 1, 0),
-(5, 'Matthew Morales', 'ABC Company', 'matthew@mail.com', '7896587450', 230, '81 Felosa Drive', 'Mira Loma', 'CA', '91002', 'Matthew Morales', 'ABC Company', '7896587450', 230, '81 Felosa Drive', 'Mira Loma', 'CA', '91002', 'Matthew Morales', 'ABC Company', '7896587450', '', 230, '81 Felosa Drive', 'Mira Loma', 'CA', '91002', '5f4dcc3b5aa765d61d8327deb882cf99', 'c391105908fe01a636bfa5fc39eed33d', '2022-03-20 10:33:15', '1647797595', 1, 0),
-(6, 'August F. Freels', 'none', 'august@mail.com', '1478547850', 230, '96 Johnny Lane', 'Milwaukee', 'WI', '55550', 'August F. Freels', 'none', '1478547850', 230, '96 Johnny Lane', 'Milwaukee', 'WI', '55550', 'August F. Freels', 'none', '1478547850', '', 230, '96 Johnny Lane', 'Milwaukee', 'WI', '55550', '5f4dcc3b5aa765d61d8327deb882cf99', 'decc1fc2c5dd9935df82c0233002ce66', '2022-03-20 10:34:08', '1647797648', 1, 0),
-(7, 'Carl M. Dineen', 'none', 'carl@mail.com', '789878987', 230, '77 Lyndon Street', 'Kutztown', 'PA', '19855', '', '', '', 0, '', '', '', '', '', '', '', '', 0, '', '', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'c79bac688e70cc9665a2164c57ec172c', '2022-03-20 10:35:02', '1647797702', 1, 0),
-(8, 'Benjamin B. Louque', 'none', 'benjamin@mail.com', '7777889955', 230, '32 Bridge Street', 'Tulsa', 'OK', '74220', '', '', '', 0, '', '', '', '', '', '', '', '', 0, '', '', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', '5a0e096368f9669508af7b7203382b07', '2022-03-20 10:36:31', '1647797791', 1, 0),
-(9, 'Joe K. Richardson', 'none', 'joe@mail.com', '4444445555', 230, '17 Derek Drive', 'Youngstown', 'OH', '44500', '', '', '', 0, '', '', '', '', '', '', '', '', 0, '', '', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'e74ac0178d7833988d4b1625c42ba26e', '2022-03-20 10:37:18', '1647797838', 1, 0),
-(10, 'Will Williams', 'Test Company', 'williams@mail.com', '7410000000', 230, '39 Marcus Street', 'Anniston', 'AL', '37207', 'Will Williams', 'Test Company', '7410000000', 230, '39 Marcus Street', 'Anniston', 'AL', '37207', 'Will Williams', 'Test Company', '7410000000', '', 230, '39 Marcus Street', 'Anniston', 'AL', '37207', '5f4dcc3b5aa765d61d8327deb882cf99', '941c9265fb920f691cf01b12a15f80f8', '2022-03-20 11:15:59', '1647800159', 1, 0),
-(15, '', '', 'guest4@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', '6623f6645b6ccb72d6cc7c7dd076b247', '2022-12-28 10:37:13', '1672295833', 1, 1),
-(16, '', '', 'guest5@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', '62eddb9e08a3acf2f67d644cece8fc08', '2022-12-28 10:40:24', '1672296024', 1, 1),
-(17, '', '', 'guest6@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', '5d873df93087204b746d90c4d1058bab', '2022-12-28 11:12:52', '1672297972', 1, 1),
-(18, '', '', 'guest7@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', '435d6e35d26b97ebd49d4b67f716ac42', '2022-12-28 11:20:36', '1672298436', 1, 1),
-(19, '', '', 'guest8@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', 'ecc3866f81d8416739b1514d90017b2b', '2022-12-28 11:26:25', '1672298785', 1, 1),
-(20, '', '', 'guest9@gmail.com', '', 0, '', '', '', '', '', '', '', 1, '', '', '', '', 'Guest Fullna', '', '1231212323', '', 19, 'acaccz', 'asscasca', 'xcxc', '232323', '40df65fa9156a1f0f72e57fe6da3d896', '977e9e8fa1b2b696a9561b6fc246cb47', '2022-12-28 11:30:11', '1672299011', 1, 1),
-(21, '', '', 'guest10@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', 'c637b37785614a4603d19a98bc77a0b7', '2022-12-29 12:29:29', '1672302569', 1, 1),
-(22, 'Christine', '', 'christine@mail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', 'pankaj', '', '9984499623', 'pg@gmail.com', 230, 'ramgarh', 'sln', 'up', '222302', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', 0, 0),
-(23, 'Pankaj Giri', '', 'pankaj143giri@gmail.com', '9984499623', 99, 'Ramgarh', 'Sultanpur', 'Uttar Pradesh', '222302', '', '', '', 0, '', '', '', '', 'Suraj', '', '1234567890', 's@gmail.com', 5, 'ramgarh', 'sln', 'up', '222342', '827ccb0eea8a706c4c34a16891f84e7b', '2a9503a66938d07dd57242d888cfd1b1', '2023-01-21 07:42:59', '1674315779', 1, 0);
+INSERT INTO `tbl_customer` (`cust_id`, `cust_name`, `cust_gender`, `cust_cname`, `cust_email`, `cust_phone`, `cust_country`, `cust_address`, `cust_city`, `cust_state`, `cust_zip`, `cust_b_name`, `cust_b_cname`, `cust_b_phone`, `cust_b_country`, `cust_b_address`, `cust_b_city`, `cust_b_state`, `cust_b_zip`, `cust_s_name`, `cust_s_gender`, `cust_s_cname`, `cust_s_phone`, `cust_s_email`, `cust_s_country`, `cust_s_address`, `cust_s_city`, `cust_s_state`, `cust_s_zip`, `cust_password`, `cust_token`, `cust_datetime`, `cust_timestamp`, `cust_status`, `cust_guest`) VALUES
+(1, 'Liam Moore', '', 'WV Company', 'liam@mail.com', '7458965410', 230, '788 Cottonwood Lane', 'Nashville', 'TN', '37072', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', 'sln', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', '0081e99a29cacd4b553db15c5c5c047e', '2022-03-17 11:09:34', '1647544174', 1, 0),
+(2, 'Chad N. Carney', '', 'none', 'chad@mail.com', '4785690000', 230, '469 Diamond Street', 'Charlotte', 'NC', '28808', 'Chad N. Carney', 'none', '7477474440', 230, '469 Diamond Street', 'Charlotte', 'NC', '28808', 'Chad N. Carney', '', 'none', '7477474440', '', 230, '469 Diamond Street', 'Charlotte', 'NC', '28808', '5f4dcc3b5aa765d61d8327deb882cf99', 'ca87666426f4bc5c5128a96dabfecefb', '2022-03-17 11:15:26', '1647544526', 1, 0),
+(3, 'Jean Collins', '', 'none', 'jean@mail.com', '1478523698', 230, '1508 Crosswind Drive', 'Owensboro', 'KY', '13040', 'Jean Collins', 'none', '1478523698', 230, '1508 Crosswind Drive', 'Owensboro', 'KY', '13040', 'Jean Collins', '', 'none', '1478523698', '', 230, '1508 Crosswind Drive', 'Owensboro', 'KY', '13040', '5f4dcc3b5aa765d61d8327deb882cf99', '6b3439bf95644a36a1ed92bef374ebb7', '2022-03-20 10:29:39', '1647797379', 1, 0),
+(4, 'Annie Young', '', 'XYZ Company', 'annie@mail.com', '7770001144', 230, '79 Burwell Heights Road', 'Beaumont', 'TX', '77400', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'fc8f07537cdd6b3f89eb94f1cad78060', '2022-03-20 10:31:35', '1647797495', 1, 0),
+(5, 'Matthew Morales', '', 'ABC Company', 'matthew@mail.com', '7896587450', 230, '81 Felosa Drive', 'Mira Loma', 'CA', '91002', 'Matthew Morales', 'ABC Company', '7896587450', 230, '81 Felosa Drive', 'Mira Loma', 'CA', '91002', 'Matthew Morales', '', 'ABC Company', '7896587450', '', 230, '81 Felosa Drive', 'Mira Loma', 'CA', '91002', '5f4dcc3b5aa765d61d8327deb882cf99', 'c391105908fe01a636bfa5fc39eed33d', '2022-03-20 10:33:15', '1647797595', 1, 0),
+(6, 'August F. Freels', '', 'none', 'august@mail.com', '1478547850', 230, '96 Johnny Lane', 'Milwaukee', 'WI', '55550', 'August F. Freels', 'none', '1478547850', 230, '96 Johnny Lane', 'Milwaukee', 'WI', '55550', 'August F. Freels', '', 'none', '1478547850', '', 230, '96 Johnny Lane', 'Milwaukee', 'WI', '55550', '5f4dcc3b5aa765d61d8327deb882cf99', 'decc1fc2c5dd9935df82c0233002ce66', '2022-03-20 10:34:08', '1647797648', 1, 0),
+(7, 'Carl M. Dineen', '', 'none', 'carl@mail.com', '789878987', 230, '77 Lyndon Street', 'Kutztown', 'PA', '19855', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'c79bac688e70cc9665a2164c57ec172c', '2022-03-20 10:35:02', '1647797702', 1, 0),
+(8, 'Benjamin B. Louque', '', 'none', 'benjamin@mail.com', '7777889955', 230, '32 Bridge Street', 'Tulsa', 'OK', '74220', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', '5a0e096368f9669508af7b7203382b07', '2022-03-20 10:36:31', '1647797791', 1, 0),
+(9, 'Joe K. Richardson', '', 'none', 'joe@mail.com', '4444445555', 230, '17 Derek Drive', 'Youngstown', 'OH', '44500', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'e74ac0178d7833988d4b1625c42ba26e', '2022-03-20 10:37:18', '1647797838', 1, 0),
+(10, 'Will Williams', '', 'Test Company', 'williams@mail.com', '7410000000', 230, '39 Marcus Street', 'Anniston', 'AL', '37207', 'Will Williams', 'Test Company', '7410000000', 230, '39 Marcus Street', 'Anniston', 'AL', '37207', 'Will Williams', '', 'Test Company', '7410000000', '', 230, '39 Marcus Street', 'Anniston', 'AL', '37207', '5f4dcc3b5aa765d61d8327deb882cf99', '941c9265fb920f691cf01b12a15f80f8', '2022-03-20 11:15:59', '1647800159', 1, 0),
+(15, '', '', '', 'guest4@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', '6623f6645b6ccb72d6cc7c7dd076b247', '2022-12-28 10:37:13', '1672295833', 1, 1),
+(16, '', '', '', 'guest5@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', '62eddb9e08a3acf2f67d644cece8fc08', '2022-12-28 10:40:24', '1672296024', 1, 1),
+(17, '', '', '', 'guest6@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', '5d873df93087204b746d90c4d1058bab', '2022-12-28 11:12:52', '1672297972', 1, 1),
+(18, '', '', '', 'guest7@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', '435d6e35d26b97ebd49d4b67f716ac42', '2022-12-28 11:20:36', '1672298436', 1, 1),
+(19, '', '', '', 'guest8@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', 'ecc3866f81d8416739b1514d90017b2b', '2022-12-28 11:26:25', '1672298785', 1, 1),
+(20, '', '', '', 'guest9@gmail.com', '', 0, '', '', '', '', '', '', '', 1, '', '', '', '', 'Guest Fullna', '', '', '1231212323', '', 19, 'acaccz', 'asscasca', 'xcxc', '232323', '40df65fa9156a1f0f72e57fe6da3d896', '977e9e8fa1b2b696a9561b6fc246cb47', '2022-12-28 11:30:11', '1672299011', 1, 1),
+(21, '', '', '', 'guest10@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', 'c637b37785614a4603d19a98bc77a0b7', '2022-12-29 12:29:29', '1672302569', 1, 1),
+(22, 'Christine', '', '', 'christine@mail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', 'pankaj', '', '', '9984499623', 'pg@gmail.com', 230, 'ramgarh', 'sln', 'up', '222302', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', 0, 0),
+(23, 'Pankaj Giri', '', '', 'pankaj143giri@gmail.com', '9984499623', 99, 'Ramgarh', 'Sultanpur', 'Uttar Pradesh', '222302', '', '', '', 0, '', '', '', '', 'Suraj', '', '', '1234567890', 's@gmail.com', 5, 'ramgarh', 'sln', 'up', '222342', '827ccb0eea8a706c4c34a16891f84e7b', '2a9503a66938d07dd57242d888cfd1b1', '2023-01-21 07:42:59', '1674315779', 1, 0),
+(24, 'kp', 'male', '', 'kp@gmail.com', '1234560', 17, 'ramgarh', 'sln', 'up', ' 787', '', '', '', 0, '', '', '', '', 'kp', 'male', '', '1234560', 's@gmail.com', 1, 'ramgarh', 'j', 'j', '789', '827ccb0eea8a706c4c34a16891f84e7b', 'b5a9d7c3cd875d5a24d325a3213f0f55', '2023-01-27 02:00:20', '1674813620', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -780,7 +783,12 @@ INSERT INTO `tbl_order` (`id`, `product_id`, `product_name`, `pkg_name`, `quanti
 (1, 83, 'Men\'s Ultra Cotton T-Shirt, Multipack', 'XL', '1', '19', '1647629329'),
 (2, 92, 'Travelpro Laptop Carry-on Travel Tote Bag', 'One Size for All', '1', '91', '1647798593'),
 (4, 101, 'Digital Infrared Thermometer for Adults and Kids', 'One Size for All', '1', '70', '1647799174'),
-(5, 94, 'WD 5TB Elements Portable External Hard Drive HDD', '5T', '1', '149', '1647800902');
+(5, 94, 'WD 5TB Elements Portable External Hard Drive HDD', '5T', '1', '149', '1647800902'),
+(28, 150, 'Painkiller2', '100 PILLS', '1', '200', '1674636961'),
+(29, 148, 'Sleep2', '200 PILLS', '1', '400', '1674637103'),
+(30, 152, 'Gym2', '100 PILLS', '1', '200', '1674759018'),
+(31, 152, 'Gym2', '200 PILLS', '1', '400', '1674759160'),
+(32, 144, 'AA', '100 PILLS', '1', '100', '1674886360');
 
 -- --------------------------------------------------------
 
@@ -871,7 +879,12 @@ INSERT INTO `tbl_payment` (`id`, `customer_id`, `customer_name`, `customer_email
 (51, 2, 'Chad N. Carney', 'chad@mail.com', '2022-03-18 22:48:49', '', 19, '', '', '', '', 'Transaction Id: CA01010158967840\r\nTransaction Date: 3/19/2022\r\nBank: WestView Bank, CA Branch\r\nSender A/C: 102458965WV', 'Bank Deposit', 'Completed', 'Completed', '1647629329', 'Pankaj', '012345678', 'p@gmail.com', 'ramgarh', 'sultanpur', 'up', 230, '222302'),
 (52, 3, 'Jean Collins', 'jean@mail.com', '2022-03-20 10:49:53', '', 91, '', '', '', '', '', 'PayPal', 'Completed', 'Completed', '1647798593', '', '', '', '', '', '', 0, ''),
 (54, 6, 'August F. Freels', 'august@mail.com', '2022-03-20 10:59:34', '', 70, '', '', '', '', 'Transaction Id: CA01101198945600\nTransaction Date: 3/20/2022 \nBank: WestView Bank, CA Branch \nSender A/C: 1100047860WV', 'Bank Deposit', 'Completed', 'Pending', '1647799174', '', '', '', '', '', '', 0, ''),
-(55, 10, 'Will Williams', 'williams@mail.com', '2022-03-20 11:28:22', '', 149, '', '', '', '', 'Transaction Id: CA01003177945009\r\nTransaction Date: 3/20/2022 \r\nBank: WestView Bank, CA Branch \r\nSender A/C: NQ1011050160WV', 'COD/Pay Later', 'Completed', 'Completed', '1647800902', '', '', '', '', '', '', 0, '');
+(55, 10, 'Will Williams', 'williams@mail.com', '2022-03-20 11:28:22', '', 149, '', '', '', '', 'Transaction Id: CA01003177945009\r\nTransaction Date: 3/20/2022 \r\nBank: WestView Bank, CA Branch \r\nSender A/C: NQ1011050160WV', 'COD/Pay Later', 'Completed', 'Completed', '1647800902', '', '', '', '', '', '', 0, ''),
+(80, 0, 'ppppppppppppppp', 'p@gmail.com', '', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', 'Pending', '1674636961', 'ppppppppppppppp', '88', 'p@gmail.com', '88u', 'u', 'up', 16, '889'),
+(83, 0, 'df', 'a@gmail.com', '', '', 400, '', '', '', '', '', 'COD/Pay Later', 'Completed', 'Pending', '1674759160', 'df', '3244', 'a@gmail.com', 'fg', 'vb', 'cv', 18, '233'),
+(81, 0, 'cc', 'p@gmail.com', '', '', 400, '', '', '', '', '', 'COD/Pay Later', 'Completed', 'Pending', '1674637103', 'cc', '88', 'p@gmail.com', '88u', 'u', 'up', 16, '889'),
+(82, 0, 'df', 'a@gmail.com', '', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', 'Pending', '1674759018', 'df', '3244', 'a@gmail.com', 'fg', 'vb', 'cv', 18, '233'),
+(84, 23, 'Pankaj Giri', 'pankaj143giri@gmail.com', '', '', 100, '', '', '', '', '', 'COD/Pay Later', 'Pending', 'Pending', '1674886360', 'Suraj', '1234567890', 's@gmail.com', 'ramgarh', 'sln', 'up', 5, '222342');
 
 -- --------------------------------------------------------
 
@@ -986,18 +999,18 @@ INSERT INTO `tbl_product` (`p_id`, `p_name`, `p_old_price`, `p_current_price`, `
 (102, 'Women\'s Plus-Size Shirt Dress with Gold Hardware', '190', '169', 112, 'product-featured-102.jpg', '<p><span style=\"color: rgb(15, 17, 17); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px;\">This dress has everything! Enough stretch to be forgiving. Works for my hourglass/pear shape just fine. The cap sleeves satisfy conservative dressing requirements (no sleeveless) but still works for spring/summer.</span><br></p>', '<p>From Calvin Klein</p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Cap-sleeve shirt dress featuring belted waist with gold-tone hardware accents</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Split v-neckline</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Exposed center back zipper</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers a&nbsp;</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">&nbsp;in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 19, 1, 0, 5),
 (139, 'ElecTest', '', '8', 16, 'product-featured-139.jpg', '', '', '', '', '', 202, 1, 1, 4),
 (143, 'D_Stress', '', '', 123, 'product-featured-143.jpg', '', '', '', '', '', 41, 0, 1, 4),
-(144, 'AA', '', '', 115, 'product-featured-144.png', '', '', '', '', '', 100, 0, 1, 7),
-(145, 'Anxiety1', '', '', 102, 'product-featured-145.jpg', '', '', '', '', '', 12, 1, 1, 7),
+(144, 'AA', '', '', 115, 'product-featured-144.png', '', '', '', '', '', 102, 0, 1, 7),
+(145, 'Anxiety1', '', '', 102, 'product-featured-145.jpg', '', '', '', '', '', 24, 1, 1, 7),
 (146, 'Anxiety2', '', '', 100, 'product-featured-146.jpg', '', '', '', '', '', 2, 0, 1, 7),
 (147, 'Sleep1', '', '', 100, 'product-featured-147.jpg', '', '', '', '', '', 0, 0, 1, 10),
-(148, 'Sleep2', '', '', 100, 'product-featured-148.jpg', '', '', '', '', '', 0, 1, 1, 10),
-(149, 'Painkiller1', '', '', 102, 'product-featured-149.jpg', '', '', '', '', '', 4, 1, 1, 8),
-(150, 'Painkiller2', '', '', 110, 'product-featured-150.jpg', '', '', '', '', '', 8, 1, 1, 8),
-(151, 'Gym1', '', '', 116, 'product-featured-151.jpg', '', '', '', '', '', 5, 1, 1, 9),
-(152, 'Gym2', '', '', 109, 'product-featured-152.jpg', '', '', '', '', '', 10, 1, 1, 9),
+(148, 'Sleep2', '', '', 100, 'product-featured-148.jpg', '', '', '', '', '', 21, 1, 1, 10),
+(149, 'Painkiller1', '', '', 102, 'product-featured-149.jpg', '', '', '', '', '', 7, 1, 1, 8),
+(150, 'Painkiller2', '', '', 110, 'product-featured-150.jpg', '', '', '', '', '', 12, 1, 1, 8),
+(151, 'Gym1', '', '', 116, 'product-featured-151.jpg', '', '', '', '', '', 7, 1, 1, 9),
+(152, 'Gym2', '', '', 109, 'product-featured-152.jpg', '', '', '', '', '', 27, 1, 1, 9),
 (153, 'sWell1', '', '', 100, 'product-featured-153.jpg', '', '', '', '', '', 0, 1, 1, 11),
-(154, 'sWell2', '', '', 103, 'product-featured-154.jpg', '', '', '', '', '', 7, 0, 1, 11),
-(155, 'Sleep3', '', '', 100, 'product-featured-155.jpg', '', '', '', '', '', 0, 0, 1, 10);
+(154, 'sWell2', '', '', 103, 'product-featured-154.jpg', '', '', '', '', '', 9, 0, 1, 11),
+(156, 'df', '', '', 12, 'product-featured-156.png', '', '', '', '', '', 0, 0, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -1140,10 +1153,9 @@ INSERT INTO `tbl_product_package` (`id`, `p_id`, `pkg_name`, `pkg_price`) VALUES
 (50, 152, '100 PILLS', 200),
 (51, 152, '200 PILLS', 400),
 (52, 153, '100 PILLS', 200),
-(53, 154, '100 PILLS', 200),
-(54, 154, '200 PILLS', 400),
-(57, 155, '100 PILLS', 300),
-(58, 155, '200 PILLS', 500);
+(59, 154, '100 PILLS', 210),
+(60, 154, '200 PILLS', 400),
+(61, 156, 'sd3', 100);
 
 -- --------------------------------------------------------
 
@@ -1524,7 +1536,7 @@ CREATE TABLE `tbl_settings` (
 --
 
 INSERT INTO `tbl_settings` (`id`, `logo`, `favicon`, `footer_about`, `footer_copyright`, `contact_address`, `contact_email`, `contact_phone`, `contact_fax`, `contact_map_iframe`, `receive_email`, `receive_email_subject`, `receive_email_thank_you_message`, `forget_password_message`, `total_recent_post_footer`, `total_popular_post_footer`, `total_recent_post_sidebar`, `total_popular_post_sidebar`, `total_featured_product_home`, `total_latest_product_home`, `total_popular_product_home`, `meta_title_home`, `meta_keyword_home`, `meta_description_home`, `banner_login`, `banner_registration`, `banner_forget_password`, `banner_reset_password`, `banner_search`, `banner_cart`, `banner_checkout`, `banner_product_category`, `banner_blog`, `cta_title`, `cta_content`, `cta_read_more_text`, `cta_read_more_url`, `cta_photo`, `featured_product_title`, `featured_product_subtitle`, `latest_product_title`, `latest_product_subtitle`, `popular_product_title`, `popular_product_subtitle`, `testimonial_title`, `testimonial_subtitle`, `testimonial_photo`, `blog_title`, `blog_subtitle`, `newsletter_text`, `paypal_email`, `stripe_public_key`, `stripe_secret_key`, `bank_detail`, `before_head`, `after_body`, `before_body`, `home_service_on_off`, `home_welcome_on_off`, `home_featured_product_on_off`, `home_latest_product_on_off`, `home_popular_product_on_off`, `home_testimonial_on_off`, `home_blog_on_off`, `newsletter_on_off`, `ads_above_welcome_on_off`, `ads_above_featured_product_on_off`, `ads_above_latest_product_on_off`, `ads_above_popular_product_on_off`, `ads_above_testimonial_on_off`, `ads_category_sidebar_on_off`) VALUES
-(1, 'logo.gif', 'favicon.png', '<p>Lorem ipsum dolor sit amet, omnis signiferumque in mei, mei ex enim concludaturque. Senserit salutandi euripidis no per, modus maiestatis scribentur est an.Â Ea suas pertinax has.</p>\r\n', 'Copyright Â© 2023 Unit Pharma. All Rights Reserved.', '93 Simpson Avenue\r\nHarrisburg, PA', 'support@unitpharma.com', '+001 10 101 0010', '', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3094.020958405712!2d-84.39261378514685!3d39.151504939531584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841acfb8da30203%3A0x193175e741781f21!2s4293%20Simpson%20Ave%2C%20Cincinnati%2C%20OH%2045227%2C%20USA!5e0!3m2!1sen!2snp!4v1647796779407!5m2!1sen!2snp\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', 'support@ecommercephp.com', 'Visitor Email Message from Ecommerce Site PHP', 'Thank you for sending email. We will contact you shortly.', 'A confirmation link is sent to your email address. You will get the password reset information in there.', 4, 4, 5, 5, 15, 6, 8, 'Ecommerce PHP', 'online fashion store, garments shop, online garments', 'ecommerce php project with mysql database', 'banner_login.jpg', 'banner_registration.jpg', 'banner_forget_password.jpg', 'banner_reset_password.jpg', 'banner_search.jpg', 'banner_cart.jpg', 'banner_checkout.jpg', 'banner_product_category.jpg', 'banner_blog.jpg', 'Welcome To Our Ecommerce Website', 'Lorem ipsum dolor sit amet, an labores explicari qui, eu nostrum copiosae argumentum has. Latine propriae quo no, unum ridens expetenda id sit, \r\nat usu eius eligendi singulis. Sea ocurreret principes ne. At nonumy aperiri pri, nam quodsi copiosae intellegebat et, ex deserunt euripidis usu. ', 'Read More', '#', 'cta.jpg', 'Featured Products', 'Our list on Top Featured Products', 'Latest Products', 'Our list of recently added products', 'Popular Products', 'Popular products based on customer\'s choice', 'Testimonials', 'See what our clients tell about us', 'testimonial.jpg', 'Latest Blog', 'See all our latest articles and news from below', 'Sign-up to our newsletter for latest promotions and discounts.', 'admin@ecom.com', 'pk_test_0SwMWadgu8DwmEcPdUPRsZ7b', 'sk_test_TFcsLJ7xxUtpALbDo1L5c1PN', 'Bank Name: WestView Bank\r\nAccount Number: CA100270589600\r\nBranch Name: CA Branch\r\nCountry: USA', '', '<div id=\"fb-root\"></div>\r\n<script>(function(d, s, id) {\r\n  var js, fjs = d.getElementsByTagName(s)[0];\r\n  if (d.getElementById(id)) return;\r\n  js = d.createElement(s); js.id = id;\r\n  js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=323620764400430\";\r\n  fjs.parentNode.insertBefore(js, fjs);\r\n}(document, \'script\', \'facebook-jssdk\'));</script>', '<!--Start of Tawk.to Script-->\r\n<script type=\"text/javascript\">\r\nvar Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();\r\n(function(){\r\nvar s1=document.createElement(\"script\"),s0=document.getElementsByTagName(\"script\")[0];\r\ns1.async=true;\r\ns1.src=\'https://embed.tawk.to/5ae370d7227d3d7edc24cb96/default\';\r\ns1.charset=\'UTF-8\';\r\ns1.setAttribute(\'crossorigin\',\'*\');\r\ns0.parentNode.insertBefore(s1,s0);\r\n})();\r\n</script>\r\n<!--End of Tawk.to Script-->', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+(1, 'logo.gif', 'favicon.png', '<p>Lorem ipsum dolor sit amet, omnis signiferumque in mei, mei ex enim concludaturque. Senserit salutandi euripidis no per, modus maiestatis scribentur est an.Â Ea suas pertinax has.</p>\r\n', 'Copyright Â© 2023 Unit Pharma. All Rights Reserved.', '93 Simpson Avenue\r\nHarrisburg, PA', 'support@unitpharma.com', '+001 10 101 0010', '', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3094.020958405712!2d-84.39261378514685!3d39.151504939531584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841acfb8da30203%3A0x193175e741781f21!2s4293%20Simpson%20Ave%2C%20Cincinnati%2C%20OH%2045227%2C%20USA!5e0!3m2!1sen!2snp!4v1647796779407!5m2!1sen!2snp\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', 'support@ecommercephp.com', 'Visitor Email Message from Ecommerce Site PHP', 'Thank you for sending email. We will contact you shortly.', 'A confirmation link is sent to your email address. You will get the password reset information in there.', 4, 4, 5, 5, 15, 6, 8, 'Unit Pharma', 'online fashion store, garments shop, online garments', 'ecommerce php project with mysql database', 'banner_login.jpg', 'banner_registration.jpg', 'banner_forget_password.jpg', 'banner_reset_password.jpg', 'banner_search.jpg', 'banner_cart.jpg', 'banner_checkout.jpg', 'banner_product_category.jpg', 'banner_blog.jpg', 'Welcome To Our Ecommerce Website', 'Lorem ipsum dolor sit amet, an labores explicari qui, eu nostrum copiosae argumentum has. Latine propriae quo no, unum ridens expetenda id sit, \r\nat usu eius eligendi singulis. Sea ocurreret principes ne. At nonumy aperiri pri, nam quodsi copiosae intellegebat et, ex deserunt euripidis usu. ', 'Read More', '#', 'cta.jpg', 'Featured Products', 'Our list on Top Featured Products', 'Latest Products', 'Our list of recently added products', 'Popular Products', 'Popular products based on customer\'s choice', 'Testimonials', 'See what our clients tell about us', 'testimonial.jpg', 'Latest Blog', 'See all our latest articles and news from below', 'Sign-up to our newsletter for latest promotions and discounts.', 'admin@ecom.com', 'pk_test_0SwMWadgu8DwmEcPdUPRsZ7b', 'sk_test_TFcsLJ7xxUtpALbDo1L5c1PN', 'Bank Name: WestView Bank\r\nAccount Number: CA100270589600\r\nBranch Name: CA Branch\r\nCountry: USA', '', '<div id=\"fb-root\"></div>\r\n<script>(function(d, s, id) {\r\n  var js, fjs = d.getElementsByTagName(s)[0];\r\n  if (d.getElementById(id)) return;\r\n  js = d.createElement(s); js.id = id;\r\n  js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=323620764400430\";\r\n  fjs.parentNode.insertBefore(js, fjs);\r\n}(document, \'script\', \'facebook-jssdk\'));</script>', '<!--Start of Tawk.to Script-->\r\n<script type=\"text/javascript\">\r\nvar Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();\r\n(function(){\r\nvar s1=document.createElement(\"script\"),s0=document.getElementsByTagName(\"script\")[0];\r\ns1.async=true;\r\ns1.src=\'https://embed.tawk.to/5ae370d7227d3d7edc24cb96/default\';\r\ns1.charset=\'UTF-8\';\r\ns1.setAttribute(\'crossorigin\',\'*\');\r\ns0.parentNode.insertBefore(s1,s0);\r\n})();\r\n</script>\r\n<!--End of Tawk.to Script-->', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1990,7 +2002,7 @@ ALTER TABLE `tbl_video`
 -- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tbl_color`
 --
@@ -2005,7 +2017,7 @@ ALTER TABLE `tbl_country`
 -- AUTO_INCREMENT for table `tbl_customer`
 --
 ALTER TABLE `tbl_customer`
-  MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `tbl_customer_message`
 --
@@ -2035,7 +2047,7 @@ ALTER TABLE `tbl_mid_category`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT for table `tbl_page`
 --
@@ -2045,7 +2057,7 @@ ALTER TABLE `tbl_page`
 -- AUTO_INCREMENT for table `tbl_payment`
 --
 ALTER TABLE `tbl_payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 --
 -- AUTO_INCREMENT for table `tbl_photo`
 --
@@ -2060,7 +2072,7 @@ ALTER TABLE `tbl_post`
 -- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=156;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
 --
 -- AUTO_INCREMENT for table `tbl_product_color`
 --
@@ -2070,7 +2082,7 @@ ALTER TABLE `tbl_product_color`
 -- AUTO_INCREMENT for table `tbl_product_package`
 --
 ALTER TABLE `tbl_product_package`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 --
 -- AUTO_INCREMENT for table `tbl_product_photo`
 --
