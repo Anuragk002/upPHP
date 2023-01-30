@@ -164,7 +164,7 @@ $total_order_complete_shipping_pending = $statement->rowCount();
 				  <div class="inner">
 					<h3><?php echo $available_shipping; ?></h3>
   
-					<p>Available Shippings</p>
+					<p>Available Shipping in countries</p>
 				  </div>
 				  <div class="icon">
 					<i class="ionicons ion-location"></i>
@@ -179,7 +179,7 @@ $total_order_complete_shipping_pending = $statement->rowCount();
 				  <div class="inner">
 					<h3><?php echo $total_top_category; ?></h3>
   
-					<p>Top Categories</p>
+					<p>Categories</p>
 				  </div>
 				  <div class="icon">
 					<i class="ionicons ion-arrow-up-b"></i>
@@ -188,8 +188,8 @@ $total_order_complete_shipping_pending = $statement->rowCount();
 				</div>
 			  </div>
 
-			  <div class="col-lg-3 col-xs-6">
-				<!-- small box -->
+			  <!-- <div class="col-lg-3 col-xs-6">
+				
 				<div class="small-box bg-blue">
 				  <div class="inner">
 					<h3><?php echo $total_mid_category; ?></h3>
@@ -201,13 +201,13 @@ $total_order_complete_shipping_pending = $statement->rowCount();
 				  </div>
 				  
 				</div>
-			  </div>
+			  </div> -->
 
-			  <div class="col-lg-3 col-xs-6">
-				<!-- small box -->
+			  <!-- <div class="col-lg-3 col-xs-6">
+				 small box 
 				<div class="small-box bg-maroon">
 				  <div class="inner">
-					<h3><?php echo $total_end_category; ?></h3>
+					<h3><?php #echo $total_end_category; ?></h3>
   
 					<p>End Categories</p>
 				  </div>
@@ -216,7 +216,7 @@ $total_order_complete_shipping_pending = $statement->rowCount();
 				  </div>
 				  
 				</div>
-			  </div>
+			  </div> -->
 
 		  </div>
 		  

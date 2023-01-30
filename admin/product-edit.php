@@ -1,23 +1,32 @@
 <?php require_once('header.php'); ?>
 
 <?php
+if($_SESSION['user']['role']!="Super Admin") {
+	header('location: logout.php');
+	exit;
+}
 if (isset($_POST['form1'])) {
 	$valid = 1;
 	$pkgvalid= 0;
-
-	foreach($_POST['pkg'] as $pkg1){
-		if((empty($pkg1['name'])))
-		{
-			$valid = 0;
-        $error_message .= "Input Package Name<br>";
+	if (count($_POST['pkg'])) {
+		foreach($_POST['pkg'] as $pkg1){
+			if((empty($pkg1['name'])))
+			{
+				$valid = 0;
+			$error_message .= "Input Package Name<br>";
+			}
+			else if((empty($pkg1['price'])))
+			{
+				$valid = 0;
+			$error_message .= "Input Package Price<br>";
+			}
+			else{
+			$pkgvalid= 1;
+			}
 		}
-		elseif((empty($pkg1['price'])))
-		{
-			$valid = 0;
-        $error_message .= "Input Package Price<br>";
-		}
-		else
-		$pkgvalid= 1;
+	}else{
+		$valid=0;
+		$error_message .= "Package can't be empty<br>";
 	}
 
 	if (empty($_POST['tcat_id'])) {
@@ -25,25 +34,10 @@ if (isset($_POST['form1'])) {
 		$error_message .= "You must have to select a top level category<br>";
 	}
 
-	// if(empty($_POST['mcat_id'])) {
-	//     $valid = 0;
-	//     $error_message .= "You must have to select a mid level category<br>";
-	// }
-
-	// if(empty($_POST['ecat_id'])) {
-	//     $valid = 0;
-	//     $error_message .= "You must have to select an end level category<br>";
-	// }
-
 	if (empty($_POST['p_name'])) {
 		$valid = 0;
 		$error_message .= "Product name can not be empty<br>";
 	}
-
-	// if (empty($_POST['p_current_price'])) {
-	// 	$valid = 0;
-	// 	$error_message .= "Current Price can not be empty<br>";
-	// }
 
 	if (empty($_POST['p_qty'])) {
 		$valid = 0;
@@ -105,8 +99,8 @@ if (isset($_POST['form1'])) {
 		if ($path == '') {
 			$statement = $pdo->prepare("UPDATE tbl_product SET 
         							p_name=?, 
-        							p_old_price=?, 
-        							p_current_price=?, 
+        							-- p_old_price=?, 
+        							-- p_current_price=?, 
         							p_qty=?,
         							p_description=?,
         							p_short_description=?,
@@ -120,8 +114,8 @@ if (isset($_POST['form1'])) {
         							WHERE p_id=?");
 			$statement->execute(array(
 				$_POST['p_name'],
-				$_POST['p_old_price'],
-				$_POST['p_current_price'],
+				// $_POST['p_old_price'],
+				// $_POST['p_current_price'],
 				$_POST['p_qty'],
 				$_POST['p_description'],
 				$_POST['p_short_description'],
@@ -143,8 +137,8 @@ if (isset($_POST['form1'])) {
 
 			$statement = $pdo->prepare("UPDATE tbl_product SET 
         							p_name=?, 
-        							p_old_price=?, 
-        							p_current_price=?, 
+        							-- p_old_price=?, 
+        							-- p_current_price=?, 
         							p_qty=?,
         							p_featured_photo=?,
         							p_description=?,
@@ -159,8 +153,8 @@ if (isset($_POST['form1'])) {
         							WHERE p_id=?");
 			$statement->execute(array(
 				$_POST['p_name'],
-				$_POST['p_old_price'],
-				$_POST['p_current_price'],
+				// $_POST['p_old_price'],
+				// $_POST['p_current_price'],
 				$_POST['p_qty'],
 				$final_name,
 				$_POST['p_description'],
@@ -176,35 +170,35 @@ if (isset($_POST['form1'])) {
 		}
 
 
-		if (isset($_POST['size'])) {
+		// if (isset($_POST['size'])) {
 
-			$statement = $pdo->prepare("DELETE FROM tbl_product_size WHERE p_id=?");
-			$statement->execute(array($_REQUEST['id']));
+		// 	$statement = $pdo->prepare("DELETE FROM tbl_product_size WHERE p_id=?");
+		// 	$statement->execute(array($_REQUEST['id']));
 
-			foreach ($_POST['size'] as $value) {
-				$statement = $pdo->prepare("INSERT INTO tbl_product_size (size_id,p_id) VALUES (?,?)");
-				$statement->execute(array($value, $_REQUEST['id']));
-			}
-		} else {
-			$statement = $pdo->prepare("DELETE FROM tbl_product_size WHERE p_id=?");
-			$statement->execute(array($_REQUEST['id']));
-		}
+		// 	foreach ($_POST['size'] as $value) {
+		// 		$statement = $pdo->prepare("INSERT INTO tbl_product_size (size_id,p_id) VALUES (?,?)");
+		// 		$statement->execute(array($value, $_REQUEST['id']));
+		// 	}
+		// } else {
+		// 	$statement = $pdo->prepare("DELETE FROM tbl_product_size WHERE p_id=?");
+		// 	$statement->execute(array($_REQUEST['id']));
+		// }
 
-		if (isset($_POST['color'])) {
+		// if (isset($_POST['color'])) {
 
-			$statement = $pdo->prepare("DELETE FROM tbl_product_color WHERE p_id=?");
-			$statement->execute(array($_REQUEST['id']));
+		// 	$statement = $pdo->prepare("DELETE FROM tbl_product_color WHERE p_id=?");
+		// 	$statement->execute(array($_REQUEST['id']));
 
-			foreach ($_POST['color'] as $value) {
-				$statement = $pdo->prepare("INSERT INTO tbl_product_color (color_id,p_id) VALUES (?,?)");
-				$statement->execute(array($value, $_REQUEST['id']));
-			}
-		} else {
-			$statement = $pdo->prepare("DELETE FROM tbl_product_color WHERE p_id=?");
-			$statement->execute(array($_REQUEST['id']));
-		}
+		// 	foreach ($_POST['color'] as $value) {
+		// 		$statement = $pdo->prepare("INSERT INTO tbl_product_color (color_id,p_id) VALUES (?,?)");
+		// 		$statement->execute(array($value, $_REQUEST['id']));
+		// 	}
+		// } else {
+		// 	$statement = $pdo->prepare("DELETE FROM tbl_product_color WHERE p_id=?");
+		// 	$statement->execute(array($_REQUEST['id']));
+		// }
+
 		if($pkgvalid == 1) {
-
 			$statement = $pdo->prepare("DELETE FROM tbl_product_package WHERE p_id=?");
 			$statement->execute(array($_REQUEST['id']));
 
@@ -220,20 +214,20 @@ if (isset($_POST['form1'])) {
 ?>
 
 <?php
-if (!isset($_REQUEST['id'])) {
-	header('location: logout.php');
-	exit;
-} else {
-	// Check the id is valid or not
-	$statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
-	$statement->execute(array($_REQUEST['id']));
-	$total = $statement->rowCount();
-	$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-	if ($total == 0) {
+	if (!isset($_REQUEST['id'])) {
 		header('location: logout.php');
 		exit;
+	} else {
+		// Check the id is valid or not
+		$statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
+		$statement->execute(array($_REQUEST['id']));
+		$total = $statement->rowCount();
+		$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+		if ($total == 0) {
+			header('location: logout.php');
+			exit;
+		}
 	}
-}
 ?>
 
 <section class="content-header">
@@ -246,47 +240,47 @@ if (!isset($_REQUEST['id'])) {
 </section>
 
 <?php
-$statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
-$statement->execute(array($_REQUEST['id']));
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-foreach ($result as $row) {
-	$p_name = $row['p_name'];
-	$p_old_price = $row['p_old_price'];
-	$p_current_price = $row['p_current_price'];
-	$p_qty = $row['p_qty'];
-	$p_featured_photo = $row['p_featured_photo'];
-	$p_description = $row['p_description'];
-	$p_short_description = $row['p_short_description'];
-	$p_feature = $row['p_feature'];
-	$p_condition = $row['p_condition'];
-	$p_return_policy = $row['p_return_policy'];
-	$p_is_featured = $row['p_is_featured'];
-	$p_is_active = $row['p_is_active'];
-	$tcat_id = $row['tcat_id'];
-}
+	$statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
+	$statement->execute(array($_REQUEST['id']));
+	$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+	foreach ($result as $row) {
+		$p_name = $row['p_name'];
+		$p_old_price = $row['p_old_price'];
+		$p_current_price = $row['p_current_price'];
+		$p_qty = $row['p_qty'];
+		$p_featured_photo = $row['p_featured_photo'];
+		$p_description = $row['p_description'];
+		$p_short_description = $row['p_short_description'];
+		$p_feature = $row['p_feature'];
+		$p_condition = $row['p_condition'];
+		$p_return_policy = $row['p_return_policy'];
+		$p_is_featured = $row['p_is_featured'];
+		$p_is_active = $row['p_is_active'];
+		$tcat_id = $row['tcat_id'];
+	}
 
-$statement = $pdo->prepare("SELECT * 
-                        FROM tbl_top_category t1
-                        WHERE t1.tcat_id=?");
-$statement->execute(array($tcat_id));
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-foreach ($result as $row) {
-	$tcat_name = $row['tcat_name'];
-}
+	$statement = $pdo->prepare("SELECT * 
+							FROM tbl_top_category t1
+							WHERE t1.tcat_id=?");
+	$statement->execute(array($tcat_id));
+	$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+	foreach ($result as $row) {
+		$tcat_name = $row['tcat_name'];
+	}
 
-$statement = $pdo->prepare("SELECT * FROM tbl_product_size WHERE p_id=?");
-$statement->execute(array($_REQUEST['id']));
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-foreach ($result as $row) {
-	$size_id[] = $row['size_id'];
-}
+	$statement = $pdo->prepare("SELECT * FROM tbl_product_size WHERE p_id=?");
+	$statement->execute(array($_REQUEST['id']));
+	$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+	foreach ($result as $row) {
+		$size_id[] = $row['size_id'];
+	}
 
-$statement = $pdo->prepare("SELECT * FROM tbl_product_color WHERE p_id=?");
-$statement->execute(array($_REQUEST['id']));
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-foreach ($result as $row) {
-	$color_id[] = $row['color_id'];
-}
+	$statement = $pdo->prepare("SELECT * FROM tbl_product_color WHERE p_id=?");
+	$statement->execute(array($_REQUEST['id']));
+	$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+	foreach ($result as $row) {
+		$color_id[] = $row['color_id'];
+	}
 ?>
 
 
@@ -335,93 +329,44 @@ foreach ($result as $row) {
 								</select>
 							</div>
 						</div>
-						<!-- <div class="form-group">
-							<label for="" class="col-sm-3 control-label">Mid Level Category Name <span>*</span></label>
-							<div class="col-sm-4">
-								<select name="mcat_id" class="form-control select2 mid-cat">
-		                            <option value="">Select Mid Level Category</option>
-		                            <?php
-									$statement = $pdo->prepare("SELECT * FROM tbl_mid_category WHERE tcat_id = ? ORDER BY mcat_name ASC");
-									$statement->execute(array($tcat_id));
-									$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-									foreach ($result as $row) {
-									?>
-		                                <option value="<?php echo $row['mcat_id']; ?>" <?php if ($row['mcat_id'] == $mcat_id) {
-																							echo 'selected';
-																						} ?>><?php echo $row['mcat_name']; ?></option>
-		                                <?php
-									}
-										?>
-		                        </select>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">End Level Category Name <span>*</span></label>
-							<div class="col-sm-4">
-								<select name="ecat_id" class="form-control select2 end-cat">
-		                            <option value="">Select End Level Category</option>
-		                            <?php
-									$statement = $pdo->prepare("SELECT * FROM tbl_end_category WHERE mcat_id = ? ORDER BY ecat_name ASC");
-									$statement->execute(array($mcat_id));
-									$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-									foreach ($result as $row) {
-									?>
-		                                <option value="<?php echo $row['ecat_id']; ?>" <?php if ($row['ecat_id'] == $ecat_id) {
-																							echo 'selected';
-																						} ?>><?php echo $row['ecat_name']; ?></option>
-		                                <?php
-									}
-										?>
-		                        </select>
-							</div>
-						</div> -->
+						
 						<div class="form-group">
 							<label for="" class="col-sm-3 control-label">Product Name <span>*</span></label>
 							<div class="col-sm-4">
 								<input type="text" name="p_name" class="form-control" value="<?php echo $p_name; ?>">
 							</div>
 						</div>
-						<div class="form-group hidden">
-							<label for="" class="col-sm-3 control-label">Old Price<br><span style="font-size:10px;font-weight:normal;">(In USD)</span></label>
-							<div class="col-sm-4">
-								<input type="text" name="p_old_price" class="form-control" value="<?php echo $p_old_price; ?>">
-							</div>
-						</div>
-						<div class="form-group hidden">
-							<label for="" class="col-sm-3 control-label">Current Price <span>*</span><br><span style="font-size:10px;font-weight:normal;">(In USD)</span></label>
-							<div class="col-sm-4">
-								<input type="text" name="p_current_price" class="form-control" value="<?php echo $p_current_price; ?>">
-							</div>
-						</div>
+						
 						<div class="form-group">
 							<label for="" class="col-sm-3 control-label">Quantity <span>*</span></label>
 							<div class="col-sm-4">
 								<input type="text" name="p_qty" class="form-control" value="<?php echo $p_qty; ?>">
 							</div>
 						</div>
+
 						<div class="form-group">
 							<label for="" class="col-sm-3 control-label">Add Packages</label>
 							<div class="col-sm-4" style="padding-top:4px;">
 								<table id="ProductPkgTable" style="width:100%;">
 									<tbody>
 										<?php
-										$statement = $pdo->prepare("SELECT * FROM tbl_product_package WHERE p_id=?");
-										$statement->execute(array($_REQUEST['id']));
-										$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-										foreach ($result as $key=>$row) { ?>
-											<tr>
-												<td>
-													<div class="col-sm-4">
-														<input type="text" placeholder="Package name" value="<?php echo $row['pkg_name'] ?>" class="form-control" name="pkg[<?php echo $key?>][name]" style="margin-bottom:5px; width:200px">
-													</div>
-												</td>
-												<td>
-													<div class="col-sm-4">
-														<input type="text" placeholder="price" value="<?php echo $row['pkg_price'] ?>" class="form-control" name="pkg[<?php echo $key?>][price]" style="margin-bottom:5px; width:50px;">
-													</div>
-												</td>
-												<td style="width:28px;"><a href="javascript:void()" class="Delete btn btn-danger btn-xs">X</a></td>
-											</tr>
+											$statement = $pdo->prepare("SELECT * FROM tbl_product_package WHERE p_id=?");
+											$statement->execute(array($_REQUEST['id']));
+											$result = $statement->fetchAll(PDO::FETCH_ASSOC);
+											foreach ($result as $key=>$row) { ?>
+												<tr>
+													<td>
+														<div class="col-sm-4">
+															<input type="text" placeholder="Package name" value="<?php echo $row['pkg_name'] ?>" required class="form-control" name="pkg[<?php echo $key?>][name]" style="margin-bottom:5px; width:200px">
+														</div>
+													</td>
+													<td>
+														<div class="col-sm-4">
+															<input type="text" placeholder="price" value="<?php echo $row['pkg_price'] ?>" required class="form-control" name="pkg[<?php echo $key?>][price]" style="margin-bottom:5px; width:50px;">
+														</div>
+													</td>
+													<td style="width:28px;"><a href="javascript:void()" class="Delete btn btn-danger btn-xs">X</a></td>
+												</tr>
 										<?php } ?>
 									</tbody>
 								</table>
@@ -430,56 +375,7 @@ foreach ($result as $row) {
 								<input type="button" id="btnAddNewPkg" value="Add Package" style="margin-top: 5px;margin-bottom:10px;border:0;color: #fff;font-size: 14px;border-radius:3px;" class="btn btn-warning btn-xs">
 							</div>
 						</div>
-						<div class="form-group hidden">
-							<label for="" class="col-sm-3 control-label">Select Size</label>
-							<div class="col-sm-4">
-								<select name="size[]" class="form-control select2" multiple="multiple">
-									<?php
-									$is_select = '';
-									$statement = $pdo->prepare("SELECT * FROM tbl_size ORDER BY size_id ASC");
-									$statement->execute();
-									$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-									foreach ($result as $row) {
-										if (isset($size_id)) {
-											if (in_array($row['size_id'], $size_id)) {
-												$is_select = 'selected';
-											} else {
-												$is_select = '';
-											}
-										}
-									?>
-										<option value="<?php echo $row['size_id']; ?>" <?php echo $is_select; ?>><?php echo $row['size_name']; ?></option>
-									<?php
-									}
-									?>
-								</select>
-							</div>
-						</div>
-						<div class="form-group hidden">
-							<label for="" class="col-sm-3 control-label">Select Color</label>
-							<div class="col-sm-4">
-								<select name="color[]" class="form-control select2" multiple="multiple">
-									<?php
-									$is_select = '';
-									$statement = $pdo->prepare("SELECT * FROM tbl_color ORDER BY color_id ASC");
-									$statement->execute();
-									$result = $statement->fetchAll(PDO::FETCH_ASSOC);
-									foreach ($result as $row) {
-										if (isset($color_id)) {
-											if (in_array($row['color_id'], $color_id)) {
-												$is_select = 'selected';
-											} else {
-												$is_select = '';
-											}
-										}
-									?>
-										<option value="<?php echo $row['color_id']; ?>" <?php echo $is_select; ?>><?php echo $row['color_name']; ?></option>
-									<?php
-									}
-									?>
-								</select>
-							</div>
-						</div>
+						
 						<div class="form-group">
 							<label for="" class="col-sm-3 control-label">Existing Featured Photo</label>
 							<div class="col-sm-4" style="padding-top:4px;">

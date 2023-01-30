@@ -20,8 +20,9 @@
 								<th width="10">#</th>
 								<th>Photo</th>
 								<th width="160">Product Name</th>
-								<th width="60">Old Price</th>
-								<th width="60">(C) Price</th>
+								<th width="160">Package And Price</th>
+								<!-- <th width="60">Old Price</th>
+								<th width="60">(C) Price</th> -->
 								<th width="60">Quantity</th>
 								<th>Featured?</th>
 								<th>Active?</th>
@@ -67,8 +68,22 @@
 									<td><?php echo $i; ?></td>
 									<td style="width:82px;"><img src="../assets/uploads/<?php echo $row['p_featured_photo']; ?>" alt="<?php echo $row['p_name']; ?>" style="width:80px;"></td>
 									<td><?php echo $row['p_name']; ?></td>
-									<td>$<?php echo $row['p_old_price']; ?></td>
-									<td>$<?php echo $row['p_current_price']; ?></td>
+									<td>
+										<?php
+										$statement = $pdo->prepare("SELECT * FROM tbl_product_package WHERE p_id=?");
+										$statement->execute(array($row['p_id']));
+										$resultpkg = $statement->fetchAll(PDO::FETCH_ASSOC);
+										foreach ($resultpkg as $pkg) {
+											$pkg_name[] = $pkg['pkg_name'];
+											$pkg_price[] = $pkg['pkg_price'];
+											echo nl2br($pkg['pkg_name']." - $".$pkg['pkg_price']."\n");
+										} 
+										 ?>
+
+
+									</td>
+									<!-- <td>$<?php #echo $row['p_old_price']; ?></td>
+									<td>$<?php #echo $row['p_current_price']; ?></td> -->
 									<td><?php echo $row['p_qty']; ?></td>
 									<td>
 										<?php if($row['p_is_featured'] == 1) {echo '<span class="badge badge-success" style="background-color:green;">Yes</span>';} else {echo '<span class="badge badge-success" style="background-color:red;">No</span>';} ?>

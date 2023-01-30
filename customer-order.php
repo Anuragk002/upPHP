@@ -37,7 +37,7 @@ if(!isset($_SESSION['customer'])) {
                                     <th><?php echo LANG_VALUE_29; ?></th>
                                     <th><?php echo LANG_VALUE_30; ?></th>
                                     <th><?php echo LANG_VALUE_31; ?></th>
-                                    <th><?php echo LANG_VALUE_32; ?></th>
+                                    <th><?php echo "Order ID"#LANG_VALUE_32; ?></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -152,17 +152,17 @@ if(!isset($_SESSION['customer'])) {
                                         <td><?php echo $tip; ?></td>
                                         <td>
                                             <?php
-                                            $statement1 = $pdo->prepare("SELECT * FROM tbl_order WHERE payment_id=?");
-                                            $statement1->execute(array($row['payment_id']));
-                                            $result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
-                                            foreach ($result1 as $row1) {
-                                                echo 'Product Name: '.$row1['product_name'];
-                                                echo '<br>Size: '.$row1['size'];
-                                                echo '<br>Color: '.$row1['color'];
-                                                echo '<br>Quantity: '.$row1['quantity'];
-                                                echo '<br>Unit Price: $'.$row1['unit_price'];
-                                                echo '<br><br>';
-                                            }
+                                                $statement1 = $pdo->prepare("SELECT * FROM tbl_order WHERE payment_id=?");
+                                                $statement1->execute(array($row['payment_id']));
+                                                $result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
+                                                foreach ($result1 as $row1) {
+                                                        
+                                                        echo ',<b>Product:</b> '.$row1['product_name'];
+                                                        echo '<br>(<b>Package:</b> '.$row1['pkg_name'];
+                                                        echo '<br>(<b>Quantity:</b> '.$row1['quantity'];
+                                                        echo ', <b>Package Price:</b> '.$row1['pkg_price'].')';
+                                                        echo '<br><br>';
+                                                }
                                             ?>
                                         </td>
                                         <td><?php echo $row['payment_date']; ?></td>

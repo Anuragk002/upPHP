@@ -38,42 +38,42 @@ foreach ($result as $row)
 }
 
 // Checking the order table and removing the pending transaction that are 24 hours+ old. Very important
-$current_date_time = date('Y-m-d H:i:s');
-$statement = $pdo->prepare("SELECT * FROM tbl_payment WHERE payment_status=?");
-$statement->execute(array('Pending'));
-$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
-foreach ($result as $row) {
-	$ts1 = strtotime($row['payment_date']);
-	$ts2 = strtotime($current_date_time);     
-	$diff = $ts2 - $ts1;
-	$time = $diff/(3600);
-	if($time>24) {
+	// $current_date_time = date('Y-m-d H:i:s');
+	// $statement = $pdo->prepare("SELECT * FROM tbl_payment WHERE payment_status=?");
+	// $statement->execute(array('Pending'));
+	// $result = $statement->fetchAll(PDO::FETCH_ASSOC);							
+	// foreach ($result as $row) {
+	// 	$ts1 = strtotime($row['payment_date']);
+	// 	$ts2 = strtotime($current_date_time);     
+	// 	$diff = $ts2 - $ts1;
+	// 	$time = $diff/(3600);
+	// 	if($time>24) {
 
-		// Return back the stock amount
-		$statement1 = $pdo->prepare("SELECT * FROM tbl_order WHERE payment_id=?");
-		$statement1->execute(array($row['payment_id']));
-		$result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
-		foreach ($result1 as $row1) {
-			$statement2 = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
-			$statement2->execute(array($row1['product_id']));
-			$result2 = $statement2->fetchAll(PDO::FETCH_ASSOC);							
-			foreach ($result2 as $row2) {
-				$p_qty = $row2['p_qty'];
-			}
-			$final = $p_qty+$row1['quantity'];
+	// 		// Return back the stock amount
+	// 		$statement1 = $pdo->prepare("SELECT * FROM tbl_order WHERE payment_id=?");
+	// 		$statement1->execute(array($row['payment_id']));
+	// 		$result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
+	// 		foreach ($result1 as $row1) {
+	// 			$statement2 = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
+	// 			$statement2->execute(array($row1['product_id']));
+	// 			$result2 = $statement2->fetchAll(PDO::FETCH_ASSOC);							
+	// 			foreach ($result2 as $row2) {
+	// 				$p_qty = $row2['p_qty'];
+	// 			}
+	// 			$final = $p_qty+$row1['quantity'];
 
-			$statement = $pdo->prepare("UPDATE tbl_product SET p_qty=? WHERE p_id=?");
-			$statement->execute(array($final,$row1['product_id']));
-		}
-		
-		// Deleting data from table
-		$statement1 = $pdo->prepare("DELETE FROM tbl_order WHERE payment_id=?");
-		$statement1->execute(array($row['payment_id']));
+	// 			$statement = $pdo->prepare("UPDATE tbl_product SET p_qty=? WHERE p_id=?");
+	// 			$statement->execute(array($final,$row1['product_id']));
+	// 		}
+			
+	// 		// Deleting data from table
+	// 		$statement1 = $pdo->prepare("DELETE FROM tbl_order WHERE payment_id=?");
+	// 		$statement1->execute(array($row['payment_id']));
 
-		$statement1 = $pdo->prepare("DELETE FROM tbl_payment WHERE id=?");
-		$statement1->execute(array($row['id']));
-	}
-}
+	// 		$statement1 = $pdo->prepare("DELETE FROM tbl_payment WHERE id=?");
+	// 		$statement1->execute(array($row['id']));
+	// 	}
+	// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -236,10 +236,10 @@ foreach ($result as $row) {
 <body>
 
 <?php echo $after_body; ?>
-<!--
+
 <div id="preloader">
-	<div id="status"></div>
-</div>-->
+	<div  class="spinner"id="status"></div>
+</div>
 
 <!-- top bar -->
 <div class="top">
@@ -309,25 +309,16 @@ foreach ($result as $row) {
 
 					<li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_18; ?> (<?php echo LANG_VALUE_1; ?><?php
 					if(isset($_SESSION['cart_p_id'])) {
-						$table_total_price = 0;
+						$tmp=array();
 						$i=0;
-	                    foreach($_SESSION['cart_p_qty'] as $key => $value) 
+						foreach($_SESSION['cart_p_id'] as $key => $value) 
 	                    {
-	                        $i++;
-	                        $arr_cart_p_qty[$i] = $value;
-	                    }                    $i=0;
-	                    foreach($_SESSION['cart_p_current_price'] as $key => $value) 
-	                    {
-	                        $i++;
-	                        $arr_cart_p_current_price[$i] = $value;
+	                        $tmp[$i] = $value;
+							$i++;
 	                    }
-	                    for($i=1;$i<=count($arr_cart_p_qty);$i++) {
-	                    	$row_total_price = $arr_cart_p_current_price[$i]*$arr_cart_p_qty[$i];
-	                        $table_total_price = $table_total_price + $row_total_price;
-	                    }
-						echo $table_total_price;
+						echo count($tmp);
 					} else {
-						echo '0.00';
+						echo 0;
 					}
 					?>)</a></li>
 				</ul>
@@ -360,33 +351,7 @@ foreach ($result as $row) {
 							$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 							foreach ($result as $row) {
 								?>
-								<li><a href="product-category.php?id=<?php echo $row['tcat_id']; ?>&type=top-category"><?php echo $row['tcat_name']; ?></a>
-									<!-- <ul>
-										<?php
-										$statement1 = $pdo->prepare("SELECT * FROM tbl_mid_category WHERE tcat_id=?");
-										$statement1->execute(array($row['tcat_id']));
-										$result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
-										foreach ($result1 as $row1) {
-											?>
-											<li><a href="product-category.php?id=<?php echo $row1['mcat_id']; ?>&type=mid-category"><?php echo $row1['mcat_name']; ?></a>
-												<ul>
-													<?php
-													$statement2 = $pdo->prepare("SELECT * FROM tbl_end_category WHERE mcat_id=?");
-													$statement2->execute(array($row1['mcat_id']));
-													$result2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
-													foreach ($result2 as $row2) {
-														?>
-														<li><a href="product-category.php?id=<?php echo $row2['ecat_id']; ?>&type=end-category"><?php echo $row2['ecat_name']; ?></a></li>
-														<?php
-													}
-													?>
-												</ul>
-											</li>
-											<?php
-										}
-										?>
-									</ul> -->
-								</li>
+								<li><a href="product-category.php?id=<?php echo $row['tcat_id']; ?>&type=top-category"><?php echo $row['tcat_name']; ?></a></li>
 								<?php
 							}
 							?>
@@ -406,9 +371,10 @@ foreach ($result as $row) {
 							?>
 
 							<li><a href="about.php"><?php echo $about_title; ?></a></li>
+							<li><a href="contact.php"><?php echo $contact_title; ?></a></li>
 							<li><a href="faq.php"><?php echo $faq_title; ?></a></li>
 
-							<li><a href="contact.php"><?php echo $contact_title; ?></a></li>
+							
 						</ul>
 					</div>
 				</div>

@@ -1,19 +1,23 @@
 <?php require_once('header.php'); ?>
 
 <?php
-if(!isset($_REQUEST['id'])) {
-	header('location: logout.php');
-	exit;
-} else {
-	// Check the id is valid or not
-	$statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
-	$statement->execute(array($_REQUEST['id']));
-	$total = $statement->rowCount();
-	if( $total == 0 ) {
+	if($_SESSION['user']['role']!="Super Admin") {
 		header('location: logout.php');
 		exit;
 	}
-}
+	if(!isset($_REQUEST['id'])) {
+		header('location: logout.php');
+		exit;
+	} else {
+		// Check the id is valid or not
+		$statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
+		$statement->execute(array($_REQUEST['id']));
+		$total = $statement->rowCount();
+		if( $total == 0 ) {
+			header('location: logout.php');
+			exit;
+		}
+	}
 ?>
 
 <?php
@@ -44,6 +48,10 @@ if(!isset($_REQUEST['id'])) {
 	$statement = $pdo->prepare("DELETE FROM tbl_product_photo WHERE p_id=?");
 	$statement->execute(array($_REQUEST['id']));
 
+	// Delete from tbl_product_package
+	$statement = $pdo->prepare("DELETE FROM tbl_product_package WHERE p_id=?");
+	$statement->execute(array($_REQUEST['id']));
+
 	// Delete from tbl_product_size
 	$statement = $pdo->prepare("DELETE FROM tbl_product_size WHERE p_id=?");
 	$statement->execute(array($_REQUEST['id']));
@@ -69,5 +77,10 @@ if(!isset($_REQUEST['id'])) {
 	$statement = $pdo->prepare("DELETE FROM tbl_order WHERE product_id=?");
 	$statement->execute(array($_REQUEST['id']));
 
-	header('location: product.php');
+	echo "<script type='text/javascript'>
+		location='product.php';
+		alert('Product deleted successfully.');
+		</script>";
+	// header('location: product.php');
+	
 ?>

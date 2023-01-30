@@ -2100,7 +2100,10 @@ div.pagination span.disabled {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #fff;
+  /* background-color: #fff; */
+
+  background-color: rgba(232, 227, 227, 0.95);
+
   z-index: 999999;
 }
 
@@ -2110,7 +2113,7 @@ div.pagination span.disabled {
   position: absolute;
   left: 50%;
   top: 50%;
-  background: url(../img/1.gif);
+  background: url(../img/gg.gif);
   background-repeat: no-repeat;
   background-position: center;
   margin: -100px 0 0 -100px;
@@ -2124,6 +2127,7 @@ div.pagination span.disabled {
 .breadcrumb {
   background: #fff;
   margin-top: -40px;
+  font-weight: bold;
 }
 
 .breadcrumb ul li {
