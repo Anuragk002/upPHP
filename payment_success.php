@@ -28,11 +28,11 @@
                             // 	<?php
                             //     header("refresh:3;url= ".BASE_URL."logout.php");
                             // }
-                            echo '<a href="dashboard.php" class="btn btn-success"><?php echo LANG_VALUE_91; ?></a>';
+                            echo '<a href="dashboard.php" class="btn btn-success">'.LANG_VALUE_91.'</a>';
                             }
                         else{
                                 
-                            echo '<a href="index.php" class="btn btn-success"><?php echo "Go to Home";#LANG_VALUE_91; ?></a>';
+                            echo '<a href="index.php" class="btn btn-success">Go to Home</a>';
                             
                         }                        
 					?>
