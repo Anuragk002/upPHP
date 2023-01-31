@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2023 at 07:28 AM
+-- Generation Time: Jan 31, 2023 at 08:33 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -788,7 +788,11 @@ INSERT INTO `tbl_order` (`id`, `product_id`, `product_name`, `pkg_name`, `quanti
 (29, 148, 'Sleep2', '200 PILLS', '1', '400', '1674637103'),
 (30, 152, 'Gym2', '100 PILLS', '1', '200', '1674759018'),
 (31, 152, 'Gym2', '200 PILLS', '1', '400', '1674759160'),
-(32, 144, 'AA', '100 PILLS', '1', '100', '1674886360');
+(32, 144, 'AA', '100 PILLS', '1', '100', '1674886360'),
+(33, 150, 'Painkiller2', '100 PILLS', '1', '200', '1674896696'),
+(34, 144, 'AA', '100 PILLS', '1', '100', '1675192596'),
+(35, 144, 'AA', '100 PILLS', '1', '100', '1675192679'),
+(36, 150, 'Painkiller2', '100 PILLS', '1', '200', '1675192784');
 
 -- --------------------------------------------------------
 
@@ -850,6 +854,7 @@ CREATE TABLE `tbl_payment` (
   `customer_name` varchar(255) NOT NULL,
   `customer_email` varchar(255) NOT NULL,
   `payment_date` varchar(50) NOT NULL,
+  `order_date` varchar(100) NOT NULL,
   `txnid` varchar(255) NOT NULL,
   `paid_amount` int(11) NOT NULL,
   `card_number` varchar(50) NOT NULL,
@@ -859,7 +864,11 @@ CREATE TABLE `tbl_payment` (
   `bank_transaction_info` text NOT NULL,
   `payment_method` varchar(20) NOT NULL,
   `payment_status` varchar(25) NOT NULL,
+  `tracking_id` varchar(100) NOT NULL,
+  `tracking_link` text NOT NULL,
+  `tracking_date` varchar(100) NOT NULL,
   `shipping_status` varchar(20) NOT NULL,
+  `shipping_date` varchar(100) NOT NULL,
   `payment_id` varchar(255) NOT NULL,
   `s_name` varchar(250) NOT NULL,
   `s_phone` varchar(50) NOT NULL,
@@ -875,16 +884,20 @@ CREATE TABLE `tbl_payment` (
 -- Dumping data for table `tbl_payment`
 --
 
-INSERT INTO `tbl_payment` (`id`, `customer_id`, `customer_name`, `customer_email`, `payment_date`, `txnid`, `paid_amount`, `card_number`, `card_cvv`, `card_month`, `card_year`, `bank_transaction_info`, `payment_method`, `payment_status`, `shipping_status`, `payment_id`, `s_name`, `s_phone`, `s_email`, `s_address`, `s_city`, `s_state`, `s_country`, `s_zip`) VALUES
-(51, 2, 'Chad N. Carney', 'chad@mail.com', '2022-03-18 22:48:49', '', 19, '', '', '', '', 'Transaction Id: CA01010158967840\r\nTransaction Date: 3/19/2022\r\nBank: WestView Bank, CA Branch\r\nSender A/C: 102458965WV', 'Bank Deposit', 'Completed', 'Completed', '1647629329', 'Pankaj', '012345678', 'p@gmail.com', 'ramgarh', 'sultanpur', 'up', 230, '222302'),
-(52, 3, 'Jean Collins', 'jean@mail.com', '2022-03-20 10:49:53', '', 91, '', '', '', '', '', 'PayPal', 'Completed', 'Completed', '1647798593', '', '', '', '', '', '', 0, ''),
-(54, 6, 'August F. Freels', 'august@mail.com', '2022-03-20 10:59:34', '', 70, '', '', '', '', 'Transaction Id: CA01101198945600\nTransaction Date: 3/20/2022 \nBank: WestView Bank, CA Branch \nSender A/C: 1100047860WV', 'Bank Deposit', 'Completed', 'Pending', '1647799174', '', '', '', '', '', '', 0, ''),
-(55, 10, 'Will Williams', 'williams@mail.com', '2022-03-20 11:28:22', '', 149, '', '', '', '', 'Transaction Id: CA01003177945009\r\nTransaction Date: 3/20/2022 \r\nBank: WestView Bank, CA Branch \r\nSender A/C: NQ1011050160WV', 'COD/Pay Later', 'Completed', 'Completed', '1647800902', '', '', '', '', '', '', 0, ''),
-(80, 0, 'ppppppppppppppp', 'p@gmail.com', '', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', 'Pending', '1674636961', 'ppppppppppppppp', '88', 'p@gmail.com', '88u', 'u', 'up', 16, '889'),
-(83, 0, 'df', 'a@gmail.com', '', '', 400, '', '', '', '', '', 'COD/Pay Later', 'Completed', 'Pending', '1674759160', 'df', '3244', 'a@gmail.com', 'fg', 'vb', 'cv', 18, '233'),
-(81, 0, 'cc', 'p@gmail.com', '', '', 400, '', '', '', '', '', 'COD/Pay Later', 'Completed', 'Pending', '1674637103', 'cc', '88', 'p@gmail.com', '88u', 'u', 'up', 16, '889'),
-(82, 0, 'df', 'a@gmail.com', '', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', 'Pending', '1674759018', 'df', '3244', 'a@gmail.com', 'fg', 'vb', 'cv', 18, '233'),
-(84, 23, 'Pankaj Giri', 'pankaj143giri@gmail.com', '', '', 100, '', '', '', '', '', 'COD/Pay Later', 'Pending', 'Pending', '1674886360', 'Suraj', '1234567890', 's@gmail.com', 'ramgarh', 'sln', 'up', 5, '222342');
+INSERT INTO `tbl_payment` (`id`, `customer_id`, `customer_name`, `customer_email`, `payment_date`, `order_date`, `txnid`, `paid_amount`, `card_number`, `card_cvv`, `card_month`, `card_year`, `bank_transaction_info`, `payment_method`, `payment_status`, `tracking_id`, `tracking_link`, `tracking_date`, `shipping_status`, `shipping_date`, `payment_id`, `s_name`, `s_phone`, `s_email`, `s_address`, `s_city`, `s_state`, `s_country`, `s_zip`) VALUES
+(51, 2, 'Chad N. Carney', 'chad@mail.com', '2022-03-18 22:48:49', '', '', 19, '', '', '', '', 'Transaction Id: CA01010158967840\r\nTransaction Date: 3/19/2022\r\nBank: WestView Bank, CA Branch\r\nSender A/C: 102458965WV', 'Bank Deposit', 'Completed', '123456', '', '12/01/2020', 'Completed', '12/02/2020', '1647629329', 'Pankaj', '012345678', 'p@gmail.com', 'ramgarh', 'sultanpur', 'up', 230, '222302'),
+(52, 3, 'Jean Collins', 'jean@mail.com', '2022-03-20 10:49:53', '', '', 91, '', '', '', '', '', 'PayPal', 'Completed', '123456', '', '12/07/2021', 'Completed', '12/08/2021', '1647798593', '', '', '', '', '', '', 0, ''),
+(54, 6, 'August F. Freels', 'august@mail.com', '2022-03-20 10:59:34', '', '', 70, '', '', '', '', 'Transaction Id: CA01101198945600\nTransaction Date: 3/20/2022 \nBank: WestView Bank, CA Branch \nSender A/C: 1100047860WV', 'Bank Deposit', 'Completed', '-1', '', '', 'Pending', '', '1647799174', '', '', '', '', '', '', 0, ''),
+(55, 10, 'Will Williams', 'williams@mail.com', '2022-03-20 11:28:22', '', '', 149, '', '', '', '', 'Transaction Id: CA01003177945009\r\nTransaction Date: 3/20/2022 \r\nBank: WestView Bank, CA Branch \r\nSender A/C: NQ1011050160WV', 'COD/Pay Later', 'Completed', '123456', '', '11/01/2022', 'Completed', '11/02/2022', '1647800902', '', '', '', '', '', '', 0, ''),
+(80, 0, 'ppppppppppppppp', 'p@gmail.com', '2022-03-20 11:28:22', '', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', '-1', '', '', 'Pending', '', '1674636961', 'ppppppppppppppp', '88', 'p@gmail.com', '88u', 'u', 'up', 16, '889'),
+(83, 0, 'df', 'a@gmail.com', '2022-03-20 11:28:22', '', '', 400, '', '', '', '', '', 'COD/Pay Later', 'Completed', '-1', '', '', 'Pending', '', '1674759160', 'df', '3244', 'a@gmail.com', 'fg', 'vb', 'cv', 18, '233'),
+(81, 0, 'cc', 'p@gmail.com', '2022-03-20 11:28:22', '', '', 400, '', '', '', '', '', 'COD/Pay Later', 'Completed', '-1', '', '', 'Pending', '', '1674637103', 'cc', '88', 'p@gmail.com', '88u', 'u', 'up', 16, '889'),
+(82, 0, 'df', 'a@gmail.com', '2022-03-20 11:28:22', '', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', '-1', '', '', 'Pending', '', '1674759018', 'df', '3244', 'a@gmail.com', 'fg', 'vb', 'cv', 18, '233'),
+(84, 23, 'Pankaj Giri', 'pankaj143giri@gmail.com', '', '', '', 100, '', '', '', '', '', 'COD/Pay Later', 'Pending', '-1', '', '', 'Pending', '', '1674886360', 'Suraj', '1234567890', 's@gmail.com', 'ramgarh', 'sln', 'up', 5, '222342'),
+(85, 0, 'rak', 'a@gmail.com', '2023-01-31 10:45:18', '', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', '0989', 'check tracking', '2023-01-31 10:57:02', 'Completed', '2023-01-31 10:58:44', '1674896696', 'rak', '8009', 'a@gmail.com', 'ijjj', 'h', 'hh', 17, '909'),
+(87, 0, 'GUEST', '', '', '2023-01-31 11:16:36', '', 100, '', '', '', '', '', 'COD/Pay Later', 'Pending', '-1', '', '', 'Pending', '', '1675192596', 'suraj', '88999', 's@gmail.com', 'gomtingr', 'lko', 'up', 69, '9098888'),
+(88, 0, 'GUEST', '', '', '2023-01-31 11:17:59', '', 100, '', '', '', '', '', 'COD/Pay Later', 'Pending', '-1', '', '', 'Pending', '', '1675192679', 'kl', '88999', 's@gmail.com', 'gomtingr', 'lko', 'up', 69, '9098888'),
+(89, 23, 'Pankaj Giri', 'pankaj143giri@gmail.com', '', '2023-01-31 11:19:44', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Pending', '-1', '', '', 'Pending', '', '1675192784', 't', '1234567890', 's@gmail.com', 'ramgarh', 'sln', 'up', 5, '222342');
 
 -- --------------------------------------------------------
 
@@ -999,13 +1012,13 @@ INSERT INTO `tbl_product` (`p_id`, `p_name`, `p_old_price`, `p_current_price`, `
 (102, 'Women\'s Plus-Size Shirt Dress with Gold Hardware', '190', '169', 112, 'product-featured-102.jpg', '<p><span style=\"color: rgb(15, 17, 17); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px;\">This dress has everything! Enough stretch to be forgiving. Works for my hourglass/pear shape just fine. The cap sleeves satisfy conservative dressing requirements (no sleeveless) but still works for spring/summer.</span><br></p>', '<p>From Calvin Klein</p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Cap-sleeve shirt dress featuring belted waist with gold-tone hardware accents</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Split v-neckline</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Exposed center back zipper</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers a&nbsp;</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">&nbsp;in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 19, 1, 0, 5),
 (139, 'ElecTest', '', '8', 16, 'product-featured-139.jpg', '', '', '', '', '', 202, 1, 1, 4),
 (143, 'D_Stress', '', '', 123, 'product-featured-143.jpg', '', '', '', '', '', 41, 0, 1, 4),
-(144, 'AA', '', '', 115, 'product-featured-144.png', '', '', '', '', '', 102, 0, 1, 7),
-(145, 'Anxiety1', '', '', 102, 'product-featured-145.jpg', '', '', '', '', '', 24, 1, 1, 7),
+(144, 'AA', '', '', 115, 'product-featured-144.png', '', '', '', '', '', 106, 0, 1, 7),
+(145, 'Anxiety1', '', '', 102, 'product-featured-145.jpg', '', '', '', '', '', 25, 1, 1, 7),
 (146, 'Anxiety2', '', '', 100, 'product-featured-146.jpg', '', '', '', '', '', 2, 0, 1, 7),
 (147, 'Sleep1', '', '', 100, 'product-featured-147.jpg', '', '', '', '', '', 0, 0, 1, 10),
 (148, 'Sleep2', '', '', 100, 'product-featured-148.jpg', '', '', '', '', '', 21, 1, 1, 10),
 (149, 'Painkiller1', '', '', 102, 'product-featured-149.jpg', '', '', '', '', '', 7, 1, 1, 8),
-(150, 'Painkiller2', '', '', 110, 'product-featured-150.jpg', '', '', '', '', '', 12, 1, 1, 8),
+(150, 'Painkiller2', '', '', 110, 'product-featured-150.jpg', '', '', '', '', '', 16, 1, 1, 8),
 (151, 'Gym1', '', '', 116, 'product-featured-151.jpg', '', '', '', '', '', 7, 1, 1, 9),
 (152, 'Gym2', '', '', 109, 'product-featured-152.jpg', '', '', '', '', '', 27, 1, 1, 9),
 (153, 'sWell1', '', '', 100, 'product-featured-153.jpg', '', '', '', '', '', 0, 1, 1, 11),
@@ -2047,7 +2060,7 @@ ALTER TABLE `tbl_mid_category`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT for table `tbl_page`
 --
@@ -2057,7 +2070,7 @@ ALTER TABLE `tbl_page`
 -- AUTO_INCREMENT for table `tbl_payment`
 --
 ALTER TABLE `tbl_payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 --
 -- AUTO_INCREMENT for table `tbl_photo`
 --

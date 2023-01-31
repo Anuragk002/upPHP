@@ -14,6 +14,7 @@ $csrf = new CSRF_Protect();
     $c_err_msg = '';
     $c_success_msg = '';
     $order_number = time();
+    $order_date = date('Y-m-d H:i:s');
     if(!isset($_SESSION['s_address'])){
         header('location: ../../cart.php');
         exit;
@@ -73,8 +74,7 @@ $csrf = new CSRF_Protect();
                 $i++;
             }
             $cust_id=0;
-            $cust_name=$_SESSION['s_address']['name'];
-            $cust_email=$_SESSION['s_address']['email'];
+            $cust_name='GUEST';
         }
     }
 
@@ -116,8 +116,8 @@ $csrf = new CSRF_Protect();
         $table_total_price=$table_total_price +($arr_cart_p_qty[$i]*$arr_cart_pkg_price[$i]);
     }
     // Inserting payment details->
-    $statement = $pdo->prepare("INSERT INTO tbl_payment (customer_id, customer_name, customer_email, payment_date, txnid, paid_amount, card_number, card_cvv, card_month, card_year, bank_transaction_info, payment_method, payment_status, shipping_status, payment_id, s_name, s_phone, s_email, s_address, s_city, s_state, s_country, s_zip) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-    $statement->execute(array($cust_id, $cust_name, $cust_email, '','', $table_total_price,'','','','','','COD/Pay Later','Pending','Pending',$order_number,$s_name,$s_phone,$s_email,$s_address,$s_city,$s_state,$s_country,$s_zip));
+    $statement = $pdo->prepare("INSERT INTO tbl_payment (customer_id, customer_name, customer_email, payment_date,order_date, txnid, paid_amount, card_number, card_cvv, card_month, card_year, bank_transaction_info, payment_method, payment_status, tracking_id, tracking_link, tracking_date, shipping_status, payment_id, s_name, s_phone, s_email, s_address, s_city, s_state, s_country, s_zip) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+    $statement->execute(array($cust_id, $cust_name, $cust_email, '',$order_date,'', $table_total_price,'','','','','','COD/Pay Later','Pending',-1,'','','Pending',$order_number,$s_name,$s_phone,$s_email,$s_address,$s_city,$s_state,$s_country,$s_zip));
 
     // Inserting the Order Details->
     for($i=0;$i<count($arr_cart_p_name);$i++) {
@@ -130,7 +130,7 @@ $csrf = new CSRF_Protect();
     ?>
     <div style="text-align: center">
       <h4>Your Order is Being Placed..</h4>
-      <h5>Note: Wait for sometime, Dont press anything.</h5>
+      <h5>Note: Wait for sometime, Don't press anything.</h5>
     </div>
     
     <?php
