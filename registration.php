@@ -113,7 +113,7 @@ if (isset($_POST['form1'])) {
 //                    "MIME-Version: 1.0\r\n" . 
 //                    "Content-Type: text/html; charset=ISO-8859-1\r\n";
         $to = $_POST['cust_email'];
-        $verify_link ='localhost/unitpharma/verify.php?email='.$to.'&token='.$token;
+        $verify_link ='https://www.unitpharma.com/verify.php?email='.$to.'&token='.$token;
 
         $body ='
             <body>

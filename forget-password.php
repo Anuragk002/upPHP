@@ -68,7 +68,7 @@ if(isset($_POST['form1'])) {
 
         // mail($to, $subject, $message, $headers);
         $to = $_POST['cust_email'];
-        $verify_link ='localhost/unitpharma/reset-password.php?email='.$to.'&token='.$token;
+        $verify_link ='https://www.unitpharma.com/reset-password.php?email='.$to.'&token='.$token;
 
         $body ='
             <body>
