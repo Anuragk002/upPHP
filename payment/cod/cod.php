@@ -5,6 +5,7 @@ session_start();
 include("../../admin/inc/config.php");
 include("../../admin/inc/functions.php");
 include("../../admin/inc/CSRF_Protect.php");
+include("../../maill.php");
 $csrf = new CSRF_Protect();
 // header('location: ../../payment_success.php');
 ?>
@@ -124,11 +125,12 @@ $csrf = new CSRF_Protect();
     	$statement = $pdo->prepare("INSERT INTO tbl_order (product_id,product_name,pkg_name,quantity, pkg_price, payment_id) VALUES (?,?,?,?,?,?)");
 		$statement->execute(array($arr_cart_p_id[$i],$arr_cart_p_name[$i],$arr_cart_pkg_name[$i],$arr_cart_p_qty[$i],$arr_cart_pkg_price[$i],$order_number));
     }
+
     // storing order number--->
     $_SESSION['order_number']=$order_number;
 
     ?>
-    <div style="text-align: center">
+    <div style="text-align: center; border:2px solid black; margin-top:50px">
       <h4>Your Order is Being Placed..</h4>
       <h5>Note: Wait for sometime, Don't press anything.</h5>
     </div>
@@ -146,8 +148,82 @@ $csrf = new CSRF_Protect();
             unset($_SESSION['cart_p_qty']);
         }
     }
+
+    // sending mail ====>
+    $statement_cn = $pdo->prepare("SELECT * FROM tbl_country WHERE country_id=?");
+    $statement_cn->execute(array($s_country));
+    $result_cn = $statement_cn->fetchAll(PDO::FETCH_ASSOC);
+    foreach ($result_cn as $cn) {
+        $s_country_name= $cn['country_name']; 
+    }
+    $shipping_address='
+            <u><b>Shipping Address-</b></u>
+            <ul style="padding-left:20px;list-style-type:None;color:black">
+            <li><b>Name: </b>'.$s_name.'</li>
+            <li><b>Phone: </b>'.$s_phone.'</li>
+            <li><b>Address: </b>'.$s_address.', '.$s_city.', '.$s_state.', '.$s_country_name.', '.$s_zip.'</li>
+            </ul>'; 
+    $status_details='
+        <ul style="list-style-type:None;color:black">
+        <li><b>Order ID: </b>'.$order_number.'</li>
+        <li><b>Order Date: </b>'.$order_date.'</li>
+        <li><b>Total Amount: </b>$'.$table_total_price.'</li>
+        <li><b>Payment Status: </b>Pending</li>
+        </ul>';
+
+    $order_details='';
+    $order_details .= '
+        <table border=1 >
+        <caption>Order Details</caption>
+        <tr>
+        <th>#</th>
+        <th>Product Name</th>
+        <th>Package</th>
+        <th>Price</th>
+        <th>Quanity</th>
+        <th>Total</th>
+        </tr>
+        ';
+    $ct=0;
+    for($i=0;$i<count($arr_cart_p_name);$i++) {
+        $ct++;
+            $order_details .= '
+                <tr>
+                <td>'.$ct.'</td>
+                <td>'.$arr_cart_p_name[$i].'</td>
+                <td>'.$arr_cart_pkg_name[$i].'</td>
+                <td>$'.$arr_cart_pkg_price[$i].'</td>
+                <td>'.$arr_cart_p_qty[$i].'</td>
+                <td>$'.$arr_cart_pkg_price[$i]*$arr_cart_p_qty[$i].'</td>
+                </tr>
+                ';
+    }
+    $order_details .= '
+        <tr>
+        <td colspan=5><b>Grand Total</b></td>
+        <td><b>$'.$table_total_price.'</b></td>
+        </tr>
+        </table>
+        ';
+    $body ='<body>
+        <span style="color:black">Hello '.$s_name.',</span><br/>
+        <span style="color:black">Your order has been placed successfully with Order ID: '.$order_number.'. Your payment status for this order is pending. We will contact you soon to complete the payment process.<br/>'.$status_details.'
+        '. $order_details .'<br/>'.$shipping_address.'</span>
+        <span style="color:black"> Thanks for shopping with us. If you are facing any issue, Please contact us.</span><br/><br/>
+        <span style="color:black">
+        <b>Thanks and Regards</b><br/>
+        Unit Pharma Support Team<br/>
+        Website: <a href="https://www.unitpharma.com" style="color:blue">https://www.unitpharma.com</a><br/>
+        </span>
+        </body>
+        ';
+    $mail->addAddress("pankaj143giri@gmail.com", $s_name);//user mail customer
+    $mail->Subject = 'Order confirmation - '.$order_number;//subject
+    $mail->IsHTML(true);
+    $mail->Body    = $body;
+    $mail->send();
     // redirecting to successfull page
-    header('location: ../../payment_success.php');
+    header('location: ../../order_success.php');
     // echo '<script>window.location="../../payment_success.php";</script>';
 
 

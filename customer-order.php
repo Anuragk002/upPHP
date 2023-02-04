@@ -31,18 +31,16 @@ if(!isset($_SESSION['customer'])) {
                             <thead>
                                 <tr>
                                     <th><?php echo '#' ?></th>
-                                    <th><?php echo LANG_VALUE_48; ?></th>
-                                    <th><?php echo LANG_VALUE_27; ?></th>
-                                    <th><?php echo LANG_VALUE_28; ?></th>
-                                    <th><?php echo LANG_VALUE_29; ?></th>
-                                    <th><?php echo LANG_VALUE_30; ?></th>
-                                    <th><?php echo LANG_VALUE_31; ?></th>
-                                    <th><?php echo "Order ID"#LANG_VALUE_32; ?></th>
+                                    <th>Product Details</th>
+                                    <th>Order ID & Date</th>
+                                    <th>Amount</th>
+                                    <th>Payment Status</th>
+                                    <th>Tracking ID</th>
+                                    <th>Address</th>
+                                    <th>Delivery</th>
                                 </tr>
                             </thead>
                             <tbody>
-
-
             <?php
             /* ===================== Pagination Code Starts ================== */
             $adjacents = 5;
@@ -141,8 +139,6 @@ if(!isset($_SESSION['customer'])) {
             } 
             /* ===================== Pagination Code Ends ================== */
             ?>
-
-
                                 <?php
                                 $tip = $page*10-10;
                                 foreach ($result as $row) {
@@ -157,7 +153,7 @@ if(!isset($_SESSION['customer'])) {
                                                 $result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
                                                 foreach ($result1 as $row1) {
                                                         
-                                                        echo ',<b>Product:</b> '.$row1['product_name'];
+                                                        echo '<b>Product:</b> '.$row1['product_name'];
                                                         echo '<br>(<b>Package:</b> '.$row1['pkg_name'];
                                                         echo '<br>(<b>Quantity:</b> '.$row1['quantity'];
                                                         echo ', <b>Package Price:</b> '.$row1['pkg_price'].')';
@@ -165,12 +161,42 @@ if(!isset($_SESSION['customer'])) {
                                                 }
                                             ?>
                                         </td>
-                                        <td><?php echo $row['payment_date']; ?></td>
-                                        <td><?php echo $row['txnid']; ?></td>
-                                        <td><?php echo '$'.$row['paid_amount']; ?></td>
+                                        <td><b>ID: </b><?php echo $row['payment_id']; ?><br/><b>Date: </b><?php echo $row['payment_date']; ?></td>
+                                        <td><?php echo "$".$row['paid_amount']; ?></td>
                                         <td><?php echo $row['payment_status']; ?></td>
-                                        <td><?php echo $row['payment_method']; ?></td>
-                                        <td><?php echo $row['payment_id']; ?></td>
+                                        <td>
+                                            <?php 
+                                                if($row['tracking_id']!=-1){
+                                                    echo "<b>ID:</b> ".$row['tracking_id'].'<br>';
+                                                    echo "<b>Link:</b> <a style='color:blue; font-weight:bold' href=".$row['tracking_link'].">click to track</a><br>";
+                                                }else{
+                                                    echo 'Pending';
+                                                }
+                                            ?>
+                                         </td>
+                                        <td>
+                                            <b>Name: </b><?php echo $row['s_name']; ?><br>
+                                            <b>Phone: </b><?php echo $row['s_phone']; ?><br>
+                                            <b>Address: </b><?php echo $row['s_address']; ?>, <?php echo $row['s_city']; ?>, <?php echo $row['s_state']; ?>,<br>
+                                            <?php
+                                            $statement1 = $pdo->prepare("SELECT * FROM tbl_country WHERE country_id=?");
+                                            $statement1->execute(array($row['s_country']));
+                                            $result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
+                                            foreach ($result1 as $cn) {
+                                            echo $cn['country_name']; }?>, Zip: <?php echo $row['s_zip']; ?>
+                                        </td>
+                                        <td>
+                                            <?php 
+                                                if($row['shipping_status']=='Completed'){
+                                                    echo "<b>Status:</b> ".$row['shipping_status'].'<br>';
+                                                    echo "<b>Date:</b> ".$row['shipping_date'];
+                                                }
+                                                else{
+                                                    echo $row['shipping_status'].'<br>';
+                                                }
+                                            ?>
+                                        </td>
+                                        
                                     </tr>
                                     <?php
                                 } 
