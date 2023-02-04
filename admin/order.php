@@ -1,4 +1,6 @@
-<?php require_once('header.php'); ?>
+<?php require_once('header.php');
+include('../maill.php');
+?>
 
 <?php
 $error_message = '';
@@ -17,7 +19,6 @@ if(isset($_POST['form1'])) {
         $error_message .= 'Sorry! Something went wrong, Please reload the page and try again.\n';
     }
     if($valid == 1) {
-
         $subject_text = strip_tags($_POST['subject_text']);
         $message_text = strip_tags($_POST['message_text']);
 
@@ -30,111 +31,187 @@ if(isset($_POST['form1'])) {
         // }
 
         // Getting Admin Email Address
-        $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
-        $statement->execute();
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
-        foreach ($result as $row) {
-            $admin_email = $row['contact_email'];
-        }
-
-        $order_detail = '';
+        // $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
+        // $statement->execute();
+        // $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+        // foreach ($result as $row) {
+        //     $admin_email = $row['contact_email'];
+        // }
+        
         $statement = $pdo->prepare("SELECT * FROM tbl_payment WHERE payment_id=?");
         $statement->execute(array($_POST['payment_id']));
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
         foreach ($result as $row) {
-        	$c_email = $row['s_email'];
-            $c_name=$row['s_name'];
-        	if($row['payment_method'] == 'PayPal'):
-        		$payment_details = '
-                                Transaction Id: '.$row['txnid'].'<br>
-                                                ';
-        	elseif($row['payment_method'] == 'Stripe'):
-				$payment_details = '
-                                Transaction Id: '.$row['txnid'].'<br>
-                                Card number: '.$row['card_number'].'<br>
-                                Card CVV: '.$row['card_cvv'].'<br>
-                                Card Month: '.$row['card_month'].'<br>
-                                Card Year: '.$row['card_year'].'<br>
-                                                ';
-        	elseif($row['payment_method'] == 'Bank Deposit'):
-				$payment_details = '
-                                Transaction Details: <br>'.$row['bank_transaction_info'];
+            $payment_id=$row['payment_id'];
+            $total_amount=$row['paid_amount'];
+            $order_date=$row['order_date'];
+            $payment_method=$row['payment_method'];
+            $payment_status=$row['payment_status'];
+            $payment_date=$row['payment_date'];
+            $tracking_id=$row['tracking_id'];
+            $tracking_link=$row['tracking_link'];
+            $shipping_status=$row['shipping_status'];
+        	$s_email = $row['s_email'];
+            $s_name=$row['s_name'];
+            $s_phone=$row['s_phone'];
+            $s_address=$row['s_address'];
+            $s_city=$row['s_city'];
+            $s_state=$row['s_state'];
+            $s_zip=$row['s_zip'];
 
-            elseif($row['payment_method'] == 'COD/Pay Later'):
-                $payment_details = '
-                                Payment Method: '.$row['payment_method'].'<br>
-                                Paid Amount: '.$row['paid_amount'].'<br>
-                                Payment Date: '.$row['payment_date'].'<br>';
-        	endif;
-            
-            $status='
-                    Payment Status: '.$row['payment_status'].'<br>
-                    Shipping Status: '.$row['shipping_status'].'<br>
-                    ';
             $statement7 = $pdo->prepare("SELECT * FROM tbl_country WHERE country_id=?");
             $statement7->execute(array($row['s_country']));
             $result7 = $statement7->fetchAll(PDO::FETCH_ASSOC);
             foreach ($result7 as $cn7) {
-            $cnt= $cn7['country_name']; }
-            $shipping_details='
-                    Name: '.$row['s_name'].'<br>
-                    Phone: '.$row['s_phone'].'<br>
-                    Address: '.$row['s_address'].','.$row['s_address'].','.$row['s_city'].','.$row['s_state'].','.$cnt.','.$row['s_zip'].'<br>
-                    ';
-            $order_detail .= '
-                            <br><b><u>Order Id & Time:</u></b><br>
-                            Order Id: '.$row['payment_id'].'<br>
-                            Order Time: '.$row['order_date'].'<br><br>
-                            <b><u>Payment Details:</u></b><br>'.$payment_details.'<br>
-                            <b><u>Current Status:</u></b><br>'.$status.'<br>
-                            <b><u>Shipping Details:</u></b><br>'.$shipping_details.'<br>  
-                            ';
+                $s_country= $cn7['country_name']; 
+            }
+
+            
+
+        	// if($row['payment_method'] == 'PayPal'):
+        	// 	$payment_details = '
+            //                     Transaction Id: '.$row['txnid'].'<br>
+            //                                     ';
+        	// elseif($row['payment_method'] == 'Stripe'):
+			// 	$payment_details = '
+            //                     Transaction Id: '.$row['txnid'].'<br>
+            //                     Card number: '.$row['card_number'].'<br>
+            //                     Card CVV: '.$row['card_cvv'].'<br>
+            //                     Card Month: '.$row['card_month'].'<br>
+            //                     Card Year: '.$row['card_year'].'<br>
+            //                                     ';
+        	// elseif($row['payment_method'] == 'Bank Deposit'):
+			// 	$payment_details = '
+            //                     Transaction Details: <br>'.$row['bank_transaction_info'];
+
+            // elseif($row['payment_method'] == 'COD/Pay Later'):
+            //     $payment_details = '
+            //                     Payment Method: '.$row['payment_method'].'<br>
+            //                     Paid Amount: '.$row['paid_amount'].'<br>';
+        	// endif;
+            
+            // $status='
+            //         Payment Status: '.$row['payment_status'].'<br>
+            //         Shipping Status: '.$row['shipping_status'].'<br>
+            //         ';
+            // $statement7 = $pdo->prepare("SELECT * FROM tbl_country WHERE country_id=?");
+            // $statement7->execute(array($row['s_country']));
+            // $result7 = $statement7->fetchAll(PDO::FETCH_ASSOC);
+            // foreach ($result7 as $cn7) {
+            // $cnt= $cn7['country_name']; }
         }
 
+        $shipping_address='
+            <u><b>Shipping Address-</b></u>
+            <ul style="padding-left:20px;list-style-type:None;color:black">
+            <li><b>Name: </b>'.$s_name.'</li>
+            <li><b>Phone: </b>'.$s_phone.'</li>
+            <li><b>Address: </b>'.$s_address.', '.$s_city.', '.$s_state.', '.$s_country.', '.$s_zip.'</li>
+            </ul>';
+
+        $status_details='<ul style="list-style-type:None;color:black">'; 
+        $status_details.='
+			<li><b>Order ID: </b>'.$payment_id.'</li>
+            <li><b>Order Date: </b>'.$order_date.'</li>
+            <li><b>Total Amount: </b>$'.$total_amount.'</li>
+            <li><b>Payment Status: </b>'.$payment_status.'</li>';
+            if(($payment_status=='Completed') && ($tracking_id==-1)){
+                $status_details.='
+                <li><i>Note*- Order not processed yet, will be processed soon.</i></li>
+                ';
+            }
+        if(($payment_status=='Completed') && ($tracking_id!=-1)){
+            $status_details.='
+            <li><b>Tracking ID: </b>'.$tracking_id.'</li>
+            <li><b><a href="'.$tracking_link.'">CLICK HERE! TO TRACK YOUR ORDER</a></b></li>
+            ';
+        }
+        $status_details.='</ul>'; 
+        $order_details='';
+        $order_details .= '
+            <table border=1 >
+            <caption>Order Details</caption>
+            <tr>
+            <th>#</th>
+            <th>Product Name</th>
+            <th>Package</th>
+            <th>Price</th>
+            <th>Quanity</th>
+            <th>Total</th>
+            </tr>
+            ';
         $i=0;
         $statement = $pdo->prepare("SELECT * FROM tbl_order WHERE payment_id=?");
         $statement->execute(array($_POST['payment_id']));
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
         foreach ($result as $row) {
             $i++;
-            $order_detail .= '
-                            <br><b><u>Product Item '.$i.'</u></b><br>
-                            Product Name: '.$row['product_name'].'<br>
-                            Package: '.$row['pkg_name'].'<br>
-                            Quantity: '.$row['quantity'].'<br>
-                            Package Price: '.$row['pkg_price'].'<br>
-                                        ';
+            $order_details .= '
+                <tr>
+                <td>'.$i.'</td>
+                <td>'.$row['product_name'].'</td>
+                <td>'.$row['pkg_name'].'</td>
+                <td>$'.$row['pkg_price'].'</td>
+                <td>'.$row['quantity'].'</td>
+                <td>$'.$row['pkg_price']*$row['quantity'].'</td>
+                </tr>
+                ';
         }
-
-        $statement = $pdo->prepare("INSERT INTO tbl_customer_message (`subject`,`message`,`order_detail`,`payment_id`) VALUES (?,?,?,?)");
-        $statement->execute(array($subject_text,$message_text,$order_detail,$_POST['payment_id']));
+        $order_details .= '
+            <tr>
+            <td colspan=5><b>Grand Total</b></td>
+            <td><b>$'.$total_amount.'</b></td>
+            </tr>
+            </table>
+            ';
 
         // sending email
-        $to_customer = $cust_email;
-        $message = '
-                <html><body>
-                <p>Hi '.$c_name.',<br></p>
-                '.$message_text.'<br>
-                <h3>Order Details: </h3>
-                '.$order_detail.'<br>
-                Thanks! for shopping with us. If you have any queries, Please contact to us.<br><br>
-                <b>Thanks and Regards<b><br>
-                <p>Unit Pharma Support Team</p><br>
-                <p>Website:<a href="https://www.unitpharma.com">https://www.unitpharma.com</a><p>
-                </body></html>
-                ';
-        $headers = 'From: ' . $admin_email . "\r\n" .
-                   'Reply-To: ' . $admin_email . "\r\n" .
-                   'X-Mailer: PHP/' . phpversion() . "\r\n" . 
-                   "MIME-Version: 1.0\r\n" . 
-                   "Content-Type: text/html; charset=ISO-8859-1\r\n";
+            // $to_customer = $cust_email;
+            // $message = '
+            //         <html><body>
+            //         <p>Hi '.$c_name.',<br></p>
+            //         '.$message_text.'<br>
+            //         <h3>Order Details: </h3>
+            //         '.$order_detail.'<br>
+            //         Thanks! for shopping with us. If you have any queries, Please contact to us.<br><br>
+            //         <b>Thanks and Regards<b><br>
+            //         <p>Unit Pharma Support Team</p><br>
+            //         <p>Website:<a href="https://www.unitpharma.com">https://www.unitpharma.com</a><p>
+            //         </body></html>
+            //         ';
+            // $headers = 'From: ' . $admin_email . "\r\n" .
+            //            'Reply-To: ' . $admin_email . "\r\n" .
+            //            'X-Mailer: PHP/' . phpversion() . "\r\n" . 
+            //            "MIME-Version: 1.0\r\n" . 
+            //            "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
-        // Sending email to admin                  
-        mail($to_customer, $subject_text, $message, $headers);
+        // // Sending email to admin                  
+        // mail($to_customer, $subject_text, $message, $headers);
+
+        $body ='<body>
+			<span style="color:black">Hello '.$s_name.',</span><br/>
+			<span style="color:black">'.$message_text.'<br/>'.$status_details.'
+			'. $order_details .'<br/>'.$shipping_address.'</span>
+			<span style="color:black"> Thanks for shopping with us. If you are facing any issue, Please contact us.</span><br/><br/>
+			<span style="color:black">
+            <b>Thanks and Regards</b><br/>
+			Unit Pharma Support Team<br/>
+			Website: <a href="https://www.unitpharma.com" style="color:blue">https://www.unitpharma.com</a><br/>
+            </span>
+			</body>
+			';
+        $mail->addAddress($s_email, $s_name);//user mail customer
+        $mail->Subject = $subject_text;//subject
+        $mail->IsHTML(true);
+        $mail->Body    = $body;
+        $mail->send();
+
+        $statement = $pdo->prepare("INSERT INTO tbl_customer_message (`to_email`,`subject`,`message`,`payment_id`,`status_details`,`order_details`,`shipping_address`) VALUES (?,?,?,?,?,?,?)");
+        $statement->execute(array($s_email,$subject_text,$message_text,$_POST['payment_id'],$status_details,$order_details,$shipping_address));
         
         $success_message = 'Your email to customer is sent successfully.';
-
     }
+
 }
 
 if(isset($_POST['form2'])){
@@ -154,6 +231,24 @@ if(isset($_POST['form2'])){
     
     if($valid == 1) {
 
+        // Check the id is valid or not
+        $statement = $pdo->prepare("SELECT * FROM tbl_payment WHERE payment_id=?");
+        $statement->execute(array($_POST['payment_id']));
+        $total = $statement->rowCount();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+        foreach ($result as $row) {
+
+            $s_name=$row['s_name'];
+            $s_email=$row['s_email'];
+            $payment_id=$row['payment_id'];
+            $order_date=$row['order_date'];
+            $payment_status=$row['payment_status'];
+        }
+        if( $total == 0 ) {
+            header('location: logout.php');
+            exit;
+        }
+
         $tracking_id = strip_tags($_POST['tracking_id']);
         $tracking_link = strip_tags($_POST['tracking_link']);
         $tracking_date=date('Y-m-d H:i:s');
@@ -162,36 +257,64 @@ if(isset($_POST['form2'])){
         $statement->execute(array($tracking_id,$tracking_date,$tracking_link,$_POST['payment_id']));
 
         // Getting Admin Email Address
-        $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
-        $statement->execute();
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
-        foreach ($result as $row) {
-            $admin_email = $row['contact_email'];
-        }
+            // $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
+            // $statement->execute();
+            // $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+            // foreach ($result as $row) {
+            //     $admin_email = $row['contact_email'];
+            // }
 
-        // $message_text='Tracking ID for your order successfully generated. Visit to tracking link to track your order using tracking id.<br>
-        // <br><b>Order ID:</b> '.$payment_id.'<br>
-        // <b>Tracking ID:</b> '.$tracking_id.'<br>
-        // <b>Tracking Link:</b> '.$tracking_link.'<br>
-        // ';
-        // $message = '
-        //             <html><body>
-        //             <p>Hi '.$c_name.',<br></p>
-        //             '.$message_text.'<br>
-        //             Thanks! for shopping with us. If you have any queries, Please contact to us.<br><br>
-        //             <b>Thanks and Regards<b><br>
-        //             <p>Unit Pharma Support Team</p><br>
-        //             <p>Website:<a href="https://www.unitpharma.com">https://www.unitpharma.com</a><p>
-        //             </body></html>
-        //             ';
-        // $headers = 'From: ' . $admin_email . "\r\n" .
-        //            'Reply-To: ' . $admin_email . "\r\n" .
-        //            'X-Mailer: PHP/' . phpversion() . "\r\n" . 
-        //            "MIME-Version: 1.0\r\n" . 
-        //            "Content-Type: text/html; charset=ISO-8859-1\r\n";
+            // $message_text='Tracking ID for your order successfully generated. Visit to tracking link to track your order using tracking id.<br>
+            // <br><b>Order ID:</b> '.$payment_id.'<br>
+            // <b>Tracking ID:</b> '.$tracking_id.'<br>
+            // <b>Tracking Link:</b> '.$tracking_link.'<br>
+            // ';
+            // $message = '
+            //             <html><body>
+            //             <p>Hi '.$c_name.',<br></p>
+            //             '.$message_text.'<br>
+            //             Thanks! for shopping with us. If you have any queries, Please contact to us.<br><br>
+            //             <b>Thanks and Regards<b><br>
+            //             <p>Unit Pharma Support Team</p><br>
+            //             <p>Website:<a href="https://www.unitpharma.com">https://www.unitpharma.com</a><p>
+            //             </body></html>
+            //             ';
+            // $headers = 'From: ' . $admin_email . "\r\n" .
+            //            'Reply-To: ' . $admin_email . "\r\n" .
+            //            'X-Mailer: PHP/' . phpversion() . "\r\n" . 
+            //            "MIME-Version: 1.0\r\n" . 
+            //            "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
         // Sending email to admin                  
         // mail($to_customer, $subject_text, $message, $headers);
+
+        $body ='<body>
+            <span style="color:black">Hello '.$s_name.',</span><br/>
+            <span style="color:black">Your order has been processed successfully. You can track your order by using tracking ID.
+			<ul style="padding-left:20px;list-style-type:None;color:black">
+			<li><b>Order ID: </b>'.$payment_id.'</li>
+			<li><b>Order Date: </b>'.$order_date.'</li>
+            <li><b>Payment Status: </b>'.$payment_status.'</li>
+			<li><b>Tracking ID: $</b>'.$tracking_id.'</li>
+			<li><b><a href="'.$tracking_link.'">CLICK HERE! TO TRACK YOUR ORDER</a></b></li>
+			</ul>
+            </span>
+            <span style="color:black">
+			Thanks for shopping with us. If you are facing any issue, Please contact us.</span><br/><br/>
+			<span style="color:black">
+            <b>Thanks and Regards</b><br/>
+			Unit Pharma Support Team<br/>
+			Website: <a href="https://www.unitpharma.com" style="color:blue">https://www.unitpharma.com</a><br/>
+            </span>
+			</body>
+			';
+
+        $mail->addAddress($s_email, $s_name);//user mail customer
+        $mail->Subject = 'Order processed successfully - '.$payment_id;//subject
+        $mail->IsHTML(true);
+        $mail->Body    = $body;
+        $mail->send();
+
         $success_message = 'Tracking ID marked as completed and confirmation email has been send to customer.';
     }
 
@@ -359,7 +482,7 @@ if($success_message != '') {
                             <?php
                                 if($row['payment_status']=='Pending'){
                                     ?>
-                                    <a href="order-change-status.php?id=<?php echo $row['id']; ?>" class="btn btn-success btn-xs" style="width:100%;margin-bottom:4px;">Mark As Completed</a>
+                                    <a href="payment-change-status.php?id=<?php echo $row['id']; ?>" class="btn btn-success btn-xs" style="width:100%;margin-bottom:4px;">Mark As Completed</a>
                                     <?php
                                 }
                             ?>
@@ -369,6 +492,7 @@ if($success_message != '') {
                             <?php 
                                 if($row['tracking_id']!=-1){
                                     echo "<b>ID:</b> ".$row['tracking_id'].'<br>';
+                                    echo "<b>Link:</b> <a style='color:blue; font-weight:bold' href=".$row['tracking_link'].">click to track</a><br>";
                                     echo "<b>Date:</b> ".$row['tracking_date'];
                                 }else{
                                     echo 'Pending <br><br>';
@@ -396,13 +520,13 @@ if($success_message != '') {
                                                                 <tr>
                                                                     <td>Tracking ID</td>
                                                                     <td>
-                                                                        <input type="text" name="tracking_id" class="form-control" style="width: 100%;">
+                                                                        <input type="text" name="tracking_id" required class="form-control" style="width: 100%;">
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Tracking Link</td>
                                                                     <td>
-                                                                        <textarea name="tracking_link" class="form-control" cols="10" rows="5" style="width:100%;height: 200px;"></textarea>
+                                                                        <textarea name="tracking_link" class="form-control" cols="10" rows="5" style="width:100%;height: 200px;" required></textarea>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -433,7 +557,7 @@ if($success_message != '') {
                             $statement1->execute(array($row['s_country']));
                             $result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
                             foreach ($result1 as $cn) {
-                            echo $cn['country_name']; }?>,<br><br> Zip: <?php echo $row['s_zip']; ?> 
+                            echo $cn['country_name']; }?>,<br>Zip: <?php echo $row['s_zip']; ?> 
                         </td>
                         <!-- Shipping status -->
                         <td>

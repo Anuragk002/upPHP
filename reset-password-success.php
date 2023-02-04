@@ -20,7 +20,7 @@ foreach ($result as $row) {
         <div class="row">
             <div class="col-md-12">
                 <div class="user-content">
-                    <?php echo LANG_VALUE_146; ?><br><br>
+                    <p style="color:green"><?php echo LANG_VALUE_146; ?></p><br><br>
                     <a href="<?php echo BASE_URL; ?>login.php" style="color:#e4144d;font-weight:bold;"><?php echo LANG_VALUE_11; ?></a>
                 </div>                
             </div>

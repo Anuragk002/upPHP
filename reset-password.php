@@ -1,4 +1,5 @@
-<?php require_once('header.php'); ?>
+<?php require_once('header.php');
+?>
 
 <?php
 $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
@@ -79,7 +80,10 @@ if(isset($_POST['form1'])) {
                 <div class="user-content">
                     <?php
                     if($error_message != '') {
-                        echo "<script>alert('".$error_message."')</script>";
+                        echo '<div class="alert alert-warning alert-dismissible">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>'. $error_message .'</strong></div>';
+                        $error_message='';
                     }
                     ?>
                     <?php if($error_message2 != ''): ?>

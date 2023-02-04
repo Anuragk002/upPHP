@@ -1,4 +1,6 @@
-<?php require_once('header.php'); ?>
+<?php require_once('header.php');
+include('maill.php');
+?>
 
 <?php
 $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
@@ -96,23 +98,45 @@ if (isset($_POST['form1'])) {
                                     ));
 
         // Send email for confirmation of the account
-        $to = $_POST['cust_email'];
+        // $to = $_POST['cust_email'];
         
-        $subject = LANG_VALUE_150;
-        $verify_link = BASE_URL.'verify.php?email='.$to.'&token='.$token;
-        $message = '
-'.LANG_VALUE_151.'<br><br>
+//         $subject = LANG_VALUE_150;
+//         $verify_link = BASE_URL.'verify.php?email='.$to.'&token='.$token;
+//         $message = '
+// '.LANG_VALUE_151.'<br><br>
 
-<a href="'.$verify_link.'">'.$verify_link.'</a>';
+// <a href="'.$verify_link.'">'.$verify_link.'</a>';
 
-        $headers = "From: noreply@" . BASE_URL . "\r\n" .
-                   "Reply-To: noreply@" . BASE_URL . "\r\n" .
-                   "X-Mailer: PHP/" . phpversion() . "\r\n" . 
-                   "MIME-Version: 1.0\r\n" . 
-                   "Content-Type: text/html; charset=ISO-8859-1\r\n";
+//         $headers = "From: noreply@" . BASE_URL . "\r\n" .
+//                    "Reply-To: noreply@" . BASE_URL . "\r\n" .
+//                    "X-Mailer: PHP/" . phpversion() . "\r\n" . 
+//                    "MIME-Version: 1.0\r\n" . 
+//                    "Content-Type: text/html; charset=ISO-8859-1\r\n";
+        $to = $_POST['cust_email'];
+        $verify_link ='localhost/unitpharma/verify.php?email='.$to.'&token='.$token;
+
+        $body ='
+            <body>
+            <span style="color:black">Hello '.$_POST['cust_name'].',</span><br/>
+            <span style="color:black">Congratulations!, your account has been successfully created. To activate your acount, please click on below given link:<br/>
+            <a href="'.$verify_link.'" style="color:blue; font-weight:bold">'.$verify_link.'<a>
+            </span><br/><br/>
+            <span style="color:black">
+            <b>Thanks and Regards</b><br/>
+            Unit Pharma Support Team<br/>
+            Website: <a href="https://www.unitpharma.com">https://www.unitpharma.com</a><br>
+            </span>
+            </body>
+            ';
+
+        $mail->addAddress($_POST['cust_email'], $_POST['cust_name']);//user mail customer
+        $mail->Subject = 'Welcome to Unit Pharma';//subject
+        $mail->Body    = $body;
+        $mail->IsHTML(true);
+        $mail->send();
         
         // Sending Email
-        mail($to, $subject, $message, $headers);
+        // mail($to, $subject, $message, $headers);
 
         unset($_POST['cust_name']);
         unset($_POST['cust_cname']);

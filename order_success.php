@@ -7,7 +7,7 @@
                 <p>
                     <!-- <h3 style="margin-top:20px;"><?php #echo LANG_VALUE_121; ?></h3> -->
                     <?php 
-                        if($_SESSION['order_number']){
+                        if(isset($_SESSION['order_number'])){
                             ?>
                             <h3 style="margin-top:20px;">Congratulations...</h3>
                             <p>Your order placed successfully with the Order Number : <?php echo $_SESSION['order_number'] ?>. You will also get order confirmation on your email.</p><br/><br/>
