@@ -329,7 +329,7 @@ foreach ($result as $row)
 					<div class="form-group">
 						<input type="text" class="form-control search-top" placeholder="<?php echo LANG_VALUE_2; ?>" name="search_text">
 					</div>
-					<button type="submit" class="btn btn-danger"><?php echo LANG_VALUE_3; ?></button>
+					<button class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-search"></span></button>
 				</form>
 			</div>
 		</div>

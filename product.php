@@ -152,13 +152,13 @@
                         $_SESSION['cart_p_id'][$new_key] = $_REQUEST['id'];
                         $_SESSION['cart_p_pkg_id'][$new_key] = $pkg_id;
                         $_SESSION['cart_p_qty'][$new_key] = $quantity;
-                        $p_success_msg = 'Product added to the cart successfully.';                  
+                        $p_success_msg = 'Product added to the cart.';                  
                     }
                 } else {
                     $_SESSION['cart_p_id'][0] = $_REQUEST['id'];
                     $_SESSION['cart_p_pkg_id'][0] = $pkg_id;
                     $_SESSION['cart_p_qty'][0] = $quantity;
-                    $p_success_msg = 'Product added to the cart successfully.';                    
+                    $p_success_msg = 'Product added to the cart.';                    
                 }
      
             }else{
@@ -171,7 +171,7 @@
                 }else{
                     $statement = $pdo->prepare("INSERT INTO tbl_cart (cust_id,product_id,package_id,quantity) VALUES (?,?,?,?)");
                     $statement->execute(array($_SESSION['customer']['cust_id'],$_REQUEST['id'],$pkg_id, $quantity));
-                    $p_success_msg = "Product added to cart successfully.";
+                    $p_success_msg = "Product added to cart.";
                 }
 
             }
