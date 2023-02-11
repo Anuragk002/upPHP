@@ -152,13 +152,29 @@
                         $_SESSION['cart_p_id'][$new_key] = $_REQUEST['id'];
                         $_SESSION['cart_p_pkg_id'][$new_key] = $pkg_id;
                         $_SESSION['cart_p_qty'][$new_key] = $quantity;
-                        $p_success_msg = 'Product added to the cart.';                  
+                        $p_success_msg = 'Product added to the cart.';  
+                        echo '<script type="text/JavaScript"> 
+                        change_text();
+                                    function change_text(){
+                                        var name = document.getElementById("cart-count").innerHTML;
+                                        document.getElementById("cart-count").innerHTML = 1+Number(name);
+                                    }
+                                </script>'
+                        ;                
                     }
                 } else {
                     $_SESSION['cart_p_id'][0] = $_REQUEST['id'];
                     $_SESSION['cart_p_pkg_id'][0] = $pkg_id;
                     $_SESSION['cart_p_qty'][0] = $quantity;
-                    $p_success_msg = 'Product added to the cart.';                    
+                    $p_success_msg = 'Product added to the cart.';       
+                    echo '<script type="text/JavaScript"> 
+                        change_text();
+                                    function change_text(){
+                                        var name = document.getElementById("cart-count").innerHTML;
+                                        document.getElementById("cart-count").innerHTML = 1+Number(name);
+                                    }
+                                </script>'
+                        ;            
                 }
      
             }else{
@@ -172,6 +188,14 @@
                     $statement = $pdo->prepare("INSERT INTO tbl_cart (cust_id,product_id,package_id,quantity) VALUES (?,?,?,?)");
                     $statement->execute(array($_SESSION['customer']['cust_id'],$_REQUEST['id'],$pkg_id, $quantity));
                     $p_success_msg = "Product added to cart.";
+                    echo '<script type="text/JavaScript"> 
+                        change_text();
+                                    function change_text(){
+                                        var name = document.getElementById("cart-count").innerHTML;
+                                        document.getElementById("cart-count").innerHTML = 1+Number(name);
+                                    }
+                                </script>'
+                        ; 
                 }
 
             }

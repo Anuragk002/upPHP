@@ -14,15 +14,15 @@ $mail->isSMTP();
 $mail->SMTPDebug = SMTP::DEBUG_OFF;
 
 
-$mail->Host = 'smtp.gmail.com';
+$mail->Host = 'unitpharma.com';
 $mail->Port = 465;
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
 $mail->SMTPAuth = true;
-$mail->Username = 'adm.unitpharma@gmail.com';
-$mail->Password = 'ttnbhnbihkxjecuq';
+$mail->Username = 'support@unitpharma.com';
+$mail->Password = 'un!tph@rm@2022';
 
-$mail->setFrom('adm.unitpharma@gmail.com', 'Unit Pharma');//server
-$mail->addReplyTo('adm.unitpharma@gmail.com', 'Reply Unitpharma');//admin dont touch
+$mail->setFrom('support@unitpharma.com', 'unitpharma');
+$mail->addReplyTo('support@unitpharma.com', 'Reply Unitpharma');
     // $mail->addAddress('pankaj143giri@gmail.com', 'Anurag K');//user mail customer
     // $mail->Subject = 'UP test';//subject
 

@@ -228,8 +228,7 @@ foreach ($result as $row)
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 
-	<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5993ef01e2587a001253a261&product=inline-share-buttons"></script>
-
+	<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=63df5fb74a4876001374e0af&product=inline-share-buttons&source=platform" async="async"></script>
 <?php echo $before_head; ?>
 
 </head>
@@ -307,7 +306,8 @@ foreach ($result as $row)
 					}
 					?>
 
-					<li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_18; ?> (<?php echo LANG_VALUE_1; ?><?php
+					<li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_18; ?>
+					(<span id='cart-count'><?php
 					if(isset($_SESSION['cart_p_id'])) {
 						$tmp=array();
 						$i=0;
@@ -320,7 +320,7 @@ foreach ($result as $row)
 					} else {
 						echo 0;
 					}
-					?>)</a></li>
+					?></span>)</a></li>
 				</ul>
 			</div>
 			<div class="col-md-3 search-area">
