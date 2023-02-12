@@ -199,7 +199,11 @@
                 }
 
             }
+            
+            unset($_POST['p_qty']);
+            unset($_POST['p_pkg_id']);
         }
+        
     }
 ?>
 
@@ -211,7 +215,9 @@
                     <ul>
                         <li><a href="<?php echo BASE_URL; ?>">Home</a></li>
                         <li>-></li>
-                        <li><a href="<?php echo BASE_URL . 'product-category.php?id=' . $tcat_id . '&type=top-category' ?>"><?php echo $tcat_name; ?></a></li>
+                        <li><a
+                                href="<?php echo BASE_URL . 'product-category.php?id=' . $tcat_id . '&type=top-category' ?>"><?php echo $tcat_name; ?></a>
+                        </li>
                         <li>-></li>
                         <li><?php echo $p_name; ?></li>
                     </ul>
@@ -233,7 +239,7 @@
                 ?>
                 <div class="product">
                     <div class="row">
-                        <div class="col-md-5">
+                        <div class="col-md-5 p_photos">
                             <ul class="prod-slider">
 
                                 <li style="background-image: url(assets/uploads/<?php echo $p_featured_photo; ?>);">
@@ -245,16 +251,20 @@
                                 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 foreach ($result as $row) {
                                 ?>
-                                    <li style="background-image: url(assets/uploads/product_photos/<?php echo $row['photo']; ?>);">
-                                        <a class="popup" href="assets/uploads/product_photos/<?php echo $row['photo']; ?>"></a>
-                                    </li>
+                                <li
+                                    style="background-image: url(assets/uploads/product_photos/<?php echo $row['photo']; ?>);">
+                                    <a class="popup"
+                                        href="assets/uploads/product_photos/<?php echo $row['photo']; ?>"></a>
+                                </li>
                                 <?php
                                 }
                                 ?>
                             </ul>
                             <div id="prod-pager">
                                 <a data-slide-index="0" href="">
-                                    <div class="prod-pager-thumb" style="background-image: url(assets/uploads/<?php echo $p_featured_photo; ?>"></div>
+                                    <div class="prod-pager-thumb"
+                                        style="background-image: url(assets/uploads/<?php echo $p_featured_photo; ?>">
+                                    </div>
                                 </a>
                                 <?php
                                 $i = 1;
@@ -263,16 +273,20 @@
                                 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 foreach ($result as $row) {
                                 ?>
-                                    <a data-slide-index="<?php echo $i; ?>" href="">
-                                        <div class="prod-pager-thumb" style="background-image: url(assets/uploads/product_photos/<?php echo $row['photo']; ?>"></div>
-                                    </a>
+                                <a data-slide-index="<?php echo $i; ?>" href="">
+                                    <div class="prod-pager-thumb"
+                                        style="background-image: url(assets/uploads/product_photos/<?php echo $row['photo']; ?>">
+                                    </div>
+                                </a>
                                 <?php
                                     $i++;
                                 }
                                 ?>
                             </div>
+                            <br clear=all />
                         </div>
-                        <div class="col-md-7">
+                        <div class="col-md-7 p_srt_details">
+
                             <div class="p-title">
                                 <h2><?php echo $p_name; ?></h2>
                             </div>
@@ -316,11 +330,11 @@
                                     } else {
                                         for ($i = 1; $i <= 5; $i++) {
                                     ?>
-                                            <?php if ($i > $avg_rating) : ?>
-                                                <i class="fa fa-star-o"></i>
-                                            <?php else : ?>
-                                                <i class="fa fa-star"></i>
-                                            <?php endif; ?>
+                                    <?php if ($i > $avg_rating) : ?>
+                                    <i class="fa fa-star-o"></i>
+                                    <?php else : ?>
+                                    <i class="fa fa-star"></i>
+                                    <?php endif; ?>
                                     <?php
                                         }
                                     }
@@ -333,14 +347,19 @@
                                 </p>
                             </div>
                             <form action="" method="post">
-                                <div class="p-quantity">
+                                <div class="p-select-package">
                                     <div class="row">
                                         <div class="col-md-12">
                                             Select Package<sup>*</sup> <br>
                                             <?php
                                                 foreach ($resultpkg as $row) {
                                                 ?>
-                                                <input type="radio" name="p_pkg_id" value="<?php echo $row['id']; ?>" required> <?php echo $row['pkg_name']; ?> - $<?php echo $row['pkg_price']; ?></input></br>
+                                            <div class="radio">
+                                                <label><input type="radio" name="p_pkg_id"
+                                                        value="<?php echo $row['id']; ?>" required>
+                                                    <?php echo $row['pkg_name']; ?> -
+                                                    $<?php echo $row['pkg_price']; ?></label>
+                                            </div>
                                             <?php
                                                 }
                                             ?>
@@ -349,10 +368,11 @@
 
                                 </div>
                                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-                                
+
                                 <div class="p-quantity">
                                     <?php echo LANG_VALUE_55; ?><sup>*</sup><br>
-                                    <input type="number" class="input-text qty" step="1" min="1" max="" name="p_qty" value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" required>
+                                    <input type="number" class="input-text qty" step="1" min="1" max="" name="p_qty"
+                                        value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" required>
                                 </div>
                                 <div class="btn-cart btn-cart1">
                                     <input type="submit" value="<?php echo LANG_VALUE_154; ?>" name="form_add_to_cart">
@@ -369,16 +389,22 @@
                         <div class="col-md-12">
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#description" aria-controls="description" role="tab" data-toggle="tab"><?php echo LANG_VALUE_59; ?></a></li>
-                                <li role="presentation"><a href="#feature" aria-controls="feature" role="tab" data-toggle="tab"><?php echo LANG_VALUE_60; ?></a></li>
-                                <li role="presentation"><a href="#condition" aria-controls="condition" role="tab" data-toggle="tab"><?php echo LANG_VALUE_61; ?></a></li>
-                                <li role="presentation"><a href="#return_policy" aria-controls="return_policy" role="tab" data-toggle="tab"><?php echo LANG_VALUE_62; ?></a></li>
+                                <li role="presentation" class="active"><a href="#description"
+                                        aria-controls="description" role="tab"
+                                        data-toggle="tab"><?php echo LANG_VALUE_59; ?></a></li>
+                                <li role="presentation"><a href="#feature" aria-controls="feature" role="tab"
+                                        data-toggle="tab"><?php echo LANG_VALUE_60; ?></a></li>
+                                <li role="presentation"><a href="#condition" aria-controls="condition" role="tab"
+                                        data-toggle="tab"><?php echo LANG_VALUE_61; ?></a></li>
+                                <li role="presentation"><a href="#return_policy" aria-controls="return_policy"
+                                        role="tab" data-toggle="tab"><?php echo LANG_VALUE_62; ?></a></li>
                                 <!-- <li role="presentation"><a href="#review" aria-controls="review" role="tab" data-toggle="tab"><?php echo LANG_VALUE_63; ?></a></li> -->
                             </ul>
 
                             <!-- Tab panes -->
                             <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane active" id="description" style="margin-top: -30px;">
+                                <div role="tabpanel" class="tab-pane active" id="description"
+                                    style="margin-top: -30px;">
                                     <p>
                                         <?php
                                         if ($p_description == '') {
@@ -442,35 +468,36 @@
                                             foreach ($result as $row) {
                                                 $j++;
                                         ?>
-                                                <div class="mb_10"><b><u><?php echo LANG_VALUE_64; ?> <?php echo $j; ?></u></b></div>
-                                                <table class="table table-bordered">
-                                                    <tr>
-                                                        <th style="width:170px;"><?php echo LANG_VALUE_75; ?></th>
-                                                        <td><?php echo $row['cust_name']; ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th><?php echo LANG_VALUE_76; ?></th>
-                                                        <td><?php echo $row['comment']; ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th><?php echo LANG_VALUE_78; ?></th>
-                                                        <td>
-                                                            <div class="rating">
-                                                                <?php
+                                        <div class="mb_10"><b><u><?php echo LANG_VALUE_64; ?> <?php echo $j; ?></u></b>
+                                        </div>
+                                        <table class="table table-bordered">
+                                            <tr>
+                                                <th style="width:170px;"><?php echo LANG_VALUE_75; ?></th>
+                                                <td><?php echo $row['cust_name']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th><?php echo LANG_VALUE_76; ?></th>
+                                                <td><?php echo $row['comment']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th><?php echo LANG_VALUE_78; ?></th>
+                                                <td>
+                                                    <div class="rating">
+                                                        <?php
                                                                 for ($i = 1; $i <= 5; $i++) {
                                                                 ?>
-                                                                    <?php if ($i > $row['rating']) : ?>
-                                                                        <i class="fa fa-star-o"></i>
-                                                                    <?php else : ?>
-                                                                        <i class="fa fa-star"></i>
-                                                                    <?php endif; ?>
-                                                                <?php
+                                                        <?php if ($i > $row['rating']) : ?>
+                                                        <i class="fa fa-star-o"></i>
+                                                        <?php else : ?>
+                                                        <i class="fa fa-star"></i>
+                                                        <?php endif; ?>
+                                                        <?php
                                                                 }
                                                                 ?>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
                                         <?php
                                             }
                                         } else {
@@ -489,37 +516,41 @@
                                         ?>
                                         <?php if (isset($_SESSION['customer'])) : ?>
 
-                                            <?php
+                                        <?php
                                             $statement = $pdo->prepare("SELECT * 
                                                                 FROM tbl_rating
                                                                 WHERE p_id=? AND cust_id=?");
                                             $statement->execute(array($_REQUEST['id'], $_SESSION['customer']['cust_id']));
                                             $total = $statement->rowCount();
                                             ?>
-                                            <?php if ($total == 0) : ?>
-                                                <form action="" method="post">
-                                                    <div class="rating-section">
-                                                        <input type="radio" name="rating" class="rating" value="1" checked>
-                                                        <input type="radio" name="rating" class="rating" value="2" checked>
-                                                        <input type="radio" name="rating" class="rating" value="3" checked>
-                                                        <input type="radio" name="rating" class="rating" value="4" checked>
-                                                        <input type="radio" name="rating" class="rating" value="5" checked>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <textarea name="comment" class="form-control" cols="30" rows="10" placeholder="Write your comment (optional)" style="height:100px;"></textarea>
-                                                    </div>
-                                                    <input type="submit" class="btn btn-default" name="form_review" value="<?php echo LANG_VALUE_67; ?>">
-                                                </form>
-                                            <?php else : ?>
-                                                <span style="color:red;"><?php echo LANG_VALUE_68; ?></span>
-                                            <?php endif; ?>
+                                        <?php if ($total == 0) : ?>
+                                        <form action="" method="post">
+                                            <div class="rating-section">
+                                                <input type="radio" name="rating" class="rating" value="1" checked>
+                                                <input type="radio" name="rating" class="rating" value="2" checked>
+                                                <input type="radio" name="rating" class="rating" value="3" checked>
+                                                <input type="radio" name="rating" class="rating" value="4" checked>
+                                                <input type="radio" name="rating" class="rating" value="5" checked>
+                                            </div>
+                                            <div class="form-group">
+                                                <textarea name="comment" class="form-control" cols="30" rows="10"
+                                                    placeholder="Write your comment (optional)"
+                                                    style="height:100px;"></textarea>
+                                            </div>
+                                            <input type="submit" class="btn btn-default" name="form_review"
+                                                value="<?php echo LANG_VALUE_67; ?>">
+                                        </form>
+                                        <?php else : ?>
+                                        <span style="color:red;"><?php echo LANG_VALUE_68; ?></span>
+                                        <?php endif; ?>
 
 
                                         <?php else : ?>
-                                            <p class="error">
-                                                <?php echo LANG_VALUE_69; ?> <br>
-                                                <a href="login.php" style="color:red;text-decoration: underline;"><?php echo LANG_VALUE_9; ?></a>
-                                            </p>
+                                        <p class="error">
+                                            <?php echo LANG_VALUE_69; ?> <br>
+                                            <a href="login.php"
+                                                style="color:red;text-decoration: underline;"><?php echo LANG_VALUE_9; ?></a>
+                                        </p>
                                         <?php endif; ?>
                                     </div>
 
@@ -556,20 +587,23 @@
                     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($result as $row) {
                     ?>
-                        <div class="item">
-                            <div class="thumb">
-                                <div class="photo" style="background-image:url(assets/uploads/<?php echo $row['p_featured_photo']; ?>);"></div>
-                                <div class="overlay"></div>
+                    <div class="item">
+                        <div class="thumb">
+                            <div class="photo"
+                                style="background-image:url(assets/uploads/<?php echo $row['p_featured_photo']; ?>);">
                             </div>
-                            <div class="text">
-                                <h3><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a></h3>
-                                <h4>
-                                    <?php #echo LANG_VALUE_1; ?><?php #echo $row['p_current_price']; ?>
-                                        <?php #if ($row['p_old_price'] != '') : ?>
-                                            <del>
-                                            <?php #echo LANG_VALUE_1; ?><?php #echo $row['p_old_price']; ?>
-                                            </del>
-                                    <?php #endif; ?>
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="text">
+                            <h5><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a>
+                            </h5>
+                            <h4>
+                                <?php #echo LANG_VALUE_1; ?><?php #echo $row['p_current_price']; ?>
+                                <?php #if ($row['p_old_price'] != '') : ?>
+                                <del>
+                                    <?php #echo LANG_VALUE_1; ?><?php #echo $row['p_old_price']; ?>
+                                </del>
+                                <?php #endif; ?>
                                 <?php
                                     $statement = $pdo->prepare("SELECT * FROM tbl_product_package WHERE p_id=?");
                                     $statement->execute(array($row['p_id']));
@@ -584,9 +618,9 @@
                                         echo "$".min($pkg_price)." - $".max($pkg_price);
                                     }
                                 ?>
-                                </h4>
-                                <div class="rating">
-                                    <?php
+                            </h4>
+                            <div class="rating">
+                                <?php
                                     $t_rating = 0;
                                     $statement1 = $pdo->prepare("SELECT * FROM tbl_rating WHERE p_id=?");
                                     $statement1->execute(array($row['p_id']));
@@ -601,7 +635,7 @@
                                         $avg_rating = $t_rating / $tot_rating;
                                     }
                                     ?>
-                                    <?php
+                                <?php
                                     if ($avg_rating == 0) {
                                         echo '';
                                     } elseif ($avg_rating == 1.5) {
@@ -639,19 +673,20 @@
                                     } else {
                                         for ($i = 1; $i <= 5; $i++) {
                                     ?>
-                                            <?php if ($i > $avg_rating) : ?>
-                                                <i class="fa fa-star-o"></i>
-                                            <?php else : ?>
-                                                <i class="fa fa-star"></i>
-                                            <?php endif; ?>
-                                    <?php
+                                <?php if ($i > $avg_rating) : ?>
+                                <i class="fa fa-star-o"></i>
+                                <?php else : ?>
+                                <i class="fa fa-star"></i>
+                                <?php endif; ?>
+                                <?php
                                         }
                                     }
                                     ?>
-                                </div>
-                                <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo LANG_VALUE_154; ?></a></p>
                             </div>
+                            <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo LANG_VALUE_154; ?></a>
+                            </p>
                         </div>
+                    </div>
                     <?php
                     }
                     ?>

@@ -1,4 +1,5 @@
 <?php
+include("maill.php");
 $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
 $statement->execute();
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -18,49 +19,53 @@ foreach ($result as $row)
 
 <footer class="user-footer">
     <div class="container">
-    <div class="row sec">
-    <div class="col-sm-4 sec1">
-            <h4>Contact & Support</h4>
-            <p>If you are facing any issue or need support, please contact us: <p>
-            <ul>
-                <li><a href="contact.php"><span class="fa fa-link"> Contact us</a></li>
-                <li><span class="fa fa-phone"></span> <?php echo $contact_phone ?></li>
-                <li><span class="fa fa-envelope"></span> <?php echo $contact_email ?></li>
-                <li> Fallow us:
-						<?php
+        <div class="row sec">
+            <div class="col-sm-4 sec1">
+                <h4>Contact & Support</h4>
+                <p>If you are facing any issue or need support, please contact us:
+                <p>
+                <ul>
+                    <li><a href="contact.php"><span class="fa fa-link"> Contact us</a></li>
+                    <li><span class="fa fa-phone"></span> <?php echo $contact_phone ?></li>
+                    <li><span class="fa fa-envelope"></span> <?php echo $contact_email ?></li>
+                    <li> Fallow us:
+                        <?php
 							$statement = $pdo->prepare("SELECT * FROM tbl_social");
 							$statement->execute();
 							$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 							foreach ($result as $row) {
 								?>
-								<?php if($row['social_url'] != ''): ?>
-								<a href="<?php echo $row['social_url']; ?>"><i class="<?php echo $row['social_icon']; ?>"></i></a>
-								<?php endif; ?>
-								<?php
+                        <?php if($row['social_url'] != ''): ?>
+                        <a href="<?php echo $row['social_url']; ?>"><i
+                                class="<?php echo $row['social_icon']; ?>"></i></a>
+                        <?php endif; ?>
+                        <?php
 							}
 						?>
-                </li>
-            </ul>
-        </div>
-        <div class="col-sm-4 sec2">
-            <h4>Product Categories</h4>
-            <ul>
-				<?php
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-4 sec2">
+                <h4>Product Categories</h4>
+                <ul>
+                    <?php
 					$statement = $pdo->prepare("SELECT * FROM tbl_top_category WHERE show_on_menu=1");
 					$statement->execute();
 					$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 					foreach ($result as $row) { ?>
-                <li><a href="product-category.php?id=<?php echo $row['tcat_id']; ?>&type=top-category"><?php echo $row['tcat_name']; ?></a></li>
-                <?php } ?>
-            </ul>
-        </div>
-           
-       
-        <div class="col-sm-4 sec3">
-            <?php if($newsletter_on_off == 1): ?>
-            <h4> News Letter </h4>
-            <p> Subscribe to us for getting updates in your mailbox</p>
-            <?php
+                    <li><a
+                            href="product-category.php?id=<?php echo $row['tcat_id']; ?>&type=top-category"><?php echo $row['tcat_name']; ?></a>
+                    </li>
+                    <?php } ?>
+                </ul>
+            </div>
+
+
+            <div class="col-sm-4 sec3">
+                <?php if($newsletter_on_off == 1): ?>
+                <h4> News Letter </h4>
+                <p> Subscribe to us for getting updates in your mailbox</p>
+                <?php
 			if(isset($_POST['form_subscribe']))
 			{
 
@@ -104,25 +109,50 @@ foreach ($result as $row)
 
 				    		// Sending Confirmation Email
 				    		$to = $_POST['email_subscribe'];
-							$subject = 'Subscriber Email Confirmation';
 							
 							// Getting the url of the verification link
-							$verification_url = BASE_URL.'verify.php?email='.$to.'&key='.$key;
+							// $verification_url = BASE_URL.'verify.php?email='.$to.'&key='.$key;
 
-							$message = 'Thanks for your interest to subscribe our newsletter!<br><br>Please click this link to confirm your subscription: '.$verification_url.'<br><br>This link will be active only for 24 hours.';
+							// $message = 'Thanks for your interest to subscribe our newsletter!<br><br>Please click this link to confirm your subscription: '.$verification_url.'<br><br>This link will be active only for 24 hours.';
 
-							$headers = 'From: ' . $contact_email . "\r\n" .
-								   'Reply-To: ' . $contact_email . "\r\n" .
-								   'X-Mailer: PHP/' . phpversion() . "\r\n" . 
-								   "MIME-Version: 1.0\r\n" . 
-								   "Content-Type: text/html; charset=ISO-8859-1\r\n";
+							// $headers = 'From: ' . $contact_email . "\r\n" .
+							// 	   'Reply-To: ' . $contact_email . "\r\n" .
+							// 	   'X-Mailer: PHP/' . phpversion() . "\r\n" . 
+							// 	   "MIME-Version: 1.0\r\n" . 
+							// 	   "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
-							// Sending the email
-							mail($to, $subject, $message, $headers);
+							// // Sending the email
+							// mail($to, $subject, $message, $headers);
 
-							$success_message1 = LANG_VALUE_136;
+                            
+                            $verify_link ='https://www.unitpharma.com/subs_verify.php?email='.$to.'&token='.$key;
+
+                            $body ='
+                                <body>
+                                <span style="color:black">Hello Dear,</span><br/>
+                                <span style="color:black">Thanks for your interest to subscribe our newsletter!. To confirm your subscription, please click on below given link:<br/>
+                                <a href="'.$verify_link.'" style="color:blue; font-weight:bold">'.$verify_link.'<a>
+                                </span><br/><br/>
+                                <span style="color:black">
+                                <b>Thanks and Regards</b><br/>
+                                Unit Pharma Support Team<br/>
+                                Website: <a href="https://www.unitpharma.com">https://www.unitpharma.com</a><br>
+                                </span>
+                                </body>
+                                ';
+
+                            $mail->addAddress($to, 'Subscriber');//user mail customer
+                            $mail->Subject = 'Subscriber confirmation';//subject
+                            $mail->Body    = $body;
+                            $mail->IsHTML(true);
+                            if($mail->send()){
+							$success_message1 = "Thanks for your interest. Confirmation requess has been send to your email, please validate";
+                            }else{
+                                $error_message1="Something Went wrong, try after sometime.";
+                            }
 				    	}
 				    }
+                    unset($_POST['email_subscribe']);
 			    }
 			}
 			if($error_message1 != '') {
@@ -132,17 +162,19 @@ foreach ($result as $row)
 				echo "<script>alert('".$success_message1."')</script>";
 			}
 			?>
-            <form class="footer-subscribe-form" action="" method="post">
-            <?php $csrf->echoInputField(); ?>
-                <div class="form-group">
-                    <input type="email" class="form-control" placeholder="<?php echo LANG_VALUE_95; ?>" />
-                </div>
-                <button class=" form-control btn btn-md btn-primary" name="form_subscribe" type="submit"><span class="fa fa-check-square-o"> <?php echo LANG_VALUE_92; ?></button>
-            </form>
-            <?php endif; ?>
+                <form class="footer-subscribe-form" action="" method="post">
+                    <?php $csrf->echoInputField(); ?>
+                    <div class="form-group">
+                        <input type="email" required class="form-control" name="email_subscribe"
+                            placeholder="<?php echo LANG_VALUE_95; ?>" />
+                    </div>
+                    <button class=" form-control btn btn-md btn-primary" name="form_subscribe" type="submit"><span
+                            class="fa fa-check-square-o"> <?php echo LANG_VALUE_92; ?></button>
+                </form>
+                <?php endif; ?>
+            </div>
+
         </div>
-     
-</div>
     </div>
     <div class="footer-bottom">
         <div class="container-fluid">
@@ -155,7 +187,7 @@ foreach ($result as $row)
 
 
 <a href="#" class="scrollup">
-	<i class="fa fa-angle-up"></i>
+    <i class="fa fa-angle-up"></i>
 </a>
 
 <?php
@@ -182,67 +214,70 @@ foreach ($result as $row) {
 <script src="assets/js/select2.full.min.js"></script>
 <script src="assets/js/custom.js"></script>
 <script>
-	function confirmDelete()
-	{
-	    return confirm("Sure you want to delete this data?");
-	}
-	$(document).ready(function () {
-		advFieldsStatus = $('#advFieldsStatus').val();
+function confirmDelete() {
+    return confirm("Sure you want to delete this data?");
+}
+$(document).ready(function() {
+    advFieldsStatus = $('#advFieldsStatus').val();
 
-		$('#paypal_form').hide();
-		$('#stripe_form').hide();
-		$('#bank_form').hide();
+    $('#paypal_form').hide();
+    $('#stripe_form').hide();
+    $('#bank_form').hide();
 
-        $('#advFieldsStatus').on('change',function() {
-            advFieldsStatus = $('#advFieldsStatus').val();
-            if ( advFieldsStatus == '' ) {
-            	$('#paypal_form').hide();
-				$('#stripe_form').hide();
-				$('#bank_form').hide();
-            } else if ( advFieldsStatus == 'PayPal' ) {
-               	$('#paypal_form').show();
-				$('#stripe_form').hide();
-				$('#bank_form').hide();
-            } else if ( advFieldsStatus == 'Stripe' ) {
-               	$('#paypal_form').hide();
-				$('#stripe_form').show();
-				$('#bank_form').hide();
-            } else if ( advFieldsStatus == 'Bank Deposit' ) {
-            	$('#paypal_form').hide();
-				$('#stripe_form').hide();
-				$('#bank_form').show();
-            }
-        });
-	});
-
-
-	$(document).on('submit', '#stripe_form', function () {
-        // createToken returns immediately - the supplied callback submits the form if there are no errors
-        $('#submit-button').prop("disabled", true);
-        $("#msg-container").hide();
-        Stripe.card.createToken({
-            number: $('.card-number').val(),
-            cvc: $('.card-cvc').val(),
-            exp_month: $('.card-expiry-month').val(),
-            exp_year: $('.card-expiry-year').val()
-            // name: $('.card-holder-name').val()
-        }, stripeResponseHandler);
-        return false;
-    });
-    Stripe.setPublishableKey('<?php echo $stripe_public_key; ?>');
-    function stripeResponseHandler(status, response) {
-        if (response.error) {
-            $('#submit-button').prop("disabled", false);
-            $("#msg-container").html('<div style="color: red;border: 1px solid;margin: 10px 0px;padding: 5px;"><strong>Error:</strong> ' + response.error.message + '</div>');
-            $("#msg-container").show();
-        } else {
-            var form$ = $("#stripe_form");
-            var token = response['id'];
-            form$.append("<input type='hidden' name='stripeToken' value='" + token + "' />");
-            form$.get(0).submit();
+    $('#advFieldsStatus').on('change', function() {
+        advFieldsStatus = $('#advFieldsStatus').val();
+        if (advFieldsStatus == '') {
+            $('#paypal_form').hide();
+            $('#stripe_form').hide();
+            $('#bank_form').hide();
+        } else if (advFieldsStatus == 'PayPal') {
+            $('#paypal_form').show();
+            $('#stripe_form').hide();
+            $('#bank_form').hide();
+        } else if (advFieldsStatus == 'Stripe') {
+            $('#paypal_form').hide();
+            $('#stripe_form').show();
+            $('#bank_form').hide();
+        } else if (advFieldsStatus == 'Bank Deposit') {
+            $('#paypal_form').hide();
+            $('#stripe_form').hide();
+            $('#bank_form').show();
         }
+    });
+});
+
+
+$(document).on('submit', '#stripe_form', function() {
+    // createToken returns immediately - the supplied callback submits the form if there are no errors
+    $('#submit-button').prop("disabled", true);
+    $("#msg-container").hide();
+    Stripe.card.createToken({
+        number: $('.card-number').val(),
+        cvc: $('.card-cvc').val(),
+        exp_month: $('.card-expiry-month').val(),
+        exp_year: $('.card-expiry-year').val()
+        // name: $('.card-holder-name').val()
+    }, stripeResponseHandler);
+    return false;
+});
+Stripe.setPublishableKey('<?php echo $stripe_public_key; ?>');
+
+function stripeResponseHandler(status, response) {
+    if (response.error) {
+        $('#submit-button').prop("disabled", false);
+        $("#msg-container").html(
+            '<div style="color: red;border: 1px solid;margin: 10px 0px;padding: 5px;"><strong>Error:</strong> ' +
+            response.error.message + '</div>');
+        $("#msg-container").show();
+    } else {
+        var form$ = $("#stripe_form");
+        var token = response['id'];
+        form$.append("<input type='hidden' name='stripeToken' value='" + token + "' />");
+        form$.get(0).submit();
     }
+}
 </script>
 <?php echo $before_body; ?>
 </body>
+
 </html>

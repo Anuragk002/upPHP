@@ -18,7 +18,7 @@ $dbuser = 'root';
 $dbpass = '';
 
 // Defining base url
-define("BASE_URL", "https://www.unitpharma.com/");
+define("BASE_URL", "");
 
 // Getting Admin url
 define("ADMIN_URL", BASE_URL . "admin" . "/");

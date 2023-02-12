@@ -28,6 +28,10 @@ if(isset($_POST['form1'])) {
         $valid = 0;
         $error_message .= "You must have to select a top level category<br>";
     }
+	if(empty($_POST['rating'])) {
+        $valid = 0;
+        $error_message .= "You must have to select a product rating<br>";
+    }
 
     // if(empty($_POST['mcat_id'])) {
     //     $valid = 0;
@@ -156,7 +160,9 @@ if(isset($_POST['form1'])) {
 									));
 
 		
-
+		$statement = $pdo->prepare("INSERT INTO tbl_rating (p_id,cust_id,rating) VALUES (?,?,?)");
+		$statement->execute(array($ai_id,-2,$_POST['rating']));
+		
         if(isset($_POST['size'])) {
 			foreach($_POST['size'] as $value) {
 				$statement = $pdo->prepare("INSERT INTO tbl_product_size (size_id,p_id) VALUES (?,?)");
@@ -192,59 +198,60 @@ if(isset($_POST['form1'])) {
 ?>
 
 <section class="content-header">
-	<div class="content-header-left">
-		<h1>Add Product</h1>
-	</div>
-	<div class="content-header-right">
-		<a href="product.php" class="btn btn-primary btn-sm">View All</a>
-	</div>
+    <div class="content-header-left">
+        <h1>Add Product</h1>
+    </div>
+    <div class="content-header-right">
+        <a href="product.php" class="btn btn-primary btn-sm">View All</a>
+    </div>
 </section>
 
 
 <section class="content">
 
-	<div class="row">
-		<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
 
-			<?php if($error_message): ?>
-			<div class="callout callout-danger">
-			
-			<p>
-			<?php echo $error_message; ?>
-			</p>
-			</div>
-			<?php endif; ?>
+            <?php if($error_message): ?>
+            <div class="callout callout-danger">
 
-			<?php if($success_message): ?>
-			<div class="callout callout-success">
-			
-			<p><?php echo $success_message; ?></p>
-			</div>
-			<?php endif; ?>
+                <p>
+                    <?php echo $error_message; ?>
+                </p>
+            </div>
+            <?php endif; ?>
 
-			<form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+            <?php if($success_message): ?>
+            <div class="callout callout-success">
 
-				<div class="box box-info">
-					<div class="box-body">
-						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Top Level Category Name <span>*</span></label>
-							<div class="col-sm-4">
-								<select name="tcat_id" class="form-control select2 top-cat">
-									<option value="">Select Top Level Category</option>
-									<?php
+                <p><?php echo $success_message; ?></p>
+            </div>
+            <?php endif; ?>
+
+            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+
+                <div class="box box-info">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Top Level Category Name <span>*</span></label>
+                            <div class="col-sm-4">
+                                <select name="tcat_id" class="form-control select2 top-cat">
+                                    <option value="">Select Top Level Category</option>
+                                    <?php
 									$statement = $pdo->prepare("SELECT * FROM tbl_top_category ORDER BY tcat_name ASC");
 									$statement->execute();
 									$result = $statement->fetchAll(PDO::FETCH_ASSOC);	
 									foreach ($result as $row) {
 										?>
-										<option value="<?php echo $row['tcat_id']; ?>"><?php echo $row['tcat_name']; ?></option>
-										<?php
+                                    <option value="<?php echo $row['tcat_id']; ?>"><?php echo $row['tcat_name']; ?>
+                                    </option>
+                                    <?php
 									}
 									?>
-								</select>
-							</div>
-						</div>
-						<!-- <div class="form-group">
+                                </select>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group">
 							<label for="" class="col-sm-3 control-label">Mid Level Category Name <span>*</span></label>
 							<div class="col-sm-4">
 								<select name="mcat_id" class="form-control select2 mid-cat">
@@ -260,181 +267,215 @@ if(isset($_POST['form1'])) {
 								</select>
 							</div>
 						</div> -->
-						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Product Name <span>*</span></label>
-							<div class="col-sm-4">
-								<input type="text" name="p_name" class="form-control">
-							</div>
-						</div>	
-						<div class="form-group hidden">
-							<label for="" class="col-sm-3 control-label">Old Price <br><span style="font-size:10px;font-weight:normal;">(In USD)</span></label>
-							<div class="col-sm-4">
-								<input type="text" name="p_old_price" class="form-control">
-							</div>
-						</div>
-						<div class="form-group hidden">
-							<label for="" class="col-sm-3 control-label">Current Price <span>*</span><br><span style="font-size:10px;font-weight:normal;">(In USD)</span></label>
-							<div class="col-sm-4">
-								<input type="text" name="p_current_price" class="form-control">
-							</div>
-						</div>	
-						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Quantity <span>*</span></label>
-							<div class="col-sm-4">
-								<input type="text" name="p_qty" class="form-control">
-							</div>
-						</div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Product Name <span>*</span></label>
+                            <div class="col-sm-4">
+                                <input type="text" name="p_name" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group hidden">
+                            <label for="" class="col-sm-3 control-label">Old Price <br><span
+                                    style="font-size:10px;font-weight:normal;">(In USD)</span></label>
+                            <div class="col-sm-4">
+                                <input type="text" name="p_old_price" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group hidden">
+                            <label for="" class="col-sm-3 control-label">Current Price <span>*</span><br><span
+                                    style="font-size:10px;font-weight:normal;">(In USD)</span></label>
+                            <div class="col-sm-4">
+                                <input type="text" name="p_current_price" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Quantity <span>*</span></label>
+                            <div class="col-sm-4">
+                                <input type="text" name="p_qty" class="form-control">
+                            </div>
+                        </div>
 
 
-						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Add Packages</label>
-							<div class="col-sm-4" style="padding-top:4px;">
-								<table id="ProductPkgTable" style="width:100%;">
-			                        <tbody>
-			                            <tr>
-			                                <td>
-			                                    <div class="col-sm-4">
-			                                        <input type="text" placeholder="Package name" class="form-control" name="pkg[0][name]" style="margin-bottom:5px; width:200px">
-			                                    </div>
-			                                </td>
-			                                <td>
-												<div class="col-sm-4">
-													<input type="text" placeholder="price" class="form-control" name="pkg[0][price]" style="margin-bottom:5px; width:50px;">
-			                                    </div>
-			                                </td>
-			                                <td style="width:28px;"><a href="javascript:void()" class="Delete btn btn-danger btn-xs">X</a></td>
-			                            </tr>
-			                        </tbody>
-			                    </table>
-							</div>
-							<div class="col-sm-2">
-			                    <input type="button" id="btnAddNewPkg" value="Add Package" style="margin-top: 5px;margin-bottom:10px;border:0;color: #fff;font-size: 14px;border-radius:3px;" class="btn btn-warning btn-xs">
-			                </div>
-						</div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Add Packages</label>
+                            <div class="col-sm-4" style="padding-top:4px;">
+                                <table id="ProductPkgTable" style="width:100%;">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="col-sm-4">
+                                                    <input type="text" placeholder="Package name" class="form-control"
+                                                        name="pkg[0][name]" style="margin-bottom:5px; width:200px">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="col-sm-4">
+                                                    <input type="text" placeholder="price" class="form-control"
+                                                        name="pkg[0][price]" style="margin-bottom:5px; width:50px;">
+                                                </div>
+                                            </td>
+                                            <td style="width:28px;"><a href="javascript:void()"
+                                                    class="Delete btn btn-danger btn-xs">X</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="button" id="btnAddNewPkg" value="Add Package"
+                                    style="margin-top: 5px;margin-bottom:10px;border:0;color: #fff;font-size: 14px;border-radius:3px;"
+                                    class="btn btn-warning btn-xs">
+                            </div>
+                        </div>
 
 
-						<div class="form-group hidden">
-							<label for="" class="col-sm-3 control-label">Select Size</label>
-							<div class="col-sm-4">
-								<select name="size[]" class="form-control select2" multiple="multiple">
-									<?php
+                        <div class="form-group hidden">
+                            <label for="" class="col-sm-3 control-label">Select Size</label>
+                            <div class="col-sm-4">
+                                <select name="size[]" class="form-control select2" multiple="multiple">
+                                    <?php
 									$statement = $pdo->prepare("SELECT * FROM tbl_size ORDER BY size_id ASC");
 									$statement->execute();
 									$result = $statement->fetchAll(PDO::FETCH_ASSOC);			
 									foreach ($result as $row) {
 										?>
-										<option value="<?php echo $row['size_id']; ?>"><?php echo $row['size_name']; ?></option>
-										<?php
+                                    <option value="<?php echo $row['size_id']; ?>"><?php echo $row['size_name']; ?>
+                                    </option>
+                                    <?php
 									}
 									?>
-								</select>
-							</div>
-						</div>
-						<div class="form-group hidden">
-							<label for="" class="col-sm-3 control-label">Select Color</label>
-							<div class="col-sm-4">
-								<select name="color[]" class="form-control select2" multiple="multiple">
-									<?php
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group hidden">
+                            <label for="" class="col-sm-3 control-label">Select Color</label>
+                            <div class="col-sm-4">
+                                <select name="color[]" class="form-control select2" multiple="multiple">
+                                    <?php
 									$statement = $pdo->prepare("SELECT * FROM tbl_color ORDER BY color_id ASC");
 									$statement->execute();
 									$result = $statement->fetchAll(PDO::FETCH_ASSOC);			
 									foreach ($result as $row) {
 										?>
-										<option value="<?php echo $row['color_id']; ?>"><?php echo $row['color_name']; ?></option>
-										<?php
+                                    <option value="<?php echo $row['color_id']; ?>"><?php echo $row['color_name']; ?>
+                                    </option>
+                                    <?php
 									}
 									?>
-								</select>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Featured Photo <span>*</span></label>
-							<div class="col-sm-4" style="padding-top:4px;">
-								<input type="file" name="p_featured_photo">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Other Photos</label>
-							<div class="col-sm-4" style="padding-top:4px;">
-								<table id="ProductTable" style="width:100%;">
-			                        <tbody>
-			                            <tr>
-			                                <td>
-			                                    <div class="upload-btn">
-			                                        <input type="file" name="photo[]" style="margin-bottom:5px;">
-			                                    </div>
-			                                </td>
-			                                <td style="width:28px;"><a href="javascript:void()" class="Delete btn btn-danger btn-xs">X</a></td>
-			                            </tr>
-			                        </tbody>
-			                    </table>
-							</div>
-							<div class="col-sm-2">
-			                    <input type="button" id="btnAddNew" value="Add Item" style="margin-top: 5px;margin-bottom:10px;border:0;color: #fff;font-size: 14px;border-radius:3px;" class="btn btn-warning btn-xs">
-			                </div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Description</label>
-							<div class="col-sm-8">
-								<textarea name="p_description" class="form-control" cols="30" rows="10" id="editor1"></textarea>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Short Description</label>
-							<div class="col-sm-8">
-								<textarea name="p_short_description" class="form-control" cols="30" rows="10" id="editor2"></textarea>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Features</label>
-							<div class="col-sm-8">
-								<textarea name="p_feature" class="form-control" cols="30" rows="10" id="editor3"></textarea>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Conditions</label>
-							<div class="col-sm-8">
-								<textarea name="p_condition" class="form-control" cols="30" rows="10" id="editor4"></textarea>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Return Policy</label>
-							<div class="col-sm-8">
-								<textarea name="p_return_policy" class="form-control" cols="30" rows="10" id="editor5"></textarea>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Is Featured?</label>
-							<div class="col-sm-8">
-								<select name="p_is_featured" class="form-control" style="width:auto;">
-									<option value="0">No</option>
-									<option value="1">Yes</option>
-								</select> 
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-3 control-label">Is Active?</label>
-							<div class="col-sm-8">
-								<select name="p_is_active" class="form-control" style="width:auto;">
-									<option value="0">No</option>
-									<option value="1">Yes</option>
-								</select> 
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-3 control-label"></label>
-							<div class="col-sm-6">
-								<button type="submit" class="btn btn-success pull-left" name="form1">Add Product</button>
-							</div>
-						</div>
-					</div>
-				</div>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Featured Photo <span>*</span></label>
+                            <div class="col-sm-4" style="padding-top:4px;">
+                                <input type="file" name="p_featured_photo">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Other Photos</label>
+                            <div class="col-sm-4" style="padding-top:4px;">
+                                <table id="ProductTable" style="width:100%;">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="upload-btn">
+                                                    <input type="file" name="photo[]" style="margin-bottom:5px;">
+                                                </div>
+                                            </td>
+                                            <td style="width:28px;"><a href="javascript:void()"
+                                                    class="Delete btn btn-danger btn-xs">X</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="button" id="btnAddNew" value="Add Item"
+                                    style="margin-top: 5px;margin-bottom:10px;border:0;color: #fff;font-size: 14px;border-radius:3px;"
+                                    class="btn btn-warning btn-xs">
+                            </div>
+                        </div>
+                        <!-- rating start-->
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Product Rating <span>*</span></label>
+                            <div class="col-sm-4">
+                                <select name="rating" class="form-control" required>
+                                    <option value="">Select Rating</option>
+                                    <?php
+										$i=0;
+										for($i=5;$i>=1;$i=$i-0.5){
+									?>
+                                    <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                                    <?php }?>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- rating end -->
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Description</label>
+                            <div class="col-sm-8">
+                                <textarea name="p_description" class="form-control" cols="30" rows="10"
+                                    id="editor1"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Short Description</label>
+                            <div class="col-sm-8">
+                                <textarea name="p_short_description" class="form-control" cols="30" rows="10"
+                                    id="editor2"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Features</label>
+                            <div class="col-sm-8">
+                                <textarea name="p_feature" class="form-control" cols="30" rows="10"
+                                    id="editor3"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Conditions</label>
+                            <div class="col-sm-8">
+                                <textarea name="p_condition" class="form-control" cols="30" rows="10"
+                                    id="editor4"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Return Policy</label>
+                            <div class="col-sm-8">
+                                <textarea name="p_return_policy" class="form-control" cols="30" rows="10"
+                                    id="editor5"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Is Featured?</label>
+                            <div class="col-sm-8">
+                                <select name="p_is_featured" class="form-control" style="width:auto;">
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label">Is Active?</label>
+                            <div class="col-sm-8">
+                                <select name="p_is_active" class="form-control" style="width:auto;">
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-3 control-label"></label>
+                            <div class="col-sm-6">
+                                <button type="submit" class="btn btn-success pull-left" name="form1">Add
+                                    Product</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-			</form>
+            </form>
 
 
-		</div>
-	</div>
+        </div>
+    </div>
 
 </section>
 

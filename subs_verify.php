@@ -7,7 +7,7 @@ if ( (isset($_REQUEST['email'])) && (isset($_REQUEST['token'])) )
     $var = 1;
 
     // check if the token is correct and match with database.
-    $statement = $pdo->prepare("SELECT * FROM tbl_customer WHERE cust_email=?");
+    $statement = $pdo->prepare("SELECT * FROM tbl_subscriber WHERE subs_email=? AND subs_active=0");
     $statement->execute(array($_REQUEST['email']));
     $c=$statement->rowCount();
     if(!$c){
@@ -18,7 +18,7 @@ if ( (isset($_REQUEST['email'])) && (isset($_REQUEST['token'])) )
 
     $result = $statement->fetchAll(PDO::FETCH_ASSOC);                           
     foreach ($result as $row) {
-        if($_REQUEST['token'] != $row['cust_token']) {
+        if($_REQUEST['token'] != $row['subs_hash']) {
             header('location: '.BASE_URL);
             $var=0;
             exit;
@@ -28,11 +28,11 @@ if ( (isset($_REQUEST['email'])) && (isset($_REQUEST['token'])) )
     // everything is correct. now activate the user removing token value from database.
     if($var != 0)
     {
-        $tkn=md5(time());
-        $statement = $pdo->prepare("UPDATE tbl_customer SET cust_token=?, cust_status=? WHERE cust_email=?");
-        $statement->execute(array($tkn,1,$_GET['email']));
+        $key = md5(uniqid(rand(), true));
+        $statement = $pdo->prepare("UPDATE tbl_subscriber SET subs_hash=?, subs_active=? WHERE subs_email=?");
+        $statement->execute(array($key,1,$_GET['email']));
 
-        $success_message = '<p style="color:green;">Your email is verified successfully. You can login now.</p><p><a href="'.BASE_URL.'login.php" style="color:#167ac6;font-weight:bold;">Click here to login</a></p>';     
+        $success_message = '<p style="color:green;">Congratulations!, Your subscription confirmed.</p><p><a href="'.BASE_URL.'index.php" style="color:#167ac6;font-weight:bold;">Click here to go to Home</a></p>';     
     }else{
         $error_message="Something went wrong!";
     }
@@ -44,7 +44,7 @@ if ( (isset($_REQUEST['email'])) && (isset($_REQUEST['token'])) )
 
 <div class="page-banner" style="background-color:#444;">
     <div class="inner">
-        <h1>Registration Confirmation</h1>
+        <h1>Subscription Confirmation</h1>
     </div>
 </div>
 
@@ -54,8 +54,7 @@ if ( (isset($_REQUEST['email'])) && (isset($_REQUEST['token'])) )
             <div class="col-md-12">
                 <div class="user-content">
                     <?php 
-                        if ($var==0){echo $error_message;}else{echo $success_message;}
-
+                        if ($var==0){echo '<p style="color:red">'.$error_message.'</p>';}else{echo $success_message;}
                     ?>
                 </div>
             </div>
