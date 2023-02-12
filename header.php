@@ -312,32 +312,41 @@ foreach ($result as $row)
 					}
 					?>
 
-                        <li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_18; ?>
-                                (<span id='cart-count'><?php
-					if(isset($_SESSION['cart_p_id'])) {
-						$tmp=array();
-						$i=0;
-						foreach($_SESSION['cart_p_id'] as $key => $value) 
-	                    {
-	                        $tmp[$i] = $value;
-							$i++;
-	                    }
-						echo count($tmp);
-					} else {
-						echo 0;
-					}
+                        <li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_18;?>(<span id='cart-count'><?php
+                    if(!isset($_SESSION['customer']['cust_id'])){
+                        if(isset($_SESSION['cart_p_id'])) {
+                            $tmp=array();
+                            $i=0;
+                            foreach($_SESSION['cart_p_id'] as $key => $value) 
+                            {
+                                $tmp[$i] = $value;
+                                $i++;
+                            }
+                            echo count($tmp);
+                        } else {
+                            echo 0;
+                        }  
+                    }else{
+                        $statement = $pdo->prepare("SELECT * FROM tbl_cart WHERE cust_id=?");
+                        $statement->execute(array($_SESSION['customer']['cust_id']));
+                        $ct_value_count = $statement->rowCount();
+                        echo $ct_value_count;
+                    }
+					
 					?></span>)</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3 search-area">
-                    <form class="navbar-form navbar-left" role="search" action="search-result.php" method="get">
+                <div class="col-md-3 search-area " style="padding:10px">
+                    <form action="search-result.php" method="GET">
                         <?php $csrf->echoInputField(); ?>
-                        <div class="form-group">
-                            <input type="text" class="form-control search-top" placeholder="<?php echo LANG_VALUE_2; ?>"
-                                name="search_text">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search Products" name="search_text" />
+                            <div class="input-group-btn">
+                                <button class="btn btn-danger" type="submit">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </div>
                         </div>
-                        <button class="btn btn-danger" type="submit"><span
-                                class="glyphicon glyphicon-search"></span></button>
                     </form>
                 </div>
             </div>
