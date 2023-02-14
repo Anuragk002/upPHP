@@ -119,6 +119,7 @@
             $i++;
         }
 
+
         // Updating cart according user is registered or not--->
         $i=0;
         for($i=0;$i<count($arr_u_p_id);$i++){
@@ -142,32 +143,9 @@
             }
         }
         $c_success_msg='All Items Quantity Update is Successful!';
-        // if(!isset($_SESSION['customer'])){
-        //     if (isset($_SESSION['cart_p_id']) && isset($_SESSION['cart_p_pkg_id']) && isset($_SESSION['cart_p_qty'])){
-        //         $i=0;
-        //         for($i=0;$i<count($arr_u_p_id);$i++){
-        //             $j=0;
-        //             for($j=0;$j<count($arr_cart_p_id);$j++){
-        //                 if(($arr_u_p_id[$i]==$arr_cart_p_id[$j]) && ($arr_u_p_pkg_id[$i]==$arr_cart_p_pkg_id[$j]) ){
-        //                     $_SESSION['cart_p_qty'][$j]=$arr_u_p_qty[$i];
-        //                     $arr_cart_p_qty[$j]=$arr_u_p_qty[$i];
-        //                     break;
-        //                 }
-        //             }
-        //         }
-        //         $c_success_msg='All Items Quantity Update is Successful!';
-        //     }else{
-        //         header('location:index.php');
-        //     }
-            
-        // }else{
-        //     $i=0;
-        //     for($i=0;$i<count($arr_u_p_id);$i++){
-        //         $statement = $pdo->prepare("UPDATE `tbl_cart` SET `quantity` =? WHERE `cust_id`=? AND `product_id`=? AND `package_id`=?");
-        //         $statement->execute(array($arr_u_p_qty[$i],$_SESSION['customer']['cust_id'],$arr_u_p_id[$i],$arr_u_p_pkg_id[$i]));
-        //     }
-        //     $c_success_msg='All Items Quantity Update is Successful!';
-        // }
+        unset($_POST['quantity']);
+        unset($_POST['package_id']);
+        unset($_POST['product_id']);
     }  
 ?>
 
@@ -179,9 +157,9 @@
 </div>
 
 <div class="page">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
                 <?php
                     if($c_success_msg != '') {
                         echo '<div class="alert alert-success alert-dismissible">
@@ -199,86 +177,73 @@
                 ?>
 
                 <?php if($TOTAL_ITEMES==0): ?>
-                    <?php echo '<h2 class="text-center">Cart is Empty!!</h2></br>'; ?>
-                    <?php echo '<h4 class="text-center">Add products to the cart in order to view it here.</h4>'; ?>
+                <?php echo '<h2 class="text-center">Cart is Empty!!</h2></br>'; ?>
+                <?php echo '<h4 class="text-center">Add products to the cart in order to view it here.</h4>'; ?>
                 <?php else: ?>
                 <form action="" method="post">
-                    <?php $csrf->echoInputField(); ?>
-                    <div class="cart">
-                        <table class="table table-responsive table-hover table-bordered">
-                            <tr>
-                                <th><?php echo '#' ?></th>
-                                <th><?php echo LANG_VALUE_8; ?></th>
-                                <th><?php echo LANG_VALUE_47; ?></th>
-                                <th><?php echo "Package Name";#LANG_VALUE_157 ?></th>
-                                <!-- <th> #LANG_VALUE_158; </th> -->
-                                <th><?php echo LANG_VALUE_159; ?></th>
-                                <th><?php echo LANG_VALUE_55; ?></th>
-                                <th class="text-right"><?php echo LANG_VALUE_82; ?></th>
-                                <th class="text-center" style="width: 100px;"><?php echo LANG_VALUE_83; ?></th>
-                            </tr>
-                            
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8 mera-cart ">
+                            <h4 class='cart-heading'>My Shopping Cart(<?php echo count($arr_cart_p_id); ?>)</h4>
+                            <hr />
                             <?php 
-                                $c=1;
-                                for($i=count($arr_cart_p_id)-1;$i>=0;$i--): 
-                            ?>
-                                <tr>
-                                    <td><?php echo $c++; ?></td>
-                                    <td>
-                                        <img src="assets/uploads/<?php echo $arr_cart_p_featured_photo[$i]; ?>" alt="">
-                                    </td>
-                                    <td><?php echo $arr_cart_p_name[$i]; ?></td>
-                                    <td><?php echo $arr_cart_pkg_name[$i]; ?></td>
-                                    <!-- <td><?php  #$arr_cart_color_name[$i];<?>/td> -->
-                                    <td><?php echo LANG_VALUE_1; ?><?php echo $arr_cart_pkg_price[$i]; ?></td>
-                                    <td>
-                                        <input type="hidden" name="product_id[]" value="<?php echo $arr_cart_p_id[$i]; ?>">
-                                        <input type="hidden" name="package_id[]" value="<?php echo $arr_cart_p_pkg_id[$i]; ?>">
-                                        <input type="number" class="input-text qty text" step="1" min="1" max="" name="quantity[]" value="<?php echo $arr_cart_p_qty[$i]; ?>" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" required>
-                                    </td>
-                                    <td class="text-right">
-                                        <?php
+                            $c=1;
+                            for($i=count($arr_cart_p_id)-1;$i>=0;$i--){ 
+                        ?>
+                            <div class="row cart-row thumbnail">
+                                <div class="col-xs-6 col-sm-3 cart-img">
+                                    <img src="assets/uploads/<?php echo $arr_cart_p_featured_photo[$i]; ?>" alt="">
+                                </div>
+                                <div class="col-xs-6 col-sm-3 cart-name ">
+                                    <h4><?php echo $arr_cart_p_name[$i]; ?></h4>
+                                    <small><?php echo $arr_cart_pkg_name[$i]; ?></small>
+                                </div>
+
+                                <!-- Add the extra clearfix for only the required viewport -->
+                                <div class="clearfix visible-xs-block"></div>
+
+                                <div class="col-xs-6 col-sm-2 cart-qty ">
+                                    <input type="hidden" name="product_id[]" value="<?php echo $arr_cart_p_id[$i]; ?>">
+                                    <input type="hidden" name="package_id[]"
+                                        value="<?php echo $arr_cart_p_pkg_id[$i]; ?>">
+                                    <input type="number" class="input-text qty text" step="1" min="1" max=""
+                                        name="quantity[]" value="<?php echo $arr_cart_p_qty[$i]; ?>" title="Qty"
+                                        size="4" pattern="[0-9]*" inputmode="numeric" required>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 cart-price ">
+                                    <?php
                                         $row_total_price = $arr_cart_pkg_price[$i] * $arr_cart_p_qty[$i];
                                         $table_total_price = $table_total_price + $row_total_price;
                                         ?>
-                                        <?php echo LANG_VALUE_1; ?><?php echo $row_total_price; ?>
-                                    </td>
-                                    <td class="text-center">
-                                        <a onclick="return confirmDelete();" href="cart-item-delete.php?p_id=<?php echo $arr_cart_p_id[$i]; ?>&pkg_id=<?php echo $arr_cart_p_pkg_id[$i]; ?>" class="trash"><i class="fa fa-trash" style="color:red;"></i></a>
-                                    </td>
-                                </tr>
-                            <?php endfor; ?>
-                            <tr>
-                                <th colspan="7" class="total-text">Total</th>
-                                <th class="total-amount"><?php echo LANG_VALUE_1; ?><?php echo $table_total_price; ?></th>
-                                <th></th>
-                            </tr>
-                        </table> 
-                    </div>
+                                    <?php echo LANG_VALUE_1; ?><?php echo $row_total_price; ?></div>
+                                <div class="col-xs-3 col-sm-2 cart-btn ">
+                                    <a onclick="return confirmDelete();"
+                                        href="cart-item-delete.php?p_id=<?php echo $arr_cart_p_id[$i]; ?>&pkg_id=<?php echo $arr_cart_p_pkg_id[$i]; ?>"
+                                        class="trash"><i class="fa fa-trash-o fa-2x" style="color:red;"></i>
+                                    </a>
+                                </div>
+                            </div>
 
-                    <div class="cart-buttons">
-                        <ul>
-                            <li><input type="submit" value="<?php echo LANG_VALUE_20; ?>" class="btn btn-primary" name="form1"></li>
-                            <li><a href="index.php" class="btn btn-primary"><?php echo LANG_VALUE_85; ?></a></li>
-                            <li><a href="checkout.php" class="btn btn-primary"><?php echo LANG_VALUE_23; ?></a></li>
-                        </ul>
+                            <?php } ?>
+                            <div class="cart-buttons">
+                                <ul>
+                                    <li><input type="submit" value="<?php echo LANG_VALUE_20; ?>"
+                                            class="btn btn-lg btn-primary" name="form1"></li>
+                                    <li><a href="index.php" class="btn btn-lg btn-info"><?php echo LANG_VALUE_85; ?></a>
+                                    </li>
+                                    <li><a href="checkout.php"
+                                            class="btn btn-lg btn-success"><?php echo LANG_VALUE_23; ?></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class=" col-md-2"></div>
                     </div>
                 </form>
                 <?php endif; ?>
-			</div>
-		</div>
-	</div>
+            </div>
+
+        </div>
+    </div>
+</div>
 </div>
 <?php require_once('footer.php'); ?>
-
-<?php
-// if ($c_err_msg != '') {
-//     echo "<script>alert('".$c_err_msg."')</script>";
-//     $c_err_msg='';
-// }
-// if ($c_success_msg != '') {
-//     echo "<script>alert('".$c_success_msg."')</script>";
-//     $c_success_msg='';
-//     // header('location: product.php?id=' . $_REQUEST['id']);
-// }
-?>

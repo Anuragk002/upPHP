@@ -193,6 +193,17 @@ foreach ($result as $row) {
             $_SESSION['s_address']['country']=strip_tags($_POST['country']);
             $_SESSION['s_address']['zip']=strip_tags($_POST['zip']);
 
+            unset($_POST['name']);
+            unset($_POST['phone']);
+            unset($_POST['email']);
+            unset($_POST['address']);
+            unset($_POST['city']);
+            unset($_POST['state']);
+            unset($_POST['coutnry']);
+            unset($_POST['zip']);
+            unset($_POST['payment_method']);
+
+
             header("location:payment/cod/cod.php");
             exit;
         }
@@ -213,10 +224,10 @@ foreach ($result as $row) {
                 <?php $csrf->echoInputField(); ?>
                 <div class="col-md-8 mb-4">
                     <div class="col-md-12">
-                        <div class="user-content">                            
+                        <div class="user-content">
                             <div class="row">
                                 <h3><?php echo LANG_VALUE_87; ?></h3>
-                                
+
                                 <?php
                                     if($err_msg != '') {
                                         echo '<div class="alert alert-danger alert-dismissible">
@@ -229,99 +240,119 @@ foreach ($result as $row) {
                                 <div class="col-md-6 ">
                                     <div class="form-group">
                                         <label for=""><?php echo LANG_VALUE_102; ?><sup>*</sup></label>
-                                        <input type="text" required class="form-control" name="name" value="<?php echo $name; ?>">
+                                        <input type="text" required class="form-control" name="name"
+                                            value="<?php echo $name; ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for=""><?php echo LANG_VALUE_104; ?><sup>*</sup></label>
-                                        <input type="text" required class="form-control" name="phone" value="<?php echo $phone; ?>">
+                                        <input type="text" required class="form-control" name="phone"
+                                            value="<?php echo $phone; ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for=""><?php echo LANG_VALUE_105; ?><sup>*</sup></label>
-                                        <textarea name="address" required class="form-control" cols="30" rows="10" style="height:110px;" ><?php echo $address; ?></textarea>
+                                        <textarea name="address" required class="form-control" cols="30" rows="10"
+                                            style="height:110px;"><?php echo $address; ?></textarea>
                                     </div>
-                                    
+
                                     <!-- Select Payment Method -->
                                     <div class="form-group">
                                         <label for=""><?php echo LANG_VALUE_34; ?> *</label>
                                         <select name="payment_method" class="form-control" required>
-                                                <option value=""><?php echo LANG_VALUE_35; ?></option>
-                                                <option value="cod"><?php echo LANG_VALUE_36; ?></option>
-                                        </select> 
+                                            <option value=""><?php echo LANG_VALUE_35; ?></option>
+                                            <option value="cod"><?php echo LANG_VALUE_36; ?></option>
+                                        </select>
                                         <br>
-                                        <p>You will receive a payment link over email to complete the payment.</p>                                   
+                                        <p>You will receive a payment link over email to complete the payment.</p>
                                     </div>
-                                    
+
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for=""><?php echo "Email"; ?><sup>*</sup></label>
-                                        <input type="email" required class="form-control" name="email" value="<?php echo $email; ?>">
+                                        <input type="email" required class="form-control" name="email"
+                                            value="<?php echo $email; ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for=""><?php echo LANG_VALUE_107; ?><sup>*</sup></label>
-                                        <input type="text" required  class="form-control" name="city" value="<?php echo $city; ?>">
+                                        <input type="text" required class="form-control" name="city"
+                                            value="<?php echo $city; ?>">
                                     </div>
-                                    
+
                                     <div class="form-group">
                                         <label for=""><?php echo LANG_VALUE_108; ?><sup>*</sup></label>
-                                        <input type="text" required class="form-control" name="state" value="<?php echo $state; ?>">
+                                        <input type="text" required class="form-control" name="state"
+                                            value="<?php echo $state; ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for=""><?php echo LANG_VALUE_106; ?><sup>*</sup></label>
-                                        <select name="country" class="form-control" required >
-                                        <option value="">Select Country</option>
+                                        <select name="country" class="form-control" required>
+                                            <option value="">Select Country</option>
                                             <?php
                                             $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
                                             $statement->execute();
                                             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                                             foreach ($result as $row) {
                                                 ?>
-                                                <option value="<?php echo $row['country_id']; ?>" <?php if($row['country_id'] == $country) {echo 'selected';} ?>><?php echo $row['country_name']; ?></option>
-                                                <?php
+                                            <option value="<?php echo $row['country_id']; ?>"
+                                                <?php if($row['country_id'] == $country) {echo 'selected';} ?>>
+                                                <?php echo $row['country_name']; ?></option>
+                                            <?php
                                             }
                                             ?>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for=""><?php echo LANG_VALUE_109; ?><sup>*</sup></label>
-                                        <input type="text" class="form-control" required name="zip" value="<?php echo $zip; ?>">
+                                        <input type="text" class="form-control" required name="zip"
+                                            value="<?php echo $zip; ?>">
                                     </div>
                                     <div class="form-group checkbox" style="color:blue">
                                         <?php
                                             if(isset($_SESSION['customer'])){ ?>
-                                            <label>
-                                                <input type="checkbox" name="set_address" value=1> <b>Set this address as your Shipping Address</b>
-                                            </label>
+                                        <label>
+                                            <input type="checkbox" name="set_address" value=1> <b>Set this address as
+                                                your Shipping Address</b>
+                                        </label>
                                         <?php }else{?>
-                                            <!-- <label>
+                                        <!-- <label>
                                             <input type="checkbox" name="set_profile" value=1> <b >Check to create account</b>
                                             </label> -->
                                         <?php }?>
                                     </div>
-                                    
+
                                 </div>
                             </div>
-                        </div>                
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-md-4 mb-4">
                     <div class="panel panel-primary">
-                        <div class="panel-heading"><h4 >Summary</h4></div>
+                        <div class="panel-heading">
+                            <h4>Summary</h4>
+                        </div>
                         <ul class="panel-body list-group">
                             <?php for($i=0;$i<count($arr_cart_p_name);$i++){ ?>
-                                <li class="list-group-item " style="border:0px">
-                                <div><b style="float:left"><?php echo $arr_cart_p_name[$i]; ?></b><span style="float:right"><?php echo "".$arr_cart_p_qty[$i] ."X $". $arr_cart_pkg_price[$i]; ?></span></div>
-                                <br class="clear"/>                                
-                                </li>
-                            <?php } ?>                        
-                            <li class="list-group-item" style="font-weight:bold"><h4><p style="float:left">Total Price </p><span style="float:right"><?php echo "$".$table_total_price;?></span></h4><br class="clear"/></li>
+                            <li class="list-group-item " style="border:0px">
+                                <div><b style="float:left"><?php echo $arr_cart_p_name[$i]; ?></b><span
+                                        style="float:right"><?php echo "".$arr_cart_p_qty[$i] ."X $". $arr_cart_pkg_price[$i]; ?></span>
+                                </div>
+                                <br class="clear" />
+                            </li>
+                            <?php } ?>
+                            <li class="list-group-item" style="font-weight:bold">
+                                <h4>
+                                    <p style="float:left">Total Price </p><span
+                                        style="float:right"><?php echo "$".$table_total_price;?></span>
+                                </h4><br class="clear" />
+                            </li>
                         </ul>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary btn-lg btn-block" value="<?php echo"PLACE ORDER";#echo LANG_VALUE_46; ?>" name="form1">
-                    </div>                    
+                        <input type="submit" class="btn btn-primary btn-lg btn-block"
+                            value="<?php echo"PLACE ORDER";#echo LANG_VALUE_46; ?>" name="form1">
+                    </div>
                 </div>
             </form>
         </div>

@@ -29,7 +29,6 @@ if(isset($_POST['form1'])) {
         // foreach ($result as $row) {
         //     $cust_email = $row['cust_email'];
         // }
-
         // Getting Admin Email Address
         // $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
         // $statement->execute();
@@ -190,7 +189,7 @@ if(isset($_POST['form1'])) {
 
         $body ='<body>
 			<span style="color:black">Hello '.$s_name.',</span><br/>
-			<span style="color:black">'.$message_text.'<br/>'.$status_details.'
+			<span style="color:black">'.$message_text.'<br/><br/><b><u>Order Details:</u></b><br/>'.$status_details.'
 			'. $order_details .'<br/>'.$shipping_address.'</span>
 			<span style="color:black"> Thanks for shopping with us. If you are facing any issue, Please contact us.</span><br/><br/>
 			<span style="color:black">
@@ -204,12 +203,16 @@ if(isset($_POST['form1'])) {
         $mail->Subject = $subject_text;//subject
         $mail->IsHTML(true);
         $mail->Body    = $body;
-        $mail->send();
-
-        $statement = $pdo->prepare("INSERT INTO tbl_customer_message (`to_email`,`subject`,`message`,`payment_id`,`status_details`,`order_details`,`shipping_address`) VALUES (?,?,?,?,?,?,?)");
-        $statement->execute(array($s_email,$subject_text,$message_text,$_POST['payment_id'],$status_details,$order_details,$shipping_address));
-        
-        $success_message = 'Your email to customer is sent successfully.';
+        if ($mail->send()){
+            $statement = $pdo->prepare("INSERT INTO tbl_customer_message (`to_email`,`subject`,`message`,`payment_id`,`status_details`,`order_details`,`shipping_address`) VALUES (?,?,?,?,?,?,?)");
+            $statement->execute(array($s_email,$subject_text,$message_text,$_POST['payment_id'],$status_details,$order_details,$shipping_address));
+            $success_message = 'Email sent to recipent successfully.';
+        }else{
+            $error_message="Something went wrong!";
+        }
+        unset($_POST['payment_id']);
+        unset($_POST['subject_text']);
+        unset($_POST['message_text']);
     }
 
 }
@@ -295,7 +298,7 @@ if(isset($_POST['form2'])){
 			<li><b>Order ID: </b>'.$payment_id.'</li>
 			<li><b>Order Date: </b>'.$order_date.'</li>
             <li><b>Payment Status: </b>'.$payment_status.'</li>
-			<li><b>Tracking ID: $</b>'.$tracking_id.'</li>
+			<li><b>Tracking ID: </b>'.$tracking_id.'</li>
 			<li><b><a href="'.$tracking_link.'">CLICK HERE! TO TRACK YOUR ORDER</a></b></li>
 			</ul>
             </span>
@@ -313,9 +316,14 @@ if(isset($_POST['form2'])){
         $mail->Subject = 'Order processed successfully - '.$payment_id;//subject
         $mail->IsHTML(true);
         $mail->Body    = $body;
-        $mail->send();
-
-        $success_message = 'Tracking ID marked as completed and confirmation email has been send to customer.';
+        if($mail->send()){
+            $success_message = 'Tracking ID marked as completed and confirmation email has been send to customer.';
+        }else{
+            $error_message ="Something went wrong!";
+        }
+        unset($_POST['tracking_id']);
+        unset($_POST['tracking_link']);
+        unset($_POST['payment_id']); 
     }
 
 }
@@ -330,42 +338,42 @@ if($success_message != '') {
 ?>
 
 <section class="content-header">
-	<div class="content-header-left">
-		<h1>View Orders</h1>
-	</div>
+    <div class="content-header-left">
+        <h1>View Orders</h1>
+    </div>
 </section>
 
 
 <section class="content">
 
-  <div class="row">
-    <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
 
 
-      <div class="box box-info">
-        
-        <div class="box-body table-responsive">
-          <table id="example1" class="table table-bordered table-hover table-striped">
-			<thead>
-			    <tr>
-			        <th>#</th>
-                    <th>Customer</th>
-			        <th>Product Details</th>
-                    <th>Order ID</th>
-                    <th>Order Date</th>
-                    <th>
-                        Payment Information
-                    </th>
-                    <th>Paid Amount</th>
-                    <th>Payment Status</th>
-                    <th>Tracking ID</th>
-                    <th>Shipping Address</th>
-                    <th>Delivery</th>
-			        <?php if($_SESSION['user']['role']=='Super Admin' ){?><th>Action</th><?php }?>
-			    </tr>
-			</thead>
-            <tbody>
-            	<?php
+            <div class="box box-info">
+
+                <div class="box-body table-responsive">
+                    <table id="example1" class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Customer</th>
+                                <th>Product Details</th>
+                                <th>Order ID</th>
+                                <th>Order Date</th>
+                                <th>
+                                    Payment Information
+                                </th>
+                                <th>Paid Amount</th>
+                                <th>Payment Status</th>
+                                <th>Tracking ID</th>
+                                <th>Shipping Address</th>
+                                <th>Delivery</th>
+                                <?php if($_SESSION['user']['role']=='Super Admin' ){?><th>Action</th><?php }?>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
             	$i=0;
             	$statement = $pdo->prepare("SELECT * FROM `tbl_payment` ORDER by id DESC
                 ");
@@ -375,60 +383,69 @@ if($success_message != '') {
             	foreach ($result as $row) {
             		$i++;
             		?>
-					<tr class="<?php if($row['payment_status']=='Pending'){echo 'bg-r';}else{echo 'bg-g';} ?>">
-                        <!-- serial number -->
-	                    <td><?php echo $i; ?></td>
-                        <!-- Customer Details-->
-	                    <td>
-                            <b>Name:</b><br> <?php echo $row['customer_name']; ?><br>
-                            <?php if($row['customer_id']!=0){ 
+                            <tr class="<?php if($row['payment_status']=='Pending'){echo 'bg-r';}else{echo 'bg-g';} ?>">
+                                <!-- serial number -->
+                                <td><?php echo $i; ?></td>
+                                <!-- Customer Details-->
+                                <td>
+                                    <b>Name:</b><br> <?php echo $row['customer_name']; ?><br>
+                                    <?php if($row['customer_id']!=0){ 
                                 ?>
-                                <!-- <b>Id:</b> <?php #echo #$row['customer_id']; ?><br> -->
-                                <b>Primary Email:</b><br> <?php echo $row['customer_email']; ?><br>
-                            <?php }?>
-                                <b>Payment Email:</b><br> <?php echo $row['s_email']; ?><br><br> 
-                            <a href="#" data-toggle="modal" data-target="#model-<?php echo $i; ?>"class="btn btn-warning btn-xs" style="width:100%;margin-bottom:4px;">Send Message</a>
-                            <div id="model-<?php echo $i; ?>" class="modal fade" role="dialog">
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal">&times;</button>
-											<h4 class="modal-title" style="font-weight: bold;">Send Message</h4>
-										</div>
-										<div class="modal-body" style="font-size: 14px">
-											<form action="" method="post">
-                                                <!-- <input type="hidden" name="cust_id" value="<?php #echo $row['customer_id']; ?>"> -->
-                                                <input type="hidden" name="payment_id" value="<?php echo $row['payment_id']; ?>">
-												<table class="table table-bordered">
-													<tr>
-														<td>Subject</td>
-														<td>
-                                                            <input type="text" name="subject_text" class="form-control" style="width: 100%;">
-														</td>
-													</tr>
-                                                    <tr>
-                                                        <td>Message</td>
-                                                        <td>
-                                                            <textarea name="message_text" class="form-control" cols="30" rows="10" style="width:100%;height: 200px;"></textarea>
-                                                        </td>
-                                                    </tr>
-													<tr>
-														<td></td>
-														<td><input type="submit" value="Send Message" name="form1"></td>
-													</tr>
-												</table>
-											</form>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-										</div>
-									</div>
-								</div>
-							</div>
-                        </td>
-                        <!-- product details -->
-                        <td>
-                           <?php
+                                    <!-- <b>Id:</b> <?php #echo #$row['customer_id']; ?><br> -->
+                                    <b>Primary Email:</b><br> <?php echo $row['customer_email']; ?><br>
+                                    <?php }?>
+                                    <b>Payment Email:</b><br> <?php echo $row['s_email']; ?><br><br>
+                                    <a href="#" data-toggle="modal" data-target="#model-<?php echo $i; ?>"
+                                        class="btn btn-warning btn-xs" style="width:100%;margin-bottom:4px;">Send
+                                        Message</a>
+                                    <div id="model-<?php echo $i; ?>" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title" style="font-weight: bold;">Send Message</h4>
+                                                </div>
+                                                <div class="modal-body" style="font-size: 14px">
+                                                    <form action="" method="post">
+                                                        <!-- <input type="hidden" name="cust_id" value="<?php #echo $row['customer_id']; ?>"> -->
+                                                        <input type="hidden" name="payment_id"
+                                                            value="<?php echo $row['payment_id']; ?>">
+                                                        <table class="table table-bordered">
+                                                            <tr>
+                                                                <td>Subject</td>
+                                                                <td>
+                                                                    <input type="text" name="subject_text"
+                                                                        class="form-control" style="width: 100%;">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Message</td>
+                                                                <td>
+                                                                    <textarea name="message_text" class="form-control"
+                                                                        cols="30" rows="10"
+                                                                        style="width:100%;height: 200px;"></textarea>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input type="submit" value="Send Message"
+                                                                        name="form1"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default"
+                                                        data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <!-- product details -->
+                                <td>
+                                    <?php
                            $statement1 = $pdo->prepare("SELECT * FROM tbl_order WHERE payment_id=?");
                            $statement1->execute(array($row['payment_id']));
                            $result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
@@ -441,55 +458,61 @@ if($success_message != '') {
                                 echo '<br><br>';
                            }
                            ?>
-                        </td>
-                        <!-- order id and date -->
-                        <th><?php echo $row['payment_id']; ?></th>
-                        <th><?php echo $row['order_date']; ?></th>
-                        <!-- payment information (method and Payment completion date) -->
-                        <td>
-                        	<?php if($row['payment_method'] == 'PayPal'): ?>
-                        		<b>Payment Method:</b> <?php echo '<span style="color:red;"><b>'.$row['payment_method'].'</b></span>'; ?><br>
-                        		<b>Payment Id:</b> <?php echo $row['payment_id']; ?><br>
-                        		<b>Date:</b> <?php echo $row['payment_date']; ?><br>
-                        		<b>Transaction Id:</b> <?php echo $row['txnid']; ?><br>
-                        	<?php elseif($row['payment_method'] == 'Stripe'): ?>
-                        		<b>Payment Method:</b> <?php echo '<span style="color:red;"><b>'.$row['payment_method'].'</b></span>'; ?><br>
-                        		<b>Payment Id:</b> <?php echo $row['payment_id']; ?><br>
-								<b>Date:</b> <?php echo $row['payment_date']; ?><br>
-                        		<b>Transaction Id:</b> <?php echo $row['txnid']; ?><br>
-                        		<b>Card Number:</b> <?php echo $row['card_number']; ?><br>
-                        		<b>Card CVV:</b> <?php echo $row['card_cvv']; ?><br>
-                        		<b>Expire Month:</b> <?php echo $row['card_month']; ?><br>
-                        		<b>Expire Year:</b> <?php echo $row['card_year']; ?><br>
-                            <?php elseif($row['payment_method'] == 'Bank Deposit'): ?>
-                                <b>Payment Method:</b> <?php echo '<span style="color:red;"><b>'.$row['payment_method'].'</b></span>'; ?><br>
-                        		<b>Payment Id:</b> <?php echo $row['payment_id']; ?><br>
-								<b>Date:</b> <?php echo $row['payment_date']; ?><br>
-                        		<b>Transaction Information:</b> <br><?php echo $row['bank_transaction_info']; ?><br>
-                            <?php elseif($row['payment_method'] == 'COD/Pay Later'): ?>
-                        		<b>Payment Method:</b> <?php echo '<span style="color:red;"><b>COD/Pay Later</b></span>'; ?><br>
-								<b>Date:</b> <?php echo $row['payment_date']; ?><br>
-                        		
-                        	<?php endif; ?>
-                        </td>
-                        <!-- total amount -->
-                        <td>$<?php echo $row['paid_amount']; ?></td>
-                        <!-- payment status -->
-                        <td>
-                            <?php echo $row['payment_status'] .'<br>';                           
+                                </td>
+                                <!-- order id and date -->
+                                <th><?php echo $row['payment_id']; ?></th>
+                                <th><?php echo $row['order_date']; ?></th>
+                                <!-- payment information (method and Payment completion date) -->
+                                <td>
+                                    <?php if($row['payment_method'] == 'PayPal'): ?>
+                                    <b>Payment Method:</b>
+                                    <?php echo '<span style="color:red;"><b>'.$row['payment_method'].'</b></span>'; ?><br>
+                                    <b>Payment Id:</b> <?php echo $row['payment_id']; ?><br>
+                                    <b>Date:</b> <?php echo $row['payment_date']; ?><br>
+                                    <b>Transaction Id:</b> <?php echo $row['txnid']; ?><br>
+                                    <?php elseif($row['payment_method'] == 'Stripe'): ?>
+                                    <b>Payment Method:</b>
+                                    <?php echo '<span style="color:red;"><b>'.$row['payment_method'].'</b></span>'; ?><br>
+                                    <b>Payment Id:</b> <?php echo $row['payment_id']; ?><br>
+                                    <b>Date:</b> <?php echo $row['payment_date']; ?><br>
+                                    <b>Transaction Id:</b> <?php echo $row['txnid']; ?><br>
+                                    <b>Card Number:</b> <?php echo $row['card_number']; ?><br>
+                                    <b>Card CVV:</b> <?php echo $row['card_cvv']; ?><br>
+                                    <b>Expire Month:</b> <?php echo $row['card_month']; ?><br>
+                                    <b>Expire Year:</b> <?php echo $row['card_year']; ?><br>
+                                    <?php elseif($row['payment_method'] == 'Bank Deposit'): ?>
+                                    <b>Payment Method:</b>
+                                    <?php echo '<span style="color:red;"><b>'.$row['payment_method'].'</b></span>'; ?><br>
+                                    <b>Payment Id:</b> <?php echo $row['payment_id']; ?><br>
+                                    <b>Date:</b> <?php echo $row['payment_date']; ?><br>
+                                    <b>Transaction Information:</b> <br><?php echo $row['bank_transaction_info']; ?><br>
+                                    <?php elseif($row['payment_method'] == 'COD/Pay Later'): ?>
+                                    <b>Payment Method:</b>
+                                    <?php echo '<span style="color:red;"><b>COD/Pay Later</b></span>'; ?><br>
+                                    <b>Date:</b> <?php echo $row['payment_date']; ?><br>
+
+                                    <?php endif; ?>
+                                </td>
+                                <!-- total amount -->
+                                <td>$<?php echo $row['paid_amount']; ?></td>
+                                <!-- payment status -->
+                                <td>
+                                    <?php echo $row['payment_status'] .'<br>';                           
                             ?>
-                            <br>
-                            <?php
+                                    <br>
+                                    <?php
                                 if($row['payment_status']=='Pending'){
                                     ?>
-                                    <a href="payment-change-status.php?id=<?php echo $row['id']; ?>" class="btn btn-success btn-xs" style="width:100%;margin-bottom:4px;">Mark As Completed</a>
+                                    <a href="payment-change-status.php?id=<?php echo $row['id']; ?>"
+                                        class="btn btn-success btn-xs" style="width:100%;margin-bottom:4px;">Mark As
+                                        Completed</a>
                                     <?php
                                 }
                             ?>
-                        </td>
-                        <!-- Tracking ID -->
-                        <td>
-                            <?php 
+                                </td>
+                                <!-- Tracking ID -->
+                                <td>
+                                    <?php 
                                 if($row['tracking_id']!=-1){
                                     echo "<b>ID:</b> ".$row['tracking_id'].'<br>';
                                     echo "<b>Link:</b> <a style='color:blue; font-weight:bold' href=".$row['tracking_link'].">click to track</a><br>";
@@ -498,70 +521,82 @@ if($success_message != '') {
                                     echo 'Pending <br><br>';
                                 }
                             ?>
-                            <br>
-                            <?php
+                                    <br>
+                                    <?php
                                 if($row['payment_status']=='Completed') {
                                     if($row['tracking_id']==-1){
                                         ?>
-                                        <!-- <a href="tracking-change-status.php?id=<?php echo $row['id']; ?>" class="btn btn-warning btn-xs" style="width:100%;margin-bottom:4px;">Mark Generated</a> -->
-                                        <a href="#" data-toggle="modal" data-target="#model-tid-<?php echo $i; ?>"class="btn btn-warning btn-xs" style="width:100%;margin-bottom:4px;">Mark As Generated</a>
-                                        <div id="model-tid-<?php echo $i; ?>" class="modal fade" role="dialog">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        <h4 class="modal-title" style="font-weight: bold;">Tracking ID Confirmation</h4>
-                                                    </div>
-                                                    <div class="modal-body" style="font-size: 14px">
-                                                        <form action="" method="post">
-                                                            <!-- <input type="hidden" name="cust_id" value="<?php #echo $row['customer_id']; ?>"> -->
-                                                            <input type="hidden" name="payment_id" value="<?php echo $row['payment_id']; ?>">
-                                                            <table class="table table-bordered">
-                                                                <tr>
-                                                                    <td>Tracking ID</td>
-                                                                    <td>
-                                                                        <input type="text" name="tracking_id" required class="form-control" style="width: 100%;">
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>Tracking Link</td>
-                                                                    <td>
-                                                                        <textarea name="tracking_link" class="form-control" cols="10" rows="5" style="width:100%;height: 200px;" required></textarea>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td></td>
-                                                                    <td><input type="submit" value="Mark As Generated" name="form2"></td>
-                                                                </tr>
-                                                            </table>
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                    </div>
+                                    <!-- <a href="tracking-change-status.php?id=<?php echo $row['id']; ?>" class="btn btn-warning btn-xs" style="width:100%;margin-bottom:4px;">Mark Generated</a> -->
+                                    <a href="#" data-toggle="modal" data-target="#model-tid-<?php echo $i; ?>"
+                                        class="btn btn-warning btn-xs" style="width:100%;margin-bottom:4px;">Mark As
+                                        Generated</a>
+                                    <div id="model-tid-<?php echo $i; ?>" class="modal fade" role="dialog">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title" style="font-weight: bold;">Tracking ID
+                                                        Confirmation</h4>
+                                                </div>
+                                                <div class="modal-body" style="font-size: 14px">
+                                                    <form action="" method="post">
+                                                        <!-- <input type="hidden" name="cust_id" value="<?php #echo $row['customer_id']; ?>"> -->
+                                                        <input type="hidden" name="payment_id"
+                                                            value="<?php echo $row['payment_id']; ?>">
+                                                        <table class="table table-bordered">
+                                                            <tr>
+                                                                <td>Tracking ID</td>
+                                                                <td>
+                                                                    <input type="text" name="tracking_id" required
+                                                                        class="form-control" style="width: 100%;">
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Tracking Link</td>
+                                                                <td>
+                                                                    <textarea name="tracking_link" class="form-control"
+                                                                        cols="10" rows="5"
+                                                                        style="width:100%;height: 200px;"
+                                                                        required></textarea>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td></td>
+                                                                <td><input type="submit" value="Mark As Generated"
+                                                                        name="form2"></td>
+                                                            </tr>
+                                                        </table>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default"
+                                                        data-dismiss="modal">Close</button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <?php
+                                    </div>
+                                    <?php
                                     }
                                 }
                             ?>
-                        </td>
-                        <!-- Address coloumn-->
-                        <td>                            
-                            <b>Name:</b><?php echo $row['s_name']; ?><br>
-                            <b>Phone:</b><?php echo $row['s_phone']; ?><br>
-                            <?php echo $row['s_address']; ?>, <?php echo $row['s_city']; ?>, <?php echo $row['s_state']; ?>,<br>
-                            <?php
+                                </td>
+                                <!-- Address coloumn-->
+                                <td>
+                                    <b>Name:</b><?php echo $row['s_name']; ?><br>
+                                    <b>Phone:</b><?php echo $row['s_phone']; ?><br>
+                                    <?php echo $row['s_address']; ?>, <?php echo $row['s_city']; ?>,
+                                    <?php echo $row['s_state']; ?>,<br>
+                                    <?php
                             $statement1 = $pdo->prepare("SELECT * FROM tbl_country WHERE country_id=?");
                             $statement1->execute(array($row['s_country']));
                             $result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
                             foreach ($result1 as $cn) {
-                            echo $cn['country_name']; }?>,<br>Zip: <?php echo $row['s_zip']; ?> 
-                        </td>
-                        <!-- Shipping status -->
-                        <td>
-                            <?php 
+                            echo $cn['country_name']; }?>,<br>Zip: <?php echo $row['s_zip']; ?>
+                                </td>
+                                <!-- Shipping status -->
+                                <td>
+                                    <?php 
                             if($row['shipping_status']=='Completed'){
                                 echo "<b>Status:</b> ".$row['shipping_status'].'<br>';
                                 echo "<b>Date:</b> ".$row['shipping_date'];
@@ -570,37 +605,42 @@ if($success_message != '') {
                                 echo $row['shipping_status'].'<br>';
                             }
                             ?>
-                            <br><br>
-                            <?php
+                                    <br><br>
+                                    <?php
                             if(($row['payment_status']=='Completed') && ($row['tracking_id']!=-1)) {
                                 if($row['shipping_status']=='Pending'){
                                     ?>
-                                    <a href="shipping-change-status.php?id=<?php echo $row['id']; ?>" class="btn btn-warning btn-xs" style="width:100%;margin-bottom:4px;">Mark As Completed</a>
+                                    <a href="shipping-change-status.php?id=<?php echo $row['id']; ?>"
+                                        class="btn btn-warning btn-xs" style="width:100%;margin-bottom:4px;">Mark As
+                                        Completed</a>
                                     <?php
                                 }
                             }
                             ?>
-                        </td>
-                        <!-- actions -->
-                        <?php if($_SESSION['user']['role']=='Super Admin' ){?>
-	                    <td>
-                            <a href="#" class="btn btn-danger btn-xs" data-href="order-delete.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete" style="width:100%;">Delete</a>
-	                    </td>
-                        <?php } ?>
-	                </tr>
-            		<?php
+                                </td>
+                                <!-- actions -->
+                                <?php if($_SESSION['user']['role']=='Super Admin' ){?>
+                                <td>
+                                    <a href="#" class="btn btn-danger btn-xs"
+                                        data-href="order-delete.php?id=<?php echo $row['id']; ?>" data-toggle="modal"
+                                        data-target="#confirm-delete" style="width:100%;">Delete</a>
+                                </td>
+                                <?php } ?>
+                            </tr>
+                            <?php
             	}
             	?>
-            </tbody>
-          </table>
-        </div>
-      </div>
-  
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
 
 </section>
 
 
-<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

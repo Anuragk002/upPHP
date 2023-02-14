@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 04, 2023 at 08:03 AM
+-- Generation Time: Feb 12, 2023 at 02:30 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -33,14 +33,6 @@ CREATE TABLE `tbl_cart` (
   `package_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `tbl_cart`
---
-
-INSERT INTO `tbl_cart` (`id`, `cust_id`, `product_id`, `package_id`, `quantity`) VALUES
-(1, 26, 139, 28, 1),
-(2, 26, 152, 51, 1);
 
 -- --------------------------------------------------------
 
@@ -419,7 +411,8 @@ INSERT INTO `tbl_customer` (`cust_id`, `cust_name`, `cust_gender`, `cust_cname`,
 (22, 'Christine', '', '', 'christine@mail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', 'pankaj', '', '', '9984499623', 'pg@gmail.com', 230, 'ramgarh', 'sln', 'up', '222302', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', 0, 0),
 (23, 'Pankaj Giri', '', '', 'pankaj1433giri@gmail.com', '9984499623', 99, 'Ramgarh', 'Sultanpur', 'Uttar Pradesh', '222302', '', '', '', 0, '', '', '', '', 'Suraj', '', '', '1234567890', 's@gmail.com', 5, 'ramgarh', 'sln', 'up', '222342', '827ccb0eea8a706c4c34a16891f84e7b', '2a9503a66938d07dd57242d888cfd1b1', '2023-01-21 07:42:59', '1674315779', 1, 0),
 (24, 'kp', 'male', '', 'kp@gmail.com', '1234560', 17, 'ramgarh', 'sln', 'up', ' 787', '', '', '', 0, '', '', '', '', 'kp', 'male', '', '1234560', 's@gmail.com', 1, 'ramgarh', 'j', 'j', '789', '827ccb0eea8a706c4c34a16891f84e7b', 'b5a9d7c3cd875d5a24d325a3213f0f55', '2023-01-27 02:00:20', '1674813620', 1, 0),
-(26, 'Pankaj Giri', 'male', '', 'pankaj143giri@gmail.com', 'pankaj143giri@gmail.com', 0, '', '', '', '', '', '', '', 0, '', '', '', '', 'Pankaj Giri', '', '', 'pankaj143giri@gmail.com', 'pankaj143giri@gmail.com', 0, '', '', '', '', '827ccb0eea8a706c4c34a16891f84e7b', '', '2023-02-03 07:10:13', '', 1, 0);
+(26, 'Pankaj Giri', 'male', '', 'pankaj143giri@gmail.com', 'pankaj143giri@gmail.com', 0, '', '', '', '', '', '', '', 0, '', '', '', '', 'Pankaj Giri', '', '', 'pankaj143giri@gmail.com', 'pankaj143giri@gmail.com', 0, '', '', '', '', '827ccb0eea8a706c4c34a16891f84e7b', '', '2023-02-03 07:10:13', '', 1, 0),
+(27, 'sportube', 'male', '', 'sportube14@gmail.com', '12345', 0, '', '', '', '', '', '', '', 0, '', '', '', '', 'sportube', '', '', '12345', 'sportube14@gmail.com', 0, '', '', '', '', '827ccb0eea8a706c4c34a16891f84e7b', '2f2192bd157ef89eb23caf99b128930c', '2023-02-10 11:50:06', '1676058606', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -456,7 +449,11 @@ INSERT INTO `tbl_customer_message` (`customer_message_id`, `to_email`, `subject`
 (19, 's@gmail.com', 'order confim', 'dsfs', '1675192784', '<ul style=\"list-style-type:None;colo:black\">\r\n			<li><b>Order ID: </b>1675192784</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$200</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
 (20, 's@gmail.com', 'Unit Pharma: Order confirmation - 123455', 'apka order deliver hone ja rh h jyada gad n maraye', '1675192784', '<ul style=\"list-style-type:None;colo:black\">\r\n			<li><b>Order ID: </b>1675192784</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$200</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
 (21, 's@gmail.com', 'Unit Pharma: Order confirmation - 123456', 'asdgg', '1675192784', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1675192784</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon.</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$200</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(22, 'pankaj143giri@gmail.com', 'Unit Pharma: Order msg - 1675414922', 'ka ho', '1675414922', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1675414922</li>\r\n            <li><b>Order Date: </b>2023-02-03 01:02:02</li>\r\n            <li><b>Total Amount: </b>$400</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n            <li><b>Tracking ID: </b>12345123</li>\r\n            <li><a href=\"https://www.bluedark.com\" style=\"color:blue\" >CLICK! HERE TO TRACK YOUR ORDER</a></li>\r\n            </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Sleep2</td>\r\n                <td>200 PILLS</td>\r\n                <td>$400</td>\r\n                <td>1</td>\r\n                <td>$400</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$400</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None;color:black\">\r\n            <li><b>Name: </b>pankaj</li>\r\n            <li><b>Phone: </b>9984499623</li>\r\n            <li><b>Address: </b>Ramgarh, Sultanpur, Uttar Pradesh, India, 222302</li>\r\n            </ul>');
+(22, 'pankaj143giri@gmail.com', 'Unit Pharma: Order msg - 1675414922', 'ka ho', '1675414922', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1675414922</li>\r\n            <li><b>Order Date: </b>2023-02-03 01:02:02</li>\r\n            <li><b>Total Amount: </b>$400</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n            <li><b>Tracking ID: </b>12345123</li>\r\n            <li><a href=\"https://www.bluedark.com\" style=\"color:blue\" >CLICK! HERE TO TRACK YOUR ORDER</a></li>\r\n            </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Sleep2</td>\r\n                <td>200 PILLS</td>\r\n                <td>$400</td>\r\n                <td>1</td>\r\n                <td>$400</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$400</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None;color:black\">\r\n            <li><b>Name: </b>pankaj</li>\r\n            <li><b>Phone: </b>9984499623</li>\r\n            <li><b>Address: </b>Ramgarh, Sultanpur, Uttar Pradesh, India, 222302</li>\r\n            </ul>'),
+(23, 'pankaj143giri@gmail.com', 'Unit Pharma  - 123445', 'how are you n.\r\n\r\nhttps://www.tcs.com', '1676033723', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1676033723</li>\r\n            <li><b>Order Date: </b>2023-02-10 04:55:23</li>\r\n            <li><b>Total Amount: </b>$400</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n            <li><b>Tracking ID: </b>12345</li>\r\n            <li><b><a href=\"https://www.tcs.com\">CLICK HERE! TO TRACK YOUR ORDER</a></b></li>\r\n            </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>sWell2</td>\r\n                <td>200 PILLS</td>\r\n                <td>$400</td>\r\n                <td>1</td>\r\n                <td>$400</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$400</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None;color:black\">\r\n            <li><b>Name: </b>dr</li>\r\n            <li><b>Phone: </b>1234567</li>\r\n            <li><b>Address: </b>ramgarh, csln, up, Afghanistan, 222345</li>\r\n            </ul>'),
+(24, 'pankaj143giri@gmail.com', 'Unit Pharma  - 123445', 'dellliiidfdsfs ', '1676033723', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1676033723</li>\r\n            <li><b>Order Date: </b>2023-02-10 04:55:23</li>\r\n            <li><b>Total Amount: </b>$400</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n            <li><b>Tracking ID: </b>12345</li>\r\n            <li><b><a href=\"https://www.tcs.com\">CLICK HERE! TO TRACK YOUR ORDER</a></b></li>\r\n            </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>sWell2</td>\r\n                <td>200 PILLS</td>\r\n                <td>$400</td>\r\n                <td>1</td>\r\n                <td>$400</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$400</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None;color:black\">\r\n            <li><b>Name: </b>dr</li>\r\n            <li><b>Phone: </b>1234567</li>\r\n            <li><b>Address: </b>ramgarh, csln, up, Afghanistan, 222345</li>\r\n            </ul>'),
+(25, 'pankaj143giri@gmail.com', 'Unit Pharma  - 123445', 'kpfgfd', '1676033723', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1676033723</li>\r\n            <li><b>Order Date: </b>2023-02-10 04:55:23</li>\r\n            <li><b>Total Amount: </b>$400</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n            <li><b>Tracking ID: </b>12345</li>\r\n            <li><b><a href=\"https://www.tcs.com\">CLICK HERE! TO TRACK YOUR ORDER</a></b></li>\r\n            </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>sWell2</td>\r\n                <td>200 PILLS</td>\r\n                <td>$400</td>\r\n                <td>1</td>\r\n                <td>$400</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$400</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None;color:black\">\r\n            <li><b>Name: </b>dr</li>\r\n            <li><b>Phone: </b>1234567</li>\r\n            <li><b>Address: </b>ramgarh, csln, up, Afghanistan, 222345</li>\r\n            </ul>'),
+(26, 'pankaj143giri@gmail.com', 'Unit Pharma  - 123445i', 'hjbb', '1676033723', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1676033723</li>\r\n            <li><b>Order Date: </b>2023-02-10 04:55:23</li>\r\n            <li><b>Total Amount: </b>$400</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n            <li><b>Tracking ID: </b>12345</li>\r\n            <li><b><a href=\"https://www.tcs.com\">CLICK HERE! TO TRACK YOUR ORDER</a></b></li>\r\n            </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>sWell2</td>\r\n                <td>200 PILLS</td>\r\n                <td>$400</td>\r\n                <td>1</td>\r\n                <td>$400</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$400</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None;color:black\">\r\n            <li><b>Name: </b>dr</li>\r\n            <li><b>Phone: </b>1234567</li>\r\n            <li><b>Address: </b>ramgarh, csln, up, Afghanistan, 222345</li>\r\n            </ul>');
 
 -- --------------------------------------------------------
 
@@ -825,7 +822,14 @@ INSERT INTO `tbl_order` (`id`, `product_id`, `product_name`, `pkg_name`, `quanti
 (34, 144, 'AA', '100 PILLS', '1', '100', '1675192596'),
 (35, 144, 'AA', '100 PILLS', '1', '100', '1675192679'),
 (36, 150, 'Painkiller2', '100 PILLS', '1', '200', '1675192784'),
-(40, 148, 'Sleep2', '200 PILLS', '1', '400', '1675414922');
+(40, 148, 'Sleep2', '200 PILLS', '1', '400', '1675414922'),
+(41, 154, 'sWell2', '200 PILLS', '1', '400', '1676033723'),
+(42, 147, 'Sleep1', '100 PILLS', '1', '200', '1676196346'),
+(43, 147, 'Sleep1', '200 PILLS', '10', '400', '1676196346'),
+(44, 150, 'Painkiller2', '100 PILLS', '1', '200', '1676196346'),
+(45, 149, 'Painkiller1', '100 PILLS', '1', '200', '1676196346'),
+(46, 152, 'Gym2', '100 PILLS', '1', '200', '1676196346'),
+(47, 152, 'Gym2', '200 PILLS', '1', '400', '1676196346');
 
 -- --------------------------------------------------------
 
@@ -930,8 +934,10 @@ INSERT INTO `tbl_payment` (`id`, `customer_id`, `customer_name`, `customer_email
 (85, 0, 'rak', 'a@gmail.com', '2023-01-31 10:45:18', '', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', '0989', 'check tracking', '2023-01-31 10:57:02', 'Completed', '2023-01-31 10:58:44', '1674896696', 'rak', '8009', 'a@gmail.com', 'ijjj', 'h', 'hh', 17, '909'),
 (87, 0, 'GUEST', '', '2023-02-01 09:44:41', '2023-01-31 11:16:36', '', 100, '', '', '', '', '', 'COD/Pay Later', 'Completed', '-1', '', '', 'Pending', '', '1675192596', 'suraj', '88999', 's@gmail.com', 'gomtingr', 'lko', 'up', 69, '9098888'),
 (88, 0, 'GUEST', '', '2023-02-01 08:23:50', '2023-01-31 11:17:59', '', 100, '', '', '', '', '', 'COD/Pay Later', 'Completed', '-1', '', '', 'Pending', '', '1675192679', 'kl', '88999', 's@gmail.com', 'gomtingr', 'lko', 'up', 69, '9098888'),
-(89, 23, 'Pankaj Giri', 'pankaj143giri@gmail.com', '2023-01-31 13:04:34', '2023-01-31 11:19:44', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', '12345123', 'http://www.h.com', '2023-02-03 08:54:29', 'Pending', '', '1675192784', 't', '1234567890', 's@gmail.com', 'ramgarh', 'sln', 'up', 5, '222342'),
-(92, 0, 'GUEST', '', '2023-02-03 01:02:52', '2023-02-03 01:02:02', '', 400, '', '', '', '', '', 'COD/Pay Later', 'Completed', '12345123', 'https://www.bluedark.com', '2023-02-03 01:06:10', 'Completed', '2023-02-03 01:15:43', '1675414922', 'pankaj', '9984499623', 'pankaj143giri@gmail.com', 'Ramgarh', 'Sultanpur', 'Uttar Pradesh', 99, '222302');
+(89, 23, 'Pankaj Giri', 'pankaj143giri@gmail.com', '2023-01-31 13:04:34', '2023-01-31 11:19:44', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', '12345123', 'http://www.h.com', '2023-02-03 08:54:29', 'Completed', '2023-02-04 11:10:37', '1675192784', 't', '1234567890', 's@gmail.com', 'ramgarh', 'sln', 'up', 5, '222342'),
+(92, 0, 'GUEST', '', '2023-02-03 01:02:52', '2023-02-03 01:02:02', '', 400, '', '', '', '', '', 'COD/Pay Later', 'Completed', '12345123', 'https://www.bluedark.com', '2023-02-03 01:06:10', 'Completed', '2023-02-03 01:15:43', '1675414922', 'pankaj', '9984499623', 'pankaj143giri@gmail.com', 'Ramgarh', 'Sultanpur', 'Uttar Pradesh', 99, '222302'),
+(93, 0, 'GUEST', '', '2023-02-10 04:57:06', '2023-02-10 04:55:23', '', 400, '', '', '', '', '', 'COD/Pay Later', 'Completed', '12345', 'https://www.tcs.com', '2023-02-10 04:58:39', 'Completed', '2023-02-10 05:01:00', '1676033723', 'dr', '1234567', 'pankaj143giri@gmail.com', 'ramgarh', 'csln', 'up', 1, '222345'),
+(94, 26, 'Pankaj Giri', 'pankaj143giri@gmail.com', '', '2023-02-12 02:05:46', '', 5200, '', '', '', '', '', 'COD/Pay Later', 'Pending', '-1', '', '', 'Pending', '', '1676196346', 'Pankaj Giri', 'pankaj143giri@gmail.com', 'pankaj143giri@gmail.com', 'ramgarh', 'ddd', 'ddd', 15, '23');
 
 -- --------------------------------------------------------
 
@@ -1044,20 +1050,20 @@ INSERT INTO `tbl_product` (`p_id`, `p_name`, `p_old_price`, `p_current_price`, `
 (100, 'Men\'s Long Cuffed Jogger Yoga Sweat Pant', '105', '95', 78, 'product-featured-100.jpg', '<p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">We warmly welcome you to our \"Long\" Mens Cuffed Perfection Yoga Pant - our most exciting product launch of the year -&nbsp;<span style=\"font-weight: 700;\">and voted \"Favorite Yoga Pant\" by Instructors in YOGA JOURNAL magazine! (Spring/2015)</span></p><p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">It\'s FORM &amp; FASHION -&nbsp;<span style=\"font-weight: 700;\">you\'ll transition to errands in style!</span></p><p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">Please notice in the pictures, the fabric paneling in the upper leg area&nbsp;<span style=\"font-weight: 700;\">that allows for complete expansion of the crotch area in ALL directions.</span>&nbsp;It is simply perfect for Yoga, pilates, lounging, the gym &amp; running errands!</p><p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">Relaxed elastic waist band with 1/4\" drawcord in contrasting White with super light-weight metal tips (they will NOT clang in the dryer).</p><p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">2x1 rib cuffing at the bottom will&nbsp;<span style=\"font-weight: 700;\">keep your pants \"in place\"</span>&nbsp;for those inversions and hand stands!</p><p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\"><span style=\"font-weight: 700;\">DEEP pockets</span>&nbsp;that are sewn on top of the garment so they do not \"float.\" The pockets are 6.5\" deep to the side-seam so they can encase your large cell phones!</p><p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">The rib piping extends&nbsp;<span style=\"font-weight: 700;\">uninterrupted</span>&nbsp;from the side of the pant to the back of the rear -&nbsp;<span style=\"font-weight: 700;\">providing amazing flexibility &amp; stability for stretching and rigorous activity.</span></p>', '<p style=\"padding: 0px; margin-top: 0px; text-rendering: optimizelegibility; margin-bottom: 0px !important; line-height: 32px !important;\"><span id=\"productTitle\" class=\"a-size-large product-title-word-break\" style=\"text-rendering: optimizelegibility; word-break: break-word; line-height: 32px !important;\">Long Cuffed Jogger Pants</span></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Proudly brought to you by 4-rth: over 10 years in business from LA, California. Designed, manufactured &amp; shipped from Los Angeles, CA.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Fabric strips in the upper leg allow for complete expansion of the crotch area in ALL directions.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Made from our Custom MODAL French-Terry fabric from the sustainable Birch Tree wood.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Cuff at the bottom is form-fitting, yet relaxed. IDEAL for all Yoga styles - Ashtanga, Bikram, Hatha, Hot - as well as Pilates, Tennis &amp; Soccer!</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">MODEL: 6\'2, 175lbs. Size: M. (See Product Description for specific SIZE guidelines!) Please IGNORE the \"size chart\" above!!</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers a&nbsp;</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">&nbsp;in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 11, 0, 0, 4),
 (101, 'Digital Infrared Thermometer for Adults and Kids', '79', '70', 289, 'product-featured-101.jpg', '<h5 class=\"a-spacing-mini a-color-secondary\" style=\"padding: 0px; margin-top: 0px; margin-right: 0px; margin-left: 0px; font-weight: bold; font-size: 13px; line-height: 19px; font-family: \"Amazon Ember\", Arial, sans-serif; margin-bottom: 6px !important; color: rgb(86, 89, 89) !important;\">Safe and Hygienic</h5><p class=\"a-spacing-base\" style=\"padding: 0px; color: rgb(15, 17, 17); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px; margin-bottom: 14px !important;\">No-Touch measuring reads body temperature within 1.18 inches of the center of the forehead without physical contact.</p><h5 class=\"a-spacing-mini a-color-secondary\" style=\"padding: 0px; margin-top: 0px; margin-right: 0px; margin-left: 0px; font-weight: bold; font-size: 13px; line-height: 19px; font-family: \"Amazon Ember\", Arial, sans-serif; margin-bottom: 6px !important; color: rgb(86, 89, 89) !important;\">Tri-Point Sensors Accuracy</h5><p class=\"a-spacing-base\" style=\"padding: 0px; color: rgb(15, 17, 17); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px; margin-bottom: 14px !important;\">An ultra-sensitive infrared sensor collects more than 100 data points per second while distance and environmental sensors combine to account for other variables; ensuring maximum accuracy every time a temperature is taken.</p><h5 class=\"a-spacing-mini a-color-secondary\" style=\"padding: 0px; margin-top: 0px; margin-right: 0px; margin-left: 0px; font-weight: bold; font-size: 13px; line-height: 19px; font-family: \"Amazon Ember\", Arial, sans-serif; margin-bottom: 6px !important; color: rgb(86, 89, 89) !important;\">Fast, Simple, Clear and Quiet</h5><p class=\"a-spacing-base\" style=\"padding: 0px; color: rgb(15, 17, 17); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px; margin-bottom: 14px !important;\">The intuitive single-button control design thermometer reads the temperature in just 1 second from a clear bright large LED screen, even in total darkness. The quiet vibrating alert eliminates buzzing noise or disturbance.</p>', '<p style=\"padding: 0px; margin-top: 0px; text-rendering: optimizelegibility; margin-bottom: 0px !important; line-height: 32px !important;\"><span id=\"productTitle\" class=\"a-size-large product-title-word-break\" style=\"text-rendering: optimizelegibility; word-break: break-word; line-height: 32px !important;\">No-Touch Forehead Thermometer</span></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">No Touch Measuring, Just Safe and Hygienic: PT3 Built-in infrared temperature sensor, reads body temperature within 1.18 inches of the center of the forehead without physical contact.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Tri-Point Sensors Accuracy: An ultra-sensitive infrared sensor collects more than 100 data points per second while distance and environmental sensors combine to account for other variables; ensuring maximum accuracy every time temperature is taken.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Fast, Simple, Clear and Quiet: The intuitive single-button control design thermometer reads the temperature in just 1 second from a clear bright extra-large LED screen, even in total darkness. The quiet vibration alerting ensures there is no buzzing noise and no disturbance.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Suitable for Multi-Scenario and All Ages: iHealth PT3 is designed for all ages: ranging from babies and toddlers to the elderly. An ideal choice for hospitals, hotels, school settings, and public establishments.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">What You Get: 1x PT3 thermometer, 2x AAA batteries, 1x Instruction manual, 1x Quick User Guide, our worry-free 12-month warranty, and friendly California-based customer service.</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers aÂ </span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Â in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 11, 1, 0, 5),
 (102, 'Women\'s Plus-Size Shirt Dress with Gold Hardware', '190', '169', 112, 'product-featured-102.jpg', '<p><span style=\"color: rgb(15, 17, 17); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px;\">This dress has everything! Enough stretch to be forgiving. Works for my hourglass/pear shape just fine. The cap sleeves satisfy conservative dressing requirements (no sleeveless) but still works for spring/summer.</span><br></p>', '<p>From Calvin Klein</p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Cap-sleeve shirt dress featuring belted waist with gold-tone hardware accents</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Split v-neckline</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Exposed center back zipper</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers a&nbsp;</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">&nbsp;in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 19, 1, 0, 5),
-(139, 'ElecTest', '', '8', 16, 'product-featured-139.jpg', '', '', '', '', '', 204, 1, 1, 4),
-(143, 'D_Stress', '', '', 123, 'product-featured-143.jpg', '', '', '', '', '', 41, 0, 1, 4),
-(144, 'AA', '', '', 115, 'product-featured-144.png', '', '', '', '', '', 106, 0, 1, 7),
-(145, 'Anxiety1', '', '', 102, 'product-featured-145.jpg', '', '', '', '', '', 25, 1, 1, 7),
-(146, 'Anxiety2', '', '', 100, 'product-featured-146.jpg', '', '', '', '', '', 2, 0, 1, 7),
-(147, 'Sleep1', '', '', 100, 'product-featured-147.jpg', '', '', '', '', '', 3, 0, 1, 10),
-(148, 'Sleep2', '', '', 100, 'product-featured-148.jpg', '', '', '', '', '', 23, 1, 1, 10),
-(149, 'Painkiller1', '', '', 102, 'product-featured-149.jpg', '', '', '', '', '', 7, 1, 1, 8),
-(150, 'Painkiller2', '', '', 110, 'product-featured-150.jpg', '', '', '', '', '', 16, 1, 1, 8),
-(151, 'Gym1', '', '', 116, 'product-featured-151.jpg', '', '', '', '', '', 7, 1, 1, 9),
-(152, 'Gym2', '', '', 109, 'product-featured-152.jpg', '', '', '', '', '', 29, 1, 1, 9),
-(153, 'sWell1', '', '', 100, 'product-featured-153.jpg', '', '', '', '', '', 2, 1, 1, 11),
-(154, 'sWell2', '', '', 103, 'product-featured-154.jpg', '', '', '', '', '', 9, 0, 1, 11),
-(156, 'df', '', '', 12, 'product-featured-156.png', '', '', '', '', '', 0, 0, 1, 7);
+(139, 'ElecTest', '', '8', 16, 'product-featured-139.jpg', '', '', '', '', '', 213, 1, 1, 4),
+(143, 'D_Stress', '', '', 123, 'product-featured-143.jpg', '', '', '', '', '', 42, 0, 1, 4),
+(144, 'AA', '', '', 115, 'product-featured-144.png', '', '', '', '', '', 121, 0, 1, 7),
+(145, 'Anxiety1', '', '', 102, 'product-featured-145.jpg', '', '', '', '', '', 34, 1, 1, 7),
+(146, 'Anxiety2', '', '', 100, 'product-featured-146.jpg', '', '', '', '', '', 5, 0, 1, 7),
+(147, 'Sleep1', '', '', 100, 'product-featured-147.jpg', '', '', '', '', '', 6, 0, 1, 10),
+(148, 'Sleep2', '', '', 100, 'product-featured-148.jpg', '', '', '', '', '', 37, 1, 1, 10),
+(149, 'Painkiller1', '', '', 102, 'product-featured-149.jpg', '', '', '', '', '', 16, 1, 1, 8),
+(150, 'Painkiller2', '', '', 110, 'product-featured-150.jpg', '', '', '', '', '', 58, 1, 1, 8),
+(151, 'Gym1', '', '', 116, 'product-featured-151.jpg', '', '', '', '', '', 14, 1, 1, 9),
+(152, 'Gym2', '', '', 109, 'product-featured-152.jpg', '', '', '', '', '', 62, 1, 1, 9),
+(154, 'sWell2', '', '', 103, 'product-featured-154.jpg', '', '', '', '', '', 25, 0, 1, 11),
+(156, 'df', '', '', 12, 'product-featured-156.png', '', '', '', '', '', 0, 0, 1, 7),
+(157, 'xa', '', '', 120, 'product-featured-157.png', '', '', '', '', '', 10, 0, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -1181,28 +1187,28 @@ CREATE TABLE `tbl_product_package` (
 --
 
 INSERT INTO `tbl_product_package` (`id`, `p_id`, `pkg_name`, `pkg_price`) VALUES
-(28, 139, '10 Pills', 50),
-(29, 139, '50 Pills', 200),
 (35, 141, '20 PILLS', 400),
-(37, 143, '20 Pills', 100),
-(38, 144, '100 PILLS', 100),
-(39, 145, '100 PILLS', 200),
-(40, 145, '200 PILLS', 400),
-(41, 146, '100 PILLS', 200),
-(42, 147, '100 PILLS', 200),
-(43, 147, '200 PILLS', 400),
-(44, 148, '100 PILLS', 200),
-(45, 148, '200 PILLS', 400),
-(46, 149, '100 PILLS', 200),
-(47, 150, '100 PILLS', 200),
-(48, 151, '100 PILLS', 200),
-(49, 151, '200 PILLS', 400),
-(50, 152, '100 PILLS', 200),
-(51, 152, '200 PILLS', 400),
-(52, 153, '100 PILLS', 200),
-(59, 154, '100 PILLS', 210),
-(60, 154, '200 PILLS', 400),
-(61, 156, 'sd3', 100);
+(63, 157, 'Normal', 10),
+(64, 154, '100 PILLS', 210),
+(65, 154, '200 PILLS', 400),
+(68, 151, '100 PILLS', 200),
+(69, 151, '200 PILLS', 400),
+(70, 150, '100 PILLS', 200),
+(71, 149, '100 PILLS', 200),
+(72, 148, '100 PILLS', 200),
+(73, 148, '200 PILLS', 400),
+(74, 147, '100 PILLS', 200),
+(75, 147, '200 PILLS', 400),
+(76, 146, '100 PILLS', 200),
+(77, 145, '100 PILLS', 200),
+(78, 145, '200 PILLS', 400),
+(79, 144, '100 PILLS', 100),
+(81, 143, '20 Pills', 100),
+(82, 156, 'sd3', 100),
+(85, 152, '100 PILLS', 200),
+(86, 152, '200 PILLS', 400),
+(87, 139, '10 Pills', 50),
+(88, 139, '50 Pills', 200);
 
 -- --------------------------------------------------------
 
@@ -1473,6 +1479,27 @@ CREATE TABLE `tbl_rating` (
   `rating` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tbl_rating`
+--
+
+INSERT INTO `tbl_rating` (`rt_id`, `p_id`, `cust_id`, `comment`, `rating`) VALUES
+(1, 144, 2, 'bhut acha', 4),
+(3, 157, -2, '', 5),
+(4, 154, -2, '', 4),
+(6, 151, -2, '', 5),
+(7, 150, -2, '', 5),
+(8, 149, -2, '', 4),
+(9, 148, -2, '', 4),
+(10, 147, -2, '', 4),
+(11, 146, -2, '', 4),
+(12, 145, -2, '', 5),
+(13, 144, -2, '', 5),
+(15, 143, -2, '', 4),
+(16, 156, -2, '', 5),
+(18, 152, -2, '', 4),
+(19, 139, -2, '', 5);
+
 -- --------------------------------------------------------
 
 --
@@ -1583,7 +1610,7 @@ CREATE TABLE `tbl_settings` (
 --
 
 INSERT INTO `tbl_settings` (`id`, `logo`, `favicon`, `footer_about`, `footer_copyright`, `contact_address`, `contact_email`, `contact_phone`, `contact_fax`, `contact_map_iframe`, `receive_email`, `receive_email_subject`, `receive_email_thank_you_message`, `forget_password_message`, `total_recent_post_footer`, `total_popular_post_footer`, `total_recent_post_sidebar`, `total_popular_post_sidebar`, `total_featured_product_home`, `total_latest_product_home`, `total_popular_product_home`, `meta_title_home`, `meta_keyword_home`, `meta_description_home`, `banner_login`, `banner_registration`, `banner_forget_password`, `banner_reset_password`, `banner_search`, `banner_cart`, `banner_checkout`, `banner_product_category`, `banner_blog`, `cta_title`, `cta_content`, `cta_read_more_text`, `cta_read_more_url`, `cta_photo`, `featured_product_title`, `featured_product_subtitle`, `latest_product_title`, `latest_product_subtitle`, `popular_product_title`, `popular_product_subtitle`, `testimonial_title`, `testimonial_subtitle`, `testimonial_photo`, `blog_title`, `blog_subtitle`, `newsletter_text`, `paypal_email`, `stripe_public_key`, `stripe_secret_key`, `bank_detail`, `before_head`, `after_body`, `before_body`, `home_service_on_off`, `home_welcome_on_off`, `home_featured_product_on_off`, `home_latest_product_on_off`, `home_popular_product_on_off`, `home_testimonial_on_off`, `home_blog_on_off`, `newsletter_on_off`, `ads_above_welcome_on_off`, `ads_above_featured_product_on_off`, `ads_above_latest_product_on_off`, `ads_above_popular_product_on_off`, `ads_above_testimonial_on_off`, `ads_category_sidebar_on_off`) VALUES
-(1, 'logo.gif', 'favicon.png', '<p>Lorem ipsum dolor sit amet, omnis signiferumque in mei, mei ex enim concludaturque. Senserit salutandi euripidis no per, modus maiestatis scribentur est an.Â Ea suas pertinax has.</p>\r\n', 'Copyright Â© 2023 Unit Pharma. All Rights Reserved.', '93 Simpson Avenue\r\nHarrisburg, PA', 'support@unitpharma.com', '+001 10 101 0010', '', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3094.020958405712!2d-84.39261378514685!3d39.151504939531584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841acfb8da30203%3A0x193175e741781f21!2s4293%20Simpson%20Ave%2C%20Cincinnati%2C%20OH%2045227%2C%20USA!5e0!3m2!1sen!2snp!4v1647796779407!5m2!1sen!2snp\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', 'support@ecommercephp.com', 'Visitor Email Message from Ecommerce Site PHP', 'Thank you for sending email. We will contact you shortly.', 'A confirmation link is sent to your email address. You will get the password reset information in there.', 4, 4, 5, 5, 15, 6, 8, 'Unit Pharma', 'online fashion store, garments shop, online garments', 'ecommerce php project with mysql database', 'banner_login.jpg', 'banner_registration.jpg', 'banner_forget_password.jpg', 'banner_reset_password.jpg', 'banner_search.jpg', 'banner_cart.jpg', 'banner_checkout.jpg', 'banner_product_category.jpg', 'banner_blog.jpg', 'Welcome To Our Ecommerce Website', 'Lorem ipsum dolor sit amet, an labores explicari qui, eu nostrum copiosae argumentum has. Latine propriae quo no, unum ridens expetenda id sit, \r\nat usu eius eligendi singulis. Sea ocurreret principes ne. At nonumy aperiri pri, nam quodsi copiosae intellegebat et, ex deserunt euripidis usu. ', 'Read More', '#', 'cta.jpg', 'Featured Products', 'Our list on Top Featured Products', 'Latest Products', 'Our list of recently added products', 'Popular Products', 'Popular products based on customer\'s choice', 'Testimonials', 'See what our clients tell about us', 'testimonial.jpg', 'Latest Blog', 'See all our latest articles and news from below', 'Sign-up to our newsletter for latest promotions and discounts.', 'admin@ecom.com', 'pk_test_0SwMWadgu8DwmEcPdUPRsZ7b', 'sk_test_TFcsLJ7xxUtpALbDo1L5c1PN', 'Bank Name: WestView Bank\r\nAccount Number: CA100270589600\r\nBranch Name: CA Branch\r\nCountry: USA', '', '<div id=\"fb-root\"></div>\r\n<script>(function(d, s, id) {\r\n  var js, fjs = d.getElementsByTagName(s)[0];\r\n  if (d.getElementById(id)) return;\r\n  js = d.createElement(s); js.id = id;\r\n  js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=323620764400430\";\r\n  fjs.parentNode.insertBefore(js, fjs);\r\n}(document, \'script\', \'facebook-jssdk\'));</script>', '<!--Start of Tawk.to Script-->\r\n<script type=\"text/javascript\">\r\nvar Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();\r\n(function(){\r\nvar s1=document.createElement(\"script\"),s0=document.getElementsByTagName(\"script\")[0];\r\ns1.async=true;\r\ns1.src=\'https://embed.tawk.to/5ae370d7227d3d7edc24cb96/default\';\r\ns1.charset=\'UTF-8\';\r\ns1.setAttribute(\'crossorigin\',\'*\');\r\ns0.parentNode.insertBefore(s1,s0);\r\n})();\r\n</script>\r\n<!--End of Tawk.to Script-->', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+(1, 'logo.gif', 'favicon.png', '<p>Lorem ipsum dolor sit amet, omnis signiferumque in mei, mei ex enim concludaturque. Senserit salutandi euripidis no per, modus maiestatis scribentur est an.Â Ea suas pertinax has.</p>\r\n', 'Copyright Â© 2023 Unit Pharma. All Rights Reserved.', '93 Simpson Avenue\r\nHarrisburg, PA', 'support@unitpharma.com', '+001 10 101 0010', '', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3094.020958405712!2d-84.39261378514685!3d39.151504939531584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841acfb8da30203%3A0x193175e741781f21!2s4293%20Simpson%20Ave%2C%20Cincinnati%2C%20OH%2045227%2C%20USA!5e0!3m2!1sen!2snp!4v1647796779407!5m2!1sen!2snp\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', 'support@ecommercephp.com', 'Visitor Email Message from Ecommerce Site PHP', 'Thank you for sending email. We will contact you shortly.', 'A confirmation link is sent to your email address. You will get the password reset information in there.', 4, 4, 5, 5, 15, 6, 8, 'Unit Pharma', 'online fashion store, garments shop, online garments', 'ecommerce php project with mysql database', 'banner_login.jpg', 'banner_registration.jpg', 'banner_forget_password.jpg', 'banner_reset_password.jpg', 'banner_search.jpg', 'banner_cart.jpg', 'banner_checkout.jpg', 'banner_product_category.jpg', 'banner_blog.jpg', 'Welcome To Our Ecommerce Website', 'Lorem ipsum dolor sit amet, an labores explicari qui, eu nostrum copiosae argumentum has. Latine propriae quo no, unum ridens expetenda id sit, \r\nat usu eius eligendi singulis. Sea ocurreret principes ne. At nonumy aperiri pri, nam quodsi copiosae intellegebat et, ex deserunt euripidis usu. ', 'Read More', '#', 'cta.jpg', 'Featured Products', 'Our list on Top Featured Products', 'Latest Products', 'Our list of recently added products', 'Popular Products', 'Popular products based on customer\'s choice', 'Testimonials', 'See what our clients tell about us', 'testimonial.jpg', 'Latest Blog', 'See all our latest articles and news from below', 'Sign-up to our newsletter for latest promotions and discounts.', 'admin@ecom.com', 'pk_test_0SwMWadgu8DwmEcPdUPRsZ7b', 'sk_test_TFcsLJ7xxUtpALbDo1L5c1PN', 'Bank Name: WestView Bank\r\nAccount Number: CA100270589600\r\nBranch Name: CA Branch\r\nCountry: USA', '', '<div id=\"fb-root\"></div>\n<script>(function(d, s, id) {\n  var js, fjs = d.getElementsByTagName(s)[0];\n  if (d.getElementById(id)) return;\n  js = d.createElement(s); js.id = id;\n  js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=323620764400430\";\n  fjs.parentNode.insertBefore(js, fjs);\n}(document, \'script\', \'facebook-jssdk\'));</script>', '<!--Start of Tawk.to Script-->\r\n<script type=\"text/javascript\">\r\nvar Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();\r\n(function(){\r\nvar s1=document.createElement(\"script\"),s0=document.getElementsByTagName(\"script\")[0];\r\ns1.async=true;\r\ns1.src=\'https://embed.tawk.to/5ae370d7227d3d7edc24cb96/default\';\r\ns1.charset=\'UTF-8\';\r\ns1.setAttribute(\'crossorigin\',\'*\');\r\ns0.parentNode.insertBefore(s1,s0);\r\n})();\r\n</script>\r\n<!--End of Tawk.to Script-->', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1774,7 +1801,8 @@ INSERT INTO `tbl_subscriber` (`subs_id`, `subs_email`, `subs_date`, `subs_date_t
 (3, 'gregobn@mail.com', '2022-03-20', '2022-03-20 10:27:21', '72d6fc3a9e9ed33dfc30b10f4de82f34', 1),
 (4, 'morgan.sarahh5@mail.com', '2022-03-20', '2022-03-20 10:27:48', 'bcdeda095a6c882803fc3aaf4a17f08e', 1),
 (5, 'greenwd1154@mail.com', '2022-03-20', '2022-03-20 10:28:09', '279ecfe9debbb091c664641f534857ee', 1),
-(6, 'awsm785@mail.com', '2022-03-20', '2022-03-20 10:28:21', '94096ae01fc65e71c50c7843d096e041', 1);
+(6, 'awsm785@mail.com', '2022-03-20', '2022-03-20 10:28:21', '94096ae01fc65e71c50c7843d096e041', 1),
+(10, 'pankaj143giri@gmail.com', '2023-02-09', '2023-02-09 06:58:44', '584d771cde8058a2470bd9112f5186f5', 1);
 
 -- --------------------------------------------------------
 
@@ -1828,7 +1856,8 @@ CREATE TABLE `tbl_user` (
 
 INSERT INTO `tbl_user` (`id`, `full_name`, `email`, `phone`, `password`, `photo`, `role`, `status`) VALUES
 (1, 'Administrator', 'admin@mail.com', '7777777777', 'd00f5d5217896fb7fd601412cb890830', 'user-1.png', 'Super Admin', 1),
-(2, 'Christine', 'christine@mail.com', '4444444444', '81dc9bdb52d04dc20036dbd8313ed055', 'user-13.jpg', 'Admin', 1);
+(2, 'Christine', 'christine@mail.com', '4444444444', '81dc9bdb52d04dc20036dbd8313ed055', 'user-13.jpg', 'Admin', 1),
+(4, 'Administrator', 'adminup@mail.com', '', '57936a92df81a35aec87062281b5e15a', 'user-13.png', 'Super Admin', 1);
 
 -- --------------------------------------------------------
 
@@ -2049,7 +2078,7 @@ ALTER TABLE `tbl_video`
 -- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `tbl_color`
 --
@@ -2064,12 +2093,12 @@ ALTER TABLE `tbl_country`
 -- AUTO_INCREMENT for table `tbl_customer`
 --
 ALTER TABLE `tbl_customer`
-  MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `tbl_customer_message`
 --
 ALTER TABLE `tbl_customer_message`
-  MODIFY `customer_message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `customer_message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT for table `tbl_end_category`
 --
@@ -2094,7 +2123,7 @@ ALTER TABLE `tbl_mid_category`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT for table `tbl_page`
 --
@@ -2104,7 +2133,7 @@ ALTER TABLE `tbl_page`
 -- AUTO_INCREMENT for table `tbl_payment`
 --
 ALTER TABLE `tbl_payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 --
 -- AUTO_INCREMENT for table `tbl_photo`
 --
@@ -2119,7 +2148,7 @@ ALTER TABLE `tbl_post`
 -- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=157;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
 --
 -- AUTO_INCREMENT for table `tbl_product_color`
 --
@@ -2129,7 +2158,7 @@ ALTER TABLE `tbl_product_color`
 -- AUTO_INCREMENT for table `tbl_product_package`
 --
 ALTER TABLE `tbl_product_package`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
 --
 -- AUTO_INCREMENT for table `tbl_product_photo`
 --
@@ -2144,7 +2173,7 @@ ALTER TABLE `tbl_product_size`
 -- AUTO_INCREMENT for table `tbl_rating`
 --
 ALTER TABLE `tbl_rating`
-  MODIFY `rt_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `rt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `tbl_service`
 --
@@ -2184,7 +2213,7 @@ ALTER TABLE `tbl_social`
 -- AUTO_INCREMENT for table `tbl_subscriber`
 --
 ALTER TABLE `tbl_subscriber`
-  MODIFY `subs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `subs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `tbl_top_category`
 --
@@ -2194,7 +2223,7 @@ ALTER TABLE `tbl_top_category`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tbl_video`
 --

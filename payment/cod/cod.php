@@ -130,12 +130,12 @@ $csrf = new CSRF_Protect();
     $_SESSION['order_number']=$order_number;
 
     ?>
-    <div style="text-align: center; border:2px solid black; margin-top:50px">
-      <h4>Your Order is Being Placed..</h4>
-      <h5>Note: Wait for sometime, Don't press anything.</h5>
-    </div>
-    
-    <?php
+<div style="text-align: center; border:2px solid black; margin-top:50px">
+    <h4>Your Order is Being Placed..</h4>
+    <h5>Note: Wait for sometime, Don't press anything.</h5>
+</div>
+
+<?php
     // Reducing cart----->
     if(isset($_SESSION['customer'])){
         $statement = $pdo->prepare("DELETE FROM `tbl_cart` WHERE cust_id=?");
@@ -217,7 +217,7 @@ $csrf = new CSRF_Protect();
         </span>
         </body>
         ';
-    $mail->addAddress("pankaj143giri@gmail.com", $s_name);//user mail customer
+    $mail->addAddress($s_email, $s_name);//user mail customer
     $mail->Subject = 'Order confirmation - '.$order_number;//subject
     $mail->IsHTML(true);
     $mail->Body    = $body;

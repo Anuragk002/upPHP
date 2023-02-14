@@ -77,32 +77,33 @@ foreach ($result as $row)
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-	<!-- Meta Tags -->
-	<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <!-- Meta Tags -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-	<!-- Favicon -->
-	<link rel="icon" type="image/png" href="assets/uploads/<?php echo $favicon; ?>">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/uploads/<?php echo $favicon; ?>">
 
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
-	<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-	<link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
-	<link rel="stylesheet" href="assets/css/jquery.bxslider.min.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="assets/css/jquery.bxslider.min.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/rating.css">
-	<link rel="stylesheet" href="assets/css/spacing.css">
-	<link rel="stylesheet" href="assets/css/bootstrap-touch-slider.css">
-	<link rel="stylesheet" href="assets/css/animate.min.css">
-	<link rel="stylesheet" href="assets/css/tree-menu.css">
-	<link rel="stylesheet" href="assets/css/select2.min.css">
-	<link rel="stylesheet" href="assets/css/main.css">
-	<link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/spacing.css">
+    <link rel="stylesheet" href="assets/css/bootstrap-touch-slider.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/tree-menu.css">
+    <link rel="stylesheet" href="assets/css/select2.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 
-	<?php
+    <?php
 
 	$statement = $pdo->prepare("SELECT * FROM tbl_page WHERE id=1");
 	$statement->execute();
@@ -132,32 +133,32 @@ foreach ($result as $row)
 	
 	if($cur_page == 'index.php' || $cur_page == 'login.php' || $cur_page == 'registration.php' || $cur_page == 'cart.php' || $cur_page == 'checkout.php' || $cur_page == 'forget-password.php' || $cur_page == 'reset-password.php' || $cur_page == 'product-category.php' || $cur_page == 'product.php') {
 		?>
-		<title><?php echo $meta_title_home; ?></title>
-		<meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
-		<meta name="description" content="<?php echo $meta_description_home; ?>">
-		<?php
+    <title><?php echo $meta_title_home; ?></title>
+    <meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
+    <meta name="description" content="<?php echo $meta_description_home; ?>">
+    <?php
 	}
 
 	if($cur_page == 'about.php') {
 		?>
-		<title><?php echo $about_meta_title; ?></title>
-		<meta name="keywords" content="<?php echo $about_meta_keyword; ?>">
-		<meta name="description" content="<?php echo $about_meta_description; ?>">
-		<?php
+    <title><?php echo $about_meta_title; ?></title>
+    <meta name="keywords" content="<?php echo $about_meta_keyword; ?>">
+    <meta name="description" content="<?php echo $about_meta_description; ?>">
+    <?php
 	}
 	if($cur_page == 'faq.php') {
 		?>
-		<title><?php echo $faq_meta_title; ?></title>
-		<meta name="keywords" content="<?php echo $faq_meta_keyword; ?>">
-		<meta name="description" content="<?php echo $faq_meta_description; ?>">
-		<?php
+    <title><?php echo $faq_meta_title; ?></title>
+    <meta name="keywords" content="<?php echo $faq_meta_keyword; ?>">
+    <meta name="description" content="<?php echo $faq_meta_description; ?>">
+    <?php
 	}
 	if($cur_page == 'contact.php') {
 		?>
-		<title><?php echo $contact_meta_title; ?></title>
-		<meta name="keywords" content="<?php echo $contact_meta_keyword; ?>">
-		<meta name="description" content="<?php echo $contact_meta_description; ?>">
-		<?php
+    <title><?php echo $contact_meta_title; ?></title>
+    <meta name="keywords" content="<?php echo $contact_meta_keyword; ?>">
+    <meta name="description" content="<?php echo $contact_meta_description; ?>">
+    <?php
 	}
 	if($cur_page == 'product.php')
 	{
@@ -175,188 +176,206 @@ foreach ($result as $row)
 
 	if($cur_page == 'dashboard.php') {
 		?>
-		<title>Dashboard - <?php echo $meta_title_home; ?></title>
-		<meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
-		<meta name="description" content="<?php echo $meta_description_home; ?>">
-		<?php
+    <title>Dashboard - <?php echo $meta_title_home; ?></title>
+    <meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
+    <meta name="description" content="<?php echo $meta_description_home; ?>">
+    <?php
 	}
 	if($cur_page == 'customer-profile-update.php') {
 		?>
-		<title>Update Profile - <?php echo $meta_title_home; ?></title>
-		<meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
-		<meta name="description" content="<?php echo $meta_description_home; ?>">
-		<?php
+    <title>Update Profile - <?php echo $meta_title_home; ?></title>
+    <meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
+    <meta name="description" content="<?php echo $meta_description_home; ?>">
+    <?php
 	}
 	if($cur_page == 'customer-billing-shipping-update.php') {
 		?>
-		<title>Update Billing and Shipping Info - <?php echo $meta_title_home; ?></title>
-		<meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
-		<meta name="description" content="<?php echo $meta_description_home; ?>">
-		<?php
+    <title>Update Billing and Shipping Info - <?php echo $meta_title_home; ?></title>
+    <meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
+    <meta name="description" content="<?php echo $meta_description_home; ?>">
+    <?php
 	}
 	if($cur_page == 'customer-password-update.php') {
 		?>
-		<title>Update Password - <?php echo $meta_title_home; ?></title>
-		<meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
-		<meta name="description" content="<?php echo $meta_description_home; ?>">
-		<?php
+    <title>Update Password - <?php echo $meta_title_home; ?></title>
+    <meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
+    <meta name="description" content="<?php echo $meta_description_home; ?>">
+    <?php
 	}
 	if($cur_page == 'customer-order.php') {
 		?>
-		<title>Orders - <?php echo $meta_title_home; ?></title>
-		<meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
-		<meta name="description" content="<?php echo $meta_description_home; ?>">
-		<?php
+    <title>Orders - <?php echo $meta_title_home; ?></title>
+    <meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
+    <meta name="description" content="<?php echo $meta_description_home; ?>">
+    <?php
 	}
 	?>
-	
-	<?php if($cur_page == 'blog-single.php'): ?>
-		<meta property="og:title" content="<?php echo $og_title; ?>">
-		<meta property="og:type" content="website">
-		<meta property="og:url" content="<?php echo BASE_URL.$og_slug; ?>">
-		<meta property="og:description" content="<?php echo $og_description; ?>">
-		<meta property="og:image" content="assets/uploads/<?php echo $og_photo; ?>">
-	<?php endif; ?>
 
-	<?php if($cur_page == 'product.php'): ?>
-		<meta property="og:title" content="<?php echo $og_title; ?>">
-		<meta property="og:type" content="website">
-		<meta property="og:url" content="<?php echo BASE_URL.$og_slug; ?>">
-		<meta property="og:description" content="<?php echo $og_description; ?>">
-		<meta property="og:image" content="assets/uploads/<?php echo $og_photo; ?>">
-	<?php endif; ?>
+    <?php if($cur_page == 'blog-single.php'): ?>
+    <meta property="og:title" content="<?php echo $og_title; ?>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?php echo BASE_URL.$og_slug; ?>">
+    <meta property="og:description" content="<?php echo $og_description; ?>">
+    <meta property="og:image" content="assets/uploads/<?php echo $og_photo; ?>">
+    <?php endif; ?>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <?php if($cur_page == 'product.php'): ?>
+    <meta property="og:title" content="<?php echo $og_title; ?>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?php echo BASE_URL.$og_slug; ?>">
+    <meta property="og:description" content="<?php echo $og_description; ?>">
+    <meta property="og:image" content="assets/uploads/<?php echo $og_photo; ?>">
+    <?php endif; ?>
 
-	<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=63df5fb74a4876001374e0af&product=inline-share-buttons&source=platform" async="async"></script>
-<?php echo $before_head; ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+    <script type="text/javascript"
+        src="https://platform-api.sharethis.com/js/sharethis.js#property=63df5fb74a4876001374e0af&product=inline-share-buttons&source=platform"
+        async="async"></script>
+    <?php echo $before_head; ?>
 
 </head>
+
 <body>
+    <?php echo $after_body; ?>
 
-<?php echo $after_body; ?>
+    <div id="preloader">
+        <div class="spinner" id="status"></div>
+    </div>
 
-<div id="preloader">
-	<div  class="spinner"id="status"></div>
-</div>
-
-<!-- top bar -->
-<div class="top">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-sm-6 col-xs-12">
-				<div class="left">
-					<ul>
-						<li><i class="fa fa-phone"></i> <?php echo $contact_phone; ?></li>
-						<li><i class="fa fa-envelope-o"></i> <?php echo $contact_email; ?></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-md-6 col-sm-6 col-xs-12">
-				<div class="right">
-					<ul>
-						<?php
+    <!-- top bar -->
+    <div class="top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="left">
+                        <ul>
+                            <li><i class="fa fa-phone"></i> <?php echo $contact_phone; ?></li>
+                            <li><i class="fa fa-envelope-o"></i> <?php echo $contact_email; ?></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-12">
+                    <div class="right">
+                        <ul>
+                            <?php
 						$statement = $pdo->prepare("SELECT * FROM tbl_social");
 						$statement->execute();
 						$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 						foreach ($result as $row) {
 							?>
-							<?php if($row['social_url'] != ''): ?>
-							<li><a href="<?php echo $row['social_url']; ?>"><i class="<?php echo $row['social_icon']; ?>"></i></a></li>
-							<?php endif; ?>
-							<?php
+                            <?php if($row['social_url'] != ''): ?>
+                            <li><a href="<?php echo $row['social_url']; ?>"><i
+                                        class="<?php echo $row['social_icon']; ?>"></i></a></li>
+                            <?php endif; ?>
+                            <?php
 						}
 						?>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-<div class="header">
-	<div class="container">
-		<div class="row inner">
-			<div class="col-md-4 logo">
-				<a href="index.php"><img src="assets/uploads/<?php echo $logo; ?>" alt="logo image"></a>
-			</div>
-			
-			<div class="col-md-5 right">
-				<ul>
-					<?php
+    <div class="header">
+        <div class="container">
+            <div class="row inner">
+                <div class="col-md-4 logo">
+                    <a href="index.php"><img src="assets/uploads/<?php echo $logo; ?>" alt="logo image"></a>
+                </div>
+
+                <div class="col-md-5 right">
+                    <ul>
+                        <?php
 					if(isset($_SESSION['customer'])) {
 						if($_SESSION['customer']['cust_guest']===1) {
 							?>
-							<li><i class="fa fa-user"></i> Hey, Guest</li>
-							<!-- <li><a href="dashboard.php"><i class="fa fa-home"></i> <?php echo LANG_VALUE_89; ?></a></li> -->
-							<?php
+                        <li><i class="fa fa-user"></i> Hey, Guest</li>
+                        <!-- <li><a href="dashboard.php"><i class="fa fa-home"></i> <?php echo LANG_VALUE_89; ?></a></li> -->
+                        <?php
 						}
 						else{
 						?>
-						<li><i class="fa fa-user"></i> <?php echo LANG_VALUE_13; ?> <?php echo $_SESSION['customer']['cust_name']; ?></li>
-						<li><a href="dashboard.php"><i class="fa fa-home"></i> <?php echo LANG_VALUE_89; ?></a></li>
-						<?php
+                        <li><i class="fa fa-user"></i> <?php echo LANG_VALUE_13; ?>
+                            <?php echo $_SESSION['customer']['cust_name']; ?></li>
+                        <li><a href="dashboard.php"><i class="fa fa-home"></i> <?php echo LANG_VALUE_89; ?></a></li>
+                        <?php
 						}
 					} else {
 						?>
-						<li><a href="login.php"><i class="fa fa-sign-in"></i> <?php echo LANG_VALUE_9; ?></a></li>
-						<li><a href="registration.php"><i class="fa fa-user-plus"></i> <?php echo LANG_VALUE_15; ?></a></li>
-						<?php	
+                        <li><a href="login.php"><i class="fa fa-sign-in"></i> <?php echo LANG_VALUE_9; ?></a></li>
+                        <li><a href="registration.php"><i class="fa fa-user-plus"></i> <?php echo LANG_VALUE_15; ?></a>
+                        </li>
+                        <?php	
 					}
 					?>
 
-					<li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_18; ?>
-					(<span id='cart-count'><?php
-					if(isset($_SESSION['cart_p_id'])) {
-						$tmp=array();
-						$i=0;
-						foreach($_SESSION['cart_p_id'] as $key => $value) 
-	                    {
-	                        $tmp[$i] = $value;
-							$i++;
-	                    }
-						echo count($tmp);
-					} else {
-						echo 0;
-					}
+                        <li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_18;?>(<span id='cart-count'><?php
+                    if(!isset($_SESSION['customer']['cust_id'])){
+                        if(isset($_SESSION['cart_p_id'])) {
+                            $tmp=array();
+                            $i=0;
+                            foreach($_SESSION['cart_p_id'] as $key => $value) 
+                            {
+                                $tmp[$i] = $value;
+                                $i++;
+                            }
+                            echo count($tmp);
+                        } else {
+                            echo 0;
+                        }  
+                    }else{
+                        $statement = $pdo->prepare("SELECT * FROM tbl_cart WHERE cust_id=?");
+                        $statement->execute(array($_SESSION['customer']['cust_id']));
+                        $ct_value_count = $statement->rowCount();
+                        echo $ct_value_count;
+                    }
+					
 					?></span>)</a></li>
-				</ul>
-			</div>
-			<div class="col-md-3 search-area">
-				<form class="navbar-form navbar-left" role="search" action="search-result.php" method="get">
-					<?php $csrf->echoInputField(); ?>
-					<div class="form-group">
-						<input type="text" class="form-control search-top" placeholder="<?php echo LANG_VALUE_2; ?>" name="search_text">
-					</div>
-					<button class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
+                    </ul>
+                </div>
+                <div class="col-md-3 search-area " style="padding:10px">
+                    <form action="search-result.php" method="GET">
+                        <?php $csrf->echoInputField(); ?>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search Products" name="search_text" />
+                            <div class="input-group-btn">
+                                <button class="btn btn-danger" type="submit">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<div class="nav">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 pl_0 pr_0">
-				<div class="menu-container">
-					<div class="menu">
-						<ul>
-							<li><a href="index.php">Home</a></li>
-							
-							<?php
+    <div class="nav">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 pl_0 pr_0">
+                    <div class="menu-container">
+                        <div class="menu">
+
+                            <ul>
+                                <li><a href="index.php">Home</a></li>
+
+                                <?php
 							$statement = $pdo->prepare("SELECT * FROM tbl_top_category WHERE show_on_menu=1");
 							$statement->execute();
 							$result = $statement->fetchAll(PDO::FETCH_ASSOC);
 							foreach ($result as $row) {
 								?>
-								<li><a href="product-category.php?id=<?php echo $row['tcat_id']; ?>&type=top-category"><?php echo $row['tcat_name']; ?></a></li>
-								<?php
+                                <li><a
+                                        href="product-category.php?id=<?php echo $row['tcat_id']; ?>&type=top-category"><?php echo $row['tcat_name']; ?></a>
+                                </li>
+                                <?php
 							}
 							?>
-
-							<?php
+                                <?php
 							$statement = $pdo->prepare("SELECT * FROM tbl_page WHERE id=1");
 							$statement->execute();
 							$result = $statement->fetchAll(PDO::FETCH_ASSOC);		
@@ -369,16 +388,14 @@ foreach ($result as $row)
 								$vgallery_title = $row['vgallery_title'];
 							}
 							?>
+                                <li><a href="about.php"><?php echo $about_title; ?></a></li>
+                                <li><a href="contact.php"><?php echo $contact_title; ?></a></li>
+                                <li><a href="faq.php"><?php echo $faq_title; ?></a></li>
 
-							<li><a href="about.php"><?php echo $about_title; ?></a></li>
-							<li><a href="contact.php"><?php echo $contact_title; ?></a></li>
-							<li><a href="faq.php"><?php echo $faq_title; ?></a></li>
-
-							
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

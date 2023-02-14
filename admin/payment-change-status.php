@@ -91,7 +91,16 @@ if( !isset($_REQUEST['id']) ) {
     $mail->Subject = 'Payment updated successfully - '.$payment_id;//subject
     $mail->Body    = $body;
 	$mail->IsHTML(true);
-    $mail->send();
-
-	header('location: order.php');
+    if ($mail->send()){
+		echo "<script type='text/javascript'>
+		location='order.php';
+		alert('Payment updated successfully.');
+		</script>";
+	}else{
+		echo "<script type='text/javascript'>
+		location='order.php';
+		alert('Something went wrong!');
+		</script>";
+	}
+	// header('location: order.php');
 ?>
