@@ -312,7 +312,8 @@ foreach ($result as $row)
 					}
 					?>
 
-                        <li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_18;?>(<span id='cart-count'><?php
+                        <li><a href="cart.php"><i class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_18;?>(<span
+                                    id='cart-count'><?php
                     if(!isset($_SESSION['customer']['cust_id'])){
                         if(isset($_SESSION['cart_p_id'])) {
                             $tmp=array();
@@ -336,14 +337,14 @@ foreach ($result as $row)
 					?></span>)</a></li>
                     </ul>
                 </div>
-                <div class="col-md-3 search-area " style="padding:10px">
+                <div class="col-md-3 search-area" style="padding:10px">
                     <form action="search-result.php" method="GET">
                         <?php $csrf->echoInputField(); ?>
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Search Products" name="search_text" />
                             <div class="input-group-btn">
-                                <button class="btn btn-danger" type="submit">
-                                    <span class="glyphicon glyphicon-search"></span>
+                                <button class="btn search-btn" type="submit">
+                                    <span style="color:white"class="glyphicon glyphicon-search"></span>
                                 </button>
                             </div>
                         </div>

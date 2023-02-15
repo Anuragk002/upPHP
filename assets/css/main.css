@@ -211,6 +211,15 @@ a:hover {
   width: 100%;
 }
 
+.search-btn {
+  background-color: #e93e58;
+  opacity: 0.9;
+}
+.search-btn:hover {
+  background-color: #e93e58;
+  opacity: 1;
+  transition: 0.5s;
+}
 .nav {
   /* background: #0d1452; */
   background: #232f3e;
@@ -1184,22 +1193,93 @@ ul.nav-tabs {
 .product .p-short-des {
   margin-bottom: 30px;
 }
+.product .stock {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.product .pkg_btn {
+  padding:10px;
+  margin-left: 3px;
+  height: 35px;
+  border: none;
+}
+.product .pkg_btn:hover {
+  font-weight: bold;
+  color: rgba(105, 202, 71, 1);
+}
+
+.pkg_btn_active {
+  padding:10px;
+  margin-left: 3px;
+  height: 35px;
+  font-weight: bold;
+  background-color: rgba(105, 202, 71, 1);
+  color: white;
+  border: none;
+}
 
 .product .p-quantity,
 .p-select-package {
-  font-weight: 700;
-  line-height: 30px;
   margin-top: 8px;
   margin-bottom: 8px;
   font-size: 14px;
 }
+.product #pkg-amount {
+  font-weight: 800;
+  line-height: 30px;
+  color: #e93e58;
+  font-size: 25px;
+  margin: 15px;
+}
+
+.product .p-select-package label,
+.p-quantity label {
+  font-weight: 700;
+  line-height: 30px;
+}
 
 .product .p-quantity input[type="number"] {
-  width: 80px;
+  width: 140px;
   height: 35px;
   text-align: center;
   border: 2px solid #c7c7c7;
+  font-weight: bold;
 }
+.qty-btn-parent{
+  display:flex;
+  align-items:center;
+  border:2px solid #d3d3d3;
+  width: 140px;
+  justify-content:space-between;
+}
+.qty-btn {
+  background-color: white;
+  opacity: 0.9;
+  color:#e93e58;
+  border:none;
+  outline:none;
+}
+.qty-btn:hover {
+  /* background-color: #e93e58; */
+  opacity: 1;
+  transition: 0.5s;
+  border: none;
+  outline:none;
+  
+}
+
+.qty-text{
+color:#e93e58;
+font-weight:bold;
+font-size:20px;
+}
+.qty-text:hover{
+  cursor:none;
+  color:#e93e58;
+font-weight:bold;
+font-size:20px;
+
+  }
 
 .product .btn-cart {
   margin-bottom: 30px;
@@ -1215,10 +1295,12 @@ ul.nav-tabs {
 
 .product .btn-cart1 input[type="submit"] {
   border: 0;
-  padding: 10px 14px;
+  padding: 16px 34px;
   /* background: #0d1452; */
   background: #f19000;
+  border-radius:0;
   color: #fff;
+  font-size:20px;
 }
 
 .product .share {
@@ -1320,7 +1402,7 @@ ul.nav-tabs {
 }
 
 .cart-row {
-  background-color: whitesmoke;
+  background-color: white;
   padding: 10px;
   /* display: flex;
   justify-content: center;
@@ -1339,7 +1421,7 @@ ul.nav-tabs {
 
 .cart-qty {
   text-align: left;
-  margin-top: 23px;
+  margin-top: 18px;
 }
 .cart-img {
   text-align: left;

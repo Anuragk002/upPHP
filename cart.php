@@ -206,16 +206,28 @@
                                     <input type="hidden" name="product_id[]" value="<?php echo $arr_cart_p_id[$i]; ?>">
                                     <input type="hidden" name="package_id[]"
                                         value="<?php echo $arr_cart_p_pkg_id[$i]; ?>">
-                                    <input type="number" class="input-text qty text" step="1" min="1" max=""
+                                    <input type="number" class="input-text hidden" step="1" min="1" max=""
                                         name="quantity[]" value="<?php echo $arr_cart_p_qty[$i]; ?>" title="Qty"
-                                        size="4" pattern="[0-9]*" inputmode="numeric" required>
+                                        size="4" pattern="[0-9]" inputmode="numeric" id="cart_qty<?php echo $i; ?>">
+                                    <div class="btn-group qty-btn-parent">
+                                        <button type="button" class="btn   qty-btn"
+                                            onclick="cartMinus(<?php echo $i; ?>)"><span
+                                                class='glyphicon glyphicon-minus'></span></button>
+                                        <span class="btn qty-text"
+                                            id="cart_text<?php echo $i; ?>"><?php echo $arr_cart_p_qty[$i]; ?></span>
+                                        <button type="button" class="btn  qty-btn"
+                                            onclick="cartPlus(<?php echo $i; ?>)"><span
+                                                class='glyphicon glyphicon-plus'></span></button>
+                                    </div>
+
                                 </div>
                                 <div class="col-xs-3 col-sm-2 cart-price ">
                                     <?php
                                         $row_total_price = $arr_cart_pkg_price[$i] * $arr_cart_p_qty[$i];
                                         $table_total_price = $table_total_price + $row_total_price;
                                         ?>
-                                    <?php echo LANG_VALUE_1; ?><?php echo $row_total_price; ?></div>
+                                    <?php echo LANG_VALUE_1; ?><?php echo $row_total_price; ?>
+                                </div>
                                 <div class="col-xs-3 col-sm-2 cart-btn ">
                                     <a onclick="return confirmDelete();"
                                         href="cart-item-delete.php?p_id=<?php echo $arr_cart_p_id[$i]; ?>&pkg_id=<?php echo $arr_cart_p_pkg_id[$i]; ?>"
@@ -223,7 +235,6 @@
                                     </a>
                                 </div>
                             </div>
-
                             <?php } ?>
                             <div class="cart-buttons">
                                 <ul>
@@ -241,9 +252,9 @@
                 </form>
                 <?php endif; ?>
             </div>
-
         </div>
     </div>
 </div>
 </div>
 <?php require_once('footer.php'); ?>
+<script src="assets/js/cart_quantity.js"></script>
