@@ -49,7 +49,7 @@
         $tcat_name = $row['tcat_name'];
         $tcat_id = $row['tcat_id'];
     }
-    // Updating the revies of the product--------->
+    // Updating the views of the product--------->
     $p_total_view = $p_total_view + 1;
     $statement = $pdo->prepare("UPDATE tbl_product SET p_total_view=? WHERE p_id=?");
     $statement->execute(array($p_total_view, $_REQUEST['id']));
@@ -290,7 +290,14 @@
                             <div class="p-title">
                                 <h2><?php echo $p_name; ?></h2>
                             </div>
+                            <div class="stock">
+                                <b><span class="fa fa-tags"></span> Availability: <?php if($p_qty>0){echo '<span class=""
+                                            style="color: rgba(105, 202, 71, 1)"> In
+                                            Stock</span>'; }else{echo '<span class=""
+                                                style="color: red"> Out of Stock</span>';}?></b>
+                            </div>
                             <div class="p-review">
+
                                 <div class="rating">
                                     <?php
                                     if ($avg_rating == 0) {
@@ -340,7 +347,9 @@
                                     }
                                     ?>
                                 </div>
+
                             </div>
+
                             <div class="p-short-des">
                                 <p>
                                     <?php echo $p_short_description; ?>
@@ -349,33 +358,63 @@
                             <form action="" method="post">
                                 <div class="p-select-package">
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        <!-- <div class="col-md-12">
                                             Select Package<sup>*</sup> <br>
                                             <?php
                                                 foreach ($resultpkg as $row) {
                                                 ?>
-                                            <div class="radio">
+                                            <div class="radio" style="margin:0px">
                                                 <label><input type="radio" name="p_pkg_id"
                                                         value="<?php echo $row['id']; ?>" required>
                                                     <?php echo $row['pkg_name']; ?> -
-                                                    $<?php echo $row['pkg_price']; ?></label>
+                                                    <span
+                                                        style="color:#e93e58; font-weight:bolder">$<?php echo $row['pkg_price']; ?></span></label>
                                             </div>
                                             <?php
                                                 }
                                             ?>
+                                        </div> -->
+                                        <div class="col-md-12">
+                                            <label>Select Package<sup>*</sup></label><br>
+                                            <input type='text' id="p_pkg_id" name="p_pkg_id" value="" required hidden>
+                                            <?php
+                                                
+                                                foreach ($resultpkg as $row) {
+                                                ?>
+
+                                            <button
+                                                onclick="pkgSelect(<?php echo $row['id']; ?>,<?php echo $row['pkg_price']; ?>)"
+                                                class="pkg_btn" id="<?php echo $row['id']; ?>" data-state="0">
+                                                <?php echo $row['pkg_name']; ?>
+                                            </button>
+
+                                            <?php
+                                                }
+                                            ?>
+                                            <p id='pkg-amount'></p>
                                         </div>
                                     </div>
 
                                 </div>
-                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
+                                <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+                                
                                 <div class="p-quantity">
-                                    <?php echo LANG_VALUE_55; ?><sup>*</sup><br>
-                                    <input type="number" class="input-text qty" step="1" min="1" max="" name="p_qty"
-                                        value="1" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric" required>
+                                    <label><?php echo LANG_VALUE_55; ?><sup>*</sup></label><br>
+                                    <input type="number" class="input-text hidden" step="1" min="1" max="" name="p_qty"
+                                        value="1" title="Qty" size="4" pattern="[0-9]" inputmode="numeric" id='p_qty'>
+                                           
+                                            
+                                    <div class="btn-group qty-btn-parent">
+                                        <button type="button" class="btn   qty-btn" onclick="qtyMinus()"><span class='glyphicon glyphicon-minus'></span></button>
+                                        <span class="btn qty-text" id="qty_text">1</span>
+                                        
+                                        <button type="button" class="btn  qty-btn" onclick="qtyPlus()"><span class='glyphicon glyphicon-plus'></span></button>
+                                    </div>
                                 </div>
+                                
+                                
                                 <div class="btn-cart btn-cart1">
-                                    <input type="submit" value="<?php echo LANG_VALUE_154; ?>" name="form_add_to_cart">
+                                    <input type="submit" class="btn disabled" value="<?php echo LANG_VALUE_154; ?>" id="btn_add_to_cart" name="form_add_to_cart">
                                 </div>
                             </form>
                             <div class="share">
@@ -596,7 +635,8 @@
                                 <div class="overlay"></div>
                             </div>
                             <div class="text">
-                                <h5><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a>
+                                <h5><a
+                                        href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a>
                                 </h5>
                                 <h4>
                                     <?php #echo LANG_VALUE_1; ?><?php #echo $row['p_current_price']; ?>
@@ -684,7 +724,8 @@
                                         }
                                         ?>
                                 </div>
-                                <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo LANG_VALUE_154; ?></a>
+                                <p><a
+                                        href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo LANG_VALUE_154; ?></a>
                                 </p>
                             </div>
                         </a>
@@ -701,15 +742,5 @@
 </div>
 
 <?php require_once('footer.php'); ?>
-
-<?php
-// if ($p_err_msg != '') {
-//     echo "<script>alert('".$p_err_msg."')</script>";
-//     $p_err_msg='';
-// }
-// if ($p_success_msg != '') {
-//     echo "<script>alert('".$p_success_msg."')</script>";
-//     $p_success_msg='';
-//     // header('location: product.php?id=' . $_REQUEST['id']);
-// }
-?>
+<script src="assets/js/product_quantity.js"></script>
+<script src="assets/js/package.js"></script>
