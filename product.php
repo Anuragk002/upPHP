@@ -213,12 +213,12 @@
             <div class="col-md-12">
                 <div class="breadcrumb mb_30">
                     <ul>
-                        <li><a href="<?php echo BASE_URL; ?>">Home</a></li>
-                        <li>-></li>
+                        <li><a href="<?php echo BASE_URL; ?>"><span class='glyphicon glyphicon-home'></span>&nbsp Home</a></li>
+                        <li>/</li>
                         <li><a
                                 href="<?php echo BASE_URL . 'product-category.php?id=' . $tcat_id . '&type=top-category' ?>"><?php echo $tcat_name; ?></a>
                         </li>
-                        <li>-></li>
+                        <li>/</li>
                         <li><?php echo $p_name; ?></li>
                     </ul>
                 </div>
@@ -398,24 +398,24 @@
                                 </div>
                                 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
                                 
-                                <div class="p-quantity">
-                                    <label><?php echo LANG_VALUE_55; ?><sup>*</sup></label><br>
-                                    <input type="number" class="input-text hidden" step="1" min="1" max="" name="p_qty"
-                                        value="1" title="Qty" size="4" pattern="[0-9]" inputmode="numeric" id='p_qty'>
-                                           
+                                    <div class="p-quantity">
+                                        <label><?php echo LANG_VALUE_55; ?><sup>*</sup></label><br>
+                                        <input type="number" class="input-text hidden" step="1" min="1" max="" name="p_qty"
+                                            value="1" title="Qty" size="4" pattern="[0-9]" inputmode="numeric" id='p_qty'>
+                                                
+                                                
+                                        <div class="btn-group qty-btn-parent">
+                                            <button type="button" class="btn   qty-btn" onclick="qtyMinus()"><span class='glyphicon glyphicon-minus'></span></button>
+                                            <span class="btn qty-text" id="qty_text">1</span>
                                             
-                                    <div class="btn-group qty-btn-parent">
-                                        <button type="button" class="btn   qty-btn" onclick="qtyMinus()"><span class='glyphicon glyphicon-minus'></span></button>
-                                        <span class="btn qty-text" id="qty_text">1</span>
-                                        
-                                        <button type="button" class="btn  qty-btn" onclick="qtyPlus()"><span class='glyphicon glyphicon-plus'></span></button>
+                                            <button type="button" class="btn  qty-btn" onclick="qtyPlus()"><span class='glyphicon glyphicon-plus'></span></button>
+                                        </div>
                                     </div>
-                                </div>
-                                
-                                
-                                <div class="btn-cart btn-cart1">
-                                    <input type="submit" class="btn disabled" value="<?php echo LANG_VALUE_154; ?>" id="btn_add_to_cart" name="form_add_to_cart">
-                                </div>
+                                    
+                                    
+                                    <div class="btn-cart btn-cart1">
+                                        <input type="submit" class="btn disabled" value="<?php echo LANG_VALUE_154; ?>" id="btn_add_to_cart" name="form_add_to_cart">
+                                   </div>
                             </form>
                             <div class="share">
                                 <?php echo LANG_VALUE_58; ?> <br>
