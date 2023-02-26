@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Feb 25, 2023 at 03:55 AM
--- Server version: 5.7.39-cll-lve
--- PHP Version: 7.4.30
+-- Host: 127.0.0.1
+-- Generation Time: Feb 26, 2023 at 10:06 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -35,6 +33,14 @@ CREATE TABLE `tbl_cart` (
   `package_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `tbl_cart`
+--
+
+INSERT INTO `tbl_cart` (`id`, `cust_id`, `product_id`, `package_id`, `quantity`) VALUES
+(4, 26, 152, 85, 1),
+(5, 26, 154, 65, 1);
 
 -- --------------------------------------------------------
 
@@ -98,251 +104,10 @@ CREATE TABLE `tbl_country` (
 --
 
 INSERT INTO `tbl_country` (`country_id`, `country_name`) VALUES
-(1, 'Afghanistan'),
-(2, 'Albania'),
-(3, 'Algeria'),
-(4, 'American Samoa'),
-(5, 'Andorra'),
-(6, 'Angola'),
-(7, 'Anguilla'),
-(8, 'Antarctica'),
-(9, 'Antigua and Barbuda'),
-(10, 'Argentina'),
-(11, 'Armenia'),
-(12, 'Aruba'),
-(13, 'Australia'),
-(14, 'Austria'),
-(15, 'Azerbaijan'),
-(16, 'Bahamas'),
-(17, 'Bahrain'),
-(18, 'Bangladesh'),
-(19, 'Barbados'),
-(20, 'Belarus'),
-(21, 'Belgium'),
-(22, 'Belize'),
-(23, 'Benin'),
-(24, 'Bermuda'),
-(25, 'Bhutan'),
-(26, 'Bolivia'),
-(27, 'Bosnia and Herzegovina'),
-(28, 'Botswana'),
-(29, 'Bouvet Island'),
-(30, 'Brazil'),
-(31, 'British Indian Ocean Territory'),
-(32, 'Brunei Darussalam'),
-(33, 'Bulgaria'),
-(34, 'Burkina Faso'),
-(35, 'Burundi'),
-(36, 'Cambodia'),
-(37, 'Cameroon'),
-(38, 'Canada'),
-(39, 'Cape Verde'),
-(40, 'Cayman Islands'),
-(41, 'Central African Republic'),
-(42, 'Chad'),
-(43, 'Chile'),
-(44, 'China'),
-(45, 'Christmas Island'),
-(46, 'Cocos (Keeling) Islands'),
-(47, 'Colombia'),
-(48, 'Comoros'),
-(49, 'Congo'),
-(50, 'Cook Islands'),
-(51, 'Costa Rica'),
-(52, 'Croatia (Hrvatska)'),
-(53, 'Cuba'),
-(54, 'Cyprus'),
-(55, 'Czech Republic'),
-(56, 'Denmark'),
-(57, 'Djibouti'),
-(58, 'Dominica'),
-(59, 'Dominican Republic'),
-(60, 'East Timor'),
-(61, 'Ecuador'),
-(62, 'Egypt'),
-(63, 'El Salvador'),
-(64, 'Equatorial Guinea'),
-(65, 'Eritrea'),
-(66, 'Estonia'),
-(67, 'Ethiopia'),
-(68, 'Falkland Islands (Malvinas)'),
-(69, 'Faroe Islands'),
-(70, 'Fiji'),
-(71, 'Finland'),
-(72, 'France'),
-(73, 'France, Metropolitan'),
-(74, 'French Guiana'),
-(75, 'French Polynesia'),
-(76, 'French Southern Territories'),
-(77, 'Gabon'),
-(78, 'Gambia'),
-(79, 'Georgia'),
-(80, 'Germany'),
-(81, 'Ghana'),
-(82, 'Gibraltar'),
-(83, 'Guernsey'),
-(84, 'Greece'),
-(85, 'Greenland'),
-(86, 'Grenada'),
-(87, 'Guadeloupe'),
-(88, 'Guam'),
-(89, 'Guatemala'),
-(90, 'Guinea'),
-(91, 'Guinea-Bissau'),
-(92, 'Guyana'),
-(93, 'Haiti'),
-(94, 'Heard and Mc Donald Islands'),
-(95, 'Honduras'),
-(96, 'Hong Kong'),
-(97, 'Hungary'),
-(98, 'Iceland'),
-(99, 'India'),
-(100, 'Isle of Man'),
-(101, 'Indonesia'),
-(102, 'Iran (Islamic Republic of)'),
-(103, 'Iraq'),
-(104, 'Ireland'),
-(105, 'Israel'),
-(106, 'Italy'),
-(107, 'Ivory Coast'),
-(108, 'Jersey'),
-(109, 'Jamaica'),
-(110, 'Japan'),
-(111, 'Jordan'),
-(112, 'Kazakhstan'),
-(113, 'Kenya'),
-(114, 'Kiribati'),
-(115, 'Korea, Democratic People\'s Republic of'),
-(116, 'Korea, Republic of'),
-(117, 'Kosovo'),
-(118, 'Kuwait'),
-(119, 'Kyrgyzstan'),
-(120, 'Lao People\'s Democratic Republic'),
-(121, 'Latvia'),
-(122, 'Lebanon'),
-(123, 'Lesotho'),
-(124, 'Liberia'),
-(125, 'Libyan Arab Jamahiriya'),
-(126, 'Liechtenstein'),
-(127, 'Lithuania'),
-(128, 'Luxembourg'),
-(129, 'Macau'),
-(130, 'Macedonia'),
-(131, 'Madagascar'),
-(132, 'Malawi'),
-(133, 'Malaysia'),
-(134, 'Maldives'),
-(135, 'Mali'),
-(136, 'Malta'),
-(137, 'Marshall Islands'),
-(138, 'Martinique'),
-(139, 'Mauritania'),
-(140, 'Mauritius'),
-(141, 'Mayotte'),
-(142, 'Mexico'),
-(143, 'Micronesia, Federated States of'),
-(144, 'Moldova, Republic of'),
-(145, 'Monaco'),
-(146, 'Mongolia'),
-(147, 'Montenegro'),
-(148, 'Montserrat'),
-(149, 'Morocco'),
-(150, 'Mozambique'),
-(151, 'Myanmar'),
-(152, 'Namibia'),
-(153, 'Nauru'),
-(154, 'Nepal'),
-(155, 'Netherlands'),
-(156, 'Netherlands Antilles'),
-(157, 'New Caledonia'),
-(158, 'New Zealand'),
-(159, 'Nicaragua'),
-(160, 'Niger'),
-(161, 'Nigeria'),
-(162, 'Niue'),
-(163, 'Norfolk Island'),
-(164, 'Northern Mariana Islands'),
-(165, 'Norway'),
-(166, 'Oman'),
-(167, 'Pakistan'),
-(168, 'Palau'),
-(169, 'Palestine'),
-(170, 'Panama'),
-(171, 'Papua New Guinea'),
-(172, 'Paraguay'),
-(173, 'Peru'),
-(174, 'Philippines'),
-(175, 'Pitcairn'),
-(176, 'Poland'),
-(177, 'Portugal'),
-(178, 'Puerto Rico'),
-(179, 'Qatar'),
-(180, 'Reunion'),
-(181, 'Romania'),
-(182, 'Russian Federation'),
-(183, 'Rwanda'),
-(184, 'Saint Kitts and Nevis'),
-(185, 'Saint Lucia'),
-(186, 'Saint Vincent and the Grenadines'),
-(187, 'Samoa'),
-(188, 'San Marino'),
-(189, 'Sao Tome and Principe'),
-(190, 'Saudi Arabia'),
-(191, 'Senegal'),
-(192, 'Serbia'),
-(193, 'Seychelles'),
-(194, 'Sierra Leone'),
-(195, 'Singapore'),
-(196, 'Slovakia'),
-(197, 'Slovenia'),
-(198, 'Solomon Islands'),
-(199, 'Somalia'),
-(200, 'South Africa'),
-(201, 'South Georgia South Sandwich Islands'),
-(202, 'Spain'),
-(203, 'Sri Lanka'),
-(204, 'St. Helena'),
-(205, 'St. Pierre and Miquelon'),
-(206, 'Sudan'),
-(207, 'Suriname'),
-(208, 'Svalbard and Jan Mayen Islands'),
-(209, 'Swaziland'),
-(210, 'Sweden'),
-(211, 'Switzerland'),
-(212, 'Syrian Arab Republic'),
-(213, 'Taiwan'),
-(214, 'Tajikistan'),
-(215, 'Tanzania, United Republic of'),
-(216, 'Thailand'),
-(217, 'Togo'),
-(218, 'Tokelau'),
-(219, 'Tonga'),
-(220, 'Trinidad and Tobago'),
-(221, 'Tunisia'),
-(222, 'Turkey'),
-(223, 'Turkmenistan'),
-(224, 'Turks and Caicos Islands'),
-(225, 'Tuvalu'),
-(226, 'Uganda'),
-(227, 'Ukraine'),
-(228, 'United Arab Emirates'),
-(229, 'United Kingdom'),
-(230, 'United States'),
-(231, 'United States minor outlying islands'),
-(232, 'Uruguay'),
-(233, 'Uzbekistan'),
-(234, 'Vanuatu'),
-(235, 'Vatican City State'),
-(236, 'Venezuela'),
-(237, 'Vietnam'),
-(238, 'Virgin Islands (British)'),
-(239, 'Virgin Islands (U.S.)'),
-(240, 'Wallis and Futuna Islands'),
-(241, 'Western Sahara'),
-(242, 'Yemen'),
-(243, 'Zaire'),
-(244, 'Zambia'),
-(245, 'Zimbabwe');
+(249, 'Mexico'),
+(247, 'Canada'),
+(250, 'United Kingdom'),
+(251, 'United States');
 
 -- --------------------------------------------------------
 
@@ -393,28 +158,7 @@ CREATE TABLE `tbl_customer` (
 --
 
 INSERT INTO `tbl_customer` (`cust_id`, `cust_name`, `cust_gender`, `cust_cname`, `cust_email`, `cust_phone`, `cust_country`, `cust_address`, `cust_city`, `cust_state`, `cust_zip`, `cust_b_name`, `cust_b_cname`, `cust_b_phone`, `cust_b_country`, `cust_b_address`, `cust_b_city`, `cust_b_state`, `cust_b_zip`, `cust_s_name`, `cust_s_gender`, `cust_s_cname`, `cust_s_phone`, `cust_s_email`, `cust_s_country`, `cust_s_address`, `cust_s_city`, `cust_s_state`, `cust_s_zip`, `cust_password`, `cust_token`, `cust_datetime`, `cust_timestamp`, `cust_status`, `cust_guest`) VALUES
-(1, 'Liam Moore', '', 'WV Company', 'liam@mail.com', '7458965410', 230, '788 Cottonwood Lane', 'Nashville', 'TN', '37072', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', 'sln', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', '0081e99a29cacd4b553db15c5c5c047e', '2022-03-17 11:09:34', '1647544174', 1, 0),
-(2, 'Chad N. Carney', '', 'none', 'chad@mail.com', '4785690000', 230, '469 Diamond Street', 'Charlotte', 'NC', '28808', 'Chad N. Carney', 'none', '7477474440', 230, '469 Diamond Street', 'Charlotte', 'NC', '28808', 'Chad N. Carney', '', 'none', '7477474440', '', 230, '469 Diamond Street', 'Charlotte', 'NC', '28808', '5f4dcc3b5aa765d61d8327deb882cf99', 'ca87666426f4bc5c5128a96dabfecefb', '2022-03-17 11:15:26', '1647544526', 1, 0),
-(3, 'Jean Collins', '', 'none', 'jean@mail.com', '1478523698', 230, '1508 Crosswind Drive', 'Owensboro', 'KY', '13040', 'Jean Collins', 'none', '1478523698', 230, '1508 Crosswind Drive', 'Owensboro', 'KY', '13040', 'Jean Collins', '', 'none', '1478523698', '', 230, '1508 Crosswind Drive', 'Owensboro', 'KY', '13040', '5f4dcc3b5aa765d61d8327deb882cf99', '6b3439bf95644a36a1ed92bef374ebb7', '2022-03-20 10:29:39', '1647797379', 1, 0),
-(4, 'Annie Young', '', 'XYZ Company', 'annie@mail.com', '7770001144', 230, '79 Burwell Heights Road', 'Beaumont', 'TX', '77400', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'fc8f07537cdd6b3f89eb94f1cad78060', '2022-03-20 10:31:35', '1647797495', 1, 0),
-(5, 'Matthew Morales', '', 'ABC Company', 'matthew@mail.com', '7896587450', 230, '81 Felosa Drive', 'Mira Loma', 'CA', '91002', 'Matthew Morales', 'ABC Company', '7896587450', 230, '81 Felosa Drive', 'Mira Loma', 'CA', '91002', 'Matthew Morales', '', 'ABC Company', '7896587450', '', 230, '81 Felosa Drive', 'Mira Loma', 'CA', '91002', '5f4dcc3b5aa765d61d8327deb882cf99', 'c391105908fe01a636bfa5fc39eed33d', '2022-03-20 10:33:15', '1647797595', 1, 0),
-(6, 'August F. Freels', '', 'none', 'august@mail.com', '1478547850', 230, '96 Johnny Lane', 'Milwaukee', 'WI', '55550', 'August F. Freels', 'none', '1478547850', 230, '96 Johnny Lane', 'Milwaukee', 'WI', '55550', 'August F. Freels', '', 'none', '1478547850', '', 230, '96 Johnny Lane', 'Milwaukee', 'WI', '55550', '5f4dcc3b5aa765d61d8327deb882cf99', 'decc1fc2c5dd9935df82c0233002ce66', '2022-03-20 10:34:08', '1647797648', 1, 0),
-(7, 'Carl M. Dineen', '', 'none', 'carl@mail.com', '789878987', 230, '77 Lyndon Street', 'Kutztown', 'PA', '19855', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'c79bac688e70cc9665a2164c57ec172c', '2022-03-20 10:35:02', '1647797702', 1, 0),
-(8, 'Benjamin B. Louque', '', 'none', 'benjamin@mail.com', '7777889955', 230, '32 Bridge Street', 'Tulsa', 'OK', '74220', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', '5a0e096368f9669508af7b7203382b07', '2022-03-20 10:36:31', '1647797791', 1, 0),
-(9, 'Joe K. Richardson', '', 'none', 'joe@mail.com', '4444445555', 230, '17 Derek Drive', 'Youngstown', 'OH', '44500', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'e74ac0178d7833988d4b1625c42ba26e', '2022-03-20 10:37:18', '1647797838', 1, 0),
-(10, 'Will Williams', '', 'Test Company', 'williams@mail.com', '7410000000', 230, '39 Marcus Street', 'Anniston', 'AL', '37207', 'Will Williams', 'Test Company', '7410000000', 230, '39 Marcus Street', 'Anniston', 'AL', '37207', 'Will Williams', '', 'Test Company', '7410000000', '', 230, '39 Marcus Street', 'Anniston', 'AL', '37207', '5f4dcc3b5aa765d61d8327deb882cf99', '941c9265fb920f691cf01b12a15f80f8', '2022-03-20 11:15:59', '1647800159', 1, 0),
-(15, '', '', '', 'guest4@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', '6623f6645b6ccb72d6cc7c7dd076b247', '2022-12-28 10:37:13', '1672295833', 1, 1),
-(16, '', '', '', 'guest5@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', '62eddb9e08a3acf2f67d644cece8fc08', '2022-12-28 10:40:24', '1672296024', 1, 1),
-(17, '', '', '', 'guest6@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', '5d873df93087204b746d90c4d1058bab', '2022-12-28 11:12:52', '1672297972', 1, 1),
-(18, '', '', '', 'guest7@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', '435d6e35d26b97ebd49d4b67f716ac42', '2022-12-28 11:20:36', '1672298436', 1, 1),
-(19, '', '', '', 'guest8@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', 'ecc3866f81d8416739b1514d90017b2b', '2022-12-28 11:26:25', '1672298785', 1, 1),
-(20, '', '', '', 'guest9@gmail.com', '', 0, '', '', '', '', '', '', '', 1, '', '', '', '', 'Guest Fullna', '', '', '1231212323', '', 19, 'acaccz', 'asscasca', 'xcxc', '232323', '40df65fa9156a1f0f72e57fe6da3d896', '977e9e8fa1b2b696a9561b6fc246cb47', '2022-12-28 11:30:11', '1672299011', 1, 1),
-(21, '', '', '', 'guest10@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', 'c637b37785614a4603d19a98bc77a0b7', '2022-12-29 12:29:29', '1672302569', 1, 1),
-(22, 'Christine', '', '', 'christine@mail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', 'pankaj', '', '', '9984499623', 'pg@gmail.com', 230, 'ramgarh', 'sln', 'up', '222302', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', 0, 0),
-(23, 'Pankaj Giri', '', '', 'pankaj1433giri@gmail.com', '9984499623', 99, 'Ramgarh', 'Sultanpur', 'Uttar Pradesh', '222302', '', '', '', 0, '', '', '', '', 'Suraj', '', '', '1234567890', 's@gmail.com', 5, 'ramgarh', 'sln', 'up', '222342', '827ccb0eea8a706c4c34a16891f84e7b', '2a9503a66938d07dd57242d888cfd1b1', '2023-01-21 07:42:59', '1674315779', 1, 0),
-(24, 'kp', 'male', '', 'kp@gmail.com', '1234560', 17, 'ramgarh', 'sln', 'up', ' 787', '', '', '', 0, '', '', '', '', 'kp', 'male', '', '1234560', 's@gmail.com', 1, 'ramgarh', 'j', 'j', '789', '827ccb0eea8a706c4c34a16891f84e7b', 'b5a9d7c3cd875d5a24d325a3213f0f55', '2023-01-27 02:00:20', '1674813620', 1, 0),
-(26, 'Pankaj Giri', 'male', '', 'pankaj143giri@gmail.com', 'pankaj143giri@gmail.com', 0, '', '', '', '', '', '', '', 0, '', '', '', '', 'Pankaj Giri', '', '', 'pankaj143giri@gmail.com', 'pankaj143giri@gmail.com', 0, '', '', '', '', '827ccb0eea8a706c4c34a16891f84e7b', '', '2023-02-03 07:10:13', '', 1, 0),
-(27, 'sportube', 'male', '', 'sportube14@gmail.com', '12345', 0, '', '', '', '', '', '', '', 0, '', '', '', '', 'sportube', '', '', '12345', 'sportube14@gmail.com', 0, '', '', '', '', '827ccb0eea8a706c4c34a16891f84e7b', '2f2192bd157ef89eb23caf99b128930c', '2023-02-10 11:50:06', '1676058606', 0, 0);
+(26, 'Pankaj Giri', 'male', '', 'pankaj143giri@gmail.com', '1234567890', 0, '', '', '', '', '', '', '', 0, '', '', '', '', 'Pankaj Giri', 'male', '', '00000', 'pankaj143giri@gmail.com', 249, 'er', 'adf', 'er', '2345', '827ccb0eea8a706c4c34a16891f84e7b', '', '2023-02-03 07:10:13', '', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -432,30 +176,6 @@ CREATE TABLE `tbl_customer_message` (
   `order_details` text NOT NULL,
   `shipping_address` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_customer_message`
---
-
-INSERT INTO `tbl_customer_message` (`customer_message_id`, `to_email`, `subject`, `message`, `payment_id`, `status_details`, `order_details`, `shipping_address`) VALUES
-(9, 's@gmail.com', 'order confim', 'sdfdfgfgghhg', '1675192784', '\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n			<li><b>Order ID: </b>t</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li></ul>', '\r\n            <table border=1 >\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <th colspan=5>Grand Total</th>\r\n            <th>200</th>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(10, 's@gmail.com', 'order confim', 'dgngdfgfdhdfh', '1675192784', '\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n			<li><b>Order ID: </b>t</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li></ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <th colspan=5>Grand Total</th>\r\n            <th>200</th>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(11, 's@gmail.com', 'order confim', 'ram ji', '1675192784', '\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n			<li><b>Order ID: </b>t</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <th colspan=5>Grand Total</th>\r\n            <th>$200</th>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(12, 's@gmail.com', 'order confim', 'fdg', '1675192784', '\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n			<li><b>Order ID: </b>t</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <th colspan=5>Grand Total</th>\r\n            <th>$200</th>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(13, 's@gmail.com', 'order confim', 'dfsfdsfsss', '1675192784', '\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n			<li><b>Order ID: </b>t</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <th colspan=5>Grand Total</th>\r\n            <th>$200</th>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(14, 's@gmail.com', 'order confim', 'Once my friend asked me â€œHow to send the auto-generated mail using PHP? ', '1675192784', '\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n			<li><b>Order ID: </b>t</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <th colspan=5>Grand Total</th>\r\n            <th>$200</th>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(15, 's@gmail.com', 'order confim', 'asdffghh hjhjh jj ', '1675192784', '\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n			<li><b>Order ID: </b>t</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$200</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(16, 's@gmail.com', 'order confim', 'cehck3', '1675192784', '\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n			<li><b>Order ID: </b>t</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$200</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(17, 's@gmail.com', 'order confim', 'dsff', '1675192679', '\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n			<li><b>Order ID: </b>kl</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:17:59</li>\r\n            <li><b>Total Amount: </b>$100</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>AA</td>\r\n                <td>100 PILLS</td>\r\n                <td>$100</td>\r\n                <td>1</td>\r\n                <td>$100</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$100</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>kl</li>\r\n            <li><b>Phone: </b>88999</li>\r\n            <li><b>Address: </b>gomtingr, lko, up, Faroe Islands, 9098888</li>\r\n            </ul>'),
-(18, 's@gmail.com', 'order confim', 'dfgfdgfgf', '1675192784', '<ul style=\"padding-left:20px;list-style-type:None;colo:black\">\r\n			<li><b>Order ID: </b>1675192784</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$200</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(19, 's@gmail.com', 'order confim', 'dsfs', '1675192784', '<ul style=\"list-style-type:None;colo:black\">\r\n			<li><b>Order ID: </b>1675192784</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$200</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(20, 's@gmail.com', 'Unit Pharma: Order confirmation - 123455', 'apka order deliver hone ja rh h jyada gad n maraye', '1675192784', '<ul style=\"list-style-type:None;colo:black\">\r\n			<li><b>Order ID: </b>1675192784</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$200</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(21, 's@gmail.com', 'Unit Pharma: Order confirmation - 123456', 'asdgg', '1675192784', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1675192784</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon.</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$200</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(22, 'pankaj143giri@gmail.com', 'Unit Pharma: Order msg - 1675414922', 'ka ho', '1675414922', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1675414922</li>\r\n            <li><b>Order Date: </b>2023-02-03 01:02:02</li>\r\n            <li><b>Total Amount: </b>$400</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n            <li><b>Tracking ID: </b>12345123</li>\r\n            <li><a href=\"https://www.bluedark.com\" style=\"color:blue\" >CLICK! HERE TO TRACK YOUR ORDER</a></li>\r\n            </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Sleep2</td>\r\n                <td>200 PILLS</td>\r\n                <td>$400</td>\r\n                <td>1</td>\r\n                <td>$400</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$400</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None;color:black\">\r\n            <li><b>Name: </b>pankaj</li>\r\n            <li><b>Phone: </b>9984499623</li>\r\n            <li><b>Address: </b>Ramgarh, Sultanpur, Uttar Pradesh, India, 222302</li>\r\n            </ul>'),
-(23, 'pankaj143giri@gmail.com', 'Unit Pharma  - 123445', 'how are you n.\r\n\r\nhttps://www.tcs.com', '1676033723', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1676033723</li>\r\n            <li><b>Order Date: </b>2023-02-10 04:55:23</li>\r\n            <li><b>Total Amount: </b>$400</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n            <li><b>Tracking ID: </b>12345</li>\r\n            <li><b><a href=\"https://www.tcs.com\">CLICK HERE! TO TRACK YOUR ORDER</a></b></li>\r\n            </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>sWell2</td>\r\n                <td>200 PILLS</td>\r\n                <td>$400</td>\r\n                <td>1</td>\r\n                <td>$400</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$400</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None;color:black\">\r\n            <li><b>Name: </b>dr</li>\r\n            <li><b>Phone: </b>1234567</li>\r\n            <li><b>Address: </b>ramgarh, csln, up, Afghanistan, 222345</li>\r\n            </ul>'),
-(24, 'pankaj143giri@gmail.com', 'Unit Pharma  - 123445', 'dellliiidfdsfs ', '1676033723', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1676033723</li>\r\n            <li><b>Order Date: </b>2023-02-10 04:55:23</li>\r\n            <li><b>Total Amount: </b>$400</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n            <li><b>Tracking ID: </b>12345</li>\r\n            <li><b><a href=\"https://www.tcs.com\">CLICK HERE! TO TRACK YOUR ORDER</a></b></li>\r\n            </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>sWell2</td>\r\n                <td>200 PILLS</td>\r\n                <td>$400</td>\r\n                <td>1</td>\r\n                <td>$400</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$400</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None;color:black\">\r\n            <li><b>Name: </b>dr</li>\r\n            <li><b>Phone: </b>1234567</li>\r\n            <li><b>Address: </b>ramgarh, csln, up, Afghanistan, 222345</li>\r\n            </ul>'),
-(25, 'pankaj143giri@gmail.com', 'Unit Pharma  - 123445', 'kpfgfd', '1676033723', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1676033723</li>\r\n            <li><b>Order Date: </b>2023-02-10 04:55:23</li>\r\n            <li><b>Total Amount: </b>$400</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n            <li><b>Tracking ID: </b>12345</li>\r\n            <li><b><a href=\"https://www.tcs.com\">CLICK HERE! TO TRACK YOUR ORDER</a></b></li>\r\n            </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>sWell2</td>\r\n                <td>200 PILLS</td>\r\n                <td>$400</td>\r\n                <td>1</td>\r\n                <td>$400</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$400</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None;color:black\">\r\n            <li><b>Name: </b>dr</li>\r\n            <li><b>Phone: </b>1234567</li>\r\n            <li><b>Address: </b>ramgarh, csln, up, Afghanistan, 222345</li>\r\n            </ul>'),
-(26, 'pankaj143giri@gmail.com', 'Unit Pharma  - 123445i', 'hjbb', '1676033723', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1676033723</li>\r\n            <li><b>Order Date: </b>2023-02-10 04:55:23</li>\r\n            <li><b>Total Amount: </b>$400</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n            <li><b>Tracking ID: </b>12345</li>\r\n            <li><b><a href=\"https://www.tcs.com\">CLICK HERE! TO TRACK YOUR ORDER</a></b></li>\r\n            </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>sWell2</td>\r\n                <td>200 PILLS</td>\r\n                <td>$400</td>\r\n                <td>1</td>\r\n                <td>$400</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$400</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None;color:black\">\r\n            <li><b>Name: </b>dr</li>\r\n            <li><b>Phone: </b>1234567</li>\r\n            <li><b>Address: </b>ramgarh, csln, up, Afghanistan, 222345</li>\r\n            </ul>');
 
 -- --------------------------------------------------------
 
@@ -573,8 +293,7 @@ INSERT INTO `tbl_faq` (`faq_id`, `faq_title`, `faq_content`) VALUES
 (1, 'How to find an item?', '<h3 class=\"checkout-complete-box font-bold txt16\" style=\"box-sizing: inherit; text-rendering: optimizeLegibility; margin: 0.2rem 0px 0.5rem; padding: 0px; line-height: 1.4; background-color: rgb(250, 250, 250);\"><font color=\"#222222\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\"><span style=\"font-size: 15.7143px;\">We have a wide range of fabulous products to choose from.</span></font></h3><h3 class=\"checkout-complete-box font-bold txt16\" style=\"box-sizing: inherit; text-rendering: optimizeLegibility; margin: 0.2rem 0px 0.5rem; padding: 0px; line-height: 1.4; background-color: rgb(250, 250, 250);\"><span style=\"font-size: 15.7143px; color: rgb(34, 34, 34); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Tip 1: If you\'re looking for a specific product, use the keyword search box located at the top of the site. Simply type what you are looking for, and prepare to be amazed!</span></h3><h3 class=\"checkout-complete-box font-bold txt16\" style=\"box-sizing: inherit; text-rendering: optimizeLegibility; margin: 0.2rem 0px 0.5rem; padding: 0px; line-height: 1.4; background-color: rgb(250, 250, 250);\"><font color=\"#222222\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\"><span style=\"font-size: 15.7143px;\">Tip 2: If you want to explore a category of products, use the Shop Categories in the upper menu, and navigate through your favorite categories where we\'ll feature the best products in each.</span></font><br><br></h3>\r\n'),
 (2, 'What is your return policy?', '<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, &quot;Helvetica Neue&quot;, Helvetica, Helvetica, Arial, sans-serif; font-size: 14px; text-align: center;\">You have 15 days to make a refund request after your order has been delivered.</span><br></p>\r\n'),
 (3, ' I received a defective/damaged item, can I get a refund?', '<p>In case the item you received is damaged or defective, you could return an item in the same condition as you received it with the original box and/or packaging intact. Once we receive the returned item, we will inspect it and if the item is found to be defective or damaged, we will process the refund along with any shipping fees incurred.<br></p>\r\n'),
-(4, 'When are ‘Returns’ not possible?', '<p class=\"a  \" style=\"box-sizing: inherit; text-rendering: optimizeLegibility; line-height: 1.6; margin-bottom: 0.714286rem; padding: 0px; font-size: 14px; color: rgb(10, 10, 10); font-family: opensans, &quot;Helvetica Neue&quot;, Helvetica, Helvetica, Arial, sans-serif; background-color: rgb(250, 250, 250);\">There are a few certain scenarios where it is difficult for us to support returns:</p><ol style=\"box-sizing: inherit; line-height: 1.6; margin-right: 0px; margin-bottom: 0px; margin-left: 1.25rem; padding: 0px; list-style-position: outside; color: rgb(10, 10, 10); font-family: opensans, &quot;Helvetica Neue&quot;, Helvetica, Helvetica, Arial, sans-serif; font-size: 14px; background-color: rgb(250, 250, 250);\"><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Return request is made outside the specified time frame, of 15 days from delivery.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Product is used, damaged, or is not in the same condition as you received it.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Specific categories like innerwear, lingerie, socks and clothing freebies etc.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Defective products which are covered under the manufacturer\'s warranty.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Any consumable item which has been used or installed.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Products with tampered or missing serial numbers.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Anything missing from the package you\'ve received including price tags, labels, original packing, freebies and accessories.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Fragile items, hygiene related items.</li></ol>\r\n'),
-(5, 'What are the items that cannot be returned?', '<p>The items that can not be returned are:</p><p>Clearance items clearly marked as such and displaying a No-Return Policy<br></p><p>When the offer notes states so specifically are items that cannot be returned.</p><p>Items that fall into the below product types-</p><ul><li>Underwear</li><li>Lingerie</li><li>Socks</li><li>Software</li><li>Music albums</li><li>Books</li><li>Swimwear</li><li>Beauty &amp; Fragrances</li><li>Hosiery</li></ul><p>Also, any consumable items that are used or installed cannot be returned. As outlined in consumer Protection Rights and concerning section on non-returnable items<br></p>');
+(4, 'When are ï¿½Returnsï¿½ not possible?', '<p class=\"a  \" style=\"box-sizing: inherit; text-rendering: optimizeLegibility; line-height: 1.6; margin-bottom: 0.714286rem; padding: 0px; font-size: 14px; color: rgb(10, 10, 10); font-family: opensans, \" helvetica=\"\" neue\",=\"\" helvetica,=\"\" arial,=\"\" sans-serif;=\"\" background-color:=\"\" rgb(250,=\"\" 250,=\"\" 250);\"=\"\">There are a few certain scenarios where it is difficult for us to support returns:</p><ol style=\"box-sizing: inherit; line-height: 1.6; margin-right: 0px; margin-bottom: 0px; margin-left: 1.25rem; padding: 0px; list-style-position: outside; color: rgb(10, 10, 10); font-family: opensans, \" helvetica=\"\" neue\",=\"\" helvetica,=\"\" arial,=\"\" sans-serif;=\"\" font-size:=\"\" 14px;=\"\" background-color:=\"\" rgb(250,=\"\" 250,=\"\" 250);\"=\"\"><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Return request is made outside the specified time frame, of 15 days from delivery.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Product is used, damaged, or is not in the same condition as you received it.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Defective products, which are covered under the manufacturer\'s warranty.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Any consumable item which has been used or installed.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Products with tampered or missing serial numbers.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Anything missing from the package you\'ve received including price tags, labels, original packing, freebies and accessories.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Fragile items, hygiene-related items.</li></ol>\r\n');
 
 -- --------------------------------------------------------
 
@@ -806,35 +525,6 @@ CREATE TABLE `tbl_order` (
   `payment_id` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_order`
---
-
-INSERT INTO `tbl_order` (`id`, `product_id`, `product_name`, `pkg_name`, `quantity`, `pkg_price`, `payment_id`) VALUES
-(1, 83, 'Men\'s Ultra Cotton T-Shirt, Multipack', 'XL', '1', '19', '1647629329'),
-(2, 92, 'Travelpro Laptop Carry-on Travel Tote Bag', 'One Size for All', '1', '91', '1647798593'),
-(4, 101, 'Digital Infrared Thermometer for Adults and Kids', 'One Size for All', '1', '70', '1647799174'),
-(5, 94, 'WD 5TB Elements Portable External Hard Drive HDD', '5T', '1', '149', '1647800902'),
-(28, 150, 'Painkiller2', '100 PILLS', '1', '200', '1674636961'),
-(29, 148, 'Sleep2', '200 PILLS', '1', '400', '1674637103'),
-(30, 152, 'Gym2', '100 PILLS', '1', '200', '1674759018'),
-(31, 152, 'Gym2', '200 PILLS', '1', '400', '1674759160'),
-(32, 144, 'AA', '100 PILLS', '1', '100', '1674886360'),
-(33, 150, 'Painkiller2', '100 PILLS', '1', '200', '1674896696'),
-(34, 144, 'AA', '100 PILLS', '1', '100', '1675192596'),
-(35, 144, 'AA', '100 PILLS', '1', '100', '1675192679'),
-(36, 150, 'Painkiller2', '100 PILLS', '1', '200', '1675192784'),
-(40, 148, 'Sleep2', '200 PILLS', '1', '400', '1675414922'),
-(41, 154, 'sWell2', '200 PILLS', '1', '400', '1676033723'),
-(42, 147, 'Sleep1', '100 PILLS', '1', '200', '1676196346'),
-(43, 147, 'Sleep1', '200 PILLS', '10', '400', '1676196346'),
-(44, 150, 'Painkiller2', '100 PILLS', '1', '200', '1676196346'),
-(45, 149, 'Painkiller1', '100 PILLS', '1', '200', '1676196346'),
-(46, 152, 'Gym2', '100 PILLS', '1', '200', '1676196346'),
-(47, 152, 'Gym2', '200 PILLS', '1', '400', '1676196346'),
-(48, 145, 'Anxiety1', '100 PILLS', '1', '200', '1676468560'),
-(49, 150, 'Painkiller2', '100 PILLS', '1', '200', '1677256032');
-
 -- --------------------------------------------------------
 
 --
@@ -881,7 +571,7 @@ CREATE TABLE `tbl_page` (
 --
 
 INSERT INTO `tbl_page` (`id`, `about_title`, `about_content`, `about_banner`, `about_meta_title`, `about_meta_keyword`, `about_meta_description`, `faq_title`, `faq_banner`, `faq_meta_title`, `faq_meta_keyword`, `faq_meta_description`, `blog_title`, `blog_banner`, `blog_meta_title`, `blog_meta_keyword`, `blog_meta_description`, `contact_title`, `contact_banner`, `contact_meta_title`, `contact_meta_keyword`, `contact_meta_description`, `pgallery_title`, `pgallery_banner`, `pgallery_meta_title`, `pgallery_meta_keyword`, `pgallery_meta_description`, `vgallery_title`, `vgallery_banner`, `vgallery_meta_title`, `vgallery_meta_keyword`, `vgallery_meta_description`) VALUES
-(1, 'About Us', '<p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Welcome to Unit Pharma, your trusted provider of high-quality medical products and services. Our experienced and knowledgeable pharmacists and staff are committed to helping you manage your health and well-being.</span></p><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">At UnitPharma, we believe that access to reliable healthcare should be affordable and convenient. That\'s why we offer a wide range of prescription and over-the-counter medications, medical supplies, and equipment to meet the needs of our diverse customer base. We ensure what you see is exactly what you get!</span></p><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 23pt 0pt;\"><br></p><h1 dir=\"ltr\" style=\"line-height:1.5;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 23pt 0pt;\"><span id=\"docs-internal-guid-db3d4eca-7fff-2f40-573e-f6b677cc88ab\"><span style=\"font-size: 36pt; font-family: Poppins, sans-serif; color: rgb(40, 40, 40); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;\">Our Goal at </span><span style=\"font-size: 36pt; font-family: Poppins, sans-serif; color: rgb(227, 61, 85); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;\">Unit Pharma</span></span><br></h1><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 38pt 0pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Our online store is different and unique from other online pharmacies in many aspects not only in terms of availability. We offer all types of medicines which are not easily available in local pharmacies. Our website is one of the reputed stores in the online market in terms of performance and secured payment service. Considering the debilitating health conditions of individuals, we receive orders and dispatch them to the destined place within a stipulated period of time.</span></p><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 38pt 0pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We ask your personal information when you are going to order the medicine from our online pharmacy. Our team helps its customer 24*7 and keeps personal information safe and secure. In comparison to other sites, the team of Unit Pharma provides you original medicines, not fake products as is seen in the case of other websites. These qualities of our medicines set us apart from others, establishing us to be the prominent online drug store. UnitPharma tries to satisfy its customers in every aspect and strives to stay ahead of other competitors, fulfilling the requirements of customers.</span></p><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:38pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Our team leaves no stone unturned to provide you with improved services through our website and relentlessly works day and night. We keep updating our website periodically with new information about medicines for your awareness. Our team puts in efforts to get your love, support, and your feedback which encourages us to keep working for the betterment each day. Our website team takes feedbacks seriously and works accordingly in making the website top searching online pharmacy in the entire USA. The benefits of buying medicines from our online pharmacy store are:</span></p><ol style=\"margin-top:0;margin-bottom:0;padding-inline-start:48px;\"><li dir=\"ltr\" style=\"list-style-type:decimal;font-size:15pt;font-family:Arial;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\" aria-level=\"1\"><p dir=\"ltr\" style=\"line-height:1.7999999999999998;margin-top:0pt;margin-bottom:0pt;padding:7.5pt 0pt 0pt 0pt;\" role=\"presentation\"><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Reasonable Prices</span><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br></span><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We provide you medicines at reasonable prices without compromising on their efficacy and quality. If compared, the prices of medicine at our online pharmacy are lesser than medicines available at other online pharmacies. You can also write us an email to get your order booked and delivered the medicine to your doorstep. We are always worried about the health of individuals and strive to get things done in whatever way we receive it from them. This is the rare and unique quality that sets us apart from others.</span><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br><br></span></p></li></ol><ol style=\"margin-top:0;margin-bottom:0;padding-inline-start:48px;\" start=\"2\"><li dir=\"ltr\" style=\"list-style-type:decimal;font-size:15pt;font-family:Arial;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\" aria-level=\"1\"><p dir=\"ltr\" style=\"line-height:1.7999999999999998;margin-top:0pt;margin-bottom:0pt;\" role=\"presentation\"><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Satisfaction</span><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br></span><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We go our way out for customer satisfaction and do everything possible with continued improvisation on our services. Not just in the quality of medicines but in every aspect, we try to reach perfection, providing customers with the best services 24*7. Our aim is to satisfy our customers through our medicines &amp; services because we understand the value of life.</span><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br><br></span></p></li></ol><ol style=\"margin-top:0;margin-bottom:0;padding-inline-start:48px;\" start=\"3\"><li dir=\"ltr\" style=\"list-style-type:decimal;font-size:15pt;font-family:Arial;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\" aria-level=\"1\"><p dir=\"ltr\" style=\"line-height:1.7999999999999998;margin-top:0pt;margin-bottom:69pt;\" role=\"presentation\"><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Trust and Quality</span><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br></span><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Your trust in us keeps us going with confidence. Things in the business of medicine are fragile and every step is taken to ensure things are done correctly. To retain the trust, we always provide the best quality medicines and try not to fiddle with the ingredients to keep the authenticity intact. Quality is always a top priority for us, so we offer our patients the best quality medicines from a certified pharmacy in the USA.</span></p></li></ol><h2 dir=\"ltr\" style=\"line-height:1.875;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 23pt 0pt;\"><span style=\"font-size:24pt;font-family:Poppins,sans-serif;color:#282828;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Our Mission</span></h2><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 23pt 0pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Keeping aside business, all customers who show trust in us are satisfied with the best outcomes one can ever experience. We never consider customers as customers but the family who needs the utmost care amid the turbulence owing to bad health. Your health and wellness are all that give us daily motivation. We aim to provide you medicines that work efficiently, causing minimal side effects in rare cases. You can get our medicines delivered to your doorstep by ordering online from Unit Pharma at affordable prices. You can save precious time and get quick delivery along with the satisfaction that you will be enjoying great health for a long.</span></p><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;\"><span id=\"docs-internal-guid-ae1bd8ba-7fff-065d-d936-24752db41e25\"><br></span></p>', 'about-banner.jpg', 'About Us - Unit Pharma', 'about unitpharma.com, about unit pharma, about unit pharma', 'Our goal has always been to get the best medical products.', 'FAQ', 'faq-banner.jpg', 'FAQ - Unit Pharma', 'faq unitpharma.com, faq unitpharma, faq unit pharma, help unitpharma, help unit pharma, unitpharma help section', 'We are available 24*7 to support our customers. We provide customers with the best services 24*7. Our aim is to satisfy our customers through our medicines & services because we understand the value of life.\r\n', 'Blog', 'blog-banner.jpg', 'Unit Pharma - Blog', '', '', 'Contact Us', 'contact-banner.jpg', 'Contact - Unit Pharma', 'contact to unitpharma.com, contact unit pharma, contact unitpharma', 'To reach Unit Pharma\'s customer care please visit our contact page and start chatting with a customer service representative. You can write an email to us: support@unitpharma.com or call us at +1 (903) 429-5515.', 'Photo Gallery', 'pgallery-banner.jpg', 'Unit Pharma - Photo Gallery', '', '', 'Video Gallery', 'vgallery-banner.jpg', 'Unit Pharma - Video Gallery', '', '');
+(1, 'About Us', '<p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Welcome to Unit Pharma, your trusted provider of high-quality medical products and services. Our experienced and knowledgeable pharmacists and staff are committed to helping you manage your health and well-being.</span></p><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">At UnitPharma, we believe that access to reliable healthcare should be affordable and convenient. That\'s why we offer a wide range of prescription and over-the-counter medications, medical supplies, and equipment to meet the needs of our diverse customer base. We ensure what you see is exactly what you get!</span></p><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 23pt 0pt;\"><br></p><h1 dir=\"ltr\" style=\"line-height:1.5;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 23pt 0pt;\"><span id=\"docs-internal-guid-db3d4eca-7fff-2f40-573e-f6b677cc88ab\"><span style=\"font-size: 36pt; font-family: Poppins, sans-serif; color: rgb(40, 40, 40); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;\">Our Goal at </span><span style=\"font-size: 36pt; font-family: Poppins, sans-serif; color: rgb(227, 61, 85); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;\">Unit Pharma</span></span><br></h1><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 38pt 0pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Our online store is different and unique from other online pharmacies in many aspects not only in terms of availability. We offer all types of medicines which are not easily available in local pharmacies. Our website is one of the reputed stores in the online market in terms of performance and secured payment service. Considering the debilitating health conditions of individuals, we receive orders and dispatch them to the destined place within a stipulated period of time.</span></p><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 38pt 0pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We ask your personal information when you are going to order the medicine from our online pharmacy. Our team helps its customer 24*7 and keeps personal information safe and secure. In comparison to other sites, the team of Unit Pharma provides you original medicines, not fake products as is seen in the case of other websites. These qualities of our medicines set us apart from others, establishing us to be the prominent online drug store. UnitPharma tries to satisfy its customers in every aspect and strives to stay ahead of other competitors, fulfilling the requirements of customers.</span></p><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:38pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Our team leaves no stone unturned to provide you with improved services through our website and relentlessly works day and night. We keep updating our website periodically with new information about medicines for your awareness. Our team puts in efforts to get your love, support, and your feedback which encourages us to keep working for the betterment each day. Our website team takes feedbacks seriously and works accordingly in making the website top searching online pharmacy in the entire USA. The benefits of buying medicines from our online pharmacy store are:</span></p><ol style=\"margin-top:0;margin-bottom:0;padding-inline-start:48px;\"><li dir=\"ltr\" style=\"list-style-type:decimal;font-size:15pt;font-family:Arial;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\" aria-level=\"1\"><p dir=\"ltr\" style=\"line-height:1.7999999999999998;margin-top:0pt;margin-bottom:0pt;padding:7.5pt 0pt 0pt 0pt;\" role=\"presentation\"><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Reasonable Prices</span><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br></span><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We provide you medicines at reasonable prices without compromising on their efficacy and quality. If compared, the prices of medicine at our online pharmacy are lesser than medicines available at other online pharmacies. You can also write us an email to get your order booked and delivered the medicine to your doorstep. We are always worried about the health of individuals and strive to get things done in whatever way we receive it from them. This is the rare and unique quality that sets us apart from others.</span><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br><br></span></p></li></ol><ol style=\"margin-top:0;margin-bottom:0;padding-inline-start:48px;\" start=\"2\"><li dir=\"ltr\" style=\"list-style-type:decimal;font-size:15pt;font-family:Arial;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\" aria-level=\"1\"><p dir=\"ltr\" style=\"line-height:1.7999999999999998;margin-top:0pt;margin-bottom:0pt;\" role=\"presentation\"><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Satisfaction</span><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br></span><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We go our way out for customer satisfaction and do everything possible with continued improvisation on our services. Not just in the quality of medicines but in every aspect, we try to reach perfection, providing customers with the best services 24*7. Our aim is to satisfy our customers through our medicines & services because we understand the value of life.</span><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br><br></span></p></li></ol><ol style=\"margin-top:0;margin-bottom:0;padding-inline-start:48px;\" start=\"3\"><li dir=\"ltr\" style=\"list-style-type:decimal;font-size:15pt;font-family:Arial;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\" aria-level=\"1\"><p dir=\"ltr\" style=\"line-height:1.7999999999999998;margin-top:0pt;margin-bottom:69pt;\" role=\"presentation\"><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Trust and Quality</span><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br></span><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Your trust in us keeps us going with confidence. Things in the business of medicine are fragile and every step is taken to ensure things are done correctly. To retain the trust, we always provide the best quality medicines and try not to fiddle with the ingredients to keep the authenticity intact. Quality is always a top priority for us, so we offer our patients the best quality medicines from a certified pharmacy in the USA.</span></p></li></ol><h2 dir=\"ltr\" style=\"line-height:1.875;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 23pt 0pt;\"><span style=\"font-size:24pt;font-family:Poppins,sans-serif;color:#282828;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Our Mission</span></h2><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 23pt 0pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Keeping aside business, all customers who show trust in us are satisfied with the best outcomes one can ever experience. We never consider customers as customers but the family who needs the utmost care amid the turbulence owing to bad health. Your health and wellness are all that give us daily motivation. We aim to provide you medicines that work efficiently, causing minimal side effects in rare cases. You can get our medicines delivered to your doorstep by ordering online from Unit Pharma at affordable prices. You can save precious time and get quick delivery along with the satisfaction that you will be enjoying great health for a long.</span></p><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;\"><span id=\"docs-internal-guid-ae1bd8ba-7fff-065d-d936-24752db41e25\"><br></span></p>', 'about-banner.jpg', 'About us - Unit Pharma', 'about unitpharma.com, about unit pharma, about unit pharma', 'Our goal has always been to get the best medical products.', 'FAQ', 'faq-banner.jpg', 'FAQ - Unit Pharma', 'faq unitpharma.com, faq unitpharma, faq unit pharma, help unitpharma, help unit pharma, unitpharma help section', 'We are available 24*7 to support our customers. We provide customers with the best services 24*7. Our aim is to satisfy our customers through our medicines & services because we understand the value of life.\r\n', 'Blog', 'blog-banner.jpg', 'Unit Pharma - Blog', '', '', 'Contact Us', 'contact-banner.jpg', 'Contact us - Unit Pharma', 'contact to unitpharma.com, contact unit pharma, contact unitpharma', 'To reach Unit Pharma\'s customer care please visit our contact page and start chatting with a customer service representative. You can write an email to us: support@unitpharma.com or call us at +1 (903) 429-5515.', 'Photo Gallery', 'pgallery-banner.jpg', 'Unit Pharma - Photo Gallery', '', '', 'Video Gallery', 'vgallery-banner.jpg', 'Unit Pharma - Video Gallery', '', '');
 
 -- --------------------------------------------------------
 
@@ -920,30 +610,6 @@ CREATE TABLE `tbl_payment` (
   `s_country` int(11) NOT NULL,
   `s_zip` varchar(30) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_payment`
---
-
-INSERT INTO `tbl_payment` (`id`, `customer_id`, `customer_name`, `customer_email`, `payment_date`, `order_date`, `txnid`, `paid_amount`, `card_number`, `card_cvv`, `card_month`, `card_year`, `bank_transaction_info`, `payment_method`, `payment_status`, `tracking_id`, `tracking_link`, `tracking_date`, `shipping_status`, `shipping_date`, `payment_id`, `s_name`, `s_phone`, `s_email`, `s_address`, `s_city`, `s_state`, `s_country`, `s_zip`) VALUES
-(51, 2, 'Chad N. Carney', 'chad@mail.com', '2022-03-18 22:48:49', '', '', 19, '', '', '', '', 'Transaction Id: CA01010158967840\r\nTransaction Date: 3/19/2022\r\nBank: WestView Bank, CA Branch\r\nSender A/C: 102458965WV', 'Bank Deposit', 'Completed', '123456', '', '12/01/2020', 'Completed', '12/02/2020', '1647629329', 'Pankaj', '012345678', 'p@gmail.com', 'ramgarh', 'sultanpur', 'up', 230, '222302'),
-(52, 3, 'Jean Collins', 'jean@mail.com', '2022-03-20 10:49:53', '', '', 91, '', '', '', '', '', 'PayPal', 'Completed', '123456', '', '12/07/2021', 'Completed', '12/08/2021', '1647798593', '', '', '', '', '', '', 0, ''),
-(54, 6, 'August F. Freels', 'august@mail.com', '2022-03-20 10:59:34', '', '', 70, '', '', '', '', 'Transaction Id: CA01101198945600\nTransaction Date: 3/20/2022 \nBank: WestView Bank, CA Branch \nSender A/C: 1100047860WV', 'Bank Deposit', 'Completed', '-1', '', '', 'Pending', '', '1647799174', '', '', '', '', '', '', 0, ''),
-(55, 10, 'Will Williams', 'williams@mail.com', '2022-03-20 11:28:22', '', '', 149, '', '', '', '', 'Transaction Id: CA01003177945009\r\nTransaction Date: 3/20/2022 \r\nBank: WestView Bank, CA Branch \r\nSender A/C: NQ1011050160WV', 'COD/Pay Later', 'Completed', '123456', '', '11/01/2022', 'Completed', '11/02/2022', '1647800902', '', '', '', '', '', '', 0, ''),
-(80, 0, 'ppppppppppppppp', 'p@gmail.com', '2022-03-20 11:28:22', '', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', '-1', '', '', 'Pending', '', '1674636961', 'ppppppppppppppp', '88', 'p@gmail.com', '88u', 'u', 'up', 16, '889'),
-(83, 0, 'df', 'a@gmail.com', '2022-03-20 11:28:22', '', '', 400, '', '', '', '', '', 'COD/Pay Later', 'Completed', '-1', '', '', 'Pending', '', '1674759160', 'df', '3244', 'a@gmail.com', 'fg', 'vb', 'cv', 18, '233'),
-(81, 0, 'cc', 'p@gmail.com', '2022-03-20 11:28:22', '', '', 400, '', '', '', '', '', 'COD/Pay Later', 'Completed', '-1', '', '', 'Pending', '', '1674637103', 'cc', '88', 'p@gmail.com', '88u', 'u', 'up', 16, '889'),
-(82, 0, 'df', 'a@gmail.com', '2022-03-20 11:28:22', '', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', '-1', '', '', 'Pending', '', '1674759018', 'df', '3244', 'a@gmail.com', 'fg', 'vb', 'cv', 18, '233'),
-(84, 23, 'Pankaj Giri', 'pankaj143giri@gmail.com', '2023-02-01 09:56:16', '', '', 100, '', '', '', '', '', 'COD/Pay Later', 'Completed', '-1', '', '', 'Pending', '', '1674886360', 'Suraj', '1234567890', 's@gmail.com', 'ramgarh', 'sln', 'up', 5, '222342'),
-(85, 0, 'rak', 'a@gmail.com', '2023-01-31 10:45:18', '', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', '0989', 'check tracking', '2023-01-31 10:57:02', 'Completed', '2023-01-31 10:58:44', '1674896696', 'rak', '8009', 'a@gmail.com', 'ijjj', 'h', 'hh', 17, '909'),
-(87, 0, 'GUEST', '', '2023-02-01 09:44:41', '2023-01-31 11:16:36', '', 100, '', '', '', '', '', 'COD/Pay Later', 'Completed', '-1', '', '', 'Pending', '', '1675192596', 'suraj', '88999', 's@gmail.com', 'gomtingr', 'lko', 'up', 69, '9098888'),
-(88, 0, 'GUEST', '', '2023-02-01 08:23:50', '2023-01-31 11:17:59', '', 100, '', '', '', '', '', 'COD/Pay Later', 'Completed', '-1', '', '', 'Pending', '', '1675192679', 'kl', '88999', 's@gmail.com', 'gomtingr', 'lko', 'up', 69, '9098888'),
-(89, 23, 'Pankaj Giri', 'pankaj143giri@gmail.com', '2023-01-31 13:04:34', '2023-01-31 11:19:44', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', '12345123', 'http://www.h.com', '2023-02-03 08:54:29', 'Completed', '2023-02-04 11:10:37', '1675192784', 't', '1234567890', 's@gmail.com', 'ramgarh', 'sln', 'up', 5, '222342'),
-(92, 0, 'GUEST', '', '2023-02-03 01:02:52', '2023-02-03 01:02:02', '', 400, '', '', '', '', '', 'COD/Pay Later', 'Completed', '12345123', 'https://www.bluedark.com', '2023-02-03 01:06:10', 'Completed', '2023-02-03 01:15:43', '1675414922', 'pankaj', '9984499623', 'pankaj143giri@gmail.com', 'Ramgarh', 'Sultanpur', 'Uttar Pradesh', 99, '222302'),
-(93, 0, 'GUEST', '', '2023-02-10 04:57:06', '2023-02-10 04:55:23', '', 400, '', '', '', '', '', 'COD/Pay Later', 'Completed', '12345', 'https://www.tcs.com', '2023-02-10 04:58:39', 'Completed', '2023-02-10 05:01:00', '1676033723', 'dr', '1234567', 'pankaj143giri@gmail.com', 'ramgarh', 'csln', 'up', 1, '222345'),
-(94, 26, 'Pankaj Giri', 'pankaj143giri@gmail.com', '', '2023-02-12 02:05:46', '', 5200, '', '', '', '', '', 'COD/Pay Later', 'Pending', '-1', '', '', 'Pending', '', '1676196346', 'Pankaj Giri', 'pankaj143giri@gmail.com', 'pankaj143giri@gmail.com', 'ramgarh', 'ddd', 'ddd', 15, '23'),
-(95, 0, 'GUEST', '', '2023-02-15 05:44:16', '2023-02-15 05:42:40', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', '12345', 'https://www.unitpharma.com/', '2023-02-15 05:46:09', 'Completed', '2023-02-15 05:47:29', '1676468560', 'Alex', '+12192629910', 'care.cubepharma@gmail.com', 'Palm street us', 'New Jersey', 'New Jersey', 230, '23567'),
-(96, 0, 'GUEST', '', '', '2023-02-24 08:27:12', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Pending', '-1', '', '', 'Pending', '', '1677256032', 'jimmy', '82829291919', '8585arpit@gmail.com', '\r\n48 brighton avenue kearny new jersey 07032 ', 'New jersey ', 'new jerseys ', 230, '07032');
 
 -- --------------------------------------------------------
 
@@ -1059,15 +725,15 @@ INSERT INTO `tbl_product` (`p_id`, `p_name`, `p_old_price`, `p_current_price`, `
 (139, 'ElecTest', '', '8', 16, 'product-featured-139.jpg', '', '', '', '', '', 231, 1, 1, 4),
 (143, 'D_Stress', '', '', 123, 'product-featured-143.jpg', '', '', '', '', '', 64, 0, 1, 4),
 (144, 'AA', '', '', 115, 'product-featured-144.png', '', '', '', '', '', 147, 0, 1, 7),
-(145, 'Anxiety1', '', '', 102, 'product-featured-145.jpg', '', '', '', '', '', 59, 1, 1, 7),
+(145, 'Anxiety1', '', '', 102, 'product-featured-145.jpg', '', '', '', '', '', 63, 1, 1, 7),
 (146, 'Anxiety2', '', '', 100, 'product-featured-146.jpg', '', '', '', '', '', 14, 0, 1, 7),
 (147, 'Sleep1', '', '', 100, 'product-featured-147.jpg', '', '', '', '', '', 12, 0, 1, 10),
 (148, 'Sleep2', '', '', 100, 'product-featured-148.jpg', '', '', '', '', '', 71, 1, 1, 10),
 (149, 'Painkiller1', '', '', 102, 'product-featured-149.jpg', '', '', '', '', '', 39, 1, 1, 8),
-(150, 'Painkiller2', '', '', 110, 'product-featured-150.jpg', '', '', '', '', '', 88, 1, 1, 8),
+(150, 'Painkiller2', '', '', 110, 'product-featured-150.jpg', '', '', '', '', '', 90, 1, 1, 8),
 (151, 'Gym1', '', '', 116, 'product-featured-151.jpg', '', '', '', '', '', 51, 1, 1, 9),
-(152, 'Gym2', '', '', 109, 'product-featured-152.jpg', '', '', '', '', '', 87, 1, 1, 9),
-(154, 'sWell2', '', '', 103, 'product-featured-154.jpg', '', '', '', '', '', 47, 0, 1, 11),
+(152, 'Gym2', '', '', 109, 'product-featured-152.jpg', '', '', '', '', '', 90, 1, 1, 9),
+(154, 'sWell2', '', '', 103, 'product-featured-154.jpg', '', '', '', '', '', 49, 0, 1, 11),
 (156, 'df', '', '', 12, 'product-featured-156.png', '', '', '', '', '', 25, 0, 1, 7),
 (157, 'xa', '', '', 120, 'product-featured-157.png', '', '', '', '', '', 34, 0, 1, 7);
 
@@ -1616,7 +1282,7 @@ CREATE TABLE `tbl_settings` (
 --
 
 INSERT INTO `tbl_settings` (`id`, `logo`, `favicon`, `footer_about`, `footer_copyright`, `contact_address`, `contact_email`, `contact_phone`, `contact_fax`, `contact_map_iframe`, `receive_email`, `receive_email_subject`, `receive_email_thank_you_message`, `forget_password_message`, `total_recent_post_footer`, `total_popular_post_footer`, `total_recent_post_sidebar`, `total_popular_post_sidebar`, `total_featured_product_home`, `total_latest_product_home`, `total_popular_product_home`, `meta_title_home`, `meta_keyword_home`, `meta_description_home`, `banner_login`, `banner_registration`, `banner_forget_password`, `banner_reset_password`, `banner_search`, `banner_cart`, `banner_checkout`, `banner_product_category`, `banner_blog`, `cta_title`, `cta_content`, `cta_read_more_text`, `cta_read_more_url`, `cta_photo`, `featured_product_title`, `featured_product_subtitle`, `latest_product_title`, `latest_product_subtitle`, `popular_product_title`, `popular_product_subtitle`, `testimonial_title`, `testimonial_subtitle`, `testimonial_photo`, `blog_title`, `blog_subtitle`, `newsletter_text`, `paypal_email`, `stripe_public_key`, `stripe_secret_key`, `bank_detail`, `before_head`, `after_body`, `before_body`, `home_service_on_off`, `home_welcome_on_off`, `home_featured_product_on_off`, `home_latest_product_on_off`, `home_popular_product_on_off`, `home_testimonial_on_off`, `home_blog_on_off`, `newsletter_on_off`, `ads_above_welcome_on_off`, `ads_above_featured_product_on_off`, `ads_above_latest_product_on_off`, `ads_above_popular_product_on_off`, `ads_above_testimonial_on_off`, `ads_category_sidebar_on_off`) VALUES
-(1, 'logo.png', 'favicon.png', '<p>Lorem ipsum dolor sit amet, omnis signiferumque in mei, mei ex enim concludaturque. Senserit salutandi euripidis no per, modus maiestatis scribentur est an.Â Ea suas pertinax has.</p>\r\n', 'Copyright Â© 2023 Unit Pharma. All Rights Reserved.', '3331 Pinta Way\r\nDouglasville\r\nGA\r\n30135\r\nUnited States', 'support@unitpharma.com', '+1 (903) 429-5515', '', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63260.55257278375!2d-84.45120763324847!3d33.748557813201884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f520d3e4430f09%3A0x2a1617833c7e0abc!2s3331%20Pinta%20Way%2C%20Douglasville%2C%20GA%2030135%2C%20USA!5e0!3m2!1sen!2sin!4v1676540850322!5m2!1sen!2sin\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'support@unitpharma.com', 'Visitor Email Message from unitpharma.com', 'Thank you for sending email. We will contact you shortly.', 'A confirmation link is sent to your email address. You will get the password reset information in there.', 4, 4, 5, 5, 8, 6, 8, 'Unit Pharma', 'online medical store, medicine shop, online medicine, pharmacy', 'Unit Pharma is an online pharmacy', 'banner_login.jpg', 'banner_registration.jpg', 'banner_forget_password.jpg', 'banner_reset_password.jpg', 'banner_search.jpg', 'banner_cart.jpg', 'banner_checkout.jpg', 'banner_product_category.jpg', 'banner_blog.jpg', 'Welcome To Our Ecommerce Website', 'Lorem ipsum dolor sit amet, an labores explicari qui, eu nostrum copiosae argumentum has. Latine propriae quo no, unum ridens expetenda id sit, \r\nat usu eius eligendi singulis. Sea ocurreret principes ne. At nonumy aperiri pri, nam quodsi copiosae intellegebat et, ex deserunt euripidis usu. ', 'Read More', '#', 'cta.jpg', 'Featured Products', 'Our list on Top Featured Products', 'Latest Products', 'Our list of recently added products', 'Popular Products', 'Popular products based on customer\'s choice', 'Testimonials', 'See what our clients tell about us', 'testimonial.jpg', 'Latest Blog', 'See all our latest articles and news from below', 'Sign-up to our newsletter for latest promotions and discounts.', 'support@unitpharma.com', 'pk_test_0SwMWadgu8DwmEcPdUPRsZ7b', 'sk_test_TFcsLJ7xxUtpALbDo1L5c1PN', '***', '<link href=\'https://fonts.googleapis.com/css?family=Poppins rel=\'stylesheet\'>\r\n<style>\r\nbody {\r\n font-family: \'Poppins\', \'Verdana\';\r\n}\r\n</style>', '', '<!--Start of Tawk.to Script-->\r\n<script type=\"text/javascript\">\r\nvar Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();\r\n(function(){\r\nvar s1=document.createElement(\"script\"),s0=document.getElementsByTagName(\"script\")[0];\r\ns1.async=true;\r\ns1.src=\'https://embed.tawk.to/63e7b3abc2f1ac1e2032b8a6/1gp0hblqn\';\r\ns1.charset=\'UTF-8\';\r\ns1.setAttribute(\'crossorigin\',\'*\');\r\ns0.parentNode.insertBefore(s1,s0);\r\n})();\r\n</script>\r\n<!--End of Tawk.to Script-->', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+(1, 'logo.png', 'favicon.png', '<p>Lorem ipsum dolor sit amet, omnis signiferumque in mei, mei ex enim concludaturque. Senserit salutandi euripidis no per, modus maiestatis scribentur est an.Â Ea suas pertinax has.</p>\r\n', 'Copyright Â© 2023 Unit Pharma. All Rights Reserved.', '3331 Pinta Way\r\nDouglasville\r\nGA\r\n30135\r\nUnited States', 'support@unitpharma.com', '+1 (903) 429-5515', '', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63260.55257278375!2d-84.45120763324847!3d33.748557813201884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f520d3e4430f09%3A0x2a1617833c7e0abc!2s3331%20Pinta%20Way%2C%20Douglasville%2C%20GA%2030135%2C%20USA!5e0!3m2!1sen!2sin!4v1676540850322!5m2!1sen!2sin\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'support@unitpharma.com', 'Visitor Email Message from unitpharma.com', 'Thank you for sending email. We will contact you shortly.', 'A confirmation link is sent to your email address. You will get the password reset information in there.', 4, 4, 5, 5, 8, 6, 8, 'Unit Pharma', 'online medical store, medicine shop, online medicine, pharmacy', 'Unit Pharma is a trusted online pharmacy in the USA. Unit Pharma provides high-quality painkillers, anxiety medicines, sleeping pills, sexual wellness medicines, and gym products at the best price.', 'banner_login.jpg', 'banner_registration.jpg', 'banner_forget_password.jpg', 'banner_reset_password.jpg', 'banner_search.jpg', 'banner_cart.jpg', 'banner_checkout.jpg', 'banner_product_category.jpg', 'banner_blog.jpg', 'Welcome To Our Ecommerce Website', 'Lorem ipsum dolor sit amet, an labores explicari qui, eu nostrum copiosae argumentum has. Latine propriae quo no, unum ridens expetenda id sit, \r\nat usu eius eligendi singulis. Sea ocurreret principes ne. At nonumy aperiri pri, nam quodsi copiosae intellegebat et, ex deserunt euripidis usu. ', 'Read More', '#', 'cta.jpg', 'Featured Products', 'Our list on Top Featured Products', 'Latest Products', 'Our list of recently added products', 'Popular Products', 'Popular products based on customer\'s choice', 'Testimonials', 'See what our clients tell about us', 'testimonial.jpg', 'Latest Blog', 'See all our latest articles and news from below', 'Sign-up to our newsletter for latest promotions and discounts.', 'support@unitpharma.com', 'pk_test_0SwMWadgu8DwmEcPdUPRsZ7b', 'sk_test_TFcsLJ7xxUtpALbDo1L5c1PN', '***', '<link href=\'https://fonts.googleapis.com/css?family=Poppins rel=\'stylesheet\'>\r\n<style>\r\nbody {\r\n font-family: \'Poppins\', \'Verdana\';\r\n}\r\n</style>', '', '<!--Start of Tawk.to Script-->\r\n<script type=\"text/javascript\">\r\nvar Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();\r\n(function(){\r\nvar s1=document.createElement(\"script\"),s0=document.getElementsByTagName(\"script\")[0];\r\ns1.async=true;\r\ns1.src=\'https://embed.tawk.to/63e7b3abc2f1ac1e2032b8a6/1gp0hblqn\';\r\ns1.charset=\'UTF-8\';\r\ns1.setAttribute(\'crossorigin\',\'*\');\r\ns0.parentNode.insertBefore(s1,s0);\r\n})();\r\n</script>\r\n<!--End of Tawk.to Script-->', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1796,19 +1462,6 @@ CREATE TABLE `tbl_subscriber` (
   `subs_hash` varchar(255) NOT NULL,
   `subs_active` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_subscriber`
---
-
-INSERT INTO `tbl_subscriber` (`subs_id`, `subs_email`, `subs_date`, `subs_date_time`, `subs_hash`, `subs_active`) VALUES
-(1, 'ruth@mail.com', '2022-03-20', '2022-03-20 10:25:18', 'f4eabc1afed38a08da8d1c6e5fb42187', 1),
-(2, 'kimberly@mail.com', '2022-03-20', '2022-03-20 10:26:07', '61f3af9cac686555a4bff9e565f88c47', 1),
-(3, 'gregobn@mail.com', '2022-03-20', '2022-03-20 10:27:21', '72d6fc3a9e9ed33dfc30b10f4de82f34', 1),
-(4, 'morgan.sarahh5@mail.com', '2022-03-20', '2022-03-20 10:27:48', 'bcdeda095a6c882803fc3aaf4a17f08e', 1),
-(5, 'greenwd1154@mail.com', '2022-03-20', '2022-03-20 10:28:09', '279ecfe9debbb091c664641f534857ee', 1),
-(6, 'awsm785@mail.com', '2022-03-20', '2022-03-20 10:28:21', '94096ae01fc65e71c50c7843d096e041', 1),
-(10, 'pankaj143giri@gmail.com', '2023-02-09', '2023-02-09 06:58:44', '584d771cde8058a2470bd9112f5186f5', 1);
 
 -- --------------------------------------------------------
 
@@ -2084,189 +1737,157 @@ ALTER TABLE `tbl_video`
 -- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `tbl_color`
 --
 ALTER TABLE `tbl_color`
   MODIFY `color_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
 --
 -- AUTO_INCREMENT for table `tbl_country`
 --
 ALTER TABLE `tbl_country`
-  MODIFY `country_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=246;
-
+  MODIFY `country_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=252;
 --
 -- AUTO_INCREMENT for table `tbl_customer`
 --
 ALTER TABLE `tbl_customer`
   MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
 --
 -- AUTO_INCREMENT for table `tbl_customer_message`
 --
 ALTER TABLE `tbl_customer_message`
-  MODIFY `customer_message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
-
+  MODIFY `customer_message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `tbl_end_category`
 --
 ALTER TABLE `tbl_end_category`
   MODIFY `ecat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
-
 --
 -- AUTO_INCREMENT for table `tbl_faq`
 --
 ALTER TABLE `tbl_faq`
   MODIFY `faq_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `tbl_language`
 --
 ALTER TABLE `tbl_language`
   MODIFY `lang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
-
 --
 -- AUTO_INCREMENT for table `tbl_mid_category`
 --
 ALTER TABLE `tbl_mid_category`
   MODIFY `mcat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
 --
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 --
 -- AUTO_INCREMENT for table `tbl_page`
 --
 ALTER TABLE `tbl_page`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `tbl_payment`
 --
 ALTER TABLE `tbl_payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 --
 -- AUTO_INCREMENT for table `tbl_photo`
 --
 ALTER TABLE `tbl_photo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `tbl_post`
 --
 ALTER TABLE `tbl_post`
   MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
 --
 -- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
   MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
-
 --
 -- AUTO_INCREMENT for table `tbl_product_color`
 --
 ALTER TABLE `tbl_product_color`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=270;
-
 --
 -- AUTO_INCREMENT for table `tbl_product_package`
 --
 ALTER TABLE `tbl_product_package`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
-
 --
 -- AUTO_INCREMENT for table `tbl_product_photo`
 --
 ALTER TABLE `tbl_product_photo`
   MODIFY `pp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
-
 --
 -- AUTO_INCREMENT for table `tbl_product_size`
 --
 ALTER TABLE `tbl_product_size`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=475;
-
 --
 -- AUTO_INCREMENT for table `tbl_rating`
 --
 ALTER TABLE `tbl_rating`
   MODIFY `rt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
 --
 -- AUTO_INCREMENT for table `tbl_service`
 --
 ALTER TABLE `tbl_service`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
 -- AUTO_INCREMENT for table `tbl_settings`
 --
 ALTER TABLE `tbl_settings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `tbl_shipping_cost`
 --
 ALTER TABLE `tbl_shipping_cost`
   MODIFY `shipping_cost_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `tbl_shipping_cost_all`
 --
 ALTER TABLE `tbl_shipping_cost_all`
   MODIFY `sca_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `tbl_size`
 --
 ALTER TABLE `tbl_size`
   MODIFY `size_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
-
 --
 -- AUTO_INCREMENT for table `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `tbl_social`
 --
 ALTER TABLE `tbl_social`
   MODIFY `social_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
 --
 -- AUTO_INCREMENT for table `tbl_subscriber`
 --
 ALTER TABLE `tbl_subscriber`
   MODIFY `subs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
 -- AUTO_INCREMENT for table `tbl_top_category`
 --
 ALTER TABLE `tbl_top_category`
   MODIFY `tcat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
 -- AUTO_INCREMENT for table `tbl_video`
 --
 ALTER TABLE `tbl_video`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
