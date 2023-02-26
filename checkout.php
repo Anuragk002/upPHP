@@ -169,6 +169,16 @@ foreach ($result as $row) {
                         if($_POST['set_address']==1){
                             $statement = $pdo->prepare("UPDATE `tbl_customer` SET cust_s_name=?,`cust_s_phone`=?,`cust_s_email`=?, `cust_s_address`=?,`cust_s_city`=?,`cust_s_state`=?,`cust_s_country`=?,`cust_s_zip`=? WHERE `cust_id` =? ");
                             $statement->execute(array(strip_tags($_POST['name']),strip_tags($_POST['phone']),strip_tags($_POST['email']),strip_tags($_POST['address']),strip_tags($_POST['city']),strip_tags($_POST['state']),strip_tags($_POST['country']),strip_tags($_POST['zip']),$_SESSION['customer']['cust_id']));
+                            
+                            // Setting Address -->
+                            $_SESSION['customer']['cust_s_name']=strip_tags($_POST['name']);
+                            $_SESSION['customer']['cust_s_phone']=strip_tags($_POST['phone']);
+                            $_SESSION['customer']['cust_s_email']=strip_tags($_POST['email']);
+                            $_SESSION['customer']['cust_s_address']=strip_tags($_POST['address']);
+                            $_SESSION['customer']['cust_s_city']=strip_tags($_POST['city']);
+                            $_SESSION['customer']['cust_s_state']=strip_tags($_POST['state']);
+                            $_SESSION['customer']['cust_s_country']=strip_tags($_POST['country']);
+                            $_SESSION['customer']['cust_s_zip']=strip_tags($_POST['zip']);
                         }
                     }
 
@@ -259,7 +269,7 @@ foreach ($result as $row) {
                                         <label for=""><?php echo LANG_VALUE_34; ?> *</label>
                                         <select name="payment_method" class="form-control" required>
                                             <option value=""><?php echo LANG_VALUE_35; ?></option>
-                                            <option value="cod"><?php echo LANG_VALUE_36; ?></option>
+                                            <option value="cod"><?php echo "Pay Later / Cash On Delivery"; ?></option>
                                         </select>
                                         <br>
                                         <p>You will receive a payment link over email to complete the payment.</p>
@@ -311,8 +321,8 @@ foreach ($result as $row) {
                                         <?php
                                             if(isset($_SESSION['customer'])){ ?>
                                         <label>
-                                            <input type="checkbox" name="set_address" value=1> <b>Set this address as
-                                                your Shipping Address</b>
+                                            <input type="checkbox" name="set_address" value=1> <b>Set as default
+                                                shipping address</b>
                                         </label>
                                         <?php }else{?>
                                         <!-- <label>

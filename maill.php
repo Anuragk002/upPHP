@@ -21,8 +21,8 @@ $mail->SMTPAuth = true;
 $mail->Username = 'support@unitpharma.com';
 $mail->Password = 'un!tph@rm@2022';
 
-$mail->setFrom('support@unitpharma.com', 'unitpharma');
-$mail->addReplyTo('support@unitpharma.com', 'Reply Unitpharma');
+$mail->setFrom('support@unitpharma.com', 'Unit Pharma');
+$mail->addReplyTo('support@unitpharma.com', 'Reply Unit Pharma');
     // $mail->addAddress('pankaj143giri@gmail.com', 'Anurag K');//user mail customer
     // $mail->Subject = 'UP test';//subject
 

@@ -32,12 +32,12 @@ if( !isset($_REQUEST['id']) ) {
 	$statement->execute(array($payment_date,'Completed',$_REQUEST['id']));
 
 	// Getting Admin Email Address
-	// $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
-	// $statement->execute();
-	// $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
-	// foreach ($result as $row) {
-	// 	$admin_email = $row['contact_email'];
-	// }
+	$statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
+	$statement->execute();
+	$result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+	foreach ($result as $row) {
+		$contact_email = $row['contact_email'];
+	}
 
 	// $message_text='Payment status for your order successfully updated. We are initiating the shipping process, you will receive tracking id through email for your order soon.<br><br>
 	// <ul>
@@ -78,7 +78,7 @@ if( !isset($_REQUEST['id']) ) {
 			</ul>
 			</span>
 			<span style="color:black">
-			Thanks for shopping with us. If you are facing any issue, Please contact us.</span><br/><br/>
+			Thanks for shopping with us. If you are facing any issue, Please contact us at '.$contact_email.'.</span><br/><br/>
 			<span style="color:black">
 			<b>Thanks and Regards</b><br/>
 			Unit Pharma Support Team<br/>

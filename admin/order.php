@@ -29,13 +29,14 @@ if(isset($_POST['form1'])) {
         // foreach ($result as $row) {
         //     $cust_email = $row['cust_email'];
         // }
+
         // Getting Admin Email Address
-        // $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
-        // $statement->execute();
-        // $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
-        // foreach ($result as $row) {
-        //     $admin_email = $row['contact_email'];
-        // }
+        $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+        foreach ($result as $row) {
+            $contact_email = $row['contact_email'];
+        }
         
         $statement = $pdo->prepare("SELECT * FROM tbl_payment WHERE payment_id=?");
         $statement->execute(array($_POST['payment_id']));
@@ -129,7 +130,6 @@ if(isset($_POST['form1'])) {
         $order_details='';
         $order_details .= '
             <table border=1 >
-            <caption>Order Details</caption>
             <tr>
             <th>#</th>
             <th>Product Name</th>
@@ -191,7 +191,7 @@ if(isset($_POST['form1'])) {
 			<span style="color:black">Hello '.$s_name.',</span><br/>
 			<span style="color:black">'.$message_text.'<br/><br/><b><u>Order Details:</u></b><br/>'.$status_details.'
 			'. $order_details .'<br/>'.$shipping_address.'</span>
-			<span style="color:black"> Thanks for shopping with us. If you are facing any issue, Please contact us.</span><br/><br/>
+			<span style="color:black"> Thanks for shopping with us. If you are facing any issue, Please contact us at '.$contact_email.'.</span><br/><br/>
 			<span style="color:black">
             <b>Thanks and Regards</b><br/>
 			Unit Pharma Support Team<br/>
@@ -260,12 +260,12 @@ if(isset($_POST['form2'])){
         $statement->execute(array($tracking_id,$tracking_date,$tracking_link,$_POST['payment_id']));
 
         // Getting Admin Email Address
-            // $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
-            // $statement->execute();
-            // $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
-            // foreach ($result as $row) {
-            //     $admin_email = $row['contact_email'];
-            // }
+            $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+            foreach ($result as $row) {
+                $contact_email = $row['contact_email'];
+            }
 
             // $message_text='Tracking ID for your order successfully generated. Visit to tracking link to track your order using tracking id.<br>
             // <br><b>Order ID:</b> '.$payment_id.'<br>
@@ -303,7 +303,7 @@ if(isset($_POST['form2'])){
 			</ul>
             </span>
             <span style="color:black">
-			Thanks for shopping with us. If you are facing any issue, Please contact us.</span><br/><br/>
+			Thanks for shopping with us. If you are facing any issue, Please contact us at '.$contact_email.'.</span><br/><br/>
 			<span style="color:black">
             <b>Thanks and Regards</b><br/>
 			Unit Pharma Support Team<br/>
