@@ -1,6 +1,11 @@
 <?php require_once('header.php'); ?>
 <!-- fetching row banner login -->
 <?php
+if (isset($_SESSION['customer'])){
+    header("location: dashboard.php");
+    exit;
+}
+
 $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
 $statement->execute();
 $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
@@ -88,7 +93,8 @@ if(isset($_POST['form1'])) {
                                     <input type="submit" class="btn btn-success" value="<?php echo LANG_VALUE_4; ?>"
                                         name="form1">
                                 </div>
-                                <a href="forget-password.php" style="color:#e4144d;"><?php echo LANG_VALUE_97; ?>?</a>
+                                <a href="forget-password.php"
+                                    style="color:#e4144d;"><?php echo "Forgot Password?"; ?>?</a>
                             </div>
                         </div>
                     </form>

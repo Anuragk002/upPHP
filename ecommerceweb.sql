@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.9.7
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 12, 2023 at 02:30 PM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 5.6.30
+-- Host: localhost:3306
+-- Generation Time: Feb 25, 2023 at 03:55 AM
+-- Server version: 5.7.39-cll-lve
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -829,7 +831,9 @@ INSERT INTO `tbl_order` (`id`, `product_id`, `product_name`, `pkg_name`, `quanti
 (44, 150, 'Painkiller2', '100 PILLS', '1', '200', '1676196346'),
 (45, 149, 'Painkiller1', '100 PILLS', '1', '200', '1676196346'),
 (46, 152, 'Gym2', '100 PILLS', '1', '200', '1676196346'),
-(47, 152, 'Gym2', '200 PILLS', '1', '400', '1676196346');
+(47, 152, 'Gym2', '200 PILLS', '1', '400', '1676196346'),
+(48, 145, 'Anxiety1', '100 PILLS', '1', '200', '1676468560'),
+(49, 150, 'Painkiller2', '100 PILLS', '1', '200', '1677256032');
 
 -- --------------------------------------------------------
 
@@ -877,7 +881,7 @@ CREATE TABLE `tbl_page` (
 --
 
 INSERT INTO `tbl_page` (`id`, `about_title`, `about_content`, `about_banner`, `about_meta_title`, `about_meta_keyword`, `about_meta_description`, `faq_title`, `faq_banner`, `faq_meta_title`, `faq_meta_keyword`, `faq_meta_description`, `blog_title`, `blog_banner`, `blog_meta_title`, `blog_meta_keyword`, `blog_meta_description`, `contact_title`, `contact_banner`, `contact_meta_title`, `contact_meta_keyword`, `contact_meta_description`, `pgallery_title`, `pgallery_banner`, `pgallery_meta_title`, `pgallery_meta_keyword`, `pgallery_meta_description`, `vgallery_title`, `vgallery_banner`, `vgallery_meta_title`, `vgallery_meta_keyword`, `vgallery_meta_description`) VALUES
-(1, 'About Us', '<p style=\"border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">Welcome to Ecommerce PHP Project!</p><p style=\"border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\"><span style=\"border: 0px solid;\">We aim to offer our customers a variety of the latest [PRODUCTS_CATEGORY_NAME]. Weâ€™ve come a long way, so we know exactly which direction to take when supplying you with high quality yet budget-friendly products. We offer all of this while providing excellent customer service and friendly support.</span></p><p style=\"border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\"><span style=\"border: 0px solid;\">We always keep an eye on the latest trends in [PRODUCTS CATEGORY NAME] and put our customersâ€™ wishes first. That is why we have satisfied customers all over the world, and are thrilled to be a part of the [PRODUCTS CATEGORY NAME] industry.</span></p><p style=\"border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\"><span style=\"border: 0px solid;\">The interests of our customers are always top priority for us, so we hope you will enjoy our products as much as we enjoy making them available to you.</span></p><p style=\"\">We make sure you get the best quality outfits with hassle free returns and exchanges policy. We ensure what you see is exactly what you get!</p><ul><li style=\"text-align: justify;\"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">Low Price Guarantee</span></font></li><li style=\"text-align: justify;\"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">24/7 Customer Support</span></font></li><li style=\"text-align: justify;\"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">E-Mail - Text - Call</span></font></li><li style=\"text-align: justify;\"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">We are here for you 24/7 online and via phone.</span></font></li><li style=\"text-align: justify;\"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">Sizing & Color</span></font></li><li style=\"text-align: justify;\"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">Worldwide Shipping</span></font></li><li style=\"text-align: justify;\"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">Weâ€™d love to expand our business Internationally soon.</span></font></li><li style=\"text-align: justify;\"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">Easy Returns</span></font></li></ul><p style=\"text-align: justify; \"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">Bought an outfit but want to return it? We have a 3 days easy return policy. Please mail us at support@ecommercephp.com for more details.</span></font></p><p style=\"text-align: justify; \"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\"><b>Dream Dresses for Every Occasion</b></span></font></p><p style=\"text-align: justify; \"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">Fashionys.com carries all carefully handpicked by our stylists. If youâ€™re interested in a particular model please mail us we will try our best to offer you the loved dress.</span></font></p><p style=\"text-align: justify; \"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\"><b>Verified Security</b></span></font></p><p style=\"text-align: justify; \"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">All our transactions are Verified by Norton and with the highest standards of security. Plus, there\'s a lot to go around too through regular exciting offers and gifts, so spread the word and refer us to everyone from your family, friends and colleagues and get rewarded for it. And to top it all, you can share your user experience by posting reviews. Donâ€™t wait any longer Sign up with us now! start stalking, start buying and start loving and start Introducing the beauty in you.</span></font></p>\r\n', 'about-banner.jpg', 'Unit Pharma - About Us', 'about, about us, about fashion, about company, about ecommerce php project', 'Our goal has always been to get the best in you we brought a huge collection whether youâ€™re attending a party, wedding, and all those events that require a WOW dress.', 'FAQ', 'faq-banner.jpg', 'Unit Pharma- FAQ', '', '', 'Blog', 'blog-banner.jpg', 'Unit Pharma - Blog', '', '', 'Contact Us', 'contact-banner.jpg', 'Unit Pharma - Contact', '', '', 'Photo Gallery', 'pgallery-banner.jpg', 'Unit Pharma - Photo Gallery', '', '', 'Video Gallery', 'vgallery-banner.jpg', 'Unit Pharma - Video Gallery', '', '');
+(1, 'About Us', '<p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Welcome to Unit Pharma, your trusted provider of high-quality medical products and services. Our experienced and knowledgeable pharmacists and staff are committed to helping you manage your health and well-being.</span></p><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">At UnitPharma, we believe that access to reliable healthcare should be affordable and convenient. That\'s why we offer a wide range of prescription and over-the-counter medications, medical supplies, and equipment to meet the needs of our diverse customer base. We ensure what you see is exactly what you get!</span></p><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 23pt 0pt;\"><br></p><h1 dir=\"ltr\" style=\"line-height:1.5;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 23pt 0pt;\"><span id=\"docs-internal-guid-db3d4eca-7fff-2f40-573e-f6b677cc88ab\"><span style=\"font-size: 36pt; font-family: Poppins, sans-serif; color: rgb(40, 40, 40); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;\">Our Goal at </span><span style=\"font-size: 36pt; font-family: Poppins, sans-serif; color: rgb(227, 61, 85); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;\">Unit Pharma</span></span><br></h1><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 38pt 0pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Our online store is different and unique from other online pharmacies in many aspects not only in terms of availability. We offer all types of medicines which are not easily available in local pharmacies. Our website is one of the reputed stores in the online market in terms of performance and secured payment service. Considering the debilitating health conditions of individuals, we receive orders and dispatch them to the destined place within a stipulated period of time.</span></p><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 38pt 0pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We ask your personal information when you are going to order the medicine from our online pharmacy. Our team helps its customer 24*7 and keeps personal information safe and secure. In comparison to other sites, the team of Unit Pharma provides you original medicines, not fake products as is seen in the case of other websites. These qualities of our medicines set us apart from others, establishing us to be the prominent online drug store. UnitPharma tries to satisfy its customers in every aspect and strives to stay ahead of other competitors, fulfilling the requirements of customers.</span></p><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:38pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Our team leaves no stone unturned to provide you with improved services through our website and relentlessly works day and night. We keep updating our website periodically with new information about medicines for your awareness. Our team puts in efforts to get your love, support, and your feedback which encourages us to keep working for the betterment each day. Our website team takes feedbacks seriously and works accordingly in making the website top searching online pharmacy in the entire USA. The benefits of buying medicines from our online pharmacy store are:</span></p><ol style=\"margin-top:0;margin-bottom:0;padding-inline-start:48px;\"><li dir=\"ltr\" style=\"list-style-type:decimal;font-size:15pt;font-family:Arial;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\" aria-level=\"1\"><p dir=\"ltr\" style=\"line-height:1.7999999999999998;margin-top:0pt;margin-bottom:0pt;padding:7.5pt 0pt 0pt 0pt;\" role=\"presentation\"><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Reasonable Prices</span><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br></span><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We provide you medicines at reasonable prices without compromising on their efficacy and quality. If compared, the prices of medicine at our online pharmacy are lesser than medicines available at other online pharmacies. You can also write us an email to get your order booked and delivered the medicine to your doorstep. We are always worried about the health of individuals and strive to get things done in whatever way we receive it from them. This is the rare and unique quality that sets us apart from others.</span><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br><br></span></p></li></ol><ol style=\"margin-top:0;margin-bottom:0;padding-inline-start:48px;\" start=\"2\"><li dir=\"ltr\" style=\"list-style-type:decimal;font-size:15pt;font-family:Arial;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\" aria-level=\"1\"><p dir=\"ltr\" style=\"line-height:1.7999999999999998;margin-top:0pt;margin-bottom:0pt;\" role=\"presentation\"><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Satisfaction</span><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br></span><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We go our way out for customer satisfaction and do everything possible with continued improvisation on our services. Not just in the quality of medicines but in every aspect, we try to reach perfection, providing customers with the best services 24*7. Our aim is to satisfy our customers through our medicines &amp; services because we understand the value of life.</span><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br><br></span></p></li></ol><ol style=\"margin-top:0;margin-bottom:0;padding-inline-start:48px;\" start=\"3\"><li dir=\"ltr\" style=\"list-style-type:decimal;font-size:15pt;font-family:Arial;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\" aria-level=\"1\"><p dir=\"ltr\" style=\"line-height:1.7999999999999998;margin-top:0pt;margin-bottom:69pt;\" role=\"presentation\"><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Trust and Quality</span><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br></span><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Your trust in us keeps us going with confidence. Things in the business of medicine are fragile and every step is taken to ensure things are done correctly. To retain the trust, we always provide the best quality medicines and try not to fiddle with the ingredients to keep the authenticity intact. Quality is always a top priority for us, so we offer our patients the best quality medicines from a certified pharmacy in the USA.</span></p></li></ol><h2 dir=\"ltr\" style=\"line-height:1.875;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 23pt 0pt;\"><span style=\"font-size:24pt;font-family:Poppins,sans-serif;color:#282828;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Our Mission</span></h2><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 23pt 0pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Keeping aside business, all customers who show trust in us are satisfied with the best outcomes one can ever experience. We never consider customers as customers but the family who needs the utmost care amid the turbulence owing to bad health. Your health and wellness are all that give us daily motivation. We aim to provide you medicines that work efficiently, causing minimal side effects in rare cases. You can get our medicines delivered to your doorstep by ordering online from Unit Pharma at affordable prices. You can save precious time and get quick delivery along with the satisfaction that you will be enjoying great health for a long.</span></p><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;\"><span id=\"docs-internal-guid-ae1bd8ba-7fff-065d-d936-24752db41e25\"><br></span></p>', 'about-banner.jpg', 'About Us - Unit Pharma', 'about unitpharma.com, about unit pharma, about unit pharma', 'Our goal has always been to get the best medical products.', 'FAQ', 'faq-banner.jpg', 'FAQ - Unit Pharma', 'faq unitpharma.com, faq unitpharma, faq unit pharma, help unitpharma, help unit pharma, unitpharma help section', 'We are available 24*7 to support our customers. We provide customers with the best services 24*7. Our aim is to satisfy our customers through our medicines & services because we understand the value of life.\r\n', 'Blog', 'blog-banner.jpg', 'Unit Pharma - Blog', '', '', 'Contact Us', 'contact-banner.jpg', 'Contact - Unit Pharma', 'contact to unitpharma.com, contact unit pharma, contact unitpharma', 'To reach Unit Pharma\'s customer care please visit our contact page and start chatting with a customer service representative. You can write an email to us: support@unitpharma.com or call us at +1 (903) 429-5515.', 'Photo Gallery', 'pgallery-banner.jpg', 'Unit Pharma - Photo Gallery', '', '', 'Video Gallery', 'vgallery-banner.jpg', 'Unit Pharma - Video Gallery', '', '');
 
 -- --------------------------------------------------------
 
@@ -937,7 +941,9 @@ INSERT INTO `tbl_payment` (`id`, `customer_id`, `customer_name`, `customer_email
 (89, 23, 'Pankaj Giri', 'pankaj143giri@gmail.com', '2023-01-31 13:04:34', '2023-01-31 11:19:44', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', '12345123', 'http://www.h.com', '2023-02-03 08:54:29', 'Completed', '2023-02-04 11:10:37', '1675192784', 't', '1234567890', 's@gmail.com', 'ramgarh', 'sln', 'up', 5, '222342'),
 (92, 0, 'GUEST', '', '2023-02-03 01:02:52', '2023-02-03 01:02:02', '', 400, '', '', '', '', '', 'COD/Pay Later', 'Completed', '12345123', 'https://www.bluedark.com', '2023-02-03 01:06:10', 'Completed', '2023-02-03 01:15:43', '1675414922', 'pankaj', '9984499623', 'pankaj143giri@gmail.com', 'Ramgarh', 'Sultanpur', 'Uttar Pradesh', 99, '222302'),
 (93, 0, 'GUEST', '', '2023-02-10 04:57:06', '2023-02-10 04:55:23', '', 400, '', '', '', '', '', 'COD/Pay Later', 'Completed', '12345', 'https://www.tcs.com', '2023-02-10 04:58:39', 'Completed', '2023-02-10 05:01:00', '1676033723', 'dr', '1234567', 'pankaj143giri@gmail.com', 'ramgarh', 'csln', 'up', 1, '222345'),
-(94, 26, 'Pankaj Giri', 'pankaj143giri@gmail.com', '', '2023-02-12 02:05:46', '', 5200, '', '', '', '', '', 'COD/Pay Later', 'Pending', '-1', '', '', 'Pending', '', '1676196346', 'Pankaj Giri', 'pankaj143giri@gmail.com', 'pankaj143giri@gmail.com', 'ramgarh', 'ddd', 'ddd', 15, '23');
+(94, 26, 'Pankaj Giri', 'pankaj143giri@gmail.com', '', '2023-02-12 02:05:46', '', 5200, '', '', '', '', '', 'COD/Pay Later', 'Pending', '-1', '', '', 'Pending', '', '1676196346', 'Pankaj Giri', 'pankaj143giri@gmail.com', 'pankaj143giri@gmail.com', 'ramgarh', 'ddd', 'ddd', 15, '23'),
+(95, 0, 'GUEST', '', '2023-02-15 05:44:16', '2023-02-15 05:42:40', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', '12345', 'https://www.unitpharma.com/', '2023-02-15 05:46:09', 'Completed', '2023-02-15 05:47:29', '1676468560', 'Alex', '+12192629910', 'care.cubepharma@gmail.com', 'Palm street us', 'New Jersey', 'New Jersey', 230, '23567'),
+(96, 0, 'GUEST', '', '', '2023-02-24 08:27:12', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Pending', '-1', '', '', 'Pending', '', '1677256032', 'jimmy', '82829291919', '8585arpit@gmail.com', '\r\n48 brighton avenue kearny new jersey 07032 ', 'New jersey ', 'new jerseys ', 230, '07032');
 
 -- --------------------------------------------------------
 
@@ -1050,20 +1056,20 @@ INSERT INTO `tbl_product` (`p_id`, `p_name`, `p_old_price`, `p_current_price`, `
 (100, 'Men\'s Long Cuffed Jogger Yoga Sweat Pant', '105', '95', 78, 'product-featured-100.jpg', '<p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">We warmly welcome you to our \"Long\" Mens Cuffed Perfection Yoga Pant - our most exciting product launch of the year -&nbsp;<span style=\"font-weight: 700;\">and voted \"Favorite Yoga Pant\" by Instructors in YOGA JOURNAL magazine! (Spring/2015)</span></p><p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">It\'s FORM &amp; FASHION -&nbsp;<span style=\"font-weight: 700;\">you\'ll transition to errands in style!</span></p><p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">Please notice in the pictures, the fabric paneling in the upper leg area&nbsp;<span style=\"font-weight: 700;\">that allows for complete expansion of the crotch area in ALL directions.</span>&nbsp;It is simply perfect for Yoga, pilates, lounging, the gym &amp; running errands!</p><p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">Relaxed elastic waist band with 1/4\" drawcord in contrasting White with super light-weight metal tips (they will NOT clang in the dryer).</p><p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">2x1 rib cuffing at the bottom will&nbsp;<span style=\"font-weight: 700;\">keep your pants \"in place\"</span>&nbsp;for those inversions and hand stands!</p><p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\"><span style=\"font-weight: 700;\">DEEP pockets</span>&nbsp;that are sewn on top of the garment so they do not \"float.\" The pockets are 6.5\" deep to the side-seam so they can encase your large cell phones!</p><p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">The rib piping extends&nbsp;<span style=\"font-weight: 700;\">uninterrupted</span>&nbsp;from the side of the pant to the back of the rear -&nbsp;<span style=\"font-weight: 700;\">providing amazing flexibility &amp; stability for stretching and rigorous activity.</span></p>', '<p style=\"padding: 0px; margin-top: 0px; text-rendering: optimizelegibility; margin-bottom: 0px !important; line-height: 32px !important;\"><span id=\"productTitle\" class=\"a-size-large product-title-word-break\" style=\"text-rendering: optimizelegibility; word-break: break-word; line-height: 32px !important;\">Long Cuffed Jogger Pants</span></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Proudly brought to you by 4-rth: over 10 years in business from LA, California. Designed, manufactured &amp; shipped from Los Angeles, CA.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Fabric strips in the upper leg allow for complete expansion of the crotch area in ALL directions.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Made from our Custom MODAL French-Terry fabric from the sustainable Birch Tree wood.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Cuff at the bottom is form-fitting, yet relaxed. IDEAL for all Yoga styles - Ashtanga, Bikram, Hatha, Hot - as well as Pilates, Tennis &amp; Soccer!</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">MODEL: 6\'2, 175lbs. Size: M. (See Product Description for specific SIZE guidelines!) Please IGNORE the \"size chart\" above!!</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers a&nbsp;</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">&nbsp;in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 11, 0, 0, 4),
 (101, 'Digital Infrared Thermometer for Adults and Kids', '79', '70', 289, 'product-featured-101.jpg', '<h5 class=\"a-spacing-mini a-color-secondary\" style=\"padding: 0px; margin-top: 0px; margin-right: 0px; margin-left: 0px; font-weight: bold; font-size: 13px; line-height: 19px; font-family: \"Amazon Ember\", Arial, sans-serif; margin-bottom: 6px !important; color: rgb(86, 89, 89) !important;\">Safe and Hygienic</h5><p class=\"a-spacing-base\" style=\"padding: 0px; color: rgb(15, 17, 17); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px; margin-bottom: 14px !important;\">No-Touch measuring reads body temperature within 1.18 inches of the center of the forehead without physical contact.</p><h5 class=\"a-spacing-mini a-color-secondary\" style=\"padding: 0px; margin-top: 0px; margin-right: 0px; margin-left: 0px; font-weight: bold; font-size: 13px; line-height: 19px; font-family: \"Amazon Ember\", Arial, sans-serif; margin-bottom: 6px !important; color: rgb(86, 89, 89) !important;\">Tri-Point Sensors Accuracy</h5><p class=\"a-spacing-base\" style=\"padding: 0px; color: rgb(15, 17, 17); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px; margin-bottom: 14px !important;\">An ultra-sensitive infrared sensor collects more than 100 data points per second while distance and environmental sensors combine to account for other variables; ensuring maximum accuracy every time a temperature is taken.</p><h5 class=\"a-spacing-mini a-color-secondary\" style=\"padding: 0px; margin-top: 0px; margin-right: 0px; margin-left: 0px; font-weight: bold; font-size: 13px; line-height: 19px; font-family: \"Amazon Ember\", Arial, sans-serif; margin-bottom: 6px !important; color: rgb(86, 89, 89) !important;\">Fast, Simple, Clear and Quiet</h5><p class=\"a-spacing-base\" style=\"padding: 0px; color: rgb(15, 17, 17); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px; margin-bottom: 14px !important;\">The intuitive single-button control design thermometer reads the temperature in just 1 second from a clear bright large LED screen, even in total darkness. The quiet vibrating alert eliminates buzzing noise or disturbance.</p>', '<p style=\"padding: 0px; margin-top: 0px; text-rendering: optimizelegibility; margin-bottom: 0px !important; line-height: 32px !important;\"><span id=\"productTitle\" class=\"a-size-large product-title-word-break\" style=\"text-rendering: optimizelegibility; word-break: break-word; line-height: 32px !important;\">No-Touch Forehead Thermometer</span></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">No Touch Measuring, Just Safe and Hygienic: PT3 Built-in infrared temperature sensor, reads body temperature within 1.18 inches of the center of the forehead without physical contact.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Tri-Point Sensors Accuracy: An ultra-sensitive infrared sensor collects more than 100 data points per second while distance and environmental sensors combine to account for other variables; ensuring maximum accuracy every time temperature is taken.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Fast, Simple, Clear and Quiet: The intuitive single-button control design thermometer reads the temperature in just 1 second from a clear bright extra-large LED screen, even in total darkness. The quiet vibration alerting ensures there is no buzzing noise and no disturbance.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Suitable for Multi-Scenario and All Ages: iHealth PT3 is designed for all ages: ranging from babies and toddlers to the elderly. An ideal choice for hospitals, hotels, school settings, and public establishments.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">What You Get: 1x PT3 thermometer, 2x AAA batteries, 1x Instruction manual, 1x Quick User Guide, our worry-free 12-month warranty, and friendly California-based customer service.</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers aÂ </span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Â in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 11, 1, 0, 5),
 (102, 'Women\'s Plus-Size Shirt Dress with Gold Hardware', '190', '169', 112, 'product-featured-102.jpg', '<p><span style=\"color: rgb(15, 17, 17); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px;\">This dress has everything! Enough stretch to be forgiving. Works for my hourglass/pear shape just fine. The cap sleeves satisfy conservative dressing requirements (no sleeveless) but still works for spring/summer.</span><br></p>', '<p>From Calvin Klein</p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Cap-sleeve shirt dress featuring belted waist with gold-tone hardware accents</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Split v-neckline</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Exposed center back zipper</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers a&nbsp;</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">&nbsp;in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 19, 1, 0, 5),
-(139, 'ElecTest', '', '8', 16, 'product-featured-139.jpg', '', '', '', '', '', 213, 1, 1, 4),
-(143, 'D_Stress', '', '', 123, 'product-featured-143.jpg', '', '', '', '', '', 42, 0, 1, 4),
-(144, 'AA', '', '', 115, 'product-featured-144.png', '', '', '', '', '', 121, 0, 1, 7),
-(145, 'Anxiety1', '', '', 102, 'product-featured-145.jpg', '', '', '', '', '', 34, 1, 1, 7),
-(146, 'Anxiety2', '', '', 100, 'product-featured-146.jpg', '', '', '', '', '', 5, 0, 1, 7),
-(147, 'Sleep1', '', '', 100, 'product-featured-147.jpg', '', '', '', '', '', 6, 0, 1, 10),
-(148, 'Sleep2', '', '', 100, 'product-featured-148.jpg', '', '', '', '', '', 37, 1, 1, 10),
-(149, 'Painkiller1', '', '', 102, 'product-featured-149.jpg', '', '', '', '', '', 16, 1, 1, 8),
-(150, 'Painkiller2', '', '', 110, 'product-featured-150.jpg', '', '', '', '', '', 58, 1, 1, 8),
-(151, 'Gym1', '', '', 116, 'product-featured-151.jpg', '', '', '', '', '', 14, 1, 1, 9),
-(152, 'Gym2', '', '', 109, 'product-featured-152.jpg', '', '', '', '', '', 62, 1, 1, 9),
-(154, 'sWell2', '', '', 103, 'product-featured-154.jpg', '', '', '', '', '', 25, 0, 1, 11),
-(156, 'df', '', '', 12, 'product-featured-156.png', '', '', '', '', '', 0, 0, 1, 7),
-(157, 'xa', '', '', 120, 'product-featured-157.png', '', '', '', '', '', 10, 0, 1, 7);
+(139, 'ElecTest', '', '8', 16, 'product-featured-139.jpg', '', '', '', '', '', 231, 1, 1, 4),
+(143, 'D_Stress', '', '', 123, 'product-featured-143.jpg', '', '', '', '', '', 64, 0, 1, 4),
+(144, 'AA', '', '', 115, 'product-featured-144.png', '', '', '', '', '', 147, 0, 1, 7),
+(145, 'Anxiety1', '', '', 102, 'product-featured-145.jpg', '', '', '', '', '', 59, 1, 1, 7),
+(146, 'Anxiety2', '', '', 100, 'product-featured-146.jpg', '', '', '', '', '', 14, 0, 1, 7),
+(147, 'Sleep1', '', '', 100, 'product-featured-147.jpg', '', '', '', '', '', 12, 0, 1, 10),
+(148, 'Sleep2', '', '', 100, 'product-featured-148.jpg', '', '', '', '', '', 71, 1, 1, 10),
+(149, 'Painkiller1', '', '', 102, 'product-featured-149.jpg', '', '', '', '', '', 39, 1, 1, 8),
+(150, 'Painkiller2', '', '', 110, 'product-featured-150.jpg', '', '', '', '', '', 88, 1, 1, 8),
+(151, 'Gym1', '', '', 116, 'product-featured-151.jpg', '', '', '', '', '', 51, 1, 1, 9),
+(152, 'Gym2', '', '', 109, 'product-featured-152.jpg', '', '', '', '', '', 87, 1, 1, 9),
+(154, 'sWell2', '', '', 103, 'product-featured-154.jpg', '', '', '', '', '', 47, 0, 1, 11),
+(156, 'df', '', '', 12, 'product-featured-156.png', '', '', '', '', '', 25, 0, 1, 7),
+(157, 'xa', '', '', 120, 'product-featured-157.png', '', '', '', '', '', 34, 0, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -1610,7 +1616,7 @@ CREATE TABLE `tbl_settings` (
 --
 
 INSERT INTO `tbl_settings` (`id`, `logo`, `favicon`, `footer_about`, `footer_copyright`, `contact_address`, `contact_email`, `contact_phone`, `contact_fax`, `contact_map_iframe`, `receive_email`, `receive_email_subject`, `receive_email_thank_you_message`, `forget_password_message`, `total_recent_post_footer`, `total_popular_post_footer`, `total_recent_post_sidebar`, `total_popular_post_sidebar`, `total_featured_product_home`, `total_latest_product_home`, `total_popular_product_home`, `meta_title_home`, `meta_keyword_home`, `meta_description_home`, `banner_login`, `banner_registration`, `banner_forget_password`, `banner_reset_password`, `banner_search`, `banner_cart`, `banner_checkout`, `banner_product_category`, `banner_blog`, `cta_title`, `cta_content`, `cta_read_more_text`, `cta_read_more_url`, `cta_photo`, `featured_product_title`, `featured_product_subtitle`, `latest_product_title`, `latest_product_subtitle`, `popular_product_title`, `popular_product_subtitle`, `testimonial_title`, `testimonial_subtitle`, `testimonial_photo`, `blog_title`, `blog_subtitle`, `newsletter_text`, `paypal_email`, `stripe_public_key`, `stripe_secret_key`, `bank_detail`, `before_head`, `after_body`, `before_body`, `home_service_on_off`, `home_welcome_on_off`, `home_featured_product_on_off`, `home_latest_product_on_off`, `home_popular_product_on_off`, `home_testimonial_on_off`, `home_blog_on_off`, `newsletter_on_off`, `ads_above_welcome_on_off`, `ads_above_featured_product_on_off`, `ads_above_latest_product_on_off`, `ads_above_popular_product_on_off`, `ads_above_testimonial_on_off`, `ads_category_sidebar_on_off`) VALUES
-(1, 'logo.gif', 'favicon.png', '<p>Lorem ipsum dolor sit amet, omnis signiferumque in mei, mei ex enim concludaturque. Senserit salutandi euripidis no per, modus maiestatis scribentur est an.Â Ea suas pertinax has.</p>\r\n', 'Copyright Â© 2023 Unit Pharma. All Rights Reserved.', '93 Simpson Avenue\r\nHarrisburg, PA', 'support@unitpharma.com', '+001 10 101 0010', '', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3094.020958405712!2d-84.39261378514685!3d39.151504939531584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841acfb8da30203%3A0x193175e741781f21!2s4293%20Simpson%20Ave%2C%20Cincinnati%2C%20OH%2045227%2C%20USA!5e0!3m2!1sen!2snp!4v1647796779407!5m2!1sen!2snp\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', 'support@ecommercephp.com', 'Visitor Email Message from Ecommerce Site PHP', 'Thank you for sending email. We will contact you shortly.', 'A confirmation link is sent to your email address. You will get the password reset information in there.', 4, 4, 5, 5, 15, 6, 8, 'Unit Pharma', 'online fashion store, garments shop, online garments', 'ecommerce php project with mysql database', 'banner_login.jpg', 'banner_registration.jpg', 'banner_forget_password.jpg', 'banner_reset_password.jpg', 'banner_search.jpg', 'banner_cart.jpg', 'banner_checkout.jpg', 'banner_product_category.jpg', 'banner_blog.jpg', 'Welcome To Our Ecommerce Website', 'Lorem ipsum dolor sit amet, an labores explicari qui, eu nostrum copiosae argumentum has. Latine propriae quo no, unum ridens expetenda id sit, \r\nat usu eius eligendi singulis. Sea ocurreret principes ne. At nonumy aperiri pri, nam quodsi copiosae intellegebat et, ex deserunt euripidis usu. ', 'Read More', '#', 'cta.jpg', 'Featured Products', 'Our list on Top Featured Products', 'Latest Products', 'Our list of recently added products', 'Popular Products', 'Popular products based on customer\'s choice', 'Testimonials', 'See what our clients tell about us', 'testimonial.jpg', 'Latest Blog', 'See all our latest articles and news from below', 'Sign-up to our newsletter for latest promotions and discounts.', 'admin@ecom.com', 'pk_test_0SwMWadgu8DwmEcPdUPRsZ7b', 'sk_test_TFcsLJ7xxUtpALbDo1L5c1PN', 'Bank Name: WestView Bank\r\nAccount Number: CA100270589600\r\nBranch Name: CA Branch\r\nCountry: USA', '', '<div id=\"fb-root\"></div>\n<script>(function(d, s, id) {\n  var js, fjs = d.getElementsByTagName(s)[0];\n  if (d.getElementById(id)) return;\n  js = d.createElement(s); js.id = id;\n  js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=323620764400430\";\n  fjs.parentNode.insertBefore(js, fjs);\n}(document, \'script\', \'facebook-jssdk\'));</script>', '<!--Start of Tawk.to Script-->\r\n<script type=\"text/javascript\">\r\nvar Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();\r\n(function(){\r\nvar s1=document.createElement(\"script\"),s0=document.getElementsByTagName(\"script\")[0];\r\ns1.async=true;\r\ns1.src=\'https://embed.tawk.to/5ae370d7227d3d7edc24cb96/default\';\r\ns1.charset=\'UTF-8\';\r\ns1.setAttribute(\'crossorigin\',\'*\');\r\ns0.parentNode.insertBefore(s1,s0);\r\n})();\r\n</script>\r\n<!--End of Tawk.to Script-->', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+(1, 'logo.png', 'favicon.png', '<p>Lorem ipsum dolor sit amet, omnis signiferumque in mei, mei ex enim concludaturque. Senserit salutandi euripidis no per, modus maiestatis scribentur est an.Â Ea suas pertinax has.</p>\r\n', 'Copyright Â© 2023 Unit Pharma. All Rights Reserved.', '3331 Pinta Way\r\nDouglasville\r\nGA\r\n30135\r\nUnited States', 'support@unitpharma.com', '+1 (903) 429-5515', '', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63260.55257278375!2d-84.45120763324847!3d33.748557813201884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f520d3e4430f09%3A0x2a1617833c7e0abc!2s3331%20Pinta%20Way%2C%20Douglasville%2C%20GA%2030135%2C%20USA!5e0!3m2!1sen!2sin!4v1676540850322!5m2!1sen!2sin\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'support@unitpharma.com', 'Visitor Email Message from unitpharma.com', 'Thank you for sending email. We will contact you shortly.', 'A confirmation link is sent to your email address. You will get the password reset information in there.', 4, 4, 5, 5, 8, 6, 8, 'Unit Pharma', 'online medical store, medicine shop, online medicine, pharmacy', 'Unit Pharma is an online pharmacy', 'banner_login.jpg', 'banner_registration.jpg', 'banner_forget_password.jpg', 'banner_reset_password.jpg', 'banner_search.jpg', 'banner_cart.jpg', 'banner_checkout.jpg', 'banner_product_category.jpg', 'banner_blog.jpg', 'Welcome To Our Ecommerce Website', 'Lorem ipsum dolor sit amet, an labores explicari qui, eu nostrum copiosae argumentum has. Latine propriae quo no, unum ridens expetenda id sit, \r\nat usu eius eligendi singulis. Sea ocurreret principes ne. At nonumy aperiri pri, nam quodsi copiosae intellegebat et, ex deserunt euripidis usu. ', 'Read More', '#', 'cta.jpg', 'Featured Products', 'Our list on Top Featured Products', 'Latest Products', 'Our list of recently added products', 'Popular Products', 'Popular products based on customer\'s choice', 'Testimonials', 'See what our clients tell about us', 'testimonial.jpg', 'Latest Blog', 'See all our latest articles and news from below', 'Sign-up to our newsletter for latest promotions and discounts.', 'support@unitpharma.com', 'pk_test_0SwMWadgu8DwmEcPdUPRsZ7b', 'sk_test_TFcsLJ7xxUtpALbDo1L5c1PN', '***', '<link href=\'https://fonts.googleapis.com/css?family=Poppins rel=\'stylesheet\'>\r\n<style>\r\nbody {\r\n font-family: \'Poppins\', \'Verdana\';\r\n}\r\n</style>', '', '<!--Start of Tawk.to Script-->\r\n<script type=\"text/javascript\">\r\nvar Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();\r\n(function(){\r\nvar s1=document.createElement(\"script\"),s0=document.getElementsByTagName(\"script\")[0];\r\ns1.async=true;\r\ns1.src=\'https://embed.tawk.to/63e7b3abc2f1ac1e2032b8a6/1gp0hblqn\';\r\ns1.charset=\'UTF-8\';\r\ns1.setAttribute(\'crossorigin\',\'*\');\r\ns0.parentNode.insertBefore(s1,s0);\r\n})();\r\n</script>\r\n<!--End of Tawk.to Script-->', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1737,7 +1743,7 @@ CREATE TABLE `tbl_slider` (
 --
 
 INSERT INTO `tbl_slider` (`id`, `photo`, `heading`, `content`, `button_text`, `button_url`, `position`) VALUES
-(1, 'slider-1.png', 'Welcome to Unit Pharma', 'Trusted Online Medical Shop', 'View Painkillers', 'product-category.php?id=8&type=top-category', 'Center'),
+(1, 'slider-1.jpeg', 'Welcome to Unit Pharma', 'A Trusted Online Pharmacy\r\nGet the Best Quality Medicine Here', 'View Painkillers', 'product-category.php?id=8&type=top-category', 'Center'),
 (2, 'slider-2.jpg', 'Order Medicine on Best Price', 'Buy a wide range of over the counter medicines online at low prices.', 'Read More', '#', 'Center'),
 (3, 'slider-3.png', '24 Hours Customer Support', 'Our highly experienced representatives are available 24 hours a day and 7 days a week.', 'Read More', 'contact.php', 'Right');
 
@@ -2079,156 +2085,188 @@ ALTER TABLE `tbl_video`
 --
 ALTER TABLE `tbl_cart`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
 --
 -- AUTO_INCREMENT for table `tbl_color`
 --
 ALTER TABLE `tbl_color`
   MODIFY `color_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
 --
 -- AUTO_INCREMENT for table `tbl_country`
 --
 ALTER TABLE `tbl_country`
   MODIFY `country_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=246;
+
 --
 -- AUTO_INCREMENT for table `tbl_customer`
 --
 ALTER TABLE `tbl_customer`
   MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
 --
 -- AUTO_INCREMENT for table `tbl_customer_message`
 --
 ALTER TABLE `tbl_customer_message`
   MODIFY `customer_message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+
 --
 -- AUTO_INCREMENT for table `tbl_end_category`
 --
 ALTER TABLE `tbl_end_category`
   MODIFY `ecat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+
 --
 -- AUTO_INCREMENT for table `tbl_faq`
 --
 ALTER TABLE `tbl_faq`
   MODIFY `faq_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
 --
 -- AUTO_INCREMENT for table `tbl_language`
 --
 ALTER TABLE `tbl_language`
   MODIFY `lang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=164;
+
 --
 -- AUTO_INCREMENT for table `tbl_mid_category`
 --
 ALTER TABLE `tbl_mid_category`
   MODIFY `mcat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
 --
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+
 --
 -- AUTO_INCREMENT for table `tbl_page`
 --
 ALTER TABLE `tbl_page`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `tbl_payment`
 --
 ALTER TABLE `tbl_payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+
 --
 -- AUTO_INCREMENT for table `tbl_photo`
 --
 ALTER TABLE `tbl_photo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
 -- AUTO_INCREMENT for table `tbl_post`
 --
 ALTER TABLE `tbl_post`
   MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
   MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
+
 --
 -- AUTO_INCREMENT for table `tbl_product_color`
 --
 ALTER TABLE `tbl_product_color`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=270;
+
 --
 -- AUTO_INCREMENT for table `tbl_product_package`
 --
 ALTER TABLE `tbl_product_package`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+
 --
 -- AUTO_INCREMENT for table `tbl_product_photo`
 --
 ALTER TABLE `tbl_product_photo`
   MODIFY `pp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
+
 --
 -- AUTO_INCREMENT for table `tbl_product_size`
 --
 ALTER TABLE `tbl_product_size`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=475;
+
 --
 -- AUTO_INCREMENT for table `tbl_rating`
 --
 ALTER TABLE `tbl_rating`
   MODIFY `rt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
 --
 -- AUTO_INCREMENT for table `tbl_service`
 --
 ALTER TABLE `tbl_service`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `tbl_settings`
 --
 ALTER TABLE `tbl_settings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `tbl_shipping_cost`
 --
 ALTER TABLE `tbl_shipping_cost`
   MODIFY `shipping_cost_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `tbl_shipping_cost_all`
 --
 ALTER TABLE `tbl_shipping_cost_all`
   MODIFY `sca_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `tbl_size`
 --
 ALTER TABLE `tbl_size`
   MODIFY `size_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
 --
 -- AUTO_INCREMENT for table `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `tbl_social`
 --
 ALTER TABLE `tbl_social`
   MODIFY `social_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
 --
 -- AUTO_INCREMENT for table `tbl_subscriber`
 --
 ALTER TABLE `tbl_subscriber`
   MODIFY `subs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `tbl_top_category`
 --
 ALTER TABLE `tbl_top_category`
   MODIFY `tcat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `tbl_video`
 --
 ALTER TABLE `tbl_video`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

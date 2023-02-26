@@ -161,7 +161,7 @@ if(!isset($_SESSION['customer'])) {
                                                 }
                                             ?>
                                         </td>
-                                        <td><b>ID: </b><?php echo $row['payment_id']; ?><br/><b>Date: </b><?php echo $row['payment_date']; ?></td>
+                                        <td><b>ID: </b><?php echo $row['payment_id']; ?><br/><b>Date: </b><?php echo $row['order_date']; ?></td>
                                         <td><?php echo "$".$row['paid_amount']; ?></td>
                                         <td><?php echo $row['payment_status']; ?></td>
                                         <td>
@@ -208,6 +208,7 @@ if(!isset($_SESSION['customer'])) {
                         <?php 
                             echo $pagination; 
                         ?>
+                        </div>
                     </div>
                 </div>
             </div>

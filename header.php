@@ -104,29 +104,28 @@ foreach ($result as $row)
     <link rel="stylesheet" href="assets/css/responsive.css">
 
     <?php
-
 	$statement = $pdo->prepare("SELECT * FROM tbl_page WHERE id=1");
 	$statement->execute();
 	$result = $statement->fetchAll(PDO::FETCH_ASSOC);							
-	foreach ($result as $row) {
+	foreach ($result as $row){
 		$about_meta_title = $row['about_meta_title'];
 		$about_meta_keyword = $row['about_meta_keyword'];
 		$about_meta_description = $row['about_meta_description'];
 		$faq_meta_title = $row['faq_meta_title'];
 		$faq_meta_keyword = $row['faq_meta_keyword'];
 		$faq_meta_description = $row['faq_meta_description'];
-		$blog_meta_title = $row['blog_meta_title'];
-		$blog_meta_keyword = $row['blog_meta_keyword'];
-		$blog_meta_description = $row['blog_meta_description'];
+		// $blog_meta_title = $row['blog_meta_title'];
+		// $blog_meta_keyword = $row['blog_meta_keyword'];
+		// $blog_meta_description = $row['blog_meta_description'];
 		$contact_meta_title = $row['contact_meta_title'];
 		$contact_meta_keyword = $row['contact_meta_keyword'];
 		$contact_meta_description = $row['contact_meta_description'];
-		$pgallery_meta_title = $row['pgallery_meta_title'];
-		$pgallery_meta_keyword = $row['pgallery_meta_keyword'];
-		$pgallery_meta_description = $row['pgallery_meta_description'];
-		$vgallery_meta_title = $row['vgallery_meta_title'];
-		$vgallery_meta_keyword = $row['vgallery_meta_keyword'];
-		$vgallery_meta_description = $row['vgallery_meta_description'];
+		// $pgallery_meta_title = $row['pgallery_meta_title'];
+		// $pgallery_meta_keyword = $row['pgallery_meta_keyword'];
+		// $pgallery_meta_description = $row['pgallery_meta_description'];
+		// $vgallery_meta_title = $row['vgallery_meta_title'];
+		// $vgallery_meta_keyword = $row['vgallery_meta_keyword'];
+		// $vgallery_meta_description = $row['vgallery_meta_description'];
 	}
 
 	$cur_page = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
@@ -134,32 +133,56 @@ foreach ($result as $row)
 	if($cur_page == 'index.php' || $cur_page == 'login.php' || $cur_page == 'registration.php' || $cur_page == 'cart.php' || $cur_page == 'checkout.php' || $cur_page == 'forget-password.php' || $cur_page == 'reset-password.php' || $cur_page == 'product-category.php' || $cur_page == 'product.php') {
 		?>
     <title><?php echo $meta_title_home; ?></title>
+    <meta name="title" content="<?php echo $meta_title_home; ?>">
+    <meta property="og:title" content="<?php echo $meta_title_home; ?>">
     <meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
     <meta name="description" content="<?php echo $meta_description_home; ?>">
+    <meta property="og:description" content="<?php echo $meta_description_home; ?>">
+    <meta property="og:image" content="assets/uploads/<?php echo $logo; ?>">
+
     <?php
 	}
 
 	if($cur_page == 'about.php') {
 		?>
     <title><?php echo $about_meta_title; ?></title>
+    <meta name="title" content="<?php echo $about_meta_title; ?>">
+    <meta property="og:title" content="<?php echo $about_meta_title; ?>">
+
     <meta name="keywords" content="<?php echo $about_meta_keyword; ?>">
     <meta name="description" content="<?php echo $about_meta_description; ?>">
+    <meta property="og:description" content="<?php echo $about_meta_description; ?>">
+    <meta property="og:image" content="assets/uploads/<?php echo $logo; ?>">
+
     <?php
 	}
+
 	if($cur_page == 'faq.php') {
 		?>
     <title><?php echo $faq_meta_title; ?></title>
+    <meta name="title" content="<?php echo $faq_meta_title; ?>">
+    <meta property="og:title" content="<?php echo $faq_meta_title; ?>">
     <meta name="keywords" content="<?php echo $faq_meta_keyword; ?>">
     <meta name="description" content="<?php echo $faq_meta_description; ?>">
+    <meta property="og:description" content="<?php echo $faq_meta_description; ?>">
+    <meta property="og:image" content="assets/uploads/<?php echo $logo; ?>">
+
     <?php
 	}
+
 	if($cur_page == 'contact.php') {
 		?>
     <title><?php echo $contact_meta_title; ?></title>
+    <meta name="title" content="<?php echo $contact_meta_title; ?>">
+    <meta property="og:title" content="<?php echo $contact_meta_title; ?>">
     <meta name="keywords" content="<?php echo $contact_meta_keyword; ?>">
     <meta name="description" content="<?php echo $contact_meta_description; ?>">
+    <meta property="og:description" content="<?php echo $contact_meta_description; ?>">
+    <meta property="og:image" content="assets/uploads/<?php echo $logo; ?>">
+
     <?php
 	}
+
 	if($cur_page == 'product.php')
 	{
 		$statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_id=?");
@@ -177,40 +200,68 @@ foreach ($result as $row)
 	if($cur_page == 'dashboard.php') {
 		?>
     <title>Dashboard - <?php echo $meta_title_home; ?></title>
+    <meta name="title" content="Dashboard - <?php echo $meta_title_home; ?>">
+    <meta property="og:title" content="Dashboard - <?php echo $meta_title_home; ?>">
     <meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
     <meta name="description" content="<?php echo $meta_description_home; ?>">
+    <meta property="og:description" content="<?php echo $meta_description_home; ?>">
+    <meta property="og:image" content="assets/uploads/<?php echo $logo; ?>">
+
     <?php
 	}
+
 	if($cur_page == 'customer-profile-update.php') {
 		?>
     <title>Update Profile - <?php echo $meta_title_home; ?></title>
+    <meta name="title" content="Update Profile - <?php echo $meta_title_home; ?>">
+    <meta property="og:title" content="Update Profile - <?php echo $meta_title_home; ?>">
     <meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
     <meta name="description" content="<?php echo $meta_description_home; ?>">
+    <meta property="og:description" content="<?php echo $meta_description_home; ?>">
+    <meta property="og:image" content="assets/uploads/<?php echo $logo; ?>">
+
     <?php
 	}
+
 	if($cur_page == 'customer-billing-shipping-update.php') {
 		?>
     <title>Update Billing and Shipping Info - <?php echo $meta_title_home; ?></title>
+    <meta name="title" content="Update Billing and Shipping Info - <?php echo $meta_title_home; ?>">
+    <meta property="og:title" content="Update Billing and Shipping Info - <?php echo $meta_title_home; ?>">
     <meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
     <meta name="description" content="<?php echo $meta_description_home; ?>">
+    <meta property="og:description" content="<?php echo $meta_description_home; ?>">
+    <meta property="og:image" content="assets/uploads/<?php echo $logo; ?>">
+
     <?php
 	}
+
 	if($cur_page == 'customer-password-update.php') {
 		?>
     <title>Update Password - <?php echo $meta_title_home; ?></title>
+    <meta name="title" content="Update Password - <?php echo $meta_title_home; ?>">
+    <meta property="og:title" content="Update Password - <?php echo $meta_title_home; ?>">
     <meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
     <meta name="description" content="<?php echo $meta_description_home; ?>">
+    <meta property="og:description" content="<?php echo $meta_description_home; ?>">
+    <meta property="og:image" content="assets/uploads/<?php echo $logo; ?>">
+
     <?php
 	}
+
 	if($cur_page == 'customer-order.php') {
 		?>
     <title>Orders - <?php echo $meta_title_home; ?></title>
+    <meta name="title" content="Orders - <?php echo $meta_title_home; ?>">
+    <meta property="og:title" content="Orders - <?php echo $meta_title_home; ?>">
     <meta name="keywords" content="<?php echo $meta_keyword_home; ?>">
     <meta name="description" content="<?php echo $meta_description_home; ?>">
+    <meta property="og:description" content="<?php echo $meta_description_home; ?>">
+    <meta property="og:image" content="assets/uploads/<?php echo $logo; ?>">
+
     <?php
 	}
 	?>
-
     <?php if($cur_page == 'blog-single.php'): ?>
     <meta property="og:title" content="<?php echo $og_title; ?>">
     <meta property="og:type" content="website">
@@ -250,7 +301,7 @@ foreach ($result as $row)
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="left">
                         <ul>
-                            <li><i class="fa fa-phone"></i> <?php echo $contact_phone; ?></li>
+                            <!-- <li><i class="fa fa-phone"></i> <?php #echo $contact_phone; ?></li> -->
                             <li><i class="fa fa-envelope-o"></i> <?php echo $contact_email; ?></li>
                         </ul>
                     </div>
@@ -344,7 +395,7 @@ foreach ($result as $row)
                             <input type="text" class="form-control" placeholder="Search Products" name="search_text" />
                             <div class="input-group-btn">
                                 <button class="btn search-btn" type="submit">
-                                    <span style="color:white"class="glyphicon glyphicon-search"></span>
+                                    <span style="color:white" class="glyphicon glyphicon-search"></span>
                                 </button>
                             </div>
                         </div>

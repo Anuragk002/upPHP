@@ -150,6 +150,15 @@ $csrf = new CSRF_Protect();
     }
 
     // sending mail ====>
+
+    // Getting Admin Email Address
+	$statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
+	$statement->execute();
+	$result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+	foreach ($result as $row) {
+		$contact_email = $row['contact_email'];
+	}
+
     $statement_cn = $pdo->prepare("SELECT * FROM tbl_country WHERE country_id=?");
     $statement_cn->execute(array($s_country));
     $result_cn = $statement_cn->fetchAll(PDO::FETCH_ASSOC);
@@ -174,7 +183,6 @@ $csrf = new CSRF_Protect();
     $order_details='';
     $order_details .= '
         <table border=1 >
-        <caption>Order Details</caption>
         <tr>
         <th>#</th>
         <th>Product Name</th>
@@ -209,7 +217,7 @@ $csrf = new CSRF_Protect();
         <span style="color:black">Hello '.$s_name.',</span><br/>
         <span style="color:black">Your order has been placed successfully with Order ID: '.$order_number.'. Your payment status for this order is pending. We will contact you soon to complete the payment process.<br/>'.$status_details.'
         '. $order_details .'<br/>'.$shipping_address.'</span>
-        <span style="color:black"> Thanks for shopping with us. If you are facing any issue, Please contact us.</span><br/><br/>
+        <span style="color:black"> Thanks for shopping with us. If you are facing any issue, Please contact us at'.$contact_email.'.</span><br/><br/>
         <span style="color:black">
         <b>Thanks and Regards</b><br/>
         Unit Pharma Support Team<br/>

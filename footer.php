@@ -25,7 +25,7 @@ foreach ($result as $row)
                 <p>If you are facing any issue or need support, please contact us:
                 <p>
                 <ul>
-                    <li><a href="contact.php"><span class="fa fa-link"> Contact us</a></li>
+                    <li><a href="contact.php"><span class="fa fa-link"></span> <?php echo "Contact us"; ?></a></li>
                     <li><span class="fa fa-phone"></span> <?php echo $contact_phone ?></li>
                     <li><span class="fa fa-envelope"></span> <?php echo $contact_email ?></li>
                     <li> Fallow us:

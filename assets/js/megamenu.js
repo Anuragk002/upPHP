@@ -9,7 +9,7 @@ $(document).ready(function () {
   //Checks if drodown menu's li elements have anothere level (ul), if not the dropdown is shown as regular dropdown, not a mega menu (thanks Luka Kladaric)
 
   $(".menu > ul").before(
-    '<div id="menu-mobile" class="menu-mobile1" data-click-state="1">UNITPHARMA</div>'
+    '<div id="menu-mobile" class="menu-mobile1" data-click-state="1">UNIT PHARMA</div>'
   );
   // <img src="assets/img/favicon.png" style="height:25px" alt="image"/>
 
