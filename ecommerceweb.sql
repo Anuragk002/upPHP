@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2023 at 10:06 PM
+-- Generation Time: Feb 27, 2023 at 09:33 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -1295,16 +1295,6 @@ CREATE TABLE `tbl_shipping_cost` (
   `country_id` int(11) NOT NULL,
   `amount` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_shipping_cost`
---
-
-INSERT INTO `tbl_shipping_cost` (`shipping_cost_id`, `country_id`, `amount`) VALUES
-(1, 228, '11'),
-(2, 167, '10'),
-(3, 13, '8'),
-(4, 230, '0');
 
 -- --------------------------------------------------------
 
