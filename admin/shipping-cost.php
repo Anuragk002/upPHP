@@ -1,4 +1,9 @@
-<?php require_once('header.php'); ?>
+<?php require_once('header.php');
+if($_SESSION['user']['role']!="Super Admin") {
+	header('location: index.php');
+	exit;
+}
+?>
 
 <?php
 
@@ -69,17 +74,17 @@ if(isset($_POST['form2'])) {
 
             <?php if($error_message): ?>
             <div class="callout callout-danger">
-            
-            <p>
-            <?php echo $error_message; ?>
-            </p>
+
+                <p>
+                    <?php echo $error_message; ?>
+                </p>
             </div>
             <?php endif; ?>
 
             <?php if($success_message): ?>
             <div class="callout callout-success">
-            
-            <p><?php echo $success_message; ?></p>
+
+                <p><?php echo $success_message; ?></p>
             </div>
             <?php endif; ?>
 
@@ -107,8 +112,9 @@ if(isset($_POST['form2'])) {
                                         }
 
                                         ?>
-                                        <option value="<?php echo $row['country_id']; ?>"><?php echo $row['country_name']; ?></option>
-                                        <?php
+                                    <option value="<?php echo $row['country_id']; ?>">
+                                        <?php echo $row['country_name']; ?></option>
+                                    <?php
                                     }
                                     ?>
                                 </select>
@@ -140,32 +146,32 @@ if(isset($_POST['form2'])) {
 
 
 <section class="content-header">
-	<div class="content-header-left">
-		<h1>View Shipping Costs</h1>
-	</div>
+    <div class="content-header-left">
+        <h1>View Shipping Costs</h1>
+    </div>
 </section>
 
 
 <section class="content">
 
-  <div class="row">
-    <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
 
 
-      <div class="box box-info">
-        
-        <div class="box-body table-responsive">
-          <table id="example1" class="table table-bordered table-hover table-striped">
-			<thead>
-			    <tr>
-			        <th>#</th>
-			        <th>Country Name</th>
-                    <th>Country Amount</th>
-			        <th>Action</th>
-			    </tr>
-			</thead>
-            <tbody>
-            	<?php
+            <div class="box box-info">
+
+                <div class="box-body table-responsive">
+                    <table id="example1" class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Country Name</th>
+                                <th>Country Amount</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
             	$i=0;
             	$statement = $pdo->prepare("SELECT * 
                                         FROM tbl_shipping_cost t1
@@ -177,24 +183,28 @@ if(isset($_POST['form2'])) {
             	foreach ($result as $row) {
             		$i++;
             		?>
-					<tr>
-	                    <td><?php echo $i; ?></td>
-	                    <td><?php echo $row['country_name']; ?></td>
-                        <td><?php echo $row['amount']; ?></td>
-	                    <td>
-	                        <a href="shipping-cost-edit.php?id=<?php echo $row['shipping_cost_id']; ?>" class="btn btn-primary btn-xs">Edit</a>
-	                        <a href="#" class="btn btn-danger btn-xs" data-href="shipping-cost-delete.php?id=<?php echo $row['shipping_cost_id']; ?>" data-toggle="modal" data-target="#confirm-delete">Delete</a>
-	                    </td>
-	                </tr>
-            		<?php
+                            <tr>
+                                <td><?php echo $i; ?></td>
+                                <td><?php echo $row['country_name']; ?></td>
+                                <td><?php echo $row['amount']; ?></td>
+                                <td>
+                                    <a href="shipping-cost-edit.php?id=<?php echo $row['shipping_cost_id']; ?>"
+                                        class="btn btn-primary btn-xs">Edit</a>
+                                    <a href="#" class="btn btn-danger btn-xs"
+                                        data-href="shipping-cost-delete.php?id=<?php echo $row['shipping_cost_id']; ?>"
+                                        data-toggle="modal" data-target="#confirm-delete">Delete</a>
+                                </td>
+                            </tr>
+                            <?php
             	}
             	?>
-            </tbody>
-          </table>
-        </div>
-      </div> 
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-      <h4 style="background: #dd4b39;color:#fff;padding:10px 20px;">NB: If a country does not exist in the above list, the following "Rest of the World" shipping cost will be applied upon that.</h4>
+            <h4 style="background: #dd4b39;color:#fff;padding:10px 20px;">NB: If a country does not exist in the above
+                list, the following "Rest of the World" shipping cost will be applied upon that.</h4>
 
 </section>
 
@@ -244,7 +254,8 @@ if(isset($_POST['form2'])) {
 </section>
 
 
-<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

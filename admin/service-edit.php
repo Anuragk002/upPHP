@@ -1,4 +1,9 @@
-<?php require_once('header.php'); ?>
+<?php require_once('header.php');
+if($_SESSION['user']['role']!="Super Admin") {
+	header('location: index.php');
+	exit;
+}
+?>
 
 <?php
 if(isset($_POST['form1'])) {
@@ -66,12 +71,12 @@ if(!isset($_REQUEST['id'])) {
 ?>
 
 <section class="content-header">
-	<div class="content-header-left">
-		<h1>Edit Service</h1>
-	</div>
-	<div class="content-header-right">
-		<a href="service.php" class="btn btn-primary btn-sm">View All</a>
-	</div>
+    <div class="content-header-left">
+        <h1>Edit Service</h1>
+    </div>
+    <div class="content-header-right">
+        <a href="service.php" class="btn btn-primary btn-sm">View All</a>
+    </div>
 </section>
 
 <?php
@@ -87,62 +92,65 @@ foreach ($result as $row) {
 
 <section class="content">
 
-	<div class="row">
-		<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
 
-			<?php if($error_message): ?>
-			<div class="callout callout-danger">
-				<p>
-				<?php echo $error_message; ?>
-				</p>
-			</div>
-			<?php endif; ?>
+            <?php if($error_message): ?>
+            <div class="callout callout-danger">
+                <p>
+                    <?php echo $error_message; ?>
+                </p>
+            </div>
+            <?php endif; ?>
 
-			<?php if($success_message): ?>
-			<div class="callout callout-success">
-				<p><?php echo $success_message; ?></p>
-			</div>
-			<?php endif; ?>
+            <?php if($success_message): ?>
+            <div class="callout callout-success">
+                <p><?php echo $success_message; ?></p>
+            </div>
+            <?php endif; ?>
 
-			<form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
-				<input type="hidden" name="current_photo" value="<?php echo $photo; ?>">
-				<div class="box box-info">
-					<div class="box-body">
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Title <span>*</span></label>
-							<div class="col-sm-6">
-								<input type="text" autocomplete="off" class="form-control" name="title" value="<?php echo $title; ?>">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Content <span>*</span></label>
-							<div class="col-sm-6">
-								<textarea class="form-control" name="content" style="height:140px;"><?php echo $content; ?></textarea>
-							</div>
-						</div>	
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Existing Photo</label>
-							<div class="col-sm-9" style="padding-top:5px">
-								<img src="../assets/uploads/<?php echo $photo; ?>" alt="Service Photo" style="width:180px;">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Photo </label>
-							<div class="col-sm-6" style="padding-top:5px">
-								<input type="file" name="photo">(Only jpg, jpeg, gif and png are allowed)
-							</div>
-						</div>	
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label"></label>
-							<div class="col-sm-6">
-								<button type="submit" class="btn btn-success pull-left" name="form1">Submit</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
+            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="current_photo" value="<?php echo $photo; ?>">
+                <div class="box box-info">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">Title <span>*</span></label>
+                            <div class="col-sm-6">
+                                <input type="text" autocomplete="off" class="form-control" name="title"
+                                    value="<?php echo $title; ?>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">Content <span>*</span></label>
+                            <div class="col-sm-6">
+                                <textarea class="form-control" name="content"
+                                    style="height:140px;"><?php echo $content; ?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">Existing Photo</label>
+                            <div class="col-sm-9" style="padding-top:5px">
+                                <img src="../assets/uploads/<?php echo $photo; ?>" alt="Service Photo"
+                                    style="width:180px;">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">Photo </label>
+                            <div class="col-sm-6" style="padding-top:5px">
+                                <input type="file" name="photo">(Only jpg, jpeg, gif and png are allowed)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-6">
+                                <button type="submit" class="btn btn-success pull-left" name="form1">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
 </section>
 

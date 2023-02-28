@@ -1,4 +1,9 @@
-<?php require_once('header.php'); ?>
+<?php require_once('header.php');
+if($_SESSION['user']['role']!="Super Admin") {
+	header('location: index.php');
+	exit;
+}
+?>
 
 <?php
 if(isset($_POST['form1'])) {
@@ -48,88 +53,92 @@ if(isset($_POST['form1'])) {
 ?>
 
 <section class="content-header">
-	<div class="content-header-left">
-		<h1>Add Slider</h1>
-	</div>
-	<div class="content-header-right">
-		<a href="slider.php" class="btn btn-primary btn-sm">View All</a>
-	</div>
+    <div class="content-header-left">
+        <h1>Add Slider</h1>
+    </div>
+    <div class="content-header-right">
+        <a href="slider.php" class="btn btn-primary btn-sm">View All</a>
+    </div>
 </section>
 
 
 <section class="content">
 
-	<div class="row">
-		<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
 
-			<?php if($error_message): ?>
-			<div class="callout callout-danger">
-				<p>
-					<?php echo $error_message; ?>
-				</p>
-			</div>
-			<?php endif; ?>
+            <?php if($error_message): ?>
+            <div class="callout callout-danger">
+                <p>
+                    <?php echo $error_message; ?>
+                </p>
+            </div>
+            <?php endif; ?>
 
-			<?php if($success_message): ?>
-			<div class="callout callout-success">
-				<p><?php echo $success_message; ?></p>
-			</div>
-			<?php endif; ?>
+            <?php if($success_message): ?>
+            <div class="callout callout-success">
+                <p><?php echo $success_message; ?></p>
+            </div>
+            <?php endif; ?>
 
-			<form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
-				<div class="box box-info">
-					<div class="box-body">
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Photo <span>*</span></label>
-							<div class="col-sm-9" style="padding-top:5px">
-								<input type="file" name="photo">(Only jpg, jpeg, gif and png are allowed)
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Heading </label>
-							<div class="col-sm-6">
-								<input type="text" autocomplete="off" class="form-control" name="heading" value="<?php if(isset($_POST['heading'])){echo $_POST['heading'];} ?>">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Content </label>
-							<div class="col-sm-6">
-								<textarea class="form-control" name="content" style="height:140px;"><?php if(isset($_POST['content'])){echo $_POST['content'];} ?></textarea>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Button Text </label>
-							<div class="col-sm-6">
-								<input type="text" autocomplete="off" class="form-control" name="button_text" value="<?php if(isset($_POST['button_text'])){echo $_POST['button_text'];} ?>">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Button URL </label>
-							<div class="col-sm-6">
-								<input type="text" autocomplete="off" class="form-control" name="button_url" value="<?php if(isset($_POST['button_url'])){echo $_POST['button_url'];} ?>">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label">Position </label>
-							<div class="col-sm-6">
-								<select name="position" class="form-control">
-									<option value="Left">Left</option>
-									<option value="Center">Center</option>
-									<option value="Right">Right</option>
-								</select>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="" class="col-sm-2 control-label"></label>
-							<div class="col-sm-6">
-								<button type="submit" class="btn btn-success pull-left" name="form1">Submit</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
+            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                <div class="box box-info">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">Photo <span>*</span></label>
+                            <div class="col-sm-9" style="padding-top:5px">
+                                <input type="file" name="photo">(Only jpg, jpeg, gif and png are allowed)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">Heading </label>
+                            <div class="col-sm-6">
+                                <input type="text" autocomplete="off" class="form-control" name="heading"
+                                    value="<?php if(isset($_POST['heading'])){echo $_POST['heading'];} ?>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">Content </label>
+                            <div class="col-sm-6">
+                                <textarea class="form-control" name="content"
+                                    style="height:140px;"><?php if(isset($_POST['content'])){echo $_POST['content'];} ?></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">Button Text </label>
+                            <div class="col-sm-6">
+                                <input type="text" autocomplete="off" class="form-control" name="button_text"
+                                    value="<?php if(isset($_POST['button_text'])){echo $_POST['button_text'];} ?>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">Button URL </label>
+                            <div class="col-sm-6">
+                                <input type="text" autocomplete="off" class="form-control" name="button_url"
+                                    value="<?php if(isset($_POST['button_url'])){echo $_POST['button_url'];} ?>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">Position </label>
+                            <div class="col-sm-6">
+                                <select name="position" class="form-control">
+                                    <option value="Left">Left</option>
+                                    <option value="Center">Center</option>
+                                    <option value="Right">Right</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-6">
+                                <button type="submit" class="btn btn-success pull-left" name="form1">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
 </section>
 
