@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2023 at 08:54 PM
+-- Generation Time: Feb 28, 2023 at 09:58 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -115,7 +115,8 @@ CREATE TABLE `tbl_customer` (
 --
 
 INSERT INTO `tbl_customer` (`cust_id`, `cust_name`, `cust_gender`, `cust_cname`, `cust_email`, `cust_phone`, `cust_country`, `cust_address`, `cust_city`, `cust_state`, `cust_zip`, `cust_b_name`, `cust_b_cname`, `cust_b_phone`, `cust_b_country`, `cust_b_address`, `cust_b_city`, `cust_b_state`, `cust_b_zip`, `cust_s_name`, `cust_s_gender`, `cust_s_cname`, `cust_s_phone`, `cust_s_email`, `cust_s_country`, `cust_s_address`, `cust_s_city`, `cust_s_state`, `cust_s_zip`, `cust_password`, `cust_token`, `cust_datetime`, `cust_timestamp`, `cust_status`, `cust_guest`) VALUES
-(26, 'Pankaj Giri', 'male', '', 'pankaj143giri@gmail.com', '1234567890', 0, '', '', '', '', '', '', '', 0, '', '', '', '', 'Pankaj Giri', 'male', '', '00000', 'pankaj143giri@gmail.com', 249, 'er', 'adf', 'er', '2345', '827ccb0eea8a706c4c34a16891f84e7b', '', '2023-02-03 07:10:13', '', 1, 0);
+(26, 'Pankaj Giri', 'male', '', 'pankaj143giri@gmail.com', '1234567890', 0, '', '', '', '', '', '', '', 0, '', '', '', '', 'Pankaj Giri', 'male', '', '00000', 'pankaj143giri@gmail.com', 249, 'er', 'adf', 'er', '2345', '827ccb0eea8a706c4c34a16891f84e7b', '', '2023-02-03 07:10:13', '', 1, 0),
+(27, 'pankaj', 'male', '', 'tomar69517@wiroute.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', 'pankaj', '', '', '', 'tomar69517@wiroute.com', 0, '', '', '', '', '827ccb0eea8a706c4c34a16891f84e7b', '40336afc733e823cca1c234aa8fa2184', '2023-02-28 12:13:46', '1677615226', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -377,6 +378,14 @@ CREATE TABLE `tbl_order` (
   `payment_id` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tbl_order`
+--
+
+INSERT INTO `tbl_order` (`id`, `product_id`, `product_name`, `pkg_name`, `quantity`, `pkg_price`, `payment_id`) VALUES
+(1, 10003, 'Viagra 100mg', '180 PILLS', '1', '210', '1677615918'),
+(2, 10008, 'Bensedin', '90 PILLS', '1', '370', '1677616503');
+
 -- --------------------------------------------------------
 
 --
@@ -445,7 +454,7 @@ CREATE TABLE `tbl_payment` (
   `card_month` varchar(10) NOT NULL,
   `card_year` varchar(10) NOT NULL,
   `bank_transaction_info` text NOT NULL,
-  `payment_method` varchar(20) NOT NULL,
+  `payment_method` varchar(50) NOT NULL,
   `payment_status` varchar(25) NOT NULL,
   `tracking_id` varchar(100) NOT NULL,
   `tracking_link` text NOT NULL,
@@ -462,6 +471,14 @@ CREATE TABLE `tbl_payment` (
   `s_country` int(11) NOT NULL,
   `s_zip` varchar(30) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_payment`
+--
+
+INSERT INTO `tbl_payment` (`id`, `customer_id`, `customer_name`, `customer_email`, `payment_date`, `order_date`, `txnid`, `paid_amount`, `card_number`, `card_cvv`, `card_month`, `card_year`, `bank_transaction_info`, `payment_method`, `payment_status`, `tracking_id`, `tracking_link`, `tracking_date`, `shipping_status`, `shipping_date`, `payment_id`, `s_name`, `s_phone`, `s_email`, `s_address`, `s_city`, `s_state`, `s_country`, `s_zip`) VALUES
+(10001, 27, 'pankaj', 'tomar69517@wiroute.com', '', '2023-02-28 12:25:18', '', 210, '', '', '', '', '', 'Paypal/Western Union', 'Pending', '-1', '', '', 'Pending', '', '1677615918', 'pankaj', '1234321', 'tomar69517@wiroute.com', 'df', 'sln', 'up', 247, '1213'),
+(10002, 27, 'pankaj', 'tomar69517@wiroute.com', '', '2023-02-28 12:35:03', '', 370, '', '', '', '', '', 'Paypal/Western Union', 'Pending', '-1', '', '', 'Pending', '', '1677616503', 'pankaj', '1234321', 'tomar69517@wiroute.com', 'er3', 'sln', 'up', 247, '1213');
 
 -- --------------------------------------------------------
 
@@ -525,12 +542,12 @@ CREATE TABLE `tbl_product` (
 
 INSERT INTO `tbl_product` (`p_id`, `p_name`, `p_old_price`, `p_current_price`, `p_qty`, `p_featured_photo`, `p_description`, `p_short_description`, `p_feature`, `p_condition`, `p_return_policy`, `p_total_view`, `p_is_featured`, `p_is_active`, `tcat_id`) VALUES
 (10002, 'Cialis 20mg', '', '', 100, 'product-featured-10002.jpg', '<p><br></p>', 'Cialis is a treatment for adult men with erectile dysfunction. This is when a man cannot get, or keep a hard, erect penis suitable for sexual activity. CIALIS has been shown to significantly improve the ability to obtain a hard erect penis suitable for sexual activity.\r\nIt is also used to treat urinary symptoms caused due to an enlargement of the prostate gland (a walnut-sized gland located just below the bladder that secretes fluid to nourish and transport the sperm) in older men. ', '', '', '', 6, 1, 1, 10004),
-(10003, 'Viagra 100mg', '', '', 100, 'product-featured-10003.png', '', 'Viagra 100mg Tablet is a prescription medicine used to treat erectile dysfunction (impotence) in men. It works by increasing blood flow to the penis. This helps men to get or maintain an erection. It belongs to a group of medicines known as phosphodiesterase type 5 (PDE 5) inhibitors.', '', '', '', 6, 1, 1, 10004),
+(10003, 'Viagra 100mg', '', '', 100, 'product-featured-10003.png', '', 'Viagra 100mg Tablet is a prescription medicine used to treat erectile dysfunction (impotence) in men. It works by increasing blood flow to the penis. This helps men to get or maintain an erection. It belongs to a group of medicines known as phosphodiesterase type 5 (PDE 5) inhibitors.', '', '', '', 8, 1, 1, 10004),
 (10004, 'Belbien (Zolpidem) 10mg', '', '', 100, 'product-featured-10004.png', '', 'Zolpidem is used for a short time to treat a certain sleep problem (insomnia) in adults. If you have trouble falling asleep, it helps you fall asleep faster, so you can get a better night\'s rest. Zolpidem belongs to a class of drugs called sedative-hypnotics. It acts on your brain to produce a calming effect.', '', '', '', 1, 1, 1, 10003),
 (10005, 'Zoltrate 10mg', '', '', 100, 'product-featured-10005.png', '', 'The name of your medicine is Zolpidem 5mg or 10mg Tablets (called zolpidem throughout this leaflet). Zolpidem contains a medicine called zolpidem tartrate. This belongs to a group of medicines called hypnotics. It works by acting on your brain to help you sleep.', '', '', '', 6, 1, 1, 10003),
 (10006, 'Lypin 10mg', '', '', 100, 'product-featured-10006.png', '', 'Lypin 10mg Tablet is used for short-term treatment of insomnia. It reduces sleep onset time and frequent awakening at night. This medicine improves sleep maintenance and therefore ensures sound sleep.', '', '', '', 4, 1, 1, 10003),
 (10007, 'Rivotril 2mg', '', '', 100, 'product-featured-10007.jpg', '', 'Rivotril 2mg Tablet belongs to a class of medicines called benzodiazepines and is used to treat anxiety, stop seizures (fits) or relax tense muscles. This can also help relieve difficulty sleeping (insomnia), and is usually prescribed for a short period of time, if used to treat sleeping problems.', '', '', '', 10, 1, 1, 10000),
-(10008, 'Bensedin', '', '', 100, 'product-featured-10008.png', '', 'Bensedin (Diazepam) is indicated for the management of anxiety disorders or for the short-term relief of the symptoms of anxiety. Anxiety or tension associated with the stress of everyday life usually does not require treatment with an anxiolytic.\r\n\r\nIn acute alcohol withdrawal, diazepam may be useful in the symptomatic relief of acute agitation, tremor, impending or acute delirium tremens and hallucinosis.', '', '', '', 7, 1, 1, 10000),
+(10008, 'Bensedin', '', '', 100, 'product-featured-10008.png', '', 'Bensedin (Diazepam) is indicated for the management of anxiety disorders or for the short-term relief of the symptoms of anxiety. Anxiety or tension associated with the stress of everyday life usually does not require treatment with an anxiolytic.\r\n\r\nIn acute alcohol withdrawal, diazepam may be useful in the symptomatic relief of acute agitation, tremor, impending or acute delirium tremens and hallucinosis.', '', '', '', 9, 1, 1, 10000),
 (10009, 'Lorazepam', '', '', 100, 'product-featured-10009.jpg', '', 'Lorazepam is used to relieve anxiety. Lorazepam is also used to treat insomnia caused by anxiety or temporary situational stress. Lorazepam is in a class of medications called benzodiazepines. It works by slowing activity in the brain to allow for relaxation.', '', '', '', 4, 1, 1, 10000),
 (10010, 'Clonazepam 2mg', '', '', 100, 'product-featured-10010.png', '', 'Clonazepam belongs to a class of medicines called benzodiazepines and is used to treat anxiety, stop seizures (fits) or relax tense muscles.', '', '', '', 3, 1, 1, 10000),
 (10011, 'Ksalol 1mg', '', '', 100, 'product-featured-10011.png', '', 'Ksalol belongs to a class of medications known as benzodiazepines. It\'s prescribed to treat generalized anxiety disorder, panic disorder and insomnia.', '', '', '', 3, 1, 1, 10000),
@@ -1164,7 +1181,7 @@ ALTER TABLE `tbl_video`
 -- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tbl_color`
 --
@@ -1179,7 +1196,7 @@ ALTER TABLE `tbl_country`
 -- AUTO_INCREMENT for table `tbl_customer`
 --
 ALTER TABLE `tbl_customer`
-  MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 --
 -- AUTO_INCREMENT for table `tbl_customer_message`
 --
@@ -1209,7 +1226,7 @@ ALTER TABLE `tbl_mid_category`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tbl_page`
 --
@@ -1219,7 +1236,7 @@ ALTER TABLE `tbl_page`
 -- AUTO_INCREMENT for table `tbl_payment`
 --
 ALTER TABLE `tbl_payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10001;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10003;
 --
 -- AUTO_INCREMENT for table `tbl_photo`
 --
