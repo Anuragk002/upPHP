@@ -486,9 +486,9 @@ if($success_message != '') {
                                     <b>Payment Id:</b> <?php echo $row['payment_id']; ?><br>
                                     <b>Date:</b> <?php echo $row['payment_date']; ?><br>
                                     <b>Transaction Information:</b> <br><?php echo $row['bank_transaction_info']; ?><br>
-                                    <?php elseif($row['payment_method'] == 'COD/Pay Later'): ?>
+                                    <?php elseif($row['payment_method'] == 'Paypal/Western Union/Other'): ?>
                                     <b>Payment Method:</b>
-                                    <?php echo '<span style="color:red;"><b>COD/Pay Later</b></span>'; ?><br>
+                                    <?php echo '<span style="color:red;"><b>Paypal/Western Union/Other</b></span>'; ?><br>
                                     <b>Date:</b> <?php echo $row['payment_date']; ?><br>
 
                                     <?php endif; ?>

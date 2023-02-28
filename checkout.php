@@ -269,7 +269,8 @@ foreach ($result as $row) {
                                         <label for=""><?php echo LANG_VALUE_34; ?> *</label>
                                         <select name="payment_method" class="form-control" required>
                                             <option value=""><?php echo LANG_VALUE_35; ?></option>
-                                            <option value="cod"><?php echo "Pay Later / Cash On Delivery"; ?></option>
+                                            <option value="cod"><?php echo "Paypal/Western Union/Other Methods"; ?>
+                                            </option>
                                         </select>
                                         <br>
                                         <p>You will receive a payment link over email to complete the payment.</p>

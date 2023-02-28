@@ -62,22 +62,31 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                         ?>
                 <div class="col-md-<?php echo $bootstrapColWidth; ?> ">
                     <div class="item item-product-cat">
-                        
-                            <div class="inner">
-                                <a href="product.php?id=<?php echo $row['p_id']; ?>">
-                                    <div class="thumb">
-                                        <div class="photo"
-                                            style="background-image:url(assets/uploads/<?php echo $row['p_featured_photo']; ?>);">
-                                        </div>
-                                        <div class="overlay"></div>
-                                    </div>
-                                    <div class="text">
-                                        <h5><a
-                                                href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a>
-                                        </h5>
 
-                                        <h4>
-                                            <?php
+                        <div class="inner">
+                            <a href="product.php?id=<?php echo $row['p_id']; ?>">
+                                <div class="thumb">
+                                    <div class="photo"
+                                        style="background-image:url(assets/uploads/<?php echo $row['p_featured_photo']; ?>);">
+                                    </div>
+                                    <div class="overlay"></div>
+                                </div>
+                                <div class="text">
+                                    <h5><a href="product.php?id=<?php echo $row['p_id']; ?>">
+                                            <?php #echo $row['p_name']; ?>
+                                            <?php 
+                                                    if(strlen($row['p_name'])>=30){
+                                                        echo substr($row['p_name'],0,30) .'...';
+                                                    }else{
+                                                        echo $row['p_name'];
+                                                    }
+                                                
+                                                ?>
+                                        </a>
+                                    </h5>
+
+                                    <h4>
+                                        <?php
                                                 $statement = $pdo->prepare("SELECT * FROM tbl_product_package WHERE p_id=?");
                                                 $statement->execute(array($row['p_id']));
                                                 $count_pkg=$statement->rowCount();
@@ -91,10 +100,10 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                                                     echo "$".min($pkg_price)." - $".max($pkg_price);
                                                 }
                                                 ?>
-                                        </h4>
+                                    </h4>
 
-                                        <div class="rating">
-                                            <?php
+                                    <div class="rating">
+                                        <?php
                                                         $t_rating = 0;
                                                         $statement1 = $pdo->prepare("SELECT * FROM tbl_rating WHERE p_id=?");
                                                         $statement1->execute(array($row['p_id']));
@@ -109,7 +118,7 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                                                             $avg_rating = $t_rating / $tot_rating;
                                                         }
                                                     ?>
-                                            <?php
+                                        <?php
                                                         if($avg_rating == 0) {
                                                             echo '';
                                                         }
@@ -152,29 +161,29 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                                                         else {
                                                             for($i=1;$i<=5;$i++) {
                                                                 if($i>$avg_rating): ?>
-                                            <i class="fa fa-star-o"></i>
-                                            <?php else: ?>
-                                            <i class="fa fa-star"></i>
-                                            <?php endif; ?>
-                                            <?php
+                                        <i class="fa fa-star-o"></i>
+                                        <?php else: ?>
+                                        <i class="fa fa-star"></i>
+                                        <?php endif; ?>
+                                        <?php
                                                             }
                                                         }
                                                     ?>
-                                        </div>
-                                        <?php if($row['p_qty'] == 0): ?>
-                                        <div class="out-of-stock">
-                                            <div class="inner">
-                                                Out Of Stock
-                                            </div>
-                                        </div>
-                                        <?php else: ?>
-                                        <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i
-                                                    class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_154; ?></a></p>
-                                        <?php endif; ?>
                                     </div>
-                                </a>
-                            </div>
-                    </div>            
+                                    <?php if($row['p_qty'] == 0): ?>
+                                    <div class="out-of-stock">
+                                        <div class="inner">
+                                            Out Of Stock
+                                        </div>
+                                    </div>
+                                    <?php else: ?>
+                                    <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i
+                                                class="fa fa-shopping-cart"></i> <?php echo LANG_VALUE_154; ?></a></p>
+                                    <?php endif; ?>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <?php
                             $rownumber++;

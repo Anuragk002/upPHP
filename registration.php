@@ -39,10 +39,10 @@ if (isset($_POST['form1'])) {
         }
     }
 
-    if(empty($_POST['cust_phone'])) {
-        $valid = 0;
-        $error_message .= LANG_VALUE_124."<br>";
-    }
+    // if(empty($_POST['cust_phone'])) {
+    //     $valid = 0;
+    //     $error_message .= LANG_VALUE_124."<br>";
+    // }
 
     if(empty($_POST['cust_gender'])) {
         $valid = 0;
@@ -150,7 +150,8 @@ if (isset($_POST['form1'])) {
 }
 ?>
 
-<div class="page-banner" style="background-color:#444;background-image: url(assets/uploads/<?php echo $banner_registration; ?>);">
+<div class="page-banner"
+    style="background-color:#444;background-image: url(assets/uploads/<?php echo $banner_registration; ?>);">
     <div class="inner">
         <h1><?php echo LANG_VALUE_16; ?></h1>
     </div>
@@ -166,7 +167,7 @@ if (isset($_POST['form1'])) {
                         <div class="row">
                             <div class="col-md-2"></div>
                             <div class="col-md-8">
-                                
+
                                 <?php
                                 
                                 if($success_message != '') {
@@ -185,25 +186,28 @@ if (isset($_POST['form1'])) {
 
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_102; ?> *</label>
-                                    <input type="text" class="form-control" required name="cust_name" value="<?php if(isset($_POST['cust_name'])){echo $_POST['cust_name'];} ?>">
+                                    <input type="text" class="form-control" required name="cust_name"
+                                        value="<?php if(isset($_POST['cust_name'])){echo $_POST['cust_name'];} ?>">
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo "Gender";#LANG_VALUE_106; ?><sup>*</sup></label>
-                                    <select name="cust_gender" class="form-control" required >
-                                        <option value="">Select Gender</option>                            
-                                        <option value="male">Male</option> 
-                                        <option value="female">Female</option>     
-                                        <option value="other">Other</option>   
+                                    <select name="cust_gender" class="form-control" required>
+                                        <option value="">Select Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_94; ?> *</label>
-                                    <input type="email" class="form-control" required name="cust_email" value="<?php if(isset($_POST['cust_email'])){echo $_POST['cust_email'];} ?>">
+                                    <input type="email" class="form-control" required name="cust_email"
+                                        value="<?php if(isset($_POST['cust_email'])){echo $_POST['cust_email'];} ?>">
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <label for=""><?php echo LANG_VALUE_104; ?> *</label>
-                                    <input type="text" class="form-control" required name="cust_phone" value="<?php if(isset($_POST['cust_phone'])){echo $_POST['cust_phone'];} ?>">
-                                </div>                               
+                                    <label for=""><?php echo LANG_VALUE_104; ?></label>
+                                    <input type="text" class="form-control" name="cust_phone"
+                                        value="<?php if(isset($_POST['cust_phone'])){echo $_POST['cust_phone'];} ?>">
+                                </div>
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_96; ?> *</label>
                                     <input type="password" required class="form-control" name="cust_password">
@@ -214,12 +218,13 @@ if (isset($_POST['form1'])) {
                                 </div>
                                 <div class="col-md-12 form-group">
                                     <label for=""></label>
-                                    <input type="submit" class="btn btn-md btn-primary" value="<?php echo LANG_VALUE_15; ?>" name="form1">
+                                    <input type="submit" class="btn btn-md btn-primary"
+                                        value="<?php echo LANG_VALUE_15; ?>" name="form1">
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </form>
-                </div>                
+                </div>
             </div>
         </div>
     </div>

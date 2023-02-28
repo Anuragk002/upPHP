@@ -117,8 +117,9 @@ $csrf = new CSRF_Protect();
         $table_total_price=$table_total_price +($arr_cart_p_qty[$i]*$arr_cart_pkg_price[$i]);
     }
     // Inserting payment details->
+    $payment_mthd="Paypal/Western Union/Other";
     $statement = $pdo->prepare("INSERT INTO tbl_payment (customer_id, customer_name, customer_email, payment_date,order_date, txnid, paid_amount, card_number, card_cvv, card_month, card_year, bank_transaction_info, payment_method, payment_status, tracking_id, tracking_link, tracking_date, shipping_status, payment_id, s_name, s_phone, s_email, s_address, s_city, s_state, s_country, s_zip) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-    $statement->execute(array($cust_id, $cust_name, $cust_email, '',$order_date,'', $table_total_price,'','','','','','COD/Pay Later','Pending',-1,'','','Pending',$order_number,$s_name,$s_phone,$s_email,$s_address,$s_city,$s_state,$s_country,$s_zip));
+    $statement->execute(array($cust_id, $cust_name, $cust_email, '',$order_date,'', $table_total_price,'','','','','',$payment_mthd,'Pending',-1,'','','Pending',$order_number,$s_name,$s_phone,$s_email,$s_address,$s_city,$s_state,$s_country,$s_zip));
 
     // Inserting the Order Details->
     for($i=0;$i<count($arr_cart_p_name);$i++) {
