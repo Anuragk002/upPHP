@@ -218,7 +218,7 @@ $csrf = new CSRF_Protect();
         <span style="color:black">Hello '.$s_name.',</span><br/>
         <span style="color:black">Your order has been placed successfully with Order ID: '.$order_number.'. Your payment status for this order is pending. We will contact you soon to complete the payment process.<br/>'.$status_details.'
         '. $order_details .'<br/>'.$shipping_address.'</span>
-        <span style="color:black"> Thanks for shopping with us. If you are facing any issue, Please contact us at'.$contact_email.'.</span><br/><br/>
+        <span style="color:black"> Thanks for shopping with us. If you are facing any issue, Please contact us at '.$contact_email.'.</span><br/><br/>
         <span style="color:black">
         <b>Thanks and Regards</b><br/>
         Unit Pharma Support Team<br/>

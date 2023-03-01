@@ -160,8 +160,17 @@ foreach ($result as $row) {
                                         <div class="overlay"></div>
                                     </div>
                                     <div class="text">
-                                        <h5><a
-                                                href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a>
+                                        <h5>
+                                            <a href="product.php?id=<?php echo $row['p_id']; ?>">
+                                                <?php 
+                                                    if(strlen($row['p_name'])>=30){
+                                                        echo substr($row['p_name'],0,30) .'...';
+                                                    }else{
+                                                        echo $row['p_name'];
+                                                    }
+                                                
+                                                ?>
+                                            </a>
                                         </h5>
                                         <h4>
                                             <?php
