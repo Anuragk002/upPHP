@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2023 at 09:58 PM
+-- Generation Time: Mar 01, 2023 at 08:35 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -541,21 +541,21 @@ CREATE TABLE `tbl_product` (
 --
 
 INSERT INTO `tbl_product` (`p_id`, `p_name`, `p_old_price`, `p_current_price`, `p_qty`, `p_featured_photo`, `p_description`, `p_short_description`, `p_feature`, `p_condition`, `p_return_policy`, `p_total_view`, `p_is_featured`, `p_is_active`, `tcat_id`) VALUES
-(10002, 'Cialis 20mg', '', '', 100, 'product-featured-10002.jpg', '<p><br></p>', 'Cialis is a treatment for adult men with erectile dysfunction. This is when a man cannot get, or keep a hard, erect penis suitable for sexual activity. CIALIS has been shown to significantly improve the ability to obtain a hard erect penis suitable for sexual activity.\r\nIt is also used to treat urinary symptoms caused due to an enlargement of the prostate gland (a walnut-sized gland located just below the bladder that secretes fluid to nourish and transport the sperm) in older men. ', '', '', '', 6, 1, 1, 10004),
-(10003, 'Viagra 100mg', '', '', 100, 'product-featured-10003.png', '', 'Viagra 100mg Tablet is a prescription medicine used to treat erectile dysfunction (impotence) in men. It works by increasing blood flow to the penis. This helps men to get or maintain an erection. It belongs to a group of medicines known as phosphodiesterase type 5 (PDE 5) inhibitors.', '', '', '', 8, 1, 1, 10004),
-(10004, 'Belbien (Zolpidem) 10mg', '', '', 100, 'product-featured-10004.png', '', 'Zolpidem is used for a short time to treat a certain sleep problem (insomnia) in adults. If you have trouble falling asleep, it helps you fall asleep faster, so you can get a better night\'s rest. Zolpidem belongs to a class of drugs called sedative-hypnotics. It acts on your brain to produce a calming effect.', '', '', '', 1, 1, 1, 10003),
-(10005, 'Zoltrate 10mg', '', '', 100, 'product-featured-10005.png', '', 'The name of your medicine is Zolpidem 5mg or 10mg Tablets (called zolpidem throughout this leaflet). Zolpidem contains a medicine called zolpidem tartrate. This belongs to a group of medicines called hypnotics. It works by acting on your brain to help you sleep.', '', '', '', 6, 1, 1, 10003),
-(10006, 'Lypin 10mg', '', '', 100, 'product-featured-10006.png', '', 'Lypin 10mg Tablet is used for short-term treatment of insomnia. It reduces sleep onset time and frequent awakening at night. This medicine improves sleep maintenance and therefore ensures sound sleep.', '', '', '', 4, 1, 1, 10003),
-(10007, 'Rivotril 2mg', '', '', 100, 'product-featured-10007.jpg', '', 'Rivotril 2mg Tablet belongs to a class of medicines called benzodiazepines and is used to treat anxiety, stop seizures (fits) or relax tense muscles. This can also help relieve difficulty sleeping (insomnia), and is usually prescribed for a short period of time, if used to treat sleeping problems.', '', '', '', 10, 1, 1, 10000),
-(10008, 'Bensedin', '', '', 100, 'product-featured-10008.png', '', 'Bensedin (Diazepam) is indicated for the management of anxiety disorders or for the short-term relief of the symptoms of anxiety. Anxiety or tension associated with the stress of everyday life usually does not require treatment with an anxiolytic.\r\n\r\nIn acute alcohol withdrawal, diazepam may be useful in the symptomatic relief of acute agitation, tremor, impending or acute delirium tremens and hallucinosis.', '', '', '', 9, 1, 1, 10000),
-(10009, 'Lorazepam', '', '', 100, 'product-featured-10009.jpg', '', 'Lorazepam is used to relieve anxiety. Lorazepam is also used to treat insomnia caused by anxiety or temporary situational stress. Lorazepam is in a class of medications called benzodiazepines. It works by slowing activity in the brain to allow for relaxation.', '', '', '', 4, 1, 1, 10000),
-(10010, 'Clonazepam 2mg', '', '', 100, 'product-featured-10010.png', '', 'Clonazepam belongs to a class of medicines called benzodiazepines and is used to treat anxiety, stop seizures (fits) or relax tense muscles.', '', '', '', 3, 1, 1, 10000),
-(10011, 'Ksalol 1mg', '', '', 100, 'product-featured-10011.png', '', 'Ksalol belongs to a class of medications known as benzodiazepines. It\'s prescribed to treat generalized anxiety disorder, panic disorder and insomnia.', '', '', '', 3, 1, 1, 10000),
-(10012, 'Xanax Alko 1mg', '', '', 100, 'product-featured-10012.png', '', 'Alko 1 MG (Xanax) Tablets are brand name for the drug alprazolam; it belongs to a group of drugs called benzodiazepines. This formula issued to treat anxiety and panic disorders. It is used to treat anxiety. It alters brain activity, calms it, and provides relief from panic attacks by relaxing the nerves.', '', '', '', 4, 1, 1, 10000),
-(10013, 'Alprazolam (Alpz-1) 1mg', '', '', 100, 'product-featured-10013.png', '', 'Alprazolam is used to relieve excess (moderate to severe) anxiety and to treat anxiety associated with depression.', '', '', '', 1, 1, 1, 10000),
-(10014, 'Rlam 1mg', '', '', 100, 'product-featured-10014.png', '', 'It belongs to a group of drugs called benzodiazepines. This formula is used to treat anxiety and panic disorders.', '', '', '', 1, 1, 1, 10000),
-(10015, 'Valium (Diazepam)', '', '', 100, 'product-featured-10015.png', '', 'Valium is a prescription medicine used to treat symptoms of anxiety, muscle spasm, alcohol withdrawal and as a sedative before surgery or to treat seizures. Valium may be used alone or with other medications.\r\nValium belongs to a class of drugs called Antianxiety Agents; Anxiolytics, Benzodiazepines; Skeletal Muscle Relaxants; Anticonvulsants, Benzodiazepine.', '', '', '', 2, 1, 1, 10000),
-(10016, 'Multivitamin Supreme, Zinc, Calcium and Vitamin D Capsule for Immunity, Energy, Overall Health', '', '', 100, 'product-featured-10016.jpeg', '', '', '', '', '', 22, 1, 1, 10001);
+(10002, 'Cialis 20mg', '', '', 100, 'product-featured-10002.jpg', '<p><br></p>', 'Cialis is a treatment for adult men with erectile dysfunction. This is when a man cannot get, or keep a hard, erect penis suitable for sexual activity. CIALIS has been shown to significantly improve the ability to obtain a hard erect penis suitable for sexual activity.\r\nIt is also used to treat urinary symptoms caused due to an enlargement of the prostate gland (a walnut-sized gland located just below the bladder that secretes fluid to nourish and transport the sperm) in older men. ', '', '', '', 13, 1, 1, 10004),
+(10003, 'Viagra 100mg', '', '', 100, 'product-featured-10003.png', '', 'Viagra 100mg Tablet is a prescription medicine used to treat erectile dysfunction (impotence) in men. It works by increasing blood flow to the penis. This helps men to get or maintain an erection. It belongs to a group of medicines known as phosphodiesterase type 5 (PDE 5) inhibitors.', '', '', '', 10, 1, 1, 10004),
+(10004, 'Belbien (Zolpidem) 10mg', '', '', 100, 'product-featured-10004.png', '', 'Zolpidem is used for a short time to treat a certain sleep problem (insomnia) in adults. If you have trouble falling asleep, it helps you fall asleep faster, so you can get a better night\'s rest. Zolpidem belongs to a class of drugs called sedative-hypnotics. It acts on your brain to produce a calming effect.', '', '', '', 2, 1, 1, 10003),
+(10005, 'Zoltrate 10mg', '', '', 100, 'product-featured-10005.png', '', 'The name of your medicine is Zolpidem 5mg or 10mg Tablets (called zolpidem throughout this leaflet). Zolpidem contains a medicine called zolpidem tartrate. This belongs to a group of medicines called hypnotics. It works by acting on your brain to help you sleep.', '', '', '', 11, 1, 1, 10003),
+(10006, 'Lypin 10mg', '', '', 100, 'product-featured-10006.png', '', 'Lypin 10mg Tablet is used for short-term treatment of insomnia. It reduces sleep onset time and frequent awakening at night. This medicine improves sleep maintenance and therefore ensures sound sleep.', '', '', '', 6, 1, 1, 10003),
+(10007, 'Rivotril 2mg', '', '', 100, 'product-featured-10007.png', '', 'Rivotril 2mg Tablet belongs to a class of medicines called benzodiazepines and is used to treat anxiety, stop seizures (fits) or relax tense muscles. This can also help relieve difficulty sleeping (insomnia), and is usually prescribed for a short period of time, if used to treat sleeping problems.', '', '', '', 13, 1, 1, 10000),
+(10008, 'Bensedin', '', '', 100, 'product-featured-10008.png', '', 'Bensedin (Diazepam) is indicated for the management of anxiety disorders or for the short-term relief of the symptoms of anxiety. Anxiety or tension associated with the stress of everyday life usually does not require treatment with an anxiolytic.\r\n\r\nIn acute alcohol withdrawal, diazepam may be useful in the symptomatic relief of acute agitation, tremor, impending or acute delirium tremens and hallucinosis.', '', '', '', 14, 1, 1, 10000),
+(10009, 'Lorazepam', '', '', 100, 'product-featured-10009.jpg', '', 'Lorazepam is used to relieve anxiety. Lorazepam is also used to treat insomnia caused by anxiety or temporary situational stress. Lorazepam is in a class of medications called benzodiazepines. It works by slowing activity in the brain to allow for relaxation.', '', '', '', 7, 1, 1, 10000),
+(10010, 'Clonazepam 2mg', '', '', 100, 'product-featured-10010.png', '', 'Clonazepam belongs to a class of medicines called benzodiazepines and is used to treat anxiety, stop seizures (fits) or relax tense muscles.', '', '', '', 4, 1, 1, 10000),
+(10011, 'Ksalol 1mg', '', '', 100, 'product-featured-10011.png', '', 'Ksalol belongs to a class of medications known as benzodiazepines. It\'s prescribed to treat generalized anxiety disorder, panic disorder and insomnia.', '', '', '', 10, 1, 1, 10000),
+(10012, 'Xanax Alko 1mg', '', '', 100, 'product-featured-10012.png', '', 'Alko 1 MG (Xanax) Tablets are brand name for the drug alprazolam; it belongs to a group of drugs called benzodiazepines. This formula issued to treat anxiety and panic disorders. It is used to treat anxiety. It alters brain activity, calms it, and provides relief from panic attacks by relaxing the nerves.', '', '', '', 5, 1, 1, 10000),
+(10013, 'Alprazolam (Alpz-1) 1mg', '', '', 100, 'product-featured-10013.png', '', 'Alprazolam is used to relieve excess (moderate to severe) anxiety and to treat anxiety associated with depression.', '', '', '', 2, 1, 1, 10000),
+(10014, 'Rlam 1mg', '', '', 100, 'product-featured-10014.png', '', 'It belongs to a group of drugs called benzodiazepines. This formula is used to treat anxiety and panic disorders.', '', '', '', 2, 1, 1, 10000),
+(10015, 'Valium (Diazepam)', '', '', 100, 'product-featured-10015.png', '', 'Valium is a prescription medicine used to treat symptoms of anxiety, muscle spasm, alcohol withdrawal and as a sedative before surgery or to treat seizures. Valium may be used alone or with other medications.\r\nValium belongs to a class of drugs called Antianxiety Agents; Anxiolytics, Benzodiazepines; Skeletal Muscle Relaxants; Anticonvulsants, Benzodiazepine.', '', '', '', 33, 1, 1, 10000),
+(10016, 'Multivitamin Supreme, Zinc, Calcium and Vitamin D Capsule for Immunity, Energy, Overall Health', '', '', 100, 'product-featured-10016.jpeg', '', '', '', '', '', 24, 1, 0, 10001);
 
 -- --------------------------------------------------------
 
@@ -587,26 +587,16 @@ CREATE TABLE `tbl_product_package` (
 --
 
 INSERT INTO `tbl_product_package` (`id`, `p_id`, `pkg_name`, `pkg_price`) VALUES
-(10038, 10002, '180 PILLS', 180),
-(10039, 10002, '360 PILLS', 289),
 (10040, 10003, '180 PILLS', 210),
 (10041, 10003, '360 PILLS', 297),
 (10042, 10004, '90 PILLS', 360),
 (10043, 10004, '180 PILLS', 549),
-(10044, 10005, '90 PILLS', 330),
-(10045, 10005, '180 PILLS', 510),
 (10046, 10006, '90 PILLS', 330),
 (10047, 10006, '180 PILLS', 565),
-(10052, 10007, '90 PILLS', 329),
-(10053, 10007, '180 PILLS', 459),
-(10054, 10008, '90 PILLS', 370),
-(10055, 10008, '180 PILLS', 490),
 (10060, 10009, '90 PILLS', 349),
 (10061, 10009, '180 PILLS', 478),
 (10066, 10010, '90 PILLS', 350),
 (10067, 10010, '180 PILLS', 580),
-(10068, 10011, '90 PILLS', 380),
-(10069, 10011, '180 PILLS', 470),
 (10072, 10013, '90 PILLS', 319),
 (10073, 10013, '180 PILLS', 479),
 (10074, 10014, '90 PILLS', 329),
@@ -615,7 +605,17 @@ INSERT INTO `tbl_product_package` (`id`, `p_id`, `pkg_name`, `pkg_price`) VALUES
 (10081, 10015, '180 PILLS', 488),
 (10083, 10012, '90 PILLS', 355),
 (10084, 10012, '180 PILLS', 488),
-(10086, 10016, '90 PILLS', 200);
+(10087, 10016, '90 PILLS', 200),
+(10098, 10011, '90 PILLS', 380),
+(10099, 10011, '180 PILLS', 470),
+(10102, 10008, '90 PILLS', 370),
+(10103, 10008, '180 PILLS', 490),
+(10106, 10007, '90 PILLS', 329),
+(10107, 10007, '180 PILLS', 459),
+(10126, 10002, '180 PILLS', 180),
+(10127, 10002, '360 PILLS', 289),
+(10128, 10005, '90 PILLS', 330),
+(10129, 10005, '180 PILLS', 510);
 
 -- --------------------------------------------------------
 
@@ -637,15 +637,13 @@ INSERT INTO `tbl_product_photo` (`pp_id`, `photo`, `p_id`) VALUES
 (10002, '10002.jpg', 10002),
 (10003, '10003.jpg', 10002),
 (10004, '10004.jpg', 10003),
-(10006, '10006.jpg', 10007),
-(10007, '10007.jpeg', 10008),
-(10008, '10008.gif', 10008),
-(10009, '10009.jpg', 10007),
 (10010, '10010.jpg', 10009),
-(10011, '10011.jpg', 10011),
 (10014, '10014.png', 10009),
 (10015, '10015.jpeg', 10016),
-(10016, '10016.jpeg', 10016);
+(10016, '10016.jpeg', 10016),
+(10017, '10017.jpg', 10011),
+(10019, '10019.png', 10008),
+(10021, '10021.png', 10007);
 
 -- --------------------------------------------------------
 
@@ -678,21 +676,21 @@ CREATE TABLE `tbl_rating` (
 --
 
 INSERT INTO `tbl_rating` (`rt_id`, `p_id`, `cust_id`, `comment`, `rating`) VALUES
-(10022, 10002, -2, '', 5),
 (10023, 10003, -2, '', 5),
 (10024, 10004, -2, '', 5),
-(10025, 10005, -2, '', 5),
 (10026, 10006, -2, '', 5),
-(10029, 10007, -2, '', 5),
-(10030, 10008, -2, '', 5),
 (10033, 10009, -2, '', 5),
 (10036, 10010, -2, '', 5),
-(10037, 10011, -2, '', 5),
 (10039, 10013, -2, '', 5),
 (10040, 10014, -2, '', 5),
 (10043, 10015, -2, '', 5),
 (10045, 10012, -2, '', 5),
-(10047, 10016, -2, '', 5);
+(10048, 10016, -2, '', 5),
+(10054, 10011, -2, '', 5),
+(10056, 10008, -2, '', 5),
+(10058, 10007, -2, '', 5),
+(10068, 10002, -2, '', 5),
+(10069, 10005, -2, '', 5);
 
 -- --------------------------------------------------------
 
@@ -1181,7 +1179,7 @@ ALTER TABLE `tbl_video`
 -- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_color`
 --
@@ -1261,12 +1259,12 @@ ALTER TABLE `tbl_product_color`
 -- AUTO_INCREMENT for table `tbl_product_package`
 --
 ALTER TABLE `tbl_product_package`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10087;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10130;
 --
 -- AUTO_INCREMENT for table `tbl_product_photo`
 --
 ALTER TABLE `tbl_product_photo`
-  MODIFY `pp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10017;
+  MODIFY `pp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10022;
 --
 -- AUTO_INCREMENT for table `tbl_product_size`
 --
@@ -1276,7 +1274,7 @@ ALTER TABLE `tbl_product_size`
 -- AUTO_INCREMENT for table `tbl_rating`
 --
 ALTER TABLE `tbl_rating`
-  MODIFY `rt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10048;
+  MODIFY `rt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10070;
 --
 -- AUTO_INCREMENT for table `tbl_service`
 --

@@ -249,26 +249,28 @@
                 <div class="product">
                     <div class="row">
                         <div class="col-md-5 p_photos">
-                            <ul class="prod-slider">
+                            <div class="prod-slider-outer">
+                                <ul class="prod-slider">
 
-                                <li style="background-image: url(assets/uploads/<?php echo $p_featured_photo; ?>);">
-                                    <a class="popup" href="assets/uploads/<?php echo $p_featured_photo; ?>"></a>
-                                </li>
-                                <?php
+                                    <li style="background-image: url(assets/uploads/<?php echo $p_featured_photo; ?>);">
+                                        <a class="popup" href="assets/uploads/<?php echo $p_featured_photo; ?>"></a>
+                                    </li>
+                                    <?php
                                 $statement = $pdo->prepare("SELECT * FROM tbl_product_photo WHERE p_id=?");
                                 $statement->execute(array($_REQUEST['id']));
                                 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 foreach ($result as $row) {
                                 ?>
-                                <li
-                                    style="background-image: url(assets/uploads/product_photos/<?php echo $row['photo']; ?>);">
-                                    <a class="popup"
-                                        href="assets/uploads/product_photos/<?php echo $row['photo']; ?>"></a>
-                                </li>
-                                <?php
+                                    <li
+                                        style="background-image: url(assets/uploads/product_photos/<?php echo $row['photo']; ?>);">
+                                        <a class="popup"
+                                            href="assets/uploads/product_photos/<?php echo $row['photo']; ?>"></a>
+                                    </li>
+                                    <?php
                                 }
                                 ?>
-                            </ul>
+                                </ul>
+                            </div>
                             <div id="prod-pager">
                                 <a data-slide-index="0" href="">
                                     <div class="prod-pager-thumb"

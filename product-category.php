@@ -51,8 +51,8 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
             <div class="row">
                 <?php
                 $prod_count = 0;
-                $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE tcat_id=?");
-                $statement->execute(array($tcat_id));
+                $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE tcat_id=? AND p_is_active=?");
+                $statement->execute(array($tcat_id,1));
                 $prod_count=$statement->rowCount();
                 if($prod_count==0) {
                     echo '<div class="pl_15">'.LANG_VALUE_153.'</div>';

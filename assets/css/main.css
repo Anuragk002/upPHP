@@ -1112,6 +1112,9 @@ Mobile style's
 }
 /* user footer end ======> */
 
+.prod-slider-outer {
+  border: 0.5px solid lightgray;
+}
 ul.prod-slider li {
   height: 450px;
   width: 450px;
@@ -1120,7 +1123,7 @@ ul.prod-slider li {
   background-size: contain;
   background-position: top center;
   position: relative;
-  border: 1px solid lightgray;
+  /* border: 1px solid lightgray; */
 }
 ul.prod-slider li a {
   position: absolute;
