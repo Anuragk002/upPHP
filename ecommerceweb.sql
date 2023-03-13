@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2023 at 08:35 PM
+-- Generation Time: Mar 13, 2023 at 07:44 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -110,14 +110,6 @@ CREATE TABLE `tbl_customer` (
   `cust_guest` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_customer`
---
-
-INSERT INTO `tbl_customer` (`cust_id`, `cust_name`, `cust_gender`, `cust_cname`, `cust_email`, `cust_phone`, `cust_country`, `cust_address`, `cust_city`, `cust_state`, `cust_zip`, `cust_b_name`, `cust_b_cname`, `cust_b_phone`, `cust_b_country`, `cust_b_address`, `cust_b_city`, `cust_b_state`, `cust_b_zip`, `cust_s_name`, `cust_s_gender`, `cust_s_cname`, `cust_s_phone`, `cust_s_email`, `cust_s_country`, `cust_s_address`, `cust_s_city`, `cust_s_state`, `cust_s_zip`, `cust_password`, `cust_token`, `cust_datetime`, `cust_timestamp`, `cust_status`, `cust_guest`) VALUES
-(26, 'Pankaj Giri', 'male', '', 'pankaj143giri@gmail.com', '1234567890', 0, '', '', '', '', '', '', '', 0, '', '', '', '', 'Pankaj Giri', 'male', '', '00000', 'pankaj143giri@gmail.com', 249, 'er', 'adf', 'er', '2345', '827ccb0eea8a706c4c34a16891f84e7b', '', '2023-02-03 07:10:13', '', 1, 0),
-(27, 'pankaj', 'male', '', 'tomar69517@wiroute.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', 'pankaj', '', '', '', 'tomar69517@wiroute.com', 0, '', '', '', '', '827ccb0eea8a706c4c34a16891f84e7b', '40336afc733e823cca1c234aa8fa2184', '2023-02-28 12:13:46', '1677615226', 1, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -134,6 +126,14 @@ CREATE TABLE `tbl_customer_message` (
   `order_details` text NOT NULL,
   `shipping_address` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_customer_message`
+--
+
+INSERT INTO `tbl_customer_message` (`customer_message_id`, `to_email`, `subject`, `message`, `payment_id`, `status_details`, `order_details`, `shipping_address`) VALUES
+(28, 'pankaj143giri@gmail.com', 'manual msg', 'hello', '1678711679', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1678711679</li>\r\n            <li><b>Order Date: </b>2023-03-13 05:47:59</li>\r\n            <li><b>Total Amount: </b>$356</li>\r\n            <li><b>Payment Status: </b>Pending</li></ul>', '\r\n            <table border=1 >\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Citra 100mg</td>\r\n                <td>180 PILLS</td>\r\n                <td>$356</td>\r\n                <td>1</td>\r\n                <td>$356</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$356</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None;color:black\">\r\n            <li><b>Name: </b>pankaj</li>\r\n            <li><b>Phone: </b>10234</li>\r\n            <li><b>Address: </b>lanbhua, sln, up, Canada, 1245</li>\r\n            </ul>'),
+(29, 'pankaj143giri@gmail.com', 'manual msg', 'kj', '1678715682', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1678715682</li>\r\n            <li><b>Order Date: </b>2023-03-13 06:54:42</li>\r\n            <li><b>Total Amount: </b>$329</li>\r\n            <li><b>Payment Status: </b>Pending</li></ul>', '\r\n            <table border=1 >\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Rivotril 2mg</td>\r\n                <td>90 PILLS</td>\r\n                <td>$329</td>\r\n                <td>1</td>\r\n                <td>$329</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$329</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None;color:black\">\r\n            <li><b>Name: </b>pankaj</li>\r\n            <li><b>Phone: </b>10234</li>\r\n            <li><b>Address: </b>lanbhua, sln, up, Canada, 1245</li>\r\n            </ul>');
 
 -- --------------------------------------------------------
 
@@ -383,8 +383,13 @@ CREATE TABLE `tbl_order` (
 --
 
 INSERT INTO `tbl_order` (`id`, `product_id`, `product_name`, `pkg_name`, `quantity`, `pkg_price`, `payment_id`) VALUES
-(1, 10003, 'Viagra 100mg', '180 PILLS', '1', '210', '1677615918'),
-(2, 10008, 'Bensedin', '90 PILLS', '1', '370', '1677616503');
+(3, 10015, 'Valium (Diazepam)', '90 PILLS', '1', '310', '1677704742'),
+(4, 10012, 'Xanax Alko 1mg', '90 PILLS', '1', '355', '1677961829'),
+(5, 10017, 'Citra 100mg', '180 PILLS', '1', '356', '1678711679'),
+(6, 10007, 'Rivotril 2mg', '90 PILLS', '1', '329', '1678715682'),
+(7, 10019, 'Tapentadol 100mg', '180 PILLS', '1', '340', '1678723365'),
+(8, 10008, 'Bensedin', '90 PILLS', '1', '370', '1678723474'),
+(9, 10019, 'Tapentadol 100mg', '180 PILLS', '1', '340', '1678723697');
 
 -- --------------------------------------------------------
 
@@ -469,16 +474,22 @@ CREATE TABLE `tbl_payment` (
   `s_city` varchar(250) NOT NULL,
   `s_state` varchar(250) NOT NULL,
   `s_country` int(11) NOT NULL,
-  `s_zip` varchar(30) NOT NULL
+  `s_zip` varchar(30) NOT NULL,
+  `comment` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_payment`
 --
 
-INSERT INTO `tbl_payment` (`id`, `customer_id`, `customer_name`, `customer_email`, `payment_date`, `order_date`, `txnid`, `paid_amount`, `card_number`, `card_cvv`, `card_month`, `card_year`, `bank_transaction_info`, `payment_method`, `payment_status`, `tracking_id`, `tracking_link`, `tracking_date`, `shipping_status`, `shipping_date`, `payment_id`, `s_name`, `s_phone`, `s_email`, `s_address`, `s_city`, `s_state`, `s_country`, `s_zip`) VALUES
-(10001, 27, 'pankaj', 'tomar69517@wiroute.com', '', '2023-02-28 12:25:18', '', 210, '', '', '', '', '', 'Paypal/Western Union', 'Pending', '-1', '', '', 'Pending', '', '1677615918', 'pankaj', '1234321', 'tomar69517@wiroute.com', 'df', 'sln', 'up', 247, '1213'),
-(10002, 27, 'pankaj', 'tomar69517@wiroute.com', '', '2023-02-28 12:35:03', '', 370, '', '', '', '', '', 'Paypal/Western Union', 'Pending', '-1', '', '', 'Pending', '', '1677616503', 'pankaj', '1234321', 'tomar69517@wiroute.com', 'er3', 'sln', 'up', 247, '1213');
+INSERT INTO `tbl_payment` (`id`, `customer_id`, `customer_name`, `customer_email`, `payment_date`, `order_date`, `txnid`, `paid_amount`, `card_number`, `card_cvv`, `card_month`, `card_year`, `bank_transaction_info`, `payment_method`, `payment_status`, `tracking_id`, `tracking_link`, `tracking_date`, `shipping_status`, `shipping_date`, `payment_id`, `s_name`, `s_phone`, `s_email`, `s_address`, `s_city`, `s_state`, `s_country`, `s_zip`, `comment`) VALUES
+(10003, 0, 'GUEST', '', '', '2023-03-01 13:05:42', '', 310, '', '', '', '', '', 'Paypal/Western Union/Other', 'Pending', '-1', '', '', 'Pending', '', '1677704742', 'Arpit', '82829291919', '8585arpit@gmail.com', 'po box 621 pittsburg texas 75686', 'Texas ', 'texas', 251, '75686', ''),
+(10004, 0, 'GUEST', '', '', '2023-03-04 12:30:29', '', 355, '', '', '', '', '', 'Paypal/Western Union/Other', 'Pending', '-1', '', '', 'Pending', '', '1677961829', 'David ', 'Joseph ', 'arpit809024@gmail.com', '735 milford mt pleasant Road milford new jersey 08846', 'milford', 'new jersey', 251, '08846', ''),
+(10005, 0, 'GUEST', '', '2023-03-13 05:56:03', '2023-03-13 05:47:59', '', 356, '', '', '', '', '', 'Venmo', 'Completed', '12', '12', '2023-03-13 06:00:18', 'Completed', '2023-03-13 07:18:55', '1678711679', 'pankaj', '10234', 'pankaj143giri@gmail.com', 'lanbhua', 'sln', 'up', 247, '1245', ''),
+(10006, 0, 'GUEST', '', '2023-03-13 06:57:28', '2023-03-13 06:54:42', '', 329, '', '', '', '', '', 'Zelle', 'Completed', 'l', 'll', '2023-03-13 07:01:09', 'Completed', '2023-03-13 07:03:37', '1678715682', 'pankaj', '10234', 'pankaj143giri@gmail.com', 'lanbhua', 'sln', 'up', 247, '1245', ''),
+(10007, 0, 'GUEST', '', '', '2023-03-13 09:02:45', '', 340, '', '', '', '', '', 'Cash App', 'Pending', '-1', '', '', 'Pending', '', '1678723365', 'pankaj', '10234', 'pankaj143giri@gmail.com', 'lanbhua', 'sln', 'up', 247, '1245', 'secure hona chaiye'),
+(10008, 0, 'GUEST', '', '', '2023-03-13 09:04:34', '', 370, '', '', '', '', '', 'Western Union', 'Pending', '-1', '', '', 'Pending', '', '1678723474', 'pankaj', '10234', 'pankaj143giri@gmail.com', 'lanbhua', 'sln', 'up', 247, '1245', ''),
+(10009, 0, 'GUEST', '', '', '2023-03-13 09:08:17', '', 340, '', '', '', '', '', 'Other', 'Pending', '-1', '', '', 'Pending', '', '1678723697', 'pankaj', '10234', 'pankaj143giri@gmail.com', 'lanbhua', 'sln', 'up', 247, '1245', '');
 
 -- --------------------------------------------------------
 
@@ -541,21 +552,25 @@ CREATE TABLE `tbl_product` (
 --
 
 INSERT INTO `tbl_product` (`p_id`, `p_name`, `p_old_price`, `p_current_price`, `p_qty`, `p_featured_photo`, `p_description`, `p_short_description`, `p_feature`, `p_condition`, `p_return_policy`, `p_total_view`, `p_is_featured`, `p_is_active`, `tcat_id`) VALUES
-(10002, 'Cialis 20mg', '', '', 100, 'product-featured-10002.jpg', '<p><br></p>', 'Cialis is a treatment for adult men with erectile dysfunction. This is when a man cannot get, or keep a hard, erect penis suitable for sexual activity. CIALIS has been shown to significantly improve the ability to obtain a hard erect penis suitable for sexual activity.\r\nIt is also used to treat urinary symptoms caused due to an enlargement of the prostate gland (a walnut-sized gland located just below the bladder that secretes fluid to nourish and transport the sperm) in older men. ', '', '', '', 13, 1, 1, 10004),
-(10003, 'Viagra 100mg', '', '', 100, 'product-featured-10003.png', '', 'Viagra 100mg Tablet is a prescription medicine used to treat erectile dysfunction (impotence) in men. It works by increasing blood flow to the penis. This helps men to get or maintain an erection. It belongs to a group of medicines known as phosphodiesterase type 5 (PDE 5) inhibitors.', '', '', '', 10, 1, 1, 10004),
-(10004, 'Belbien (Zolpidem) 10mg', '', '', 100, 'product-featured-10004.png', '', 'Zolpidem is used for a short time to treat a certain sleep problem (insomnia) in adults. If you have trouble falling asleep, it helps you fall asleep faster, so you can get a better night\'s rest. Zolpidem belongs to a class of drugs called sedative-hypnotics. It acts on your brain to produce a calming effect.', '', '', '', 2, 1, 1, 10003),
-(10005, 'Zoltrate 10mg', '', '', 100, 'product-featured-10005.png', '', 'The name of your medicine is Zolpidem 5mg or 10mg Tablets (called zolpidem throughout this leaflet). Zolpidem contains a medicine called zolpidem tartrate. This belongs to a group of medicines called hypnotics. It works by acting on your brain to help you sleep.', '', '', '', 11, 1, 1, 10003),
-(10006, 'Lypin 10mg', '', '', 100, 'product-featured-10006.png', '', 'Lypin 10mg Tablet is used for short-term treatment of insomnia. It reduces sleep onset time and frequent awakening at night. This medicine improves sleep maintenance and therefore ensures sound sleep.', '', '', '', 6, 1, 1, 10003),
-(10007, 'Rivotril 2mg', '', '', 100, 'product-featured-10007.png', '', 'Rivotril 2mg Tablet belongs to a class of medicines called benzodiazepines and is used to treat anxiety, stop seizures (fits) or relax tense muscles. This can also help relieve difficulty sleeping (insomnia), and is usually prescribed for a short period of time, if used to treat sleeping problems.', '', '', '', 13, 1, 1, 10000),
-(10008, 'Bensedin', '', '', 100, 'product-featured-10008.png', '', 'Bensedin (Diazepam) is indicated for the management of anxiety disorders or for the short-term relief of the symptoms of anxiety. Anxiety or tension associated with the stress of everyday life usually does not require treatment with an anxiolytic.\r\n\r\nIn acute alcohol withdrawal, diazepam may be useful in the symptomatic relief of acute agitation, tremor, impending or acute delirium tremens and hallucinosis.', '', '', '', 14, 1, 1, 10000),
-(10009, 'Lorazepam', '', '', 100, 'product-featured-10009.jpg', '', 'Lorazepam is used to relieve anxiety. Lorazepam is also used to treat insomnia caused by anxiety or temporary situational stress. Lorazepam is in a class of medications called benzodiazepines. It works by slowing activity in the brain to allow for relaxation.', '', '', '', 7, 1, 1, 10000),
-(10010, 'Clonazepam 2mg', '', '', 100, 'product-featured-10010.png', '', 'Clonazepam belongs to a class of medicines called benzodiazepines and is used to treat anxiety, stop seizures (fits) or relax tense muscles.', '', '', '', 4, 1, 1, 10000),
-(10011, 'Ksalol 1mg', '', '', 100, 'product-featured-10011.png', '', 'Ksalol belongs to a class of medications known as benzodiazepines. It\'s prescribed to treat generalized anxiety disorder, panic disorder and insomnia.', '', '', '', 10, 1, 1, 10000),
-(10012, 'Xanax Alko 1mg', '', '', 100, 'product-featured-10012.png', '', 'Alko 1 MG (Xanax) Tablets are brand name for the drug alprazolam; it belongs to a group of drugs called benzodiazepines. This formula issued to treat anxiety and panic disorders. It is used to treat anxiety. It alters brain activity, calms it, and provides relief from panic attacks by relaxing the nerves.', '', '', '', 5, 1, 1, 10000),
-(10013, 'Alprazolam (Alpz-1) 1mg', '', '', 100, 'product-featured-10013.png', '', 'Alprazolam is used to relieve excess (moderate to severe) anxiety and to treat anxiety associated with depression.', '', '', '', 2, 1, 1, 10000),
-(10014, 'Rlam 1mg', '', '', 100, 'product-featured-10014.png', '', 'It belongs to a group of drugs called benzodiazepines. This formula is used to treat anxiety and panic disorders.', '', '', '', 2, 1, 1, 10000),
-(10015, 'Valium (Diazepam)', '', '', 100, 'product-featured-10015.png', '', 'Valium is a prescription medicine used to treat symptoms of anxiety, muscle spasm, alcohol withdrawal and as a sedative before surgery or to treat seizures. Valium may be used alone or with other medications.\r\nValium belongs to a class of drugs called Antianxiety Agents; Anxiolytics, Benzodiazepines; Skeletal Muscle Relaxants; Anticonvulsants, Benzodiazepine.', '', '', '', 33, 1, 1, 10000),
-(10016, 'Multivitamin Supreme, Zinc, Calcium and Vitamin D Capsule for Immunity, Energy, Overall Health', '', '', 100, 'product-featured-10016.jpeg', '', '', '', '', '', 24, 1, 0, 10001);
+(10002, 'Cialis 20mg', '', '', 100, 'product-featured-10002.jpg', '<p><br></p>', 'Cialis is a treatment for adult men with erectile dysfunction. This is when a man cannot get, or keep a hard, erect penis suitable for sexual activity. CIALIS has been shown to significantly improve the ability to obtain a hard erect penis suitable for sexual activity.\r\nIt is also used to treat urinary symptoms caused due to an enlargement of the prostate gland (a walnut-sized gland located just below the bladder that secretes fluid to nourish and transport the sperm) in older men. ', '', '', '', 51, 1, 1, 10004),
+(10003, 'Viagra 100mg', '', '', 100, 'product-featured-10003.png', '', 'Viagra 100mg Tablet is a prescription medicine used to treat erectile dysfunction (impotence) in men. It works by increasing blood flow to the penis. This helps men to get or maintain an erection. It belongs to a group of medicines known as phosphodiesterase type 5 (PDE 5) inhibitors.', '', '', '', 38, 1, 1, 10004),
+(10004, 'Belbien (Zolpidem) 10mg', '', '', 100, 'product-featured-10004.png', '', 'Zolpidem is used for a short time to treat a certain sleep problem (insomnia) in adults. If you have trouble falling asleep, it helps you fall asleep faster, so you can get a better night\'s rest. Zolpidem belongs to a class of drugs called sedative-hypnotics. It acts on your brain to produce a calming effect.', '', '', '', 21, 1, 1, 10003),
+(10005, 'Zoltrate 10mg', '', '', 100, 'product-featured-10005.png', '', 'The name of your medicine is Zolpidem 5mg or 10mg Tablets (called zolpidem throughout this leaflet). Zolpidem contains a medicine called zolpidem tartrate. This belongs to a group of medicines called hypnotics. It works by acting on your brain to help you sleep.', '', '', '', 52, 1, 1, 10003),
+(10006, 'Lypin 10mg', '', '', 100, 'product-featured-10006.png', '', 'Lypin 10mg Tablet is used for short-term treatment of insomnia. It reduces sleep onset time and frequent awakening at night. This medicine improves sleep maintenance and therefore ensures sound sleep.', '', '', '', 38, 1, 1, 10003),
+(10007, 'Rivotril 2mg', '', '', 100, 'product-featured-10007.png', '', 'Rivotril 2mg Tablet belongs to a class of medicines called benzodiazepines and is used to treat anxiety, stop seizures (fits) or relax tense muscles. This can also help relieve difficulty sleeping (insomnia), and is usually prescribed for a short period of time, if used to treat sleeping problems.', '', '', '', 58, 1, 1, 10000),
+(10008, 'Bensedin', '', '', 100, 'product-featured-10008.png', '', 'Bensedin (Diazepam) is indicated for the management of anxiety disorders or for the short-term relief of the symptoms of anxiety. Anxiety or tension associated with the stress of everyday life usually does not require treatment with an anxiolytic.\r\n\r\nIn acute alcohol withdrawal, diazepam may be useful in the symptomatic relief of acute agitation, tremor, impending or acute delirium tremens and hallucinosis.', '', '', '', 59, 1, 1, 10000),
+(10009, 'Lorazepam', '', '', 100, 'product-featured-10009.jpg', '', 'Lorazepam is used to relieve anxiety. Lorazepam is also used to treat insomnia caused by anxiety or temporary situational stress. Lorazepam is in a class of medications called benzodiazepines. It works by slowing activity in the brain to allow for relaxation.', '', '', '', 72, 1, 1, 10000),
+(10010, 'Clonazepam 2mg', '', '', 100, 'product-featured-10010.png', '', 'Clonazepam belongs to a class of medicines called benzodiazepines and is used to treat anxiety, stop seizures (fits) or relax tense muscles.', '', '', '', 47, 1, 1, 10000),
+(10011, 'Ksalol 1mg', '', '', 100, 'product-featured-10011.png', '', 'Ksalol belongs to a class of medications known as benzodiazepines. It\'s prescribed to treat generalized anxiety disorder, panic disorder and insomnia.', '', '', '', 42, 1, 1, 10000),
+(10012, 'Xanax Alko 1mg', '', '', 100, 'product-featured-10012.png', '', 'Alko 1 MG (Xanax) Tablets are brand name for the drug alprazolam; it belongs to a group of drugs called benzodiazepines. This formula issued to treat anxiety and panic disorders. It is used to treat anxiety. It alters brain activity, calms it, and provides relief from panic attacks by relaxing the nerves.', '', '', '', 62, 1, 1, 10000),
+(10013, 'Alprazolam (Alpz-1) 1mg', '', '', 100, 'product-featured-10013.png', '', 'Alprazolam is used to relieve excess (moderate to severe) anxiety and to treat anxiety associated with depression.', '', '', '', 24, 1, 1, 10000),
+(10014, 'Rlam 1mg', '', '', 100, 'product-featured-10014.png', '', 'It belongs to a group of drugs called benzodiazepines. This formula is used to treat anxiety and panic disorders.', '', '', '', 20, 1, 1, 10000),
+(10015, 'Valium (Diazepam)', '', '', 100, 'product-featured-10015.png', '', 'Valium is a prescription medicine used to treat symptoms of anxiety, muscle spasm, alcohol withdrawal and as a sedative before surgery or to treat seizures. Valium may be used alone or with other medications.\r\nValium belongs to a class of drugs called Antianxiety Agents; Anxiolytics, Benzodiazepines; Skeletal Muscle Relaxants; Anticonvulsants, Benzodiazepine.', '', '', '', 71, 1, 1, 10000),
+(10016, 'Multivitamin Supreme, Zinc, Calcium and Vitamin D Capsule for Immunity, Energy, Overall Health', '', '', 100, 'product-featured-10016.jpeg', '', '', '', '', '', 24, 1, 0, 10001),
+(10017, 'Citra 100mg', '', '', 100, 'product-featured-10017.png', '', '<p><span style=\"font-family: robotoregular; font-size: 16px; text-align: justify;\">Citra is an analgesic that is used to provide relief from pain. It is used for treating moderate and severe pain. It is also effective in pain that is not curable by weak painkillers. Citra can also be given in pain after serious injury and operation. Buy Citra 100mg online and get free delivery.</span><br></p>', '', '', '', 7, 1, 1, 10001),
+(10018, 'Soma 350mg (Carisoprodol)', '', '', 100, 'product-featured-10018.png', '', 'Carisoprodol (Soma) is a muscle relaxant that\'s used to treat muscle pain and discomfort. It\'s taken by mouth, typically 4 times daily. Carisoprodol (Soma) is a controlled substance medication and it\'s only approved for short-term treatment of muscle pain and should only be taken for up to 2 to 3 weeks.', '', '', '', 12, 1, 1, 10001),
+(10019, 'Tapentadol 100mg', '', '', 100, 'product-featured-10019.png', '', 'Tapentadol tablets are used to treat moderate to severe acute pain (pain that begins suddenly, has a specific cause, and is expected to go away when the cause of the pain is healed). Tapentadol extended-release tablets are used to treat severe neuropathic pain (pain caused by nerve damage) in people who have diabetes. ', '', '', '', 10, 1, 1, 10001),
+(10020, 'Oltram 100mg', '', '', 100, 'product-featured-10020.png', '', 'This medication is an opioid analgesic, prescribed for moderate to severe pain in adults. It works by changing the way the body senses pain.', '', '', '', 4, 1, 1, 10001);
 
 -- --------------------------------------------------------
 
@@ -615,7 +630,15 @@ INSERT INTO `tbl_product_package` (`id`, `p_id`, `pkg_name`, `pkg_price`) VALUES
 (10126, 10002, '180 PILLS', 180),
 (10127, 10002, '360 PILLS', 289),
 (10128, 10005, '90 PILLS', 330),
-(10129, 10005, '180 PILLS', 510);
+(10129, 10005, '180 PILLS', 510),
+(10130, 10017, '180 PILLS', 356),
+(10131, 10017, '360 PILLS', 589),
+(10136, 10018, '180 PILLS', 210),
+(10137, 10018, '360 PILLS', 396),
+(10140, 10019, '180 PILLS', 340),
+(10141, 10019, '360 PILLS', 520),
+(10144, 10020, '180 PILLS', 400),
+(10145, 10020, '360 PILLS', 670);
 
 -- --------------------------------------------------------
 
@@ -643,7 +666,8 @@ INSERT INTO `tbl_product_photo` (`pp_id`, `photo`, `p_id`) VALUES
 (10016, '10016.jpeg', 10016),
 (10017, '10017.jpg', 10011),
 (10019, '10019.png', 10008),
-(10021, '10021.png', 10007);
+(10021, '10021.png', 10007),
+(10022, '10022.png', 10020);
 
 -- --------------------------------------------------------
 
@@ -690,7 +714,11 @@ INSERT INTO `tbl_rating` (`rt_id`, `p_id`, `cust_id`, `comment`, `rating`) VALUE
 (10056, 10008, -2, '', 5),
 (10058, 10007, -2, '', 5),
 (10068, 10002, -2, '', 5),
-(10069, 10005, -2, '', 5);
+(10069, 10005, -2, '', 5),
+(10070, 10017, -2, '', 5),
+(10073, 10018, -2, '', 5),
+(10075, 10019, -2, '', 5),
+(10077, 10020, -2, '', 5);
 
 -- --------------------------------------------------------
 
@@ -965,9 +993,10 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `full_name`, `email`, `phone`, `password`, `photo`, `role`, `status`) VALUES
-(1, 'Administrator', 'admin@mail.com', '7777777777', 'd00f5d5217896fb7fd601412cb890830', 'user-1.png', 'Super Admin', 1),
+(1, 'Administrator', 'admin@mail.com', '7777777777', 'b17f63abfdf8aa0108fd3873a3b43bd7', 'user-1.jpg', 'Super Admin', 1),
 (2, 'Christine', 'christine@mail.com', '4444444444', '81dc9bdb52d04dc20036dbd8313ed055', 'user-2.png', 'Admin', 1),
-(4, 'Administrator', 'adminup@mail.com', '', '57936a92df81a35aec87062281b5e15a', 'user-4.jpg', 'Super Admin', 1);
+(4, 'Administrator', 'adminup@mail.com', '', '57936a92df81a35aec87062281b5e15a', 'user-4.jpg', 'Super Admin', 1),
+(5, 'Admin', 'up.admin@mail.com', '', 'b1c74d1f62eee4fd57c75f0684791852', 'user-5.png', 'Admin', 1);
 
 -- --------------------------------------------------------
 
@@ -1194,12 +1223,12 @@ ALTER TABLE `tbl_country`
 -- AUTO_INCREMENT for table `tbl_customer`
 --
 ALTER TABLE `tbl_customer`
-  MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_customer_message`
 --
 ALTER TABLE `tbl_customer_message`
-  MODIFY `customer_message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `customer_message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `tbl_end_category`
 --
@@ -1224,7 +1253,7 @@ ALTER TABLE `tbl_mid_category`
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `tbl_page`
 --
@@ -1234,7 +1263,7 @@ ALTER TABLE `tbl_page`
 -- AUTO_INCREMENT for table `tbl_payment`
 --
 ALTER TABLE `tbl_payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10003;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10010;
 --
 -- AUTO_INCREMENT for table `tbl_photo`
 --
@@ -1249,7 +1278,7 @@ ALTER TABLE `tbl_post`
 -- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10017;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10021;
 --
 -- AUTO_INCREMENT for table `tbl_product_color`
 --
@@ -1259,12 +1288,12 @@ ALTER TABLE `tbl_product_color`
 -- AUTO_INCREMENT for table `tbl_product_package`
 --
 ALTER TABLE `tbl_product_package`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10130;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10146;
 --
 -- AUTO_INCREMENT for table `tbl_product_photo`
 --
 ALTER TABLE `tbl_product_photo`
-  MODIFY `pp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10022;
+  MODIFY `pp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10023;
 --
 -- AUTO_INCREMENT for table `tbl_product_size`
 --
@@ -1274,7 +1303,7 @@ ALTER TABLE `tbl_product_size`
 -- AUTO_INCREMENT for table `tbl_rating`
 --
 ALTER TABLE `tbl_rating`
-  MODIFY `rt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10070;
+  MODIFY `rt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10078;
 --
 -- AUTO_INCREMENT for table `tbl_service`
 --
@@ -1324,7 +1353,7 @@ ALTER TABLE `tbl_top_category`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `tbl_video`
 --

@@ -99,6 +99,7 @@ if( !isset($_REQUEST['id']) || !isset($_REQUEST['type']) ) {
                                                 }else{
                                                     echo "$".min($pkg_price)." - $".max($pkg_price);
                                                 }
+                                                unset($pkg_price);
                                                 ?>
                                     </h4>
 

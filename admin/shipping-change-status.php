@@ -66,11 +66,11 @@ if( !isset($_REQUEST['id'])) {
 
 	$body ='<body>
 			<span style="color:black">Hello '.$s_name.',</span>
-			<span style="color:black">Your order deliverded successfully. If you have not received yet, Please contact us asap.
+			<span style="color:black">Your order deliverded successfully. If you have not received yet, Please contact us ASAP.
 			<ul style="padding-left:20px;list-style-type:None;color:black">
 			<li><b>Order ID: </b>'.$payment_id.'</li>
 			<li><b>Tracking ID: </b>'.$tracking_id.'</li>
-			<li><b>Tracking Link: </b><a style="color:blue; font-weight:bold" href="'.$row['tracking_link'].'">click to track</a></li>
+			<li><b>Tracking Link: </b><a style="color:blue; font-weight:bold" href="'.$tracking_link.'">click to track</a></li>
 			<li><b>Delivery Status: </b>Completed</li>
 			<li><b>Delivery Date: </b>'.$shipping_date.'</li>
 			</ul>

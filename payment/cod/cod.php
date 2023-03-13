@@ -21,6 +21,11 @@ $csrf = new CSRF_Protect();
         exit;
     }
 
+    if(!isset($_SESSION['s_payment_method'])){
+        header('location: ../../cart.php');
+        exit;
+    }
+
     $arr_cart_p_id[]=array();
     $arr_cart_p_name[]=array();
     $arr_cart_p_qty[]=array();
@@ -117,9 +122,11 @@ $csrf = new CSRF_Protect();
         $table_total_price=$table_total_price +($arr_cart_p_qty[$i]*$arr_cart_pkg_price[$i]);
     }
     // Inserting payment details->
-    $payment_mthd="Paypal/Western Union/Other";
-    $statement = $pdo->prepare("INSERT INTO tbl_payment (customer_id, customer_name, customer_email, payment_date,order_date, txnid, paid_amount, card_number, card_cvv, card_month, card_year, bank_transaction_info, payment_method, payment_status, tracking_id, tracking_link, tracking_date, shipping_status, payment_id, s_name, s_phone, s_email, s_address, s_city, s_state, s_country, s_zip) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-    $statement->execute(array($cust_id, $cust_name, $cust_email, '',$order_date,'', $table_total_price,'','','','','',$payment_mthd,'Pending',-1,'','','Pending',$order_number,$s_name,$s_phone,$s_email,$s_address,$s_city,$s_state,$s_country,$s_zip));
+    // $payment_mthd="Paypal/Western Union/Other";
+    $payment_mthd=$_SESSION['s_payment_method'];
+    $comment=$_SESSION['s_comment'];
+    $statement = $pdo->prepare("INSERT INTO tbl_payment (customer_id, customer_name, customer_email, payment_date,order_date, txnid, paid_amount, card_number, card_cvv, card_month, card_year, bank_transaction_info, payment_method, payment_status, tracking_id, tracking_link, tracking_date, shipping_status, payment_id, s_name, s_phone, s_email, s_address, s_city, s_state, s_country, s_zip, comment) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+    $statement->execute(array($cust_id, $cust_name, $cust_email, '',$order_date,'', $table_total_price,'','','','','',$payment_mthd,'Pending',-1,'','','Pending',$order_number,$s_name,$s_phone,$s_email,$s_address,$s_city,$s_state,$s_country,$s_zip,$comment));
 
     // Inserting the Order Details->
     for($i=0;$i<count($arr_cart_p_name);$i++) {
@@ -148,6 +155,14 @@ $csrf = new CSRF_Protect();
             unset($_SESSION['cart_p_pkg_id']);
             unset($_SESSION['cart_p_qty']);
         }
+    }
+    
+    // Destroying payment method and commentobject-->
+    if(isset($_SESSION['s_payment_method'])){
+        unset($_SESSION['s_payment_method']);
+    }
+    if(isset($_SESSION['s_comment'])){
+        unset($_SESSION['s_comment']);
     }
 
     // sending mail ====>
@@ -178,6 +193,7 @@ $csrf = new CSRF_Protect();
         <li><b>Order ID: </b>'.$order_number.'</li>
         <li><b>Order Date: </b>'.$order_date.'</li>
         <li><b>Total Amount: </b>$'.$table_total_price.'</li>
+        <li><b>Payment Method: </b>'.$payment_mthd.'</li>
         <li><b>Payment Status: </b>Pending</li>
         </ul>';
 

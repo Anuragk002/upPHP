@@ -202,6 +202,8 @@ foreach ($result as $row) {
             $_SESSION['s_address']['state']=strip_tags($_POST['state']);
             $_SESSION['s_address']['country']=strip_tags($_POST['country']);
             $_SESSION['s_address']['zip']=strip_tags($_POST['zip']);
+            $_SESSION['s_payment_method']=strip_tags($_POST['payment_method']);
+            $_SESSION['s_comment']=trim(strip_tags($_POST['comment']));
 
             unset($_POST['name']);
             unset($_POST['phone']);
@@ -212,7 +214,7 @@ foreach ($result as $row) {
             unset($_POST['coutnry']);
             unset($_POST['zip']);
             unset($_POST['payment_method']);
-
+            unset($_POST['comment']);
 
             header("location:payment/cod/cod.php");
             exit;
@@ -253,14 +255,10 @@ foreach ($result as $row) {
                                         <input type="text" required class="form-control" name="name"
                                             value="<?php echo $name; ?>">
                                     </div>
-                                    <div class="form-group">
-                                        <label for=""><?php echo LANG_VALUE_104; ?><sup>*</sup></label>
-                                        <input type="text" required class="form-control" name="phone"
-                                            value="<?php echo $phone; ?>">
-                                    </div>
+
                                     <div class="form-group">
                                         <label for=""><?php echo LANG_VALUE_105; ?><sup>*</sup></label>
-                                        <textarea name="address" required class="form-control" cols="30" rows="10"
+                                        <textarea name="address" required class="form-control" cols="30" rows="5"
                                             style="height:110px;"><?php echo $address; ?></textarea>
                                     </div>
 
@@ -269,13 +267,24 @@ foreach ($result as $row) {
                                         <label for=""><?php echo LANG_VALUE_34; ?> *</label>
                                         <select name="payment_method" class="form-control" required>
                                             <option value=""><?php echo LANG_VALUE_35; ?></option>
-                                            <option value="cod"><?php echo "Paypal/Western Union/Other Methods"; ?>
-                                            </option>
+                                            <option value="Zelle"><?php echo "Zelle"; ?></option>
+                                            <option value="Cash App"><?php echo "Cash App"; ?></option>
+                                            <option value="Venmo"><?php echo "Venmo"; ?></option>
+                                            <option value="PayPal"><?php echo "PayPal"; ?></option>
+                                            <option value="Western Union"><?php echo "Western Union"; ?></option>
+                                            <option value="Other"><?php echo "Other"; ?></option>
                                         </select>
                                         <br>
-                                        <p>You will receive a payment link over email to complete the payment.</p>
+                                        <p>You will receive a payment link over
+                                            email to
+                                            complete the payment. Please complete your payment through the link.</p>
                                     </div>
-
+                                    <div class="form-group">
+                                        <label for=""><?php echo "Order Note (Optional)"; ?></label>
+                                        <textarea name="comment"
+                                            placeholder="Comment about your order, e.g. special notes for delivery or payment method."
+                                            class="form-control" cols="30" rows="5" style="height:110px;"></textarea>
+                                    </div>
                                 </div>
 
                                 <div class="col-md-6">
@@ -283,6 +292,11 @@ foreach ($result as $row) {
                                         <label for=""><?php echo "Email"; ?><sup>*</sup></label>
                                         <input type="email" required class="form-control" name="email"
                                             value="<?php echo $email; ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for=""><?php echo LANG_VALUE_104; ?><sup>*</sup></label>
+                                        <input type="text" required class="form-control" name="phone"
+                                            value="<?php echo $phone; ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for=""><?php echo LANG_VALUE_107; ?><sup>*</sup></label>

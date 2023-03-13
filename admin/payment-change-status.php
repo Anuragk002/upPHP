@@ -72,7 +72,7 @@ if( !isset($_REQUEST['id']) ) {
 			<ul style="padding-left:20px;list-style-type:None;color:black">
 			<li><b>Order ID: </b>'.$payment_id.'</li>
 			<li><b>Order date: </b>'.$order_date.'</li>
-			<li><b>Total Amount: $</b>'.$total_amount.'</li>
+			<li><b>Total Amount: </b>$'.$total_amount.'</li>
 			<li><b>Payment Status: </b>Completed</li>
 			<li><b>Payment Date: </b>'.$payment_date.'</li>
 			</ul>

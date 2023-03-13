@@ -206,6 +206,7 @@ foreach ($result as $row) {
                                                 }else{
                                                     echo "$".min($pkg_price)." - $".max($pkg_price);
                                                 }
+                                                unset($pkg_price);
                                             ?>
                                 </h4>
                                 <div class="rating">
@@ -356,6 +357,7 @@ foreach ($result as $row) {
                                                 }else{
                                                     echo "$".min($pkg_price)." - $".max($pkg_price);
                                                 }
+                                                unset($pkg_price);
                                             ?>
                                 </h4>
                                 <div class="rating">
@@ -504,6 +506,7 @@ foreach ($result as $row) {
                                                 }else{
                                                     echo "$".min($pkg_price)." - $".max($pkg_price);
                                                 }
+                                                unset($pkg_price);
                                             ?>
                                 </h4>
                                 <div class="rating">

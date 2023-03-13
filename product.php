@@ -635,8 +635,8 @@
                 <div class="product-carousel">
 
                     <?php
-                    $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE tcat_id=? AND p_id!=?");
-                    $statement->execute(array($tcat_id, $_REQUEST['id']));
+                    $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE tcat_id=? AND p_id!=?  AND p_is_active=?");
+                    $statement->execute(array($tcat_id, $_REQUEST['id'],1));
                     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($result as $row) {
                     ?>
@@ -672,6 +672,7 @@
                                         }else{
                                             echo "$".min($pkg_price)." - $".max($pkg_price);
                                         }
+                                        unset($pkg_price);
                                     ?>
                                 </h4>
                                 <div class="rating">
