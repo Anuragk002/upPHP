@@ -29,13 +29,14 @@ if(isset($_POST['form1'])) {
         // foreach ($result as $row) {
         //     $cust_email = $row['cust_email'];
         // }
+
         // Getting Admin Email Address
-        // $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
-        // $statement->execute();
-        // $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
-        // foreach ($result as $row) {
-        //     $admin_email = $row['contact_email'];
-        // }
+        $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+        foreach ($result as $row) {
+            $contact_email = $row['contact_email'];
+        }
         
         $statement = $pdo->prepare("SELECT * FROM tbl_payment WHERE payment_id=?");
         $statement->execute(array($_POST['payment_id']));
@@ -129,7 +130,6 @@ if(isset($_POST['form1'])) {
         $order_details='';
         $order_details .= '
             <table border=1 >
-            <caption>Order Details</caption>
             <tr>
             <th>#</th>
             <th>Product Name</th>
@@ -191,7 +191,7 @@ if(isset($_POST['form1'])) {
 			<span style="color:black">Hello '.$s_name.',</span><br/>
 			<span style="color:black">'.$message_text.'<br/><br/><b><u>Order Details:</u></b><br/>'.$status_details.'
 			'. $order_details .'<br/>'.$shipping_address.'</span>
-			<span style="color:black"> Thanks for shopping with us. If you are facing any issue, Please contact us.</span><br/><br/>
+			<span style="color:black"> Thanks for shopping with us. If you are facing any issue, Please contact us at '.$contact_email.'.</span><br/><br/>
 			<span style="color:black">
             <b>Thanks and Regards</b><br/>
 			Unit Pharma Support Team<br/>
@@ -256,16 +256,17 @@ if(isset($_POST['form2'])){
         $tracking_link = strip_tags($_POST['tracking_link']);
         $tracking_date=date('Y-m-d H:i:s');
 
-        $statement = $pdo->prepare("UPDATE tbl_payment SET tracking_id=?, tracking_date=?, tracking_link=? WHERE payment_id=?");
+        $statement = $pdo->prepare("UPDATE tbl_payment SET tracking_id=?, tracking_date=?, tracking_link=? WHERE 
+        =?");
         $statement->execute(array($tracking_id,$tracking_date,$tracking_link,$_POST['payment_id']));
 
         // Getting Admin Email Address
-            // $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
-            // $statement->execute();
-            // $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
-            // foreach ($result as $row) {
-            //     $admin_email = $row['contact_email'];
-            // }
+            $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+            foreach ($result as $row) {
+                $contact_email = $row['contact_email'];
+            }
 
             // $message_text='Tracking ID for your order successfully generated. Visit to tracking link to track your order using tracking id.<br>
             // <br><b>Order ID:</b> '.$payment_id.'<br>
@@ -303,7 +304,7 @@ if(isset($_POST['form2'])){
 			</ul>
             </span>
             <span style="color:black">
-			Thanks for shopping with us. If you are facing any issue, Please contact us.</span><br/><br/>
+			Thanks for shopping with us. If you are facing any issue, Please contact us at '.$contact_email.'.</span><br/><br/>
 			<span style="color:black">
             <b>Thanks and Regards</b><br/>
 			Unit Pharma Support Team<br/>
@@ -365,6 +366,7 @@ if($success_message != '') {
                                     Payment Information
                                 </th>
                                 <th>Paid Amount</th>
+                                <th>Comment</th>
                                 <th>Payment Status</th>
                                 <th>Tracking ID</th>
                                 <th>Shipping Address</th>
@@ -464,13 +466,13 @@ if($success_message != '') {
                                 <th><?php echo $row['order_date']; ?></th>
                                 <!-- payment information (method and Payment completion date) -->
                                 <td>
-                                    <?php if($row['payment_method'] == 'PayPal'): ?>
+                                    <!-- <?php #if($row['payment_method'] == 'PayPal'): ?>
                                     <b>Payment Method:</b>
-                                    <?php echo '<span style="color:red;"><b>'.$row['payment_method'].'</b></span>'; ?><br>
-                                    <b>Payment Id:</b> <?php echo $row['payment_id']; ?><br>
-                                    <b>Date:</b> <?php echo $row['payment_date']; ?><br>
-                                    <b>Transaction Id:</b> <?php echo $row['txnid']; ?><br>
-                                    <?php elseif($row['payment_method'] == 'Stripe'): ?>
+                                    <?php #echo '<span style="color:red;"><b>'.$row['payment_method'].'</b></span>'; ?><br>
+                                    <b>Payment Id:</b> <?php #echo $row['payment_id']; ?><br>
+                                    <b>Date:</b> <?php #echo $row['payment_date']; ?><br>
+                                    <b>Transaction Id:</b> <?php #echo $row['txnid']; ?><br> -->
+                                    <?php if($row['payment_method'] == 'Stripe'): ?>
                                     <b>Payment Method:</b>
                                     <?php echo '<span style="color:red;"><b>'.$row['payment_method'].'</b></span>'; ?><br>
                                     <b>Payment Id:</b> <?php echo $row['payment_id']; ?><br>
@@ -486,15 +488,27 @@ if($success_message != '') {
                                     <b>Payment Id:</b> <?php echo $row['payment_id']; ?><br>
                                     <b>Date:</b> <?php echo $row['payment_date']; ?><br>
                                     <b>Transaction Information:</b> <br><?php echo $row['bank_transaction_info']; ?><br>
-                                    <?php elseif($row['payment_method'] == 'COD/Pay Later'): ?>
+                                    <?php #elseif($row['payment_method'] == 'Paypal/Western Union/Other'): ?>
+                                    <?php else: ?>
                                     <b>Payment Method:</b>
-                                    <?php echo '<span style="color:red;"><b>COD/Pay Later</b></span>'; ?><br>
+                                    <?php echo '<span style="color:red;"><b>'.$row['payment_method'].'</b></span>'; ?><br>
                                     <b>Date:</b> <?php echo $row['payment_date']; ?><br>
 
                                     <?php endif; ?>
                                 </td>
                                 <!-- total amount -->
                                 <td>$<?php echo $row['paid_amount']; ?></td>
+                                <!-- comment -->
+                                <td>
+                                    <?php 
+                                    if ($row['comment']==''){
+                                        echo "NA";
+                                    }else{
+                                        echo $row['comment'];
+                                    }
+                                     ?>
+                                </td>
+
                                 <!-- payment status -->
                                 <td>
                                     <?php echo $row['payment_status'] .'<br>';                           

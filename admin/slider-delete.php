@@ -1,4 +1,9 @@
-<?php require_once('header.php'); ?>
+<?php require_once('header.php'); 
+if($_SESSION['user']['role']!="Super Admin") {
+	header('location: index.php');
+	exit;
+}
+?>
 
 <?php
 if(!isset($_REQUEST['id'])) {

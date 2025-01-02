@@ -213,13 +213,22 @@
             <div class="col-md-12">
                 <div class="breadcrumb mb_30">
                     <ul>
-                        <li><a href="<?php echo BASE_URL; ?>"><span class='glyphicon glyphicon-home'></span>&nbsp Home</a></li>
+                        <li><a href="<?php echo BASE_URL; ?>"><span class='glyphicon glyphicon-home'></span>&nbsp
+                                Home</a></li>
                         <li>/</li>
                         <li><a
                                 href="<?php echo BASE_URL . 'product-category.php?id=' . $tcat_id . '&type=top-category' ?>"><?php echo $tcat_name; ?></a>
                         </li>
                         <li>/</li>
-                        <li><?php echo $p_name; ?></li>
+                        <li>
+                            <?php 
+                            if(strlen($p_name)>=40){
+                                echo substr($p_name,0,40) .'...';
+                            }else{
+                                echo $p_name;
+                            }
+                        
+                        ?></li>
                     </ul>
                 </div>
                 <?php
@@ -240,26 +249,28 @@
                 <div class="product">
                     <div class="row">
                         <div class="col-md-5 p_photos">
-                            <ul class="prod-slider">
+                            <div class="prod-slider-outer">
+                                <ul class="prod-slider">
 
-                                <li style="background-image: url(assets/uploads/<?php echo $p_featured_photo; ?>);">
-                                    <a class="popup" href="assets/uploads/<?php echo $p_featured_photo; ?>"></a>
-                                </li>
-                                <?php
+                                    <li style="background-image: url(assets/uploads/<?php echo $p_featured_photo; ?>);">
+                                        <a class="popup" href="assets/uploads/<?php echo $p_featured_photo; ?>"></a>
+                                    </li>
+                                    <?php
                                 $statement = $pdo->prepare("SELECT * FROM tbl_product_photo WHERE p_id=?");
                                 $statement->execute(array($_REQUEST['id']));
                                 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 foreach ($result as $row) {
                                 ?>
-                                <li
-                                    style="background-image: url(assets/uploads/product_photos/<?php echo $row['photo']; ?>);">
-                                    <a class="popup"
-                                        href="assets/uploads/product_photos/<?php echo $row['photo']; ?>"></a>
-                                </li>
-                                <?php
+                                    <li
+                                        style="background-image: url(assets/uploads/product_photos/<?php echo $row['photo']; ?>);">
+                                        <a class="popup"
+                                            href="assets/uploads/product_photos/<?php echo $row['photo']; ?>"></a>
+                                    </li>
+                                    <?php
                                 }
                                 ?>
-                            </ul>
+                                </ul>
+                            </div>
                             <div id="prod-pager">
                                 <a data-slide-index="0" href="">
                                     <div class="prod-pager-thumb"
@@ -397,25 +408,28 @@
 
                                 </div>
                                 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
-                                
-                                    <div class="p-quantity">
-                                        <label><?php echo LANG_VALUE_55; ?><sup>*</sup></label><br>
-                                        <input type="number" class="input-text hidden" step="1" min="1" max="" name="p_qty"
-                                            value="1" title="Qty" size="4" pattern="[0-9]" inputmode="numeric" id='p_qty'>
-                                                
-                                                
-                                        <div class="btn-group qty-btn-parent">
-                                            <button type="button" class="btn   qty-btn" onclick="qtyMinus()"><span class='glyphicon glyphicon-minus'></span></button>
-                                            <span class="btn qty-text" id="qty_text">1</span>
-                                            
-                                            <button type="button" class="btn  qty-btn" onclick="qtyPlus()"><span class='glyphicon glyphicon-plus'></span></button>
-                                        </div>
+
+                                <div class="p-quantity">
+                                    <label><?php echo LANG_VALUE_55; ?><sup>*</sup></label><br>
+                                    <input type="number" class="input-text hidden" step="1" min="1" max="" name="p_qty"
+                                        value="1" title="Qty" size="4" pattern="[0-9]" inputmode="numeric" id='p_qty'>
+
+
+                                    <div class="btn-group qty-btn-parent">
+                                        <button type="button" class="btn   qty-btn" onclick="qtyMinus()"><span
+                                                class='glyphicon glyphicon-minus'></span></button>
+                                        <span class="btn qty-text" id="qty_text">1</span>
+
+                                        <button type="button" class="btn  qty-btn" onclick="qtyPlus()"><span
+                                                class='glyphicon glyphicon-plus'></span></button>
                                     </div>
-                                    
-                                    
-                                    <div class="btn-cart btn-cart1">
-                                        <input type="submit" class="btn disabled" value="<?php echo LANG_VALUE_154; ?>" id="btn_add_to_cart" name="form_add_to_cart">
-                                   </div>
+                                </div>
+
+
+                                <div class="btn-cart btn-cart1">
+                                    <input type="submit" class="btn disabled" value="<?php echo LANG_VALUE_154; ?>"
+                                        id="btn_add_to_cart" name="form_add_to_cart">
+                                </div>
                             </form>
                             <div class="share">
                                 <?php echo LANG_VALUE_58; ?> <br>
@@ -621,8 +635,8 @@
                 <div class="product-carousel">
 
                     <?php
-                    $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE tcat_id=? AND p_id!=?");
-                    $statement->execute(array($tcat_id, $_REQUEST['id']));
+                    $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE tcat_id=? AND p_id!=?  AND p_is_active=?");
+                    $statement->execute(array($tcat_id, $_REQUEST['id'],1));
                     $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                     foreach ($result as $row) {
                     ?>
@@ -658,6 +672,7 @@
                                         }else{
                                             echo "$".min($pkg_price)." - $".max($pkg_price);
                                         }
+                                        unset($pkg_price);
                                     ?>
                                 </h4>
                                 <div class="rating">

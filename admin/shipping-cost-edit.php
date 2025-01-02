@@ -1,4 +1,9 @@
-<?php require_once('header.php'); ?>
+<?php require_once('header.php');
+if($_SESSION['user']['role']!="Super Admin") {
+	header('location: index.php');
+	exit;
+}
+?>
 
 <?php
 if(isset($_POST['form1'])) {
@@ -54,12 +59,12 @@ if(!isset($_REQUEST['id'])) {
 ?>
 
 <section class="content-header">
-	<div class="content-header-left">
-		<h1>Edit Shipping Cost</h1>
-	</div>
-	<div class="content-header-right">
-		<a href="shipping-cost.php" class="btn btn-primary btn-sm">View All</a>
-	</div>
+    <div class="content-header-left">
+        <h1>Edit Shipping Cost</h1>
+    </div>
+    <div class="content-header-right">
+        <a href="shipping-cost.php" class="btn btn-primary btn-sm">View All</a>
+    </div>
 </section>
 
 
@@ -72,70 +77,73 @@ foreach ($result as $row) {
 
 <section class="content">
 
-  <div class="row">
-    <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
 
-		<?php if($error_message): ?>
-		<div class="callout callout-danger">
-		
-		<p>
-		<?php echo $error_message; ?>
-		</p>
-		</div>
-		<?php endif; ?>
+            <?php if($error_message): ?>
+            <div class="callout callout-danger">
 
-		<?php if($success_message): ?>
-		<div class="callout callout-success">
-		
-		<p><?php echo $success_message; ?></p>
-		</div>
-		<?php endif; ?>
+                <p>
+                    <?php echo $error_message; ?>
+                </p>
+            </div>
+            <?php endif; ?>
 
-        <form class="form-horizontal" action="" method="post">
-            <div class="box box-info">
-                <div class="box-body">
-                    <div class="form-group">
-                        <label for="" class="col-sm-2 control-label">Select Country <span>*</span></label>
-                        <div class="col-sm-4">
-                            <select name="country_id" class="form-control select2">
-                                <option value="">Select a country</option>
-                                <?php
+            <?php if($success_message): ?>
+            <div class="callout callout-success">
+
+                <p><?php echo $success_message; ?></p>
+            </div>
+            <?php endif; ?>
+
+            <form class="form-horizontal" action="" method="post">
+                <div class="box box-info">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">Select Country <span>*</span></label>
+                            <div class="col-sm-4">
+                                <select name="country_id" class="form-control select2">
+                                    <option value="">Select a country</option>
+                                    <?php
                                 $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
                                 $statement->execute();
                                 $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 foreach ($result as $row) {
                                     ?>
-                                    <option value="<?php echo $row['country_id']; ?>" <?php if($row['country_id'] == $country_id) {echo 'selected';} ?>><?php echo $row['country_name']; ?></option>
+                                    <option value="<?php echo $row['country_id']; ?>"
+                                        <?php if($row['country_id'] == $country_id) {echo 'selected';} ?>>
+                                        <?php echo $row['country_name']; ?></option>
                                     <?php
                                 }
                                 ?>
-                            </select>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-sm-2 control-label">Amount <span>*</span></label>
-                        <div class="col-sm-4">
-                            <input type="text" class="form-control" name="amount" value="<?php echo $amount; ?>">
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label">Amount <span>*</span></label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" name="amount" value="<?php echo $amount; ?>">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                    	<label for="" class="col-sm-2 control-label"></label>
-                        <div class="col-sm-6">
-                          <button type="submit" class="btn btn-success pull-left" name="form1">Update</button>
+                        <div class="form-group">
+                            <label for="" class="col-sm-2 control-label"></label>
+                            <div class="col-sm-6">
+                                <button type="submit" class="btn btn-success pull-left" name="form1">Update</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
 
 
 
+        </div>
     </div>
-  </div>
 
 </section>
 
-<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

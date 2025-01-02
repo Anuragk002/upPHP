@@ -166,7 +166,7 @@ foreach ($result as $row) {
                 <div class="product-carousel">
 
                     <?php
-                        $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_is_featured=? AND p_is_active=? LIMIT " . $total_featured_product_home);
+                        $statement = $pdo->prepare("SELECT * FROM `tbl_product` WHERE ( `p_is_featured`=? AND `p_is_active`=?) ORDER BY RAND() LIMIT " . $total_featured_product_home);
                         $statement->execute(array(1, 1));
                         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                         foreach ($result as $row) {
@@ -180,7 +180,17 @@ foreach ($result as $row) {
                                 <div class="overlay"></div>
                             </div>
                             <div class="text">
-                                <h5><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a>
+                                <h5>
+                                    <a href="product.php?id=<?php echo $row['p_id']; ?>">
+                                        <?php 
+                                        if(strlen($row['p_name'])>=30){
+                                            echo substr($row['p_name'],0,30) .'...';
+                                        }else{
+                                            echo $row['p_name'];
+                                        }
+                                    
+                                    ?>
+                                    </a>
                                 </h5>
                                 <h4>
                                     <?php
@@ -196,6 +206,7 @@ foreach ($result as $row) {
                                                 }else{
                                                     echo "$".min($pkg_price)." - $".max($pkg_price);
                                                 }
+                                                unset($pkg_price);
                                             ?>
                                 </h4>
                                 <div class="rating">
@@ -270,7 +281,8 @@ foreach ($result as $row) {
                                     </div>
                                 </div>
                                 <?php else : ?>
-                                <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i class="fa fa-shopping-cart"></i>
+                                <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i
+                                            class="fa fa-shopping-cart"></i>
                                         Add to Cart</a></p>
                                 <?php endif; ?>
                             </div>
@@ -304,7 +316,7 @@ foreach ($result as $row) {
                 <div class="product-carousel">
 
                     <?php
-                        $statement = $pdo->prepare("SELECT * FROM tbl_product WHERE p_is_active=? ORDER BY p_id DESC LIMIT " . $total_latest_product_home);
+                        $statement = $pdo->prepare("SELECT * FROM `tbl_product` WHERE `p_is_active`=? ORDER BY `p_id` DESC LIMIT " . $total_latest_product_home);
                         $statement->execute(array(1));
                         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                         foreach ($result as $row) {
@@ -312,14 +324,24 @@ foreach ($result as $row) {
                     <div class="item">
                         <a href="product.php?id=<?php echo $row['p_id']; ?>">
                             <div class="thumb">
-                            
+
                                 <div class="photo"
                                     style="background-image:url(assets/uploads/<?php echo $row['p_featured_photo']; ?>);">
                                 </div>
                                 <div class="overlay"></div>
                             </div>
                             <div class="text">
-                                <h5><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a>
+                                <h5>
+                                    <a href="product.php?id=<?php echo $row['p_id']; ?>">
+                                        <?php 
+                                            if(strlen($row['p_name'])>=30){
+                                                echo substr($row['p_name'],0,30) .'...';
+                                            }else{
+                                                echo $row['p_name'];
+                                            }
+                                        
+                                        ?>
+                                    </a>
                                 </h5>
                                 <h4>
                                     <?php
@@ -335,6 +357,7 @@ foreach ($result as $row) {
                                                 }else{
                                                     echo "$".min($pkg_price)." - $".max($pkg_price);
                                                 }
+                                                unset($pkg_price);
                                             ?>
                                 </h4>
                                 <div class="rating">
@@ -408,7 +431,8 @@ foreach ($result as $row) {
                                     </div>
                                 </div>
                                 <?php else : ?>
-                                <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i class="fa fa-shopping-cart"></i>
+                                <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i
+                                            class="fa fa-shopping-cart"></i>
                                         Add to Cart</a></p>
                                 <?php endif; ?>
                             </div>
@@ -456,7 +480,17 @@ foreach ($result as $row) {
                                 <div class="overlay"></div>
                             </div>
                             <div class="text">
-                                <h5><a href="product.php?id=<?php echo $row['p_id']; ?>"><?php echo $row['p_name']; ?></a>
+                                <h5>
+                                    <a href="product.php?id=<?php echo $row['p_id']; ?>">
+                                        <?php 
+                                        if(strlen($row['p_name'])>=30){
+                                            echo substr($row['p_name'],0,30) .'...';
+                                        }else{
+                                            echo $row['p_name'];
+                                        }
+                                    
+                                    ?>
+                                    </a>
                                 </h5>
                                 <h4>
                                     <?php
@@ -472,6 +506,7 @@ foreach ($result as $row) {
                                                 }else{
                                                     echo "$".min($pkg_price)." - $".max($pkg_price);
                                                 }
+                                                unset($pkg_price);
                                             ?>
                                 </h4>
                                 <div class="rating">
@@ -545,7 +580,8 @@ foreach ($result as $row) {
                                     </div>
                                 </div>
                                 <?php else : ?>
-                                <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i class="fa fa-shopping-cart"></i>
+                                <p><a href="product.php?id=<?php echo $row['p_id']; ?>"><i
+                                            class="fa fa-shopping-cart"></i>
                                         Add to Cart</a></p>
                                 <?php endif; ?>
                             </div>

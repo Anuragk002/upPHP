@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2023 at 02:30 PM
+-- Generation Time: Mar 13, 2023 at 07:44 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -45,41 +45,6 @@ CREATE TABLE `tbl_color` (
   `color_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_color`
---
-
-INSERT INTO `tbl_color` (`color_id`, `color_name`) VALUES
-(1, 'Red'),
-(2, 'Black'),
-(3, 'Blue'),
-(4, 'Yellow'),
-(5, 'Green'),
-(6, 'White'),
-(7, 'Orange'),
-(8, 'Brown'),
-(9, 'Tan'),
-(10, 'Pink'),
-(11, 'Mixed'),
-(12, 'Lightblue'),
-(13, 'Violet'),
-(14, 'Light Purple'),
-(15, 'Salmon'),
-(16, 'Gold'),
-(17, 'Gray'),
-(18, 'Ash'),
-(19, 'Maroon'),
-(20, 'Silver'),
-(21, 'Dark Clay'),
-(22, 'Cognac'),
-(23, 'Coffee'),
-(24, 'Charcoal'),
-(25, 'Navy'),
-(26, 'Fuchsia'),
-(27, 'Olive'),
-(28, 'Burgundy'),
-(29, 'Midnight Blue');
-
 -- --------------------------------------------------------
 
 --
@@ -96,251 +61,10 @@ CREATE TABLE `tbl_country` (
 --
 
 INSERT INTO `tbl_country` (`country_id`, `country_name`) VALUES
-(1, 'Afghanistan'),
-(2, 'Albania'),
-(3, 'Algeria'),
-(4, 'American Samoa'),
-(5, 'Andorra'),
-(6, 'Angola'),
-(7, 'Anguilla'),
-(8, 'Antarctica'),
-(9, 'Antigua and Barbuda'),
-(10, 'Argentina'),
-(11, 'Armenia'),
-(12, 'Aruba'),
-(13, 'Australia'),
-(14, 'Austria'),
-(15, 'Azerbaijan'),
-(16, 'Bahamas'),
-(17, 'Bahrain'),
-(18, 'Bangladesh'),
-(19, 'Barbados'),
-(20, 'Belarus'),
-(21, 'Belgium'),
-(22, 'Belize'),
-(23, 'Benin'),
-(24, 'Bermuda'),
-(25, 'Bhutan'),
-(26, 'Bolivia'),
-(27, 'Bosnia and Herzegovina'),
-(28, 'Botswana'),
-(29, 'Bouvet Island'),
-(30, 'Brazil'),
-(31, 'British Indian Ocean Territory'),
-(32, 'Brunei Darussalam'),
-(33, 'Bulgaria'),
-(34, 'Burkina Faso'),
-(35, 'Burundi'),
-(36, 'Cambodia'),
-(37, 'Cameroon'),
-(38, 'Canada'),
-(39, 'Cape Verde'),
-(40, 'Cayman Islands'),
-(41, 'Central African Republic'),
-(42, 'Chad'),
-(43, 'Chile'),
-(44, 'China'),
-(45, 'Christmas Island'),
-(46, 'Cocos (Keeling) Islands'),
-(47, 'Colombia'),
-(48, 'Comoros'),
-(49, 'Congo'),
-(50, 'Cook Islands'),
-(51, 'Costa Rica'),
-(52, 'Croatia (Hrvatska)'),
-(53, 'Cuba'),
-(54, 'Cyprus'),
-(55, 'Czech Republic'),
-(56, 'Denmark'),
-(57, 'Djibouti'),
-(58, 'Dominica'),
-(59, 'Dominican Republic'),
-(60, 'East Timor'),
-(61, 'Ecuador'),
-(62, 'Egypt'),
-(63, 'El Salvador'),
-(64, 'Equatorial Guinea'),
-(65, 'Eritrea'),
-(66, 'Estonia'),
-(67, 'Ethiopia'),
-(68, 'Falkland Islands (Malvinas)'),
-(69, 'Faroe Islands'),
-(70, 'Fiji'),
-(71, 'Finland'),
-(72, 'France'),
-(73, 'France, Metropolitan'),
-(74, 'French Guiana'),
-(75, 'French Polynesia'),
-(76, 'French Southern Territories'),
-(77, 'Gabon'),
-(78, 'Gambia'),
-(79, 'Georgia'),
-(80, 'Germany'),
-(81, 'Ghana'),
-(82, 'Gibraltar'),
-(83, 'Guernsey'),
-(84, 'Greece'),
-(85, 'Greenland'),
-(86, 'Grenada'),
-(87, 'Guadeloupe'),
-(88, 'Guam'),
-(89, 'Guatemala'),
-(90, 'Guinea'),
-(91, 'Guinea-Bissau'),
-(92, 'Guyana'),
-(93, 'Haiti'),
-(94, 'Heard and Mc Donald Islands'),
-(95, 'Honduras'),
-(96, 'Hong Kong'),
-(97, 'Hungary'),
-(98, 'Iceland'),
-(99, 'India'),
-(100, 'Isle of Man'),
-(101, 'Indonesia'),
-(102, 'Iran (Islamic Republic of)'),
-(103, 'Iraq'),
-(104, 'Ireland'),
-(105, 'Israel'),
-(106, 'Italy'),
-(107, 'Ivory Coast'),
-(108, 'Jersey'),
-(109, 'Jamaica'),
-(110, 'Japan'),
-(111, 'Jordan'),
-(112, 'Kazakhstan'),
-(113, 'Kenya'),
-(114, 'Kiribati'),
-(115, 'Korea, Democratic People\'s Republic of'),
-(116, 'Korea, Republic of'),
-(117, 'Kosovo'),
-(118, 'Kuwait'),
-(119, 'Kyrgyzstan'),
-(120, 'Lao People\'s Democratic Republic'),
-(121, 'Latvia'),
-(122, 'Lebanon'),
-(123, 'Lesotho'),
-(124, 'Liberia'),
-(125, 'Libyan Arab Jamahiriya'),
-(126, 'Liechtenstein'),
-(127, 'Lithuania'),
-(128, 'Luxembourg'),
-(129, 'Macau'),
-(130, 'Macedonia'),
-(131, 'Madagascar'),
-(132, 'Malawi'),
-(133, 'Malaysia'),
-(134, 'Maldives'),
-(135, 'Mali'),
-(136, 'Malta'),
-(137, 'Marshall Islands'),
-(138, 'Martinique'),
-(139, 'Mauritania'),
-(140, 'Mauritius'),
-(141, 'Mayotte'),
-(142, 'Mexico'),
-(143, 'Micronesia, Federated States of'),
-(144, 'Moldova, Republic of'),
-(145, 'Monaco'),
-(146, 'Mongolia'),
-(147, 'Montenegro'),
-(148, 'Montserrat'),
-(149, 'Morocco'),
-(150, 'Mozambique'),
-(151, 'Myanmar'),
-(152, 'Namibia'),
-(153, 'Nauru'),
-(154, 'Nepal'),
-(155, 'Netherlands'),
-(156, 'Netherlands Antilles'),
-(157, 'New Caledonia'),
-(158, 'New Zealand'),
-(159, 'Nicaragua'),
-(160, 'Niger'),
-(161, 'Nigeria'),
-(162, 'Niue'),
-(163, 'Norfolk Island'),
-(164, 'Northern Mariana Islands'),
-(165, 'Norway'),
-(166, 'Oman'),
-(167, 'Pakistan'),
-(168, 'Palau'),
-(169, 'Palestine'),
-(170, 'Panama'),
-(171, 'Papua New Guinea'),
-(172, 'Paraguay'),
-(173, 'Peru'),
-(174, 'Philippines'),
-(175, 'Pitcairn'),
-(176, 'Poland'),
-(177, 'Portugal'),
-(178, 'Puerto Rico'),
-(179, 'Qatar'),
-(180, 'Reunion'),
-(181, 'Romania'),
-(182, 'Russian Federation'),
-(183, 'Rwanda'),
-(184, 'Saint Kitts and Nevis'),
-(185, 'Saint Lucia'),
-(186, 'Saint Vincent and the Grenadines'),
-(187, 'Samoa'),
-(188, 'San Marino'),
-(189, 'Sao Tome and Principe'),
-(190, 'Saudi Arabia'),
-(191, 'Senegal'),
-(192, 'Serbia'),
-(193, 'Seychelles'),
-(194, 'Sierra Leone'),
-(195, 'Singapore'),
-(196, 'Slovakia'),
-(197, 'Slovenia'),
-(198, 'Solomon Islands'),
-(199, 'Somalia'),
-(200, 'South Africa'),
-(201, 'South Georgia South Sandwich Islands'),
-(202, 'Spain'),
-(203, 'Sri Lanka'),
-(204, 'St. Helena'),
-(205, 'St. Pierre and Miquelon'),
-(206, 'Sudan'),
-(207, 'Suriname'),
-(208, 'Svalbard and Jan Mayen Islands'),
-(209, 'Swaziland'),
-(210, 'Sweden'),
-(211, 'Switzerland'),
-(212, 'Syrian Arab Republic'),
-(213, 'Taiwan'),
-(214, 'Tajikistan'),
-(215, 'Tanzania, United Republic of'),
-(216, 'Thailand'),
-(217, 'Togo'),
-(218, 'Tokelau'),
-(219, 'Tonga'),
-(220, 'Trinidad and Tobago'),
-(221, 'Tunisia'),
-(222, 'Turkey'),
-(223, 'Turkmenistan'),
-(224, 'Turks and Caicos Islands'),
-(225, 'Tuvalu'),
-(226, 'Uganda'),
-(227, 'Ukraine'),
-(228, 'United Arab Emirates'),
-(229, 'United Kingdom'),
-(230, 'United States'),
-(231, 'United States minor outlying islands'),
-(232, 'Uruguay'),
-(233, 'Uzbekistan'),
-(234, 'Vanuatu'),
-(235, 'Vatican City State'),
-(236, 'Venezuela'),
-(237, 'Vietnam'),
-(238, 'Virgin Islands (British)'),
-(239, 'Virgin Islands (U.S.)'),
-(240, 'Wallis and Futuna Islands'),
-(241, 'Western Sahara'),
-(242, 'Yemen'),
-(243, 'Zaire'),
-(244, 'Zambia'),
-(245, 'Zimbabwe');
+(249, 'Mexico'),
+(247, 'Canada'),
+(250, 'United Kingdom'),
+(251, 'United States');
 
 -- --------------------------------------------------------
 
@@ -386,34 +110,6 @@ CREATE TABLE `tbl_customer` (
   `cust_guest` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_customer`
---
-
-INSERT INTO `tbl_customer` (`cust_id`, `cust_name`, `cust_gender`, `cust_cname`, `cust_email`, `cust_phone`, `cust_country`, `cust_address`, `cust_city`, `cust_state`, `cust_zip`, `cust_b_name`, `cust_b_cname`, `cust_b_phone`, `cust_b_country`, `cust_b_address`, `cust_b_city`, `cust_b_state`, `cust_b_zip`, `cust_s_name`, `cust_s_gender`, `cust_s_cname`, `cust_s_phone`, `cust_s_email`, `cust_s_country`, `cust_s_address`, `cust_s_city`, `cust_s_state`, `cust_s_zip`, `cust_password`, `cust_token`, `cust_datetime`, `cust_timestamp`, `cust_status`, `cust_guest`) VALUES
-(1, 'Liam Moore', '', 'WV Company', 'liam@mail.com', '7458965410', 230, '788 Cottonwood Lane', 'Nashville', 'TN', '37072', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', 'sln', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', '0081e99a29cacd4b553db15c5c5c047e', '2022-03-17 11:09:34', '1647544174', 1, 0),
-(2, 'Chad N. Carney', '', 'none', 'chad@mail.com', '4785690000', 230, '469 Diamond Street', 'Charlotte', 'NC', '28808', 'Chad N. Carney', 'none', '7477474440', 230, '469 Diamond Street', 'Charlotte', 'NC', '28808', 'Chad N. Carney', '', 'none', '7477474440', '', 230, '469 Diamond Street', 'Charlotte', 'NC', '28808', '5f4dcc3b5aa765d61d8327deb882cf99', 'ca87666426f4bc5c5128a96dabfecefb', '2022-03-17 11:15:26', '1647544526', 1, 0),
-(3, 'Jean Collins', '', 'none', 'jean@mail.com', '1478523698', 230, '1508 Crosswind Drive', 'Owensboro', 'KY', '13040', 'Jean Collins', 'none', '1478523698', 230, '1508 Crosswind Drive', 'Owensboro', 'KY', '13040', 'Jean Collins', '', 'none', '1478523698', '', 230, '1508 Crosswind Drive', 'Owensboro', 'KY', '13040', '5f4dcc3b5aa765d61d8327deb882cf99', '6b3439bf95644a36a1ed92bef374ebb7', '2022-03-20 10:29:39', '1647797379', 1, 0),
-(4, 'Annie Young', '', 'XYZ Company', 'annie@mail.com', '7770001144', 230, '79 Burwell Heights Road', 'Beaumont', 'TX', '77400', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'fc8f07537cdd6b3f89eb94f1cad78060', '2022-03-20 10:31:35', '1647797495', 1, 0),
-(5, 'Matthew Morales', '', 'ABC Company', 'matthew@mail.com', '7896587450', 230, '81 Felosa Drive', 'Mira Loma', 'CA', '91002', 'Matthew Morales', 'ABC Company', '7896587450', 230, '81 Felosa Drive', 'Mira Loma', 'CA', '91002', 'Matthew Morales', '', 'ABC Company', '7896587450', '', 230, '81 Felosa Drive', 'Mira Loma', 'CA', '91002', '5f4dcc3b5aa765d61d8327deb882cf99', 'c391105908fe01a636bfa5fc39eed33d', '2022-03-20 10:33:15', '1647797595', 1, 0),
-(6, 'August F. Freels', '', 'none', 'august@mail.com', '1478547850', 230, '96 Johnny Lane', 'Milwaukee', 'WI', '55550', 'August F. Freels', 'none', '1478547850', 230, '96 Johnny Lane', 'Milwaukee', 'WI', '55550', 'August F. Freels', '', 'none', '1478547850', '', 230, '96 Johnny Lane', 'Milwaukee', 'WI', '55550', '5f4dcc3b5aa765d61d8327deb882cf99', 'decc1fc2c5dd9935df82c0233002ce66', '2022-03-20 10:34:08', '1647797648', 1, 0),
-(7, 'Carl M. Dineen', '', 'none', 'carl@mail.com', '789878987', 230, '77 Lyndon Street', 'Kutztown', 'PA', '19855', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'c79bac688e70cc9665a2164c57ec172c', '2022-03-20 10:35:02', '1647797702', 1, 0),
-(8, 'Benjamin B. Louque', '', 'none', 'benjamin@mail.com', '7777889955', 230, '32 Bridge Street', 'Tulsa', 'OK', '74220', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', '5a0e096368f9669508af7b7203382b07', '2022-03-20 10:36:31', '1647797791', 1, 0),
-(9, 'Joe K. Richardson', '', 'none', 'joe@mail.com', '4444445555', 230, '17 Derek Drive', 'Youngstown', 'OH', '44500', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '5f4dcc3b5aa765d61d8327deb882cf99', 'e74ac0178d7833988d4b1625c42ba26e', '2022-03-20 10:37:18', '1647797838', 1, 0),
-(10, 'Will Williams', '', 'Test Company', 'williams@mail.com', '7410000000', 230, '39 Marcus Street', 'Anniston', 'AL', '37207', 'Will Williams', 'Test Company', '7410000000', 230, '39 Marcus Street', 'Anniston', 'AL', '37207', 'Will Williams', '', 'Test Company', '7410000000', '', 230, '39 Marcus Street', 'Anniston', 'AL', '37207', '5f4dcc3b5aa765d61d8327deb882cf99', '941c9265fb920f691cf01b12a15f80f8', '2022-03-20 11:15:59', '1647800159', 1, 0),
-(15, '', '', '', 'guest4@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', '6623f6645b6ccb72d6cc7c7dd076b247', '2022-12-28 10:37:13', '1672295833', 1, 1),
-(16, '', '', '', 'guest5@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', '62eddb9e08a3acf2f67d644cece8fc08', '2022-12-28 10:40:24', '1672296024', 1, 1),
-(17, '', '', '', 'guest6@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', '5d873df93087204b746d90c4d1058bab', '2022-12-28 11:12:52', '1672297972', 1, 1),
-(18, '', '', '', 'guest7@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', '435d6e35d26b97ebd49d4b67f716ac42', '2022-12-28 11:20:36', '1672298436', 1, 1),
-(19, '', '', '', 'guest8@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', 'ecc3866f81d8416739b1514d90017b2b', '2022-12-28 11:26:25', '1672298785', 1, 1),
-(20, '', '', '', 'guest9@gmail.com', '', 0, '', '', '', '', '', '', '', 1, '', '', '', '', 'Guest Fullna', '', '', '1231212323', '', 19, 'acaccz', 'asscasca', 'xcxc', '232323', '40df65fa9156a1f0f72e57fe6da3d896', '977e9e8fa1b2b696a9561b6fc246cb47', '2022-12-28 11:30:11', '1672299011', 1, 1),
-(21, '', '', '', 'guest10@gmail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '40df65fa9156a1f0f72e57fe6da3d896', 'c637b37785614a4603d19a98bc77a0b7', '2022-12-29 12:29:29', '1672302569', 1, 1),
-(22, 'Christine', '', '', 'christine@mail.com', '', 0, '', '', '', '', '', '', '', 0, '', '', '', '', 'pankaj', '', '', '9984499623', 'pg@gmail.com', 230, 'ramgarh', 'sln', 'up', '222302', '81dc9bdb52d04dc20036dbd8313ed055', '', '', '', 0, 0),
-(23, 'Pankaj Giri', '', '', 'pankaj1433giri@gmail.com', '9984499623', 99, 'Ramgarh', 'Sultanpur', 'Uttar Pradesh', '222302', '', '', '', 0, '', '', '', '', 'Suraj', '', '', '1234567890', 's@gmail.com', 5, 'ramgarh', 'sln', 'up', '222342', '827ccb0eea8a706c4c34a16891f84e7b', '2a9503a66938d07dd57242d888cfd1b1', '2023-01-21 07:42:59', '1674315779', 1, 0),
-(24, 'kp', 'male', '', 'kp@gmail.com', '1234560', 17, 'ramgarh', 'sln', 'up', ' 787', '', '', '', 0, '', '', '', '', 'kp', 'male', '', '1234560', 's@gmail.com', 1, 'ramgarh', 'j', 'j', '789', '827ccb0eea8a706c4c34a16891f84e7b', 'b5a9d7c3cd875d5a24d325a3213f0f55', '2023-01-27 02:00:20', '1674813620', 1, 0),
-(26, 'Pankaj Giri', 'male', '', 'pankaj143giri@gmail.com', 'pankaj143giri@gmail.com', 0, '', '', '', '', '', '', '', 0, '', '', '', '', 'Pankaj Giri', '', '', 'pankaj143giri@gmail.com', 'pankaj143giri@gmail.com', 0, '', '', '', '', '827ccb0eea8a706c4c34a16891f84e7b', '', '2023-02-03 07:10:13', '', 1, 0),
-(27, 'sportube', 'male', '', 'sportube14@gmail.com', '12345', 0, '', '', '', '', '', '', '', 0, '', '', '', '', 'sportube', '', '', '12345', 'sportube14@gmail.com', 0, '', '', '', '', '827ccb0eea8a706c4c34a16891f84e7b', '2f2192bd157ef89eb23caf99b128930c', '2023-02-10 11:50:06', '1676058606', 0, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -436,24 +132,8 @@ CREATE TABLE `tbl_customer_message` (
 --
 
 INSERT INTO `tbl_customer_message` (`customer_message_id`, `to_email`, `subject`, `message`, `payment_id`, `status_details`, `order_details`, `shipping_address`) VALUES
-(9, 's@gmail.com', 'order confim', 'sdfdfgfgghhg', '1675192784', '\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n			<li><b>Order ID: </b>t</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li></ul>', '\r\n            <table border=1 >\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <th colspan=5>Grand Total</th>\r\n            <th>200</th>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(10, 's@gmail.com', 'order confim', 'dgngdfgfdhdfh', '1675192784', '\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n			<li><b>Order ID: </b>t</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li></ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <th colspan=5>Grand Total</th>\r\n            <th>200</th>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(11, 's@gmail.com', 'order confim', 'ram ji', '1675192784', '\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n			<li><b>Order ID: </b>t</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <th colspan=5>Grand Total</th>\r\n            <th>$200</th>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(12, 's@gmail.com', 'order confim', 'fdg', '1675192784', '\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n			<li><b>Order ID: </b>t</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <th colspan=5>Grand Total</th>\r\n            <th>$200</th>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(13, 's@gmail.com', 'order confim', 'dfsfdsfsss', '1675192784', '\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n			<li><b>Order ID: </b>t</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <th colspan=5>Grand Total</th>\r\n            <th>$200</th>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(14, 's@gmail.com', 'order confim', 'Once my friend asked me â€œHow to send the auto-generated mail using PHP? ', '1675192784', '\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n			<li><b>Order ID: </b>t</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <th colspan=5>Grand Total</th>\r\n            <th>$200</th>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(15, 's@gmail.com', 'order confim', 'asdffghh hjhjh jj ', '1675192784', '\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n			<li><b>Order ID: </b>t</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$200</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(16, 's@gmail.com', 'order confim', 'cehck3', '1675192784', '\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n			<li><b>Order ID: </b>t</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$200</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(17, 's@gmail.com', 'order confim', 'dsff', '1675192679', '\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n			<li><b>Order ID: </b>kl</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:17:59</li>\r\n            <li><b>Total Amount: </b>$100</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>AA</td>\r\n                <td>100 PILLS</td>\r\n                <td>$100</td>\r\n                <td>1</td>\r\n                <td>$100</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$100</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>kl</li>\r\n            <li><b>Phone: </b>88999</li>\r\n            <li><b>Address: </b>gomtingr, lko, up, Faroe Islands, 9098888</li>\r\n            </ul>'),
-(18, 's@gmail.com', 'order confim', 'dfgfdgfgf', '1675192784', '<ul style=\"padding-left:20px;list-style-type:None;colo:black\">\r\n			<li><b>Order ID: </b>1675192784</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$200</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(19, 's@gmail.com', 'order confim', 'dsfs', '1675192784', '<ul style=\"list-style-type:None;colo:black\">\r\n			<li><b>Order ID: </b>1675192784</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$200</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(20, 's@gmail.com', 'Unit Pharma: Order confirmation - 123455', 'apka order deliver hone ja rh h jyada gad n maraye', '1675192784', '<ul style=\"list-style-type:None;colo:black\">\r\n			<li><b>Order ID: </b>1675192784</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$200</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(21, 's@gmail.com', 'Unit Pharma: Order confirmation - 123456', 'asdgg', '1675192784', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1675192784</li>\r\n            <li><b>Order Date: </b>2023-01-31 11:19:44</li>\r\n            <li><b>Total Amount: </b>$200</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n                <li><i>Note*- Order not processed yet, will be processed soon.</i></li>\r\n                </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Painkiller2</td>\r\n                <td>100 PILLS</td>\r\n                <td>$200</td>\r\n                <td>1</td>\r\n                <td>$200</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$200</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None\">\r\n            <li><b>Name: </b>t</li>\r\n            <li><b>Phone: </b>1234567890</li>\r\n            <li><b>Address: </b>ramgarh, sln, up, Andorra, 222342</li>\r\n            </ul>'),
-(22, 'pankaj143giri@gmail.com', 'Unit Pharma: Order msg - 1675414922', 'ka ho', '1675414922', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1675414922</li>\r\n            <li><b>Order Date: </b>2023-02-03 01:02:02</li>\r\n            <li><b>Total Amount: </b>$400</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n            <li><b>Tracking ID: </b>12345123</li>\r\n            <li><a href=\"https://www.bluedark.com\" style=\"color:blue\" >CLICK! HERE TO TRACK YOUR ORDER</a></li>\r\n            </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Sleep2</td>\r\n                <td>200 PILLS</td>\r\n                <td>$400</td>\r\n                <td>1</td>\r\n                <td>$400</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$400</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None;color:black\">\r\n            <li><b>Name: </b>pankaj</li>\r\n            <li><b>Phone: </b>9984499623</li>\r\n            <li><b>Address: </b>Ramgarh, Sultanpur, Uttar Pradesh, India, 222302</li>\r\n            </ul>'),
-(23, 'pankaj143giri@gmail.com', 'Unit Pharma  - 123445', 'how are you n.\r\n\r\nhttps://www.tcs.com', '1676033723', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1676033723</li>\r\n            <li><b>Order Date: </b>2023-02-10 04:55:23</li>\r\n            <li><b>Total Amount: </b>$400</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n            <li><b>Tracking ID: </b>12345</li>\r\n            <li><b><a href=\"https://www.tcs.com\">CLICK HERE! TO TRACK YOUR ORDER</a></b></li>\r\n            </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>sWell2</td>\r\n                <td>200 PILLS</td>\r\n                <td>$400</td>\r\n                <td>1</td>\r\n                <td>$400</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$400</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None;color:black\">\r\n            <li><b>Name: </b>dr</li>\r\n            <li><b>Phone: </b>1234567</li>\r\n            <li><b>Address: </b>ramgarh, csln, up, Afghanistan, 222345</li>\r\n            </ul>'),
-(24, 'pankaj143giri@gmail.com', 'Unit Pharma  - 123445', 'dellliiidfdsfs ', '1676033723', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1676033723</li>\r\n            <li><b>Order Date: </b>2023-02-10 04:55:23</li>\r\n            <li><b>Total Amount: </b>$400</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n            <li><b>Tracking ID: </b>12345</li>\r\n            <li><b><a href=\"https://www.tcs.com\">CLICK HERE! TO TRACK YOUR ORDER</a></b></li>\r\n            </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>sWell2</td>\r\n                <td>200 PILLS</td>\r\n                <td>$400</td>\r\n                <td>1</td>\r\n                <td>$400</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$400</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None;color:black\">\r\n            <li><b>Name: </b>dr</li>\r\n            <li><b>Phone: </b>1234567</li>\r\n            <li><b>Address: </b>ramgarh, csln, up, Afghanistan, 222345</li>\r\n            </ul>'),
-(25, 'pankaj143giri@gmail.com', 'Unit Pharma  - 123445', 'kpfgfd', '1676033723', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1676033723</li>\r\n            <li><b>Order Date: </b>2023-02-10 04:55:23</li>\r\n            <li><b>Total Amount: </b>$400</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n            <li><b>Tracking ID: </b>12345</li>\r\n            <li><b><a href=\"https://www.tcs.com\">CLICK HERE! TO TRACK YOUR ORDER</a></b></li>\r\n            </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>sWell2</td>\r\n                <td>200 PILLS</td>\r\n                <td>$400</td>\r\n                <td>1</td>\r\n                <td>$400</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$400</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None;color:black\">\r\n            <li><b>Name: </b>dr</li>\r\n            <li><b>Phone: </b>1234567</li>\r\n            <li><b>Address: </b>ramgarh, csln, up, Afghanistan, 222345</li>\r\n            </ul>'),
-(26, 'pankaj143giri@gmail.com', 'Unit Pharma  - 123445i', 'hjbb', '1676033723', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1676033723</li>\r\n            <li><b>Order Date: </b>2023-02-10 04:55:23</li>\r\n            <li><b>Total Amount: </b>$400</li>\r\n            <li><b>Payment Status: </b>Completed</li>\r\n            <li><b>Tracking ID: </b>12345</li>\r\n            <li><b><a href=\"https://www.tcs.com\">CLICK HERE! TO TRACK YOUR ORDER</a></b></li>\r\n            </ul>', '\r\n            <table border=1 >\r\n            <caption>Order Details</caption>\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>sWell2</td>\r\n                <td>200 PILLS</td>\r\n                <td>$400</td>\r\n                <td>1</td>\r\n                <td>$400</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$400</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None;color:black\">\r\n            <li><b>Name: </b>dr</li>\r\n            <li><b>Phone: </b>1234567</li>\r\n            <li><b>Address: </b>ramgarh, csln, up, Afghanistan, 222345</li>\r\n            </ul>');
+(28, 'pankaj143giri@gmail.com', 'manual msg', 'hello', '1678711679', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1678711679</li>\r\n            <li><b>Order Date: </b>2023-03-13 05:47:59</li>\r\n            <li><b>Total Amount: </b>$356</li>\r\n            <li><b>Payment Status: </b>Pending</li></ul>', '\r\n            <table border=1 >\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Citra 100mg</td>\r\n                <td>180 PILLS</td>\r\n                <td>$356</td>\r\n                <td>1</td>\r\n                <td>$356</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$356</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None;color:black\">\r\n            <li><b>Name: </b>pankaj</li>\r\n            <li><b>Phone: </b>10234</li>\r\n            <li><b>Address: </b>lanbhua, sln, up, Canada, 1245</li>\r\n            </ul>'),
+(29, 'pankaj143giri@gmail.com', 'manual msg', 'kj', '1678715682', '<ul style=\"list-style-type:None;color:black\">\r\n			<li><b>Order ID: </b>1678715682</li>\r\n            <li><b>Order Date: </b>2023-03-13 06:54:42</li>\r\n            <li><b>Total Amount: </b>$329</li>\r\n            <li><b>Payment Status: </b>Pending</li></ul>', '\r\n            <table border=1 >\r\n            <tr>\r\n            <th>#</th>\r\n            <th>Product Name</th>\r\n            <th>Package</th>\r\n            <th>Price</th>\r\n            <th>Quanity</th>\r\n            <th>Total</th>\r\n            </tr>\r\n            \r\n                <tr>\r\n                <td>1</td>\r\n                <td>Rivotril 2mg</td>\r\n                <td>90 PILLS</td>\r\n                <td>$329</td>\r\n                <td>1</td>\r\n                <td>$329</td>\r\n                </tr>\r\n                \r\n            <tr>\r\n            <td colspan=5><b>Grand Total</b></td>\r\n            <td><b>$329</b></td>\r\n            </tr>\r\n            </table>\r\n            ', '\r\n            <u><b>Shipping Address-</b></u>\r\n            <ul style=\"padding-left:20px;list-style-type:None;color:black\">\r\n            <li><b>Name: </b>pankaj</li>\r\n            <li><b>Phone: </b>10234</li>\r\n            <li><b>Address: </b>lanbhua, sln, up, Canada, 1245</li>\r\n            </ul>');
 
 -- --------------------------------------------------------
 
@@ -466,90 +146,6 @@ CREATE TABLE `tbl_end_category` (
   `ecat_name` varchar(255) NOT NULL,
   `mcat_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_end_category`
---
-
-INSERT INTO `tbl_end_category` (`ecat_id`, `ecat_name`, `mcat_id`) VALUES
-(1, 'Headwear ', 1),
-(2, 'Sunglasses', 1),
-(3, 'Watches', 1),
-(4, 'Sandals', 2),
-(5, 'Boots', 2),
-(6, 'Tops', 3),
-(7, 'T-Shirt', 3),
-(8, 'Watches', 4),
-(9, 'Sunglasses', 4),
-(11, 'Sports Shoes', 2),
-(12, 'Sandals', 6),
-(13, 'Flat Shoes', 6),
-(14, 'Hoodies', 7),
-(15, 'Coats & Jackets', 7),
-(16, 'Pants', 8),
-(17, 'Jeans', 8),
-(18, 'Joggers', 8),
-(19, 'Shorts', 8),
-(20, 'T-shirts', 9),
-(21, 'Casual Shirts', 9),
-(22, 'Formal Shirts', 9),
-(23, 'Polo Shirts', 9),
-(24, 'Vests', 9),
-(25, 'Casual Shoes', 2),
-(26, 'Boys', 10),
-(27, 'Girls', 10),
-(28, 'Boys', 11),
-(29, 'Girls', 11),
-(30, 'Boys', 12),
-(31, 'Girls', 12),
-(32, 'Dresses', 7),
-(33, 'Tops', 7),
-(34, 'T-Shirts & Vests', 7),
-(35, 'Pants & Leggings', 7),
-(36, 'Sportswear', 7),
-(37, 'Plus Size Clothing', 7),
-(38, 'Socks & Hosiery', 7),
-(39, 'Fragrance', 3),
-(40, 'Skincare', 3),
-(41, 'Hair Care', 3),
-(42, 'Jewellery', 4),
-(43, 'Eyes Care', 3),
-(44, 'Lips', 3),
-(45, 'Face Care', 3),
-(46, 'Gift Sets', 3),
-(47, 'Scarves & Headwear', 4),
-(48, 'Multipacks', 4),
-(49, 'Other Accessories', 4),
-(50, 'Pumps', 6),
-(51, 'Sneakers', 6),
-(52, 'Sports Shoes', 6),
-(53, 'Boots', 6),
-(54, 'Comfort Shoes', 6),
-(55, 'Slippers & Casual Shoes', 6),
-(56, 'Formal Shoes', 2),
-(57, 'Belts', 1),
-(58, 'Multipacks', 1),
-(59, 'Other Accessories', 1),
-(60, 'Bags', 4),
-(61, 'Cell Phone and Accessories', 14),
-(62, 'Headphones', 14),
-(63, 'Security and Surveillance', 14),
-(64, 'Television and Video', 14),
-(65, 'GPS and Navigation', 14),
-(66, 'Home Audio', 14),
-(67, 'Computer Components', 15),
-(68, 'Computers and Tablets', 15),
-(69, 'Laptop Accessories', 15),
-(70, 'Printer and Monitors', 15),
-(71, 'External Components', 15),
-(72, 'Networking Products', 15),
-(73, 'Medical Supplies and Equipment', 16),
-(74, 'Oral Care', 16),
-(75, 'Vision Care', 16),
-(76, 'Vitamins and Dietary Supplements', 16),
-(77, 'Baby and Child Care', 17),
-(78, 'Household Supplies', 17),
-(79, 'Stationery and Gift Wrapping Supplies', 17);
 
 -- --------------------------------------------------------
 
@@ -571,8 +167,7 @@ INSERT INTO `tbl_faq` (`faq_id`, `faq_title`, `faq_content`) VALUES
 (1, 'How to find an item?', '<h3 class=\"checkout-complete-box font-bold txt16\" style=\"box-sizing: inherit; text-rendering: optimizeLegibility; margin: 0.2rem 0px 0.5rem; padding: 0px; line-height: 1.4; background-color: rgb(250, 250, 250);\"><font color=\"#222222\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\"><span style=\"font-size: 15.7143px;\">We have a wide range of fabulous products to choose from.</span></font></h3><h3 class=\"checkout-complete-box font-bold txt16\" style=\"box-sizing: inherit; text-rendering: optimizeLegibility; margin: 0.2rem 0px 0.5rem; padding: 0px; line-height: 1.4; background-color: rgb(250, 250, 250);\"><span style=\"font-size: 15.7143px; color: rgb(34, 34, 34); font-family: opensans, \"Helvetica Neue\", Helvetica, Helvetica, Arial, sans-serif;\">Tip 1: If you\'re looking for a specific product, use the keyword search box located at the top of the site. Simply type what you are looking for, and prepare to be amazed!</span></h3><h3 class=\"checkout-complete-box font-bold txt16\" style=\"box-sizing: inherit; text-rendering: optimizeLegibility; margin: 0.2rem 0px 0.5rem; padding: 0px; line-height: 1.4; background-color: rgb(250, 250, 250);\"><font color=\"#222222\" face=\"opensans, Helvetica Neue, Helvetica, Helvetica, Arial, sans-serif\"><span style=\"font-size: 15.7143px;\">Tip 2: If you want to explore a category of products, use the Shop Categories in the upper menu, and navigate through your favorite categories where we\'ll feature the best products in each.</span></font><br><br></h3>\r\n'),
 (2, 'What is your return policy?', '<p><span style=\"color: rgb(10, 10, 10); font-family: opensans, &quot;Helvetica Neue&quot;, Helvetica, Helvetica, Arial, sans-serif; font-size: 14px; text-align: center;\">You have 15 days to make a refund request after your order has been delivered.</span><br></p>\r\n'),
 (3, ' I received a defective/damaged item, can I get a refund?', '<p>In case the item you received is damaged or defective, you could return an item in the same condition as you received it with the original box and/or packaging intact. Once we receive the returned item, we will inspect it and if the item is found to be defective or damaged, we will process the refund along with any shipping fees incurred.<br></p>\r\n'),
-(4, 'When are ‘Returns’ not possible?', '<p class=\"a  \" style=\"box-sizing: inherit; text-rendering: optimizeLegibility; line-height: 1.6; margin-bottom: 0.714286rem; padding: 0px; font-size: 14px; color: rgb(10, 10, 10); font-family: opensans, &quot;Helvetica Neue&quot;, Helvetica, Helvetica, Arial, sans-serif; background-color: rgb(250, 250, 250);\">There are a few certain scenarios where it is difficult for us to support returns:</p><ol style=\"box-sizing: inherit; line-height: 1.6; margin-right: 0px; margin-bottom: 0px; margin-left: 1.25rem; padding: 0px; list-style-position: outside; color: rgb(10, 10, 10); font-family: opensans, &quot;Helvetica Neue&quot;, Helvetica, Helvetica, Arial, sans-serif; font-size: 14px; background-color: rgb(250, 250, 250);\"><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Return request is made outside the specified time frame, of 15 days from delivery.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Product is used, damaged, or is not in the same condition as you received it.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Specific categories like innerwear, lingerie, socks and clothing freebies etc.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Defective products which are covered under the manufacturer\'s warranty.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Any consumable item which has been used or installed.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Products with tampered or missing serial numbers.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Anything missing from the package you\'ve received including price tags, labels, original packing, freebies and accessories.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Fragile items, hygiene related items.</li></ol>\r\n'),
-(5, 'What are the items that cannot be returned?', '<p>The items that can not be returned are:</p><p>Clearance items clearly marked as such and displaying a No-Return Policy<br></p><p>When the offer notes states so specifically are items that cannot be returned.</p><p>Items that fall into the below product types-</p><ul><li>Underwear</li><li>Lingerie</li><li>Socks</li><li>Software</li><li>Music albums</li><li>Books</li><li>Swimwear</li><li>Beauty &amp; Fragrances</li><li>Hosiery</li></ul><p>Also, any consumable items that are used or installed cannot be returned. As outlined in consumer Protection Rights and concerning section on non-returnable items<br></p>');
+(4, 'When are ï¿½Returnsï¿½ not possible?', '<p class=\"a  \" style=\"box-sizing: inherit; text-rendering: optimizeLegibility; line-height: 1.6; margin-bottom: 0.714286rem; padding: 0px; font-size: 14px; color: rgb(10, 10, 10); font-family: opensans, \" helvetica=\"\" neue\",=\"\" helvetica,=\"\" arial,=\"\" sans-serif;=\"\" background-color:=\"\" rgb(250,=\"\" 250,=\"\" 250);\"=\"\">There are a few certain scenarios where it is difficult for us to support returns:</p><ol style=\"box-sizing: inherit; line-height: 1.6; margin-right: 0px; margin-bottom: 0px; margin-left: 1.25rem; padding: 0px; list-style-position: outside; color: rgb(10, 10, 10); font-family: opensans, \" helvetica=\"\" neue\",=\"\" helvetica,=\"\" arial,=\"\" sans-serif;=\"\" font-size:=\"\" 14px;=\"\" background-color:=\"\" rgb(250,=\"\" 250,=\"\" 250);\"=\"\"><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Return request is made outside the specified time frame, of 15 days from delivery.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Product is used, damaged, or is not in the same condition as you received it.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Defective products, which are covered under the manufacturer\'s warranty.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Any consumable item which has been used or installed.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Products with tampered or missing serial numbers.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Anything missing from the package you\'ve received including price tags, labels, original packing, freebies and accessories.</li><li style=\"box-sizing: inherit; margin: 0px; padding: 0px; font-size: inherit;\">Fragile items, hygiene-related items.</li></ol>\r\n');
 
 -- --------------------------------------------------------
 
@@ -767,27 +362,6 @@ CREATE TABLE `tbl_mid_category` (
   `tcat_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_mid_category`
---
-
-INSERT INTO `tbl_mid_category` (`mcat_id`, `mcat_name`, `tcat_id`) VALUES
-(1, 'Men Accessories', 1),
-(2, 'Men\'s Shoes', 1),
-(3, 'Beauty Products', 2),
-(4, 'Accessories', 2),
-(6, 'Shoes', 2),
-(7, 'Clothing', 2),
-(8, 'Bottoms', 1),
-(9, 'T-shirts & Shirts', 1),
-(10, 'Clothing', 3),
-(11, 'Shoes', 3),
-(12, 'Accessories', 3),
-(14, 'Electronic Items', 4),
-(15, 'Computers', 4),
-(16, 'Health', 5),
-(17, 'Household', 5);
-
 -- --------------------------------------------------------
 
 --
@@ -809,27 +383,13 @@ CREATE TABLE `tbl_order` (
 --
 
 INSERT INTO `tbl_order` (`id`, `product_id`, `product_name`, `pkg_name`, `quantity`, `pkg_price`, `payment_id`) VALUES
-(1, 83, 'Men\'s Ultra Cotton T-Shirt, Multipack', 'XL', '1', '19', '1647629329'),
-(2, 92, 'Travelpro Laptop Carry-on Travel Tote Bag', 'One Size for All', '1', '91', '1647798593'),
-(4, 101, 'Digital Infrared Thermometer for Adults and Kids', 'One Size for All', '1', '70', '1647799174'),
-(5, 94, 'WD 5TB Elements Portable External Hard Drive HDD', '5T', '1', '149', '1647800902'),
-(28, 150, 'Painkiller2', '100 PILLS', '1', '200', '1674636961'),
-(29, 148, 'Sleep2', '200 PILLS', '1', '400', '1674637103'),
-(30, 152, 'Gym2', '100 PILLS', '1', '200', '1674759018'),
-(31, 152, 'Gym2', '200 PILLS', '1', '400', '1674759160'),
-(32, 144, 'AA', '100 PILLS', '1', '100', '1674886360'),
-(33, 150, 'Painkiller2', '100 PILLS', '1', '200', '1674896696'),
-(34, 144, 'AA', '100 PILLS', '1', '100', '1675192596'),
-(35, 144, 'AA', '100 PILLS', '1', '100', '1675192679'),
-(36, 150, 'Painkiller2', '100 PILLS', '1', '200', '1675192784'),
-(40, 148, 'Sleep2', '200 PILLS', '1', '400', '1675414922'),
-(41, 154, 'sWell2', '200 PILLS', '1', '400', '1676033723'),
-(42, 147, 'Sleep1', '100 PILLS', '1', '200', '1676196346'),
-(43, 147, 'Sleep1', '200 PILLS', '10', '400', '1676196346'),
-(44, 150, 'Painkiller2', '100 PILLS', '1', '200', '1676196346'),
-(45, 149, 'Painkiller1', '100 PILLS', '1', '200', '1676196346'),
-(46, 152, 'Gym2', '100 PILLS', '1', '200', '1676196346'),
-(47, 152, 'Gym2', '200 PILLS', '1', '400', '1676196346');
+(3, 10015, 'Valium (Diazepam)', '90 PILLS', '1', '310', '1677704742'),
+(4, 10012, 'Xanax Alko 1mg', '90 PILLS', '1', '355', '1677961829'),
+(5, 10017, 'Citra 100mg', '180 PILLS', '1', '356', '1678711679'),
+(6, 10007, 'Rivotril 2mg', '90 PILLS', '1', '329', '1678715682'),
+(7, 10019, 'Tapentadol 100mg', '180 PILLS', '1', '340', '1678723365'),
+(8, 10008, 'Bensedin', '90 PILLS', '1', '370', '1678723474'),
+(9, 10019, 'Tapentadol 100mg', '180 PILLS', '1', '340', '1678723697');
 
 -- --------------------------------------------------------
 
@@ -877,7 +437,7 @@ CREATE TABLE `tbl_page` (
 --
 
 INSERT INTO `tbl_page` (`id`, `about_title`, `about_content`, `about_banner`, `about_meta_title`, `about_meta_keyword`, `about_meta_description`, `faq_title`, `faq_banner`, `faq_meta_title`, `faq_meta_keyword`, `faq_meta_description`, `blog_title`, `blog_banner`, `blog_meta_title`, `blog_meta_keyword`, `blog_meta_description`, `contact_title`, `contact_banner`, `contact_meta_title`, `contact_meta_keyword`, `contact_meta_description`, `pgallery_title`, `pgallery_banner`, `pgallery_meta_title`, `pgallery_meta_keyword`, `pgallery_meta_description`, `vgallery_title`, `vgallery_banner`, `vgallery_meta_title`, `vgallery_meta_keyword`, `vgallery_meta_description`) VALUES
-(1, 'About Us', '<p style=\"border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\">Welcome to Ecommerce PHP Project!</p><p style=\"border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\"><span style=\"border: 0px solid;\">We aim to offer our customers a variety of the latest [PRODUCTS_CATEGORY_NAME]. Weâ€™ve come a long way, so we know exactly which direction to take when supplying you with high quality yet budget-friendly products. We offer all of this while providing excellent customer service and friendly support.</span></p><p style=\"border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\"><span style=\"border: 0px solid;\">We always keep an eye on the latest trends in [PRODUCTS CATEGORY NAME] and put our customersâ€™ wishes first. That is why we have satisfied customers all over the world, and are thrilled to be a part of the [PRODUCTS CATEGORY NAME] industry.</span></p><p style=\"border: 0px solid; margin-top: 1.5rem; margin-bottom: 0px;\"><span style=\"border: 0px solid;\">The interests of our customers are always top priority for us, so we hope you will enjoy our products as much as we enjoy making them available to you.</span></p><p style=\"\">We make sure you get the best quality outfits with hassle free returns and exchanges policy. We ensure what you see is exactly what you get!</p><ul><li style=\"text-align: justify;\"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">Low Price Guarantee</span></font></li><li style=\"text-align: justify;\"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">24/7 Customer Support</span></font></li><li style=\"text-align: justify;\"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">E-Mail - Text - Call</span></font></li><li style=\"text-align: justify;\"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">We are here for you 24/7 online and via phone.</span></font></li><li style=\"text-align: justify;\"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">Sizing & Color</span></font></li><li style=\"text-align: justify;\"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">Worldwide Shipping</span></font></li><li style=\"text-align: justify;\"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">Weâ€™d love to expand our business Internationally soon.</span></font></li><li style=\"text-align: justify;\"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">Easy Returns</span></font></li></ul><p style=\"text-align: justify; \"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">Bought an outfit but want to return it? We have a 3 days easy return policy. Please mail us at support@ecommercephp.com for more details.</span></font></p><p style=\"text-align: justify; \"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\"><b>Dream Dresses for Every Occasion</b></span></font></p><p style=\"text-align: justify; \"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">Fashionys.com carries all carefully handpicked by our stylists. If youâ€™re interested in a particular model please mail us we will try our best to offer you the loved dress.</span></font></p><p style=\"text-align: justify; \"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\"><b>Verified Security</b></span></font></p><p style=\"text-align: justify; \"><font face=\"apercu, Arial, sans-serif\"><span style=\"font-size: 14px;\">All our transactions are Verified by Norton and with the highest standards of security. Plus, there\'s a lot to go around too through regular exciting offers and gifts, so spread the word and refer us to everyone from your family, friends and colleagues and get rewarded for it. And to top it all, you can share your user experience by posting reviews. Donâ€™t wait any longer Sign up with us now! start stalking, start buying and start loving and start Introducing the beauty in you.</span></font></p>\r\n', 'about-banner.jpg', 'Unit Pharma - About Us', 'about, about us, about fashion, about company, about ecommerce php project', 'Our goal has always been to get the best in you we brought a huge collection whether youâ€™re attending a party, wedding, and all those events that require a WOW dress.', 'FAQ', 'faq-banner.jpg', 'Unit Pharma- FAQ', '', '', 'Blog', 'blog-banner.jpg', 'Unit Pharma - Blog', '', '', 'Contact Us', 'contact-banner.jpg', 'Unit Pharma - Contact', '', '', 'Photo Gallery', 'pgallery-banner.jpg', 'Unit Pharma - Photo Gallery', '', '', 'Video Gallery', 'vgallery-banner.jpg', 'Unit Pharma - Video Gallery', '', '');
+(1, 'About Us', '<p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Welcome to Unit Pharma, your trusted provider of high-quality medical products and services. Our experienced and knowledgeable pharmacists and staff are committed to helping you manage your health and well-being.</span></p><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">At UnitPharma, we believe that access to reliable healthcare should be affordable and convenient. That\'s why we offer a wide range of prescription and over-the-counter medications, medical supplies, and equipment to meet the needs of our diverse customer base. We ensure what you see is exactly what you get!</span></p><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 23pt 0pt;\"><br></p><h1 dir=\"ltr\" style=\"line-height:1.5;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 23pt 0pt;\"><span id=\"docs-internal-guid-db3d4eca-7fff-2f40-573e-f6b677cc88ab\"><span style=\"font-size: 36pt; font-family: Poppins, sans-serif; color: rgb(40, 40, 40); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;\">Our Goal at </span><span style=\"font-size: 36pt; font-family: Poppins, sans-serif; color: rgb(227, 61, 85); background-color: transparent; font-variant-numeric: normal; font-variant-east-asian: normal; vertical-align: baseline; white-space: pre-wrap;\">Unit Pharma</span></span><br></h1><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 38pt 0pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Our online store is different and unique from other online pharmacies in many aspects not only in terms of availability. We offer all types of medicines which are not easily available in local pharmacies. Our website is one of the reputed stores in the online market in terms of performance and secured payment service. Considering the debilitating health conditions of individuals, we receive orders and dispatch them to the destined place within a stipulated period of time.</span></p><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 38pt 0pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We ask your personal information when you are going to order the medicine from our online pharmacy. Our team helps its customer 24*7 and keeps personal information safe and secure. In comparison to other sites, the team of Unit Pharma provides you original medicines, not fake products as is seen in the case of other websites. These qualities of our medicines set us apart from others, establishing us to be the prominent online drug store. UnitPharma tries to satisfy its customers in every aspect and strives to stay ahead of other competitors, fulfilling the requirements of customers.</span></p><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:38pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Our team leaves no stone unturned to provide you with improved services through our website and relentlessly works day and night. We keep updating our website periodically with new information about medicines for your awareness. Our team puts in efforts to get your love, support, and your feedback which encourages us to keep working for the betterment each day. Our website team takes feedbacks seriously and works accordingly in making the website top searching online pharmacy in the entire USA. The benefits of buying medicines from our online pharmacy store are:</span></p><ol style=\"margin-top:0;margin-bottom:0;padding-inline-start:48px;\"><li dir=\"ltr\" style=\"list-style-type:decimal;font-size:15pt;font-family:Arial;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\" aria-level=\"1\"><p dir=\"ltr\" style=\"line-height:1.7999999999999998;margin-top:0pt;margin-bottom:0pt;padding:7.5pt 0pt 0pt 0pt;\" role=\"presentation\"><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Reasonable Prices</span><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br></span><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We provide you medicines at reasonable prices without compromising on their efficacy and quality. If compared, the prices of medicine at our online pharmacy are lesser than medicines available at other online pharmacies. You can also write us an email to get your order booked and delivered the medicine to your doorstep. We are always worried about the health of individuals and strive to get things done in whatever way we receive it from them. This is the rare and unique quality that sets us apart from others.</span><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br><br></span></p></li></ol><ol style=\"margin-top:0;margin-bottom:0;padding-inline-start:48px;\" start=\"2\"><li dir=\"ltr\" style=\"list-style-type:decimal;font-size:15pt;font-family:Arial;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\" aria-level=\"1\"><p dir=\"ltr\" style=\"line-height:1.7999999999999998;margin-top:0pt;margin-bottom:0pt;\" role=\"presentation\"><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Satisfaction</span><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br></span><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">We go our way out for customer satisfaction and do everything possible with continued improvisation on our services. Not just in the quality of medicines but in every aspect, we try to reach perfection, providing customers with the best services 24*7. Our aim is to satisfy our customers through our medicines & services because we understand the value of life.</span><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br><br></span></p></li></ol><ol style=\"margin-top:0;margin-bottom:0;padding-inline-start:48px;\" start=\"3\"><li dir=\"ltr\" style=\"list-style-type:decimal;font-size:15pt;font-family:Arial;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;\" aria-level=\"1\"><p dir=\"ltr\" style=\"line-height:1.7999999999999998;margin-top:0pt;margin-bottom:69pt;\" role=\"presentation\"><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:700;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Trust and Quality</span><span style=\"font-size:15pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\"><br></span><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Your trust in us keeps us going with confidence. Things in the business of medicine are fragile and every step is taken to ensure things are done correctly. To retain the trust, we always provide the best quality medicines and try not to fiddle with the ingredients to keep the authenticity intact. Quality is always a top priority for us, so we offer our patients the best quality medicines from a certified pharmacy in the USA.</span></p></li></ol><h2 dir=\"ltr\" style=\"line-height:1.875;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 23pt 0pt;\"><span style=\"font-size:24pt;font-family:Poppins,sans-serif;color:#282828;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Our Mission</span></h2><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;padding:0pt 0pt 23pt 0pt;\"><span style=\"font-size:11.5pt;font-family:Poppins,sans-serif;color:#555555;background-color:transparent;font-weight:400;font-style:normal;font-variant:normal;text-decoration:none;vertical-align:baseline;white-space:pre;white-space:pre-wrap;\">Keeping aside business, all customers who show trust in us are satisfied with the best outcomes one can ever experience. We never consider customers as customers but the family who needs the utmost care amid the turbulence owing to bad health. Your health and wellness are all that give us daily motivation. We aim to provide you medicines that work efficiently, causing minimal side effects in rare cases. You can get our medicines delivered to your doorstep by ordering online from Unit Pharma at affordable prices. You can save precious time and get quick delivery along with the satisfaction that you will be enjoying great health for a long.</span></p><p dir=\"ltr\" style=\"line-height:1.38;background-color:#ffffff;margin-top:0pt;margin-bottom:0pt;\"><span id=\"docs-internal-guid-ae1bd8ba-7fff-065d-d936-24752db41e25\"><br></span></p>', 'about-banner.jpg', 'About us - Unit Pharma', 'about unitpharma.com, about unit pharma, about unit pharma', 'Our goal has always been to get the best medical products.', 'FAQ', 'faq-banner.jpg', 'FAQ - Unit Pharma', 'faq unitpharma.com, faq unitpharma, faq unit pharma, help unitpharma, help unit pharma, unitpharma help section', 'We are available 24*7 to support our customers. We provide customers with the best services 24*7. Our aim is to satisfy our customers through our medicines & services because we understand the value of life.\r\n', 'Blog', 'blog-banner.jpg', 'Unit Pharma - Blog', '', '', 'Contact Us', 'contact-banner.jpg', 'Contact us - Unit Pharma', 'contact to unitpharma.com, contact unit pharma, contact unitpharma', 'To reach Unit Pharma\'s customer care please visit our contact page and start chatting with a customer service representative. You can write an email to us: support@unitpharma.com or call us at +1 (903) 429-5515.', 'Photo Gallery', 'pgallery-banner.jpg', 'Unit Pharma - Photo Gallery', '', '', 'Video Gallery', 'vgallery-banner.jpg', 'Unit Pharma - Video Gallery', '', '');
 
 -- --------------------------------------------------------
 
@@ -899,7 +459,7 @@ CREATE TABLE `tbl_payment` (
   `card_month` varchar(10) NOT NULL,
   `card_year` varchar(10) NOT NULL,
   `bank_transaction_info` text NOT NULL,
-  `payment_method` varchar(20) NOT NULL,
+  `payment_method` varchar(50) NOT NULL,
   `payment_status` varchar(25) NOT NULL,
   `tracking_id` varchar(100) NOT NULL,
   `tracking_link` text NOT NULL,
@@ -914,30 +474,22 @@ CREATE TABLE `tbl_payment` (
   `s_city` varchar(250) NOT NULL,
   `s_state` varchar(250) NOT NULL,
   `s_country` int(11) NOT NULL,
-  `s_zip` varchar(30) NOT NULL
+  `s_zip` varchar(30) NOT NULL,
+  `comment` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_payment`
 --
 
-INSERT INTO `tbl_payment` (`id`, `customer_id`, `customer_name`, `customer_email`, `payment_date`, `order_date`, `txnid`, `paid_amount`, `card_number`, `card_cvv`, `card_month`, `card_year`, `bank_transaction_info`, `payment_method`, `payment_status`, `tracking_id`, `tracking_link`, `tracking_date`, `shipping_status`, `shipping_date`, `payment_id`, `s_name`, `s_phone`, `s_email`, `s_address`, `s_city`, `s_state`, `s_country`, `s_zip`) VALUES
-(51, 2, 'Chad N. Carney', 'chad@mail.com', '2022-03-18 22:48:49', '', '', 19, '', '', '', '', 'Transaction Id: CA01010158967840\r\nTransaction Date: 3/19/2022\r\nBank: WestView Bank, CA Branch\r\nSender A/C: 102458965WV', 'Bank Deposit', 'Completed', '123456', '', '12/01/2020', 'Completed', '12/02/2020', '1647629329', 'Pankaj', '012345678', 'p@gmail.com', 'ramgarh', 'sultanpur', 'up', 230, '222302'),
-(52, 3, 'Jean Collins', 'jean@mail.com', '2022-03-20 10:49:53', '', '', 91, '', '', '', '', '', 'PayPal', 'Completed', '123456', '', '12/07/2021', 'Completed', '12/08/2021', '1647798593', '', '', '', '', '', '', 0, ''),
-(54, 6, 'August F. Freels', 'august@mail.com', '2022-03-20 10:59:34', '', '', 70, '', '', '', '', 'Transaction Id: CA01101198945600\nTransaction Date: 3/20/2022 \nBank: WestView Bank, CA Branch \nSender A/C: 1100047860WV', 'Bank Deposit', 'Completed', '-1', '', '', 'Pending', '', '1647799174', '', '', '', '', '', '', 0, ''),
-(55, 10, 'Will Williams', 'williams@mail.com', '2022-03-20 11:28:22', '', '', 149, '', '', '', '', 'Transaction Id: CA01003177945009\r\nTransaction Date: 3/20/2022 \r\nBank: WestView Bank, CA Branch \r\nSender A/C: NQ1011050160WV', 'COD/Pay Later', 'Completed', '123456', '', '11/01/2022', 'Completed', '11/02/2022', '1647800902', '', '', '', '', '', '', 0, ''),
-(80, 0, 'ppppppppppppppp', 'p@gmail.com', '2022-03-20 11:28:22', '', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', '-1', '', '', 'Pending', '', '1674636961', 'ppppppppppppppp', '88', 'p@gmail.com', '88u', 'u', 'up', 16, '889'),
-(83, 0, 'df', 'a@gmail.com', '2022-03-20 11:28:22', '', '', 400, '', '', '', '', '', 'COD/Pay Later', 'Completed', '-1', '', '', 'Pending', '', '1674759160', 'df', '3244', 'a@gmail.com', 'fg', 'vb', 'cv', 18, '233'),
-(81, 0, 'cc', 'p@gmail.com', '2022-03-20 11:28:22', '', '', 400, '', '', '', '', '', 'COD/Pay Later', 'Completed', '-1', '', '', 'Pending', '', '1674637103', 'cc', '88', 'p@gmail.com', '88u', 'u', 'up', 16, '889'),
-(82, 0, 'df', 'a@gmail.com', '2022-03-20 11:28:22', '', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', '-1', '', '', 'Pending', '', '1674759018', 'df', '3244', 'a@gmail.com', 'fg', 'vb', 'cv', 18, '233'),
-(84, 23, 'Pankaj Giri', 'pankaj143giri@gmail.com', '2023-02-01 09:56:16', '', '', 100, '', '', '', '', '', 'COD/Pay Later', 'Completed', '-1', '', '', 'Pending', '', '1674886360', 'Suraj', '1234567890', 's@gmail.com', 'ramgarh', 'sln', 'up', 5, '222342'),
-(85, 0, 'rak', 'a@gmail.com', '2023-01-31 10:45:18', '', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', '0989', 'check tracking', '2023-01-31 10:57:02', 'Completed', '2023-01-31 10:58:44', '1674896696', 'rak', '8009', 'a@gmail.com', 'ijjj', 'h', 'hh', 17, '909'),
-(87, 0, 'GUEST', '', '2023-02-01 09:44:41', '2023-01-31 11:16:36', '', 100, '', '', '', '', '', 'COD/Pay Later', 'Completed', '-1', '', '', 'Pending', '', '1675192596', 'suraj', '88999', 's@gmail.com', 'gomtingr', 'lko', 'up', 69, '9098888'),
-(88, 0, 'GUEST', '', '2023-02-01 08:23:50', '2023-01-31 11:17:59', '', 100, '', '', '', '', '', 'COD/Pay Later', 'Completed', '-1', '', '', 'Pending', '', '1675192679', 'kl', '88999', 's@gmail.com', 'gomtingr', 'lko', 'up', 69, '9098888'),
-(89, 23, 'Pankaj Giri', 'pankaj143giri@gmail.com', '2023-01-31 13:04:34', '2023-01-31 11:19:44', '', 200, '', '', '', '', '', 'COD/Pay Later', 'Completed', '12345123', 'http://www.h.com', '2023-02-03 08:54:29', 'Completed', '2023-02-04 11:10:37', '1675192784', 't', '1234567890', 's@gmail.com', 'ramgarh', 'sln', 'up', 5, '222342'),
-(92, 0, 'GUEST', '', '2023-02-03 01:02:52', '2023-02-03 01:02:02', '', 400, '', '', '', '', '', 'COD/Pay Later', 'Completed', '12345123', 'https://www.bluedark.com', '2023-02-03 01:06:10', 'Completed', '2023-02-03 01:15:43', '1675414922', 'pankaj', '9984499623', 'pankaj143giri@gmail.com', 'Ramgarh', 'Sultanpur', 'Uttar Pradesh', 99, '222302'),
-(93, 0, 'GUEST', '', '2023-02-10 04:57:06', '2023-02-10 04:55:23', '', 400, '', '', '', '', '', 'COD/Pay Later', 'Completed', '12345', 'https://www.tcs.com', '2023-02-10 04:58:39', 'Completed', '2023-02-10 05:01:00', '1676033723', 'dr', '1234567', 'pankaj143giri@gmail.com', 'ramgarh', 'csln', 'up', 1, '222345'),
-(94, 26, 'Pankaj Giri', 'pankaj143giri@gmail.com', '', '2023-02-12 02:05:46', '', 5200, '', '', '', '', '', 'COD/Pay Later', 'Pending', '-1', '', '', 'Pending', '', '1676196346', 'Pankaj Giri', 'pankaj143giri@gmail.com', 'pankaj143giri@gmail.com', 'ramgarh', 'ddd', 'ddd', 15, '23');
+INSERT INTO `tbl_payment` (`id`, `customer_id`, `customer_name`, `customer_email`, `payment_date`, `order_date`, `txnid`, `paid_amount`, `card_number`, `card_cvv`, `card_month`, `card_year`, `bank_transaction_info`, `payment_method`, `payment_status`, `tracking_id`, `tracking_link`, `tracking_date`, `shipping_status`, `shipping_date`, `payment_id`, `s_name`, `s_phone`, `s_email`, `s_address`, `s_city`, `s_state`, `s_country`, `s_zip`, `comment`) VALUES
+(10003, 0, 'GUEST', '', '', '2023-03-01 13:05:42', '', 310, '', '', '', '', '', 'Paypal/Western Union/Other', 'Pending', '-1', '', '', 'Pending', '', '1677704742', 'Arpit', '82829291919', '8585arpit@gmail.com', 'po box 621 pittsburg texas 75686', 'Texas ', 'texas', 251, '75686', ''),
+(10004, 0, 'GUEST', '', '', '2023-03-04 12:30:29', '', 355, '', '', '', '', '', 'Paypal/Western Union/Other', 'Pending', '-1', '', '', 'Pending', '', '1677961829', 'David ', 'Joseph ', 'arpit809024@gmail.com', '735 milford mt pleasant Road milford new jersey 08846', 'milford', 'new jersey', 251, '08846', ''),
+(10005, 0, 'GUEST', '', '2023-03-13 05:56:03', '2023-03-13 05:47:59', '', 356, '', '', '', '', '', 'Venmo', 'Completed', '12', '12', '2023-03-13 06:00:18', 'Completed', '2023-03-13 07:18:55', '1678711679', 'pankaj', '10234', 'pankaj143giri@gmail.com', 'lanbhua', 'sln', 'up', 247, '1245', ''),
+(10006, 0, 'GUEST', '', '2023-03-13 06:57:28', '2023-03-13 06:54:42', '', 329, '', '', '', '', '', 'Zelle', 'Completed', 'l', 'll', '2023-03-13 07:01:09', 'Completed', '2023-03-13 07:03:37', '1678715682', 'pankaj', '10234', 'pankaj143giri@gmail.com', 'lanbhua', 'sln', 'up', 247, '1245', ''),
+(10007, 0, 'GUEST', '', '', '2023-03-13 09:02:45', '', 340, '', '', '', '', '', 'Cash App', 'Pending', '-1', '', '', 'Pending', '', '1678723365', 'pankaj', '10234', 'pankaj143giri@gmail.com', 'lanbhua', 'sln', 'up', 247, '1245', 'secure hona chaiye'),
+(10008, 0, 'GUEST', '', '', '2023-03-13 09:04:34', '', 370, '', '', '', '', '', 'Western Union', 'Pending', '-1', '', '', 'Pending', '', '1678723474', 'pankaj', '10234', 'pankaj143giri@gmail.com', 'lanbhua', 'sln', 'up', 247, '1245', ''),
+(10009, 0, 'GUEST', '', '', '2023-03-13 09:08:17', '', 340, '', '', '', '', '', 'Other', 'Pending', '-1', '', '', 'Pending', '', '1678723697', 'pankaj', '10234', 'pankaj143giri@gmail.com', 'lanbhua', 'sln', 'up', 247, '1245', '');
 
 -- --------------------------------------------------------
 
@@ -950,18 +502,6 @@ CREATE TABLE `tbl_photo` (
   `caption` varchar(255) NOT NULL,
   `photo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_photo`
---
-
-INSERT INTO `tbl_photo` (`id`, `caption`, `photo`) VALUES
-(1, 'Photo 1', 'photo-1.jpg'),
-(2, 'Photo 2', 'photo-2.jpg'),
-(3, 'Photo 3', 'photo-3.jpg'),
-(4, 'Photo 4', 'photo-4.jpg'),
-(5, 'Photo 5', 'photo-5.jpg'),
-(6, 'Photo 6', 'photo-6.jpg');
 
 -- --------------------------------------------------------
 
@@ -982,23 +522,6 @@ CREATE TABLE `tbl_post` (
   `meta_keyword` text NOT NULL,
   `meta_description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_post`
---
-
-INSERT INTO `tbl_post` (`post_id`, `post_title`, `post_slug`, `post_content`, `post_date`, `photo`, `category_id`, `total_view`, `meta_title`, `meta_keyword`, `meta_description`) VALUES
-(1, 'Cu vel choro exerci pri et oratio iisque', 'cu-vel-choro-exerci-pri-et-oratio-iisque', '<p>Lorem ipsum dolor sit amet, qui case probo velit no, an postea scaevola partiendo mei. Id mea fuisset perpetua referrentur. Ut everti ceteros mei, alii discere eum no, duo id malis iuvaret. Ad sint everti accusam vel, ea viderer suscipiantur pri. Brute option minimum in cum, ignota iuvaret an pro.</p>\r\n\r\n<p>Solum atqui intellegebat mea an. Ne ius alterum aliquam. Ea nec populo aliquid mentitum, vis in meliore atomorum, sanctus consequat vituperatoribus duo ea. Ad doctus pertinacia ius, virtute fuisset id has, eum ut modo principes. Qui eu labore adversarium, oporteat delicata qui ut, an qui meliore principes. Id aliquid dolorum nam.</p>\r\n\r\n<p>Reque pericula philosophia ut mei, volumus eligendi mandamus has an. In nobis consulatu pri, has at timeam scaevola, has simul quaeque et. Te nec sale accumsan. Dolorem prodesset efficiendi sea ea.</p>\r\n\r\n<p>Et habeo modus debitis pri, vel quis fierent albucius ne. Ea animal meliore usu, nec etiam dolorum atomorum at, nam in audire mandamus omittantur. Cu ius dicam officiis molestiae, mea volumus officiis cotidieque no. Ut vel possim interpretaris, idque probatus antiopam has ad. Facilisi qualisque te sea, no dolorum mnesarchum usu.</p>\r\n\r\n<p>Eum tota graeci impetus an, eirmod invenire rationibus ne mel. Ignota habemus eum ex, vis omnesque delicata perpetua an. Sit id modo invidunt sapientem, ne eum vocibus dolores phaedrum. Case praesent appellantur eu per.</p>\r\n', '05-09-2017', 'news-1.jpg', 3, 14, 'Cu vel choro exerci pri et oratio iisque', '', ''),
-(2, 'Epicurei necessitatibus eu facilisi postulant ', 'epicurei-necessitatibus-eu-facilisi-postulant-', '<p>Lorem ipsum dolor sit amet, qui case probo velit no, an postea scaevola partiendo mei. Id mea fuisset perpetua referrentur. Ut everti ceteros mei, alii discere eum no, duo id malis iuvaret. Ad sint everti accusam vel, ea viderer suscipiantur pri. Brute option minimum in cum, ignota iuvaret an pro.</p>\r\n\r\n<p>Solum atqui intellegebat mea an. Ne ius alterum aliquam. Ea nec populo aliquid mentitum, vis in meliore atomorum, sanctus consequat vituperatoribus duo ea. Ad doctus pertinacia ius, virtute fuisset id has, eum ut modo principes. Qui eu labore adversarium, oporteat delicata qui ut, an qui meliore principes. Id aliquid dolorum nam.</p>\r\n\r\n<p>Reque pericula philosophia ut mei, volumus eligendi mandamus has an. In nobis consulatu pri, has at timeam scaevola, has simul quaeque et. Te nec sale accumsan. Dolorem prodesset efficiendi sea ea.</p>\r\n\r\n<p>Et habeo modus debitis pri, vel quis fierent albucius ne. Ea animal meliore usu, nec etiam dolorum atomorum at, nam in audire mandamus omittantur. Cu ius dicam officiis molestiae, mea volumus officiis cotidieque no. Ut vel possim interpretaris, idque probatus antiopam has ad. Facilisi qualisque te sea, no dolorum mnesarchum usu.</p>\r\n\r\n<p>Eum tota graeci impetus an, eirmod invenire rationibus ne mel. Ignota habemus eum ex, vis omnesque delicata perpetua an. Sit id modo invidunt sapientem, ne eum vocibus dolores phaedrum. Case praesent appellantur eu per.</p>\r\n', '05-09-2017', 'news-2.jpg', 3, 6, 'Epicurei necessitatibus eu facilisi postulant ', '', ''),
-(3, 'Mei ut errem legimus periculis eos liber', 'mei-ut-errem-legimus-periculis-eos-liber', '<p>Lorem ipsum dolor sit amet, qui case probo velit no, an postea scaevola partiendo mei. Id mea fuisset perpetua referrentur. Ut everti ceteros mei, alii discere eum no, duo id malis iuvaret. Ad sint everti accusam vel, ea viderer suscipiantur pri. Brute option minimum in cum, ignota iuvaret an pro.</p>\r\n\r\n<p>Solum atqui intellegebat mea an. Ne ius alterum aliquam. Ea nec populo aliquid mentitum, vis in meliore atomorum, sanctus consequat vituperatoribus duo ea. Ad doctus pertinacia ius, virtute fuisset id has, eum ut modo principes. Qui eu labore adversarium, oporteat delicata qui ut, an qui meliore principes. Id aliquid dolorum nam.</p>\r\n\r\n<p>Reque pericula philosophia ut mei, volumus eligendi mandamus has an. In nobis consulatu pri, has at timeam scaevola, has simul quaeque et. Te nec sale accumsan. Dolorem prodesset efficiendi sea ea.</p>\r\n\r\n<p>Et habeo modus debitis pri, vel quis fierent albucius ne. Ea animal meliore usu, nec etiam dolorum atomorum at, nam in audire mandamus omittantur. Cu ius dicam officiis molestiae, mea volumus officiis cotidieque no. Ut vel possim interpretaris, idque probatus antiopam has ad. Facilisi qualisque te sea, no dolorum mnesarchum usu.</p>\r\n\r\n<p>Eum tota graeci impetus an, eirmod invenire rationibus ne mel. Ignota habemus eum ex, vis omnesque delicata perpetua an. Sit id modo invidunt sapientem, ne eum vocibus dolores phaedrum. Case praesent appellantur eu per.</p>\r\n', '05-09-2017', 'news-3.jpg', 3, 1, 'Mei ut errem legimus periculis eos liber', '', ''),
-(4, 'Id pro unum pertinax oportere vel', 'id-pro-unum-pertinax-oportere-vel', '<p>Lorem ipsum dolor sit amet, qui case probo velit no, an postea scaevola partiendo mei. Id mea fuisset perpetua referrentur. Ut everti ceteros mei, alii discere eum no, duo id malis iuvaret. Ad sint everti accusam vel, ea viderer suscipiantur pri. Brute option minimum in cum, ignota iuvaret an pro.</p>\r\n\r\n<p>Solum atqui intellegebat mea an. Ne ius alterum aliquam. Ea nec populo aliquid mentitum, vis in meliore atomorum, sanctus consequat vituperatoribus duo ea. Ad doctus pertinacia ius, virtute fuisset id has, eum ut modo principes. Qui eu labore adversarium, oporteat delicata qui ut, an qui meliore principes. Id aliquid dolorum nam.</p>\r\n\r\n<p>Reque pericula philosophia ut mei, volumus eligendi mandamus has an. In nobis consulatu pri, has at timeam scaevola, has simul quaeque et. Te nec sale accumsan. Dolorem prodesset efficiendi sea ea.</p>\r\n\r\n<p>Et habeo modus debitis pri, vel quis fierent albucius ne. Ea animal meliore usu, nec etiam dolorum atomorum at, nam in audire mandamus omittantur. Cu ius dicam officiis molestiae, mea volumus officiis cotidieque no. Ut vel possim interpretaris, idque probatus antiopam has ad. Facilisi qualisque te sea, no dolorum mnesarchum usu.</p>\r\n\r\n<p>Eum tota graeci impetus an, eirmod invenire rationibus ne mel. Ignota habemus eum ex, vis omnesque delicata perpetua an. Sit id modo invidunt sapientem, ne eum vocibus dolores phaedrum. Case praesent appellantur eu per.</p>\r\n', '05-09-2017', 'news-4.jpg', 4, 0, 'Id pro unum pertinax oportere vel', '', ''),
-(5, 'Tollit cetero cu usu etiam evertitur', 'tollit-cetero-cu-usu-etiam-evertitur', '<p>Lorem ipsum dolor sit amet, qui case probo velit no, an postea scaevola partiendo mei. Id mea fuisset perpetua referrentur. Ut everti ceteros mei, alii discere eum no, duo id malis iuvaret. Ad sint everti accusam vel, ea viderer suscipiantur pri. Brute option minimum in cum, ignota iuvaret an pro.</p>\r\n\r\n<p>Solum atqui intellegebat mea an. Ne ius alterum aliquam. Ea nec populo aliquid mentitum, vis in meliore atomorum, sanctus consequat vituperatoribus duo ea. Ad doctus pertinacia ius, virtute fuisset id has, eum ut modo principes. Qui eu labore adversarium, oporteat delicata qui ut, an qui meliore principes. Id aliquid dolorum nam.</p>\r\n\r\n<p>Reque pericula philosophia ut mei, volumus eligendi mandamus has an. In nobis consulatu pri, has at timeam scaevola, has simul quaeque et. Te nec sale accumsan. Dolorem prodesset efficiendi sea ea.</p>\r\n\r\n<p>Et habeo modus debitis pri, vel quis fierent albucius ne. Ea animal meliore usu, nec etiam dolorum atomorum at, nam in audire mandamus omittantur. Cu ius dicam officiis molestiae, mea volumus officiis cotidieque no. Ut vel possim interpretaris, idque probatus antiopam has ad. Facilisi qualisque te sea, no dolorum mnesarchum usu.</p>\r\n\r\n<p>Eum tota graeci impetus an, eirmod invenire rationibus ne mel. Ignota habemus eum ex, vis omnesque delicata perpetua an. Sit id modo invidunt sapientem, ne eum vocibus dolores phaedrum. Case praesent appellantur eu per.</p>\r\n', '05-09-2017', 'news-5.jpg', 4, 24, 'Tollit cetero cu usu etiam evertitur', '', ''),
-(6, 'Omnes ornatus qui et te aeterno', 'omnes-ornatus-qui-et-te-aeterno', '<p>Lorem ipsum dolor sit amet, qui case probo velit no, an postea scaevola partiendo mei. Id mea fuisset perpetua referrentur. Ut everti ceteros mei, alii discere eum no, duo id malis iuvaret. Ad sint everti accusam vel, ea viderer suscipiantur pri. Brute option minimum in cum, ignota iuvaret an pro.</p>\r\n\r\n<p>Solum atqui intellegebat mea an. Ne ius alterum aliquam. Ea nec populo aliquid mentitum, vis in meliore atomorum, sanctus consequat vituperatoribus duo ea. Ad doctus pertinacia ius, virtute fuisset id has, eum ut modo principes. Qui eu labore adversarium, oporteat delicata qui ut, an qui meliore principes. Id aliquid dolorum nam.</p>\r\n\r\n<p>Reque pericula philosophia ut mei, volumus eligendi mandamus has an. In nobis consulatu pri, has at timeam scaevola, has simul quaeque et. Te nec sale accumsan. Dolorem prodesset efficiendi sea ea.</p>\r\n\r\n<p>Et habeo modus debitis pri, vel quis fierent albucius ne. Ea animal meliore usu, nec etiam dolorum atomorum at, nam in audire mandamus omittantur. Cu ius dicam officiis molestiae, mea volumus officiis cotidieque no. Ut vel possim interpretaris, idque probatus antiopam has ad. Facilisi qualisque te sea, no dolorum mnesarchum usu.</p>\r\n\r\n<p>Eum tota graeci impetus an, eirmod invenire rationibus ne mel. Ignota habemus eum ex, vis omnesque delicata perpetua an. Sit id modo invidunt sapientem, ne eum vocibus dolores phaedrum. Case praesent appellantur eu per.</p>\r\n', '05-09-2017', 'news-6.jpg', 4, 2, 'Omnes ornatus qui et te aeterno', '', ''),
-(7, 'Vix tale noluisse voluptua ad ne', 'vix-tale-noluisse-voluptua-ad-ne', '<p>Lorem ipsum dolor sit amet, qui case probo velit no, an postea scaevola partiendo mei. Id mea fuisset perpetua referrentur. Ut everti ceteros mei, alii discere eum no, duo id malis iuvaret. Ad sint everti accusam vel, ea viderer suscipiantur pri. Brute option minimum in cum, ignota iuvaret an pro.</p>\r\n\r\n<p>Solum atqui intellegebat mea an. Ne ius alterum aliquam. Ea nec populo aliquid mentitum, vis in meliore atomorum, sanctus consequat vituperatoribus duo ea. Ad doctus pertinacia ius, virtute fuisset id has, eum ut modo principes. Qui eu labore adversarium, oporteat delicata qui ut, an qui meliore principes. Id aliquid dolorum nam.</p>\r\n\r\n<p>Reque pericula philosophia ut mei, volumus eligendi mandamus has an. In nobis consulatu pri, has at timeam scaevola, has simul quaeque et. Te nec sale accumsan. Dolorem prodesset efficiendi sea ea.</p>\r\n\r\n<p>Et habeo modus debitis pri, vel quis fierent albucius ne. Ea animal meliore usu, nec etiam dolorum atomorum at, nam in audire mandamus omittantur. Cu ius dicam officiis molestiae, mea volumus officiis cotidieque no. Ut vel possim interpretaris, idque probatus antiopam has ad. Facilisi qualisque te sea, no dolorum mnesarchum usu.</p>\r\n\r\n<p>Eum tota graeci impetus an, eirmod invenire rationibus ne mel. Ignota habemus eum ex, vis omnesque delicata perpetua an. Sit id modo invidunt sapientem, ne eum vocibus dolores phaedrum. Case praesent appellantur eu per.</p>\r\n', '05-09-2017', 'news-7.jpg', 2, 0, 'Vix tale noluisse voluptua ad ne', '', ''),
-(8, 'Liber utroque vim an ne his brute', 'liber-utroque-vim-an-ne-his-brute', '<p>Lorem ipsum dolor sit amet, qui case probo velit no, an postea scaevola partiendo mei. Id mea fuisset perpetua referrentur. Ut everti ceteros mei, alii discere eum no, duo id malis iuvaret. Ad sint everti accusam vel, ea viderer suscipiantur pri. Brute option minimum in cum, ignota iuvaret an pro.</p>\r\n\r\n<p>Solum atqui intellegebat mea an. Ne ius alterum aliquam. Ea nec populo aliquid mentitum, vis in meliore atomorum, sanctus consequat vituperatoribus duo ea. Ad doctus pertinacia ius, virtute fuisset id has, eum ut modo principes. Qui eu labore adversarium, oporteat delicata qui ut, an qui meliore principes. Id aliquid dolorum nam.</p>\r\n\r\n<p>Reque pericula philosophia ut mei, volumus eligendi mandamus has an. In nobis consulatu pri, has at timeam scaevola, has simul quaeque et. Te nec sale accumsan. Dolorem prodesset efficiendi sea ea.</p>\r\n\r\n<p>Et habeo modus debitis pri, vel quis fierent albucius ne. Ea animal meliore usu, nec etiam dolorum atomorum at, nam in audire mandamus omittantur. Cu ius dicam officiis molestiae, mea volumus officiis cotidieque no. Ut vel possim interpretaris, idque probatus antiopam has ad. Facilisi qualisque te sea, no dolorum mnesarchum usu.</p>\r\n\r\n<p>Eum tota graeci impetus an, eirmod invenire rationibus ne mel. Ignota habemus eum ex, vis omnesque delicata perpetua an. Sit id modo invidunt sapientem, ne eum vocibus dolores phaedrum. Case praesent appellantur eu per.</p>\r\n', '05-09-2017', 'news-8.jpg', 2, 12, 'Liber utroque vim an ne his brute', '', ''),
-(9, 'Nostrum copiosae argumentum has', 'nostrum-copiosae-argumentum-has', '<p>Lorem ipsum dolor sit amet, qui case probo velit no, an postea scaevola partiendo mei. Id mea fuisset perpetua referrentur. Ut everti ceteros mei, alii discere eum no, duo id malis iuvaret. Ad sint everti accusam vel, ea viderer suscipiantur pri. Brute option minimum in cum, ignota iuvaret an pro.</p>\r\n\r\n<p>Solum atqui intellegebat mea an. Ne ius alterum aliquam. Ea nec populo aliquid mentitum, vis in meliore atomorum, sanctus consequat vituperatoribus duo ea. Ad doctus pertinacia ius, virtute fuisset id has, eum ut modo principes. Qui eu labore adversarium, oporteat delicata qui ut, an qui meliore principes. Id aliquid dolorum nam.</p>\r\n\r\n<p>Reque pericula philosophia ut mei, volumus eligendi mandamus has an. In nobis consulatu pri, has at timeam scaevola, has simul quaeque et. Te nec sale accumsan. Dolorem prodesset efficiendi sea ea.</p>\r\n\r\n<p>Et habeo modus debitis pri, vel quis fierent albucius ne. Ea animal meliore usu, nec etiam dolorum atomorum at, nam in audire mandamus omittantur. Cu ius dicam officiis molestiae, mea volumus officiis cotidieque no. Ut vel possim interpretaris, idque probatus antiopam has ad. Facilisi qualisque te sea, no dolorum mnesarchum usu.</p>\r\n\r\n<p>Eum tota graeci impetus an, eirmod invenire rationibus ne mel. Ignota habemus eum ex, vis omnesque delicata perpetua an. Sit id modo invidunt sapientem, ne eum vocibus dolores phaedrum. Case praesent appellantur eu per.</p>\r\n', '05-09-2017', 'news-9.jpg', 1, 12, 'Nostrum copiosae argumentum has', '', ''),
-(10, 'An labores explicari qui eu', 'an-labores-explicari-qui-eu', '<p>Lorem ipsum dolor sit amet, qui case probo velit no, an postea scaevola partiendo mei. Id mea fuisset perpetua referrentur. Ut everti ceteros mei, alii discere eum no, duo id malis iuvaret. Ad sint everti accusam vel, ea viderer suscipiantur pri. Brute option minimum in cum, ignota iuvaret an pro.</p>\r\n\r\n<p>Solum atqui intellegebat mea an. Ne ius alterum aliquam. Ea nec populo aliquid mentitum, vis in meliore atomorum, sanctus consequat vituperatoribus duo ea. Ad doctus pertinacia ius, virtute fuisset id has, eum ut modo principes. Qui eu labore adversarium, oporteat delicata qui ut, an qui meliore principes. Id aliquid dolorum nam.</p>\r\n\r\n<p>Reque pericula philosophia ut mei, volumus eligendi mandamus has an. In nobis consulatu pri, has at timeam scaevola, has simul quaeque et. Te nec sale accumsan. Dolorem prodesset efficiendi sea ea.</p>\r\n\r\n<p>Et habeo modus debitis pri, vel quis fierent albucius ne. Ea animal meliore usu, nec etiam dolorum atomorum at, nam in audire mandamus omittantur. Cu ius dicam officiis molestiae, mea volumus officiis cotidieque no. Ut vel possim interpretaris, idque probatus antiopam has ad. Facilisi qualisque te sea, no dolorum mnesarchum usu.</p>\r\n\r\n<p>Eum tota graeci impetus an, eirmod invenire rationibus ne mel. Ignota habemus eum ex, vis omnesque delicata perpetua an. Sit id modo invidunt sapientem, ne eum vocibus dolores phaedrum. Case praesent appellantur eu per.</p>\r\n', '05-09-2017', 'news-10.jpg', 1, 4, 'An labores explicari qui eu', '', ''),
-(11, 'Lorem ipsum dolor sit amet', 'lorem-ipsum-dolor-sit-amet', '<p>Lorem ipsum dolor sit amet, qui case probo velit no, an postea scaevola partiendo mei. Id mea fuisset perpetua referrentur. Ut everti ceteros mei, alii discere eum no, duo id malis iuvaret. Ad sint everti accusam vel, ea viderer suscipiantur pri. Brute option minimum in cum, ignota iuvaret an pro.</p>\r\n\r\n<p>Solum atqui intellegebat mea an. Ne ius alterum aliquam. Ea nec populo aliquid mentitum, vis in meliore atomorum, sanctus consequat vituperatoribus duo ea. Ad doctus pertinacia ius, virtute fuisset id has, eum ut modo principes. Qui eu labore adversarium, oporteat delicata qui ut, an qui meliore principes. Id aliquid dolorum nam.</p>\r\n\r\n<p>Reque pericula philosophia ut mei, volumus eligendi mandamus has an. In nobis consulatu pri, has at timeam scaevola, has simul quaeque et. Te nec sale accumsan. Dolorem prodesset efficiendi sea ea.</p>\r\n\r\n<p>Et habeo modus debitis pri, vel quis fierent albucius ne. Ea animal meliore usu, nec etiam dolorum atomorum at, nam in audire mandamus omittantur. Cu ius dicam officiis molestiae, mea volumus officiis cotidieque no. Ut vel possim interpretaris, idque probatus antiopam has ad. Facilisi qualisque te sea, no dolorum mnesarchum usu.</p>\r\n\r\n<p>Eum tota graeci impetus an, eirmod invenire rationibus ne mel. Ignota habemus eum ex, vis omnesque delicata perpetua an. Sit id modo invidunt sapientem, ne eum vocibus dolores phaedrum. Case praesent appellantur eu per.</p>\r\n', '05-09-2017', 'news-11.jpg', 1, 18, 'Lorem ipsum dolor sit amet', '', '');
 
 -- --------------------------------------------------------
 
@@ -1029,41 +552,25 @@ CREATE TABLE `tbl_product` (
 --
 
 INSERT INTO `tbl_product` (`p_id`, `p_name`, `p_old_price`, `p_current_price`, `p_qty`, `p_featured_photo`, `p_description`, `p_short_description`, `p_feature`, `p_condition`, `p_return_policy`, `p_total_view`, `p_is_featured`, `p_is_active`, `tcat_id`) VALUES
-(83, 'Men\'s Ultra Cotton T-Shirt, Multipack', '26', '19', 77, 'product-featured-83.jpg', '<p style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Solids: 100% Cotton; Sport Grey And Antique Heather: 90% Cotton, 10% Polyester; Safety Colors And Heather: 50% Cotton, 50% Polyester.</span></p><p style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Available in 2 packs and a wide array of colors so you can stock up on your favorite.</span></p>', '<p><span style=\"color: rgb(15, 17, 17); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\">Style 20020-Multipack; Solids: 100% Cotton.</span><br></p>', '<ul><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block; font-family: Arial;\">Pull On closure</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block; font-family: Arial;\">Machine Wash</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block; font-family: Arial;\">Longer dropped shoulder, straighter armhole, and wider, shorter sleeves</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block; font-family: Arial;\">Double-stitching at the hems to make it built to last</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block; font-family: Arial;\">Thick and hefty fabric</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block; font-family: Arial;\">Tear away tag</span></li></ul>', '<p>This is a sample text for conditions.</p>', '<p><span style=\"color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers aÂ </span><span style=\"color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Â in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 8, 0, 0, 1),
-(84, 'Loose-fit One-Shoulder Cutout Rib Knit Maxi Dress', '51', '39', 26, 'product-featured-84.jpg', 'A&nbsp;<span style=\"color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">source for must-have style inspiration from global influencers. Shop limited-edition collections and discover chic wardrobe essentials. Look out for trend inspiration, exclusive brand collaborations, and expert styling tips from those in the know.</span>', '<p style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">86% Tencel, 14% Elastane</span></p>', '<ul><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Machine Wash</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Staples by The Drop</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">This maxi dress measures 48\"/122 cm long</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Loose-Fit: designed for comfort</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">A subtle twist cutout adds a touch of romance to this minimal one-shoulder flowy maxi dress silhouette, cut from a lightweight Tencel blend ribbed knit. Belt the waist for added shape and a pop of color</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers a&nbsp;</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">&nbsp;in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 20, 1, 0, 1),
-(85, 'Men\'s Soft Classic Sneaker', '110', '91', 32, 'product-featured-85.jpg', '<p><span style=\"color: rgb(51, 51, 51); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: small;\">Brings a formal leather finish to a laidback silhouette in a shoe that delivers equally on quality and comfort The metal eyelets and contrasting heel patch balance out the style\'s sleek uniformity Wear yours with jeans an Oxford shirt and a blazer.</span><br></p>', '<p style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Synthetic sole, Secure fit.</span></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Crafted in either hand-finished crust leather or brushed nubuck made in our own tanneries</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Textile lining and molded removable insole offer softness and breathability</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Lightweight sole provides cushioning grip and flexibility using innovative ECCO FluidForm Direct Comfort Technology</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Textile laces are easily adjusted for a secure fit</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">A full anatomical last shape provides a supremely comfortable fit</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers aÂ </span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Â in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 8, 0, 0, 1),
-(86, 'Amazfit GTS 3 Smart Watch for Android iPhone', '199', '179', 32, 'product-featured-86.jpg', '<p style=\"padding: 0px; margin-top: 0px; text-rendering: optimizelegibility; margin-bottom: 0px !important; line-height: 32px !important;\">Amazfit GTS 3 is the most powerful, easy-to-use smartwatch that combining cutting-edge health &amp; fitness features and a fashionable slim &amp; light design. The smartwatch adopts a 1.75-inch ultra HD AMOLED display which has increased by 14% compared with the previous generation and boasts a 72.4% screen-to-body ratio that\'s among the highest in the smartwatch industry. Match your mood, an outfit or the occasion with a wide selection of more than 100 stylish watch faces - or even upload your own photo as the background image for true personalization. Thanks to the advanced 6PD (six photodiodes) BioTrackerâ„¢ PPG 3.0 biometric sensor, GTS 3 can track your heart rate, blood-oxygen saturation, stress level and breathing rate in one single tap of the watch, for a result in as little as 45 seconds. And Its health management features also includes in-depth monitoring of sleep &amp; sleep breathing quality and female cycle tracking. This sports watch is your next-level fitness partner with 150+ sports modes, smart recognition of 8 sports, and a water-resistance grade of 5 ATM. Comes with Alexa built-in and an offline voice assistant to liberate your hands, and supports GPS, GLONASS, Galileo, BDS and QZSS satellite navigation systems to accurately track your route. Super endurance that won\'t let you down, it can last for up to 12 days with typical usage and 20 days with battery saver mode. Compatible with Android 7.0 and above, iOS 12.0 and above device.<br></p>', '<p style=\"padding: 0px; margin-top: 0px; text-rendering: optimizelegibility; margin-bottom: 0px !important; line-height: 32px !important;\"><span id=\"productTitle\" class=\"a-size-large product-title-word-break\" style=\"text-rendering: optimizelegibility; word-break: break-word; line-height: 32px !important; font-family: Roboto;\">Alexa Built-in, GPS Fitness Sports Watch with 150 Sports Modes, 1.75â€ AMOLED Display, 12-Day Battery Life, Blood Oxygen Heart Rate Tracking</span></p>', '<ul><li>Smart 24H Monitoring of Blood-oxygen Levels</li><li>Monitor Heart Rate All Day &amp; While Swimming</li><li>A Simple Health Overview with PAI Health Assessment</li><li>In-depth Monitoring of Sleep &amp; Sleep Breathing Quality</li><li>Stress Level Monitoring &amp; Measurement</li><li>Female Cycle Tracking</li><li><span style=\"color: rgb(15, 17, 17); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px;\">Alexa Built in</span></li><li><span style=\"color: rgb(15, 17, 17); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px;\">12-Day battery life<br></span><span style=\"color: rgb(15, 17, 17); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px; font-weight: 700;\"><br></span><span style=\"color: rgb(15, 17, 17); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px; font-weight: 700;\"><br></span><br></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers a&nbsp;</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">&nbsp;in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 12, 1, 0, 1),
-(87, 'Truck Boys Pajamas Toddler Sleepwear Clothes', '59', '37', 68, 'product-featured-87.jpg', '<p style=\"padding: 0px; margin-bottom: 14px; color: rgb(15, 17, 17); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\"><span class=\"a-text-bold\" style=\"\">Airplane Pajamas:</span></p><p style=\"padding: 0px; margin-bottom: 14px; color: rgb(15, 17, 17); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\">Wide crew neckline, elastic waistband and stretchable material make them easily skip on/off. Breathable, moisture absorbent material and pants set design help kids to lose heat faster and keep warm in cool day</p><p style=\"padding: 0px; margin-bottom: 14px; color: rgb(15, 17, 17); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\">Great set with colorful cartoon pattern, sporty and stylish, suitable for both sleepwear and daily wear, especially for school pajamas day</p>', 'T shirt Pants set for Kids Size 1Y - 14Y', '<p></p><p><ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\"><ul></ul></ul><ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\"><ul></ul></ul><ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\"><ul></ul></ul><ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\"><ul></ul></ul><ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\"><ul></ul></ul></p><ul><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">SUPER COZY PAJAMAS SET - Both the top and bottoms are made of 100% natural cotton, extremely soft, comfortable and keep cool in summer</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">ADORABLE PATTERN - Super cool airplane and space cartoon pattern on the top, a lot of little airplane prints on the bottom, boys favorite</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">CONSIDERATE DESIGN - Casual wide neckline, heat-sale label at the collar, relaxed straight legs, allow for unrestricted movement and a better sleep</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">EASY CARE - As the durable and high quality material, simply machine wash or hand wash in mild water</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">SNUGLY FITTED - As the snugly fitted design and shrinkable cotton material, youÂ¡Â¯d better consider one or two bigger size</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers aÂ </span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Â in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 5, 0, 0, 2),
-(88, 'Under Armour Men\'s Sportstyle Left Chest Short Sleeve T-shirt', '108', '83', 59, 'product-featured-88.jpg', '<p><span style=\"color: rgb(51, 51, 51); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: small;\">Super-soft, cotton-blend fabric provides all-day comfort.</span><br></p>', '<p style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Loose:Â Fuller cut for complete comfort.</span></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Super-soft, cotton-blend fabric provides all-day comfort</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Loose:Â Fuller cut for complete comfort.</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers aÂ </span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Â in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 7, 0, 0, 2),
-(89, 'Men\'s Fleece Jogger Pant', '58', '37', 110, 'product-featured-89.jpg', '<p><span style=\"color: rgb(51, 51, 51); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: small;\">A relaxed leg and elastic waistband bring lounge-ready style to this classic casual pant</span><br></p>', '<p style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">A relaxed leg and elastic, drawstring waistband bring lounge-ready style to this classic casual pant</span></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Elastic cuffs at ankle and on-seam side pockets</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Everyday made better: we listen to customer feedback and fine-tune every detail to ensure quality, fit, and comfort</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers aÂ </span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Â in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 4, 0, 0, 2),
-(90, 'Women\'s Thin Cotton Zip Up Hoodie Jacket', '43', '32', 64, 'product-featured-90.jpg', '<p><span style=\"color: rgb(15, 17, 17); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\">Made with quality thin cotton material, this casual style zip-up hoodie is perfect for when you want extra protection without having a bulky jacket on or to keep up with your active lifestyle. Comfortable, flattering, and functional. Itâ€™s perfect for when you need to get things done.</span><br></p>', '<p>CASUAL & COMFY<br></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Full zip up closure with pockets</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">The perfect year-long hoodie</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Uniquely thin design</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Pullover Series also available</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Model is 5\' 7\" with 34-25-36 measurement.</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers aÂ </span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Â in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 7, 0, 0, 2),
-(91, 'Women\'s Oversized Fleece Hoodie', '68', '56', 41, 'product-featured-91.jpg', '<p style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Oversized silhouette for maximum comfort and quality layering</span></p>', '<p><span style=\"color: rgb(51, 51, 51); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: small;\">Built for her lifestyle.</span><br></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Oversized silhouette for maximum comfort and quality layering</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Soft and warm fleece for ultimate comfort and wearability</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers aÂ </span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Â in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 6, 0, 0, 2),
-(92, 'Travelpro Laptop Carry-on Travel Tote Bag', '110', '91', 29, 'product-featured-92.jpg', '<p><span style=\"color: rgb(51, 51, 51); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: small;\">Everything she needs in one perfect bag! It delivers big on performance in a compact, lightweight carry-on. Organization is effortless with interior pockets for everything from power cords and back-up batteries to cosmetics and accessories. Padded laptop and tablet sleeves keep your electronics protected, while a quick-access front pocket with magnetic closure is ideal for storing a cell phone, keys or other necessities. There is even a side pocket perfect for a water bottle, compact umbrella, gloves or other convenience. A rear strap lets you Stack this bag on a spinner or Rollaboard for hands-free mobility.</span><br></p>', '<p>Padded laptop (up to 14â€) and tablet sleeves offer protection for electronics.<br></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Polyester</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Imported</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Padded laptop (up to 14â€) and tablet sleeves offer protection for electronics. Organizational pockets store power cords, powerbanks and other essentials</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Quick access, magnetic front pocket is ideal for storing a cell phone or other essentials. Exterior side pocket holds a water bottle, compact umbrella or other accessories</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Polyester fabric with DuraGuard coating resists water and stains to keep luggage looking great. Unobtrusive rear strap fits around the extension handle of a Rollaboard or spinner suitcase for secure stacking and hands-free mobility</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Ergonomic, high-tensile-strength zipper pulls are tough yet easy on the hands</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Backed by Travelpro Built For A Lifetime Limited Warranty. Dimensions: 11 x 21x 5 inches weight: 1.4 lbs</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers aÂ </span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Â in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 20, 0, 0, 3),
-(93, 'Gold Plated Leopard Print Crystal Big Round Hoop Earrings', '32', '25', 165, 'product-featured-93.jpg', '<p><span style=\"color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">These beautiful 18k gold filled dangle earrings sparkle with stunning created ruby center stones surrounded by a shining Cubic Zirconia halo. These extravagant earrings are the perfect anniversary or birthday gift for your special!</span><br></p>', '<p style=\"padding: 0px; margin-top: 0px; text-rendering: optimizelegibility; margin-bottom: 0px !important; line-height: 32px !important;\"><span id=\"productTitle\" class=\"a-size-large product-title-word-break\" style=\"text-rendering: optimizelegibility; word-break: break-word; line-height: 32px !important; font-family: Roboto;\">Gm148 2\" inches</span></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Width: 6mm</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Diamter: 2 inches</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers a&nbsp;</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">&nbsp;in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 4, 0, 0, 3),
-(94, 'WD 5TB Elements Portable External Hard Drive HDD', '160', '149', 46, 'product-featured-94.jpg', '<p><span style=\"color: rgb(51, 51, 51); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: small;\">Western Digital elements portable hard drives offer reliable, high-capacity storage, fast data transfer rates and universal connectivity with USB 3.0 and USB 2.0 devices to back up your photos, videos and files on the go. The small, lightweight design offers up to 5TB capacity.</span><br></p>', '<p style=\"padding: 0px; margin-top: 0px; text-rendering: optimizelegibility; margin-bottom: 0px !important; line-height: 32px !important;\"><span id=\"productTitle\" class=\"a-size-large product-title-word-break\" style=\"text-rendering: optimizelegibility; word-break: break-word; line-height: 32px !important;\">USB 3.0, Compatible with PC, Mac, PS4 & Xbox - WDBU6Y0050BBK-WESN</span></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">USB 3.0 and USB 2.0 Compatibility</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Compatible with PC, Mac, PS4 & Xbox</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Fast Data Transfers, Improve PC Performance</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">High Capacity</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Memory Storage Capacity: 5TB</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers aÂ </span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Â in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 15, 0, 0, 3),
-(95, 'Bose QuietComfort 45 Bluetooth Wireless Headphones', '329', '279', 53, 'product-featured-95.jpg', '<p><span style=\"color: rgb(51, 51, 51); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: small;\">The first noise cancelling headphones are back, with world-class quiet, lightweight materials, and proprietary technology for deep, clear sound. Bose QuietComfort 45 headphones arenâ€™t just an icon reborn â€“ theyâ€™re the perfect balance of quiet, comfort, and sound. Plus, everything that made the first around ear headphones an icon is still here. Just refined. Like an updated design with smooth cushions and a clean look. Plush synthetic leather, impact-resistant glass-filled nylon, and cast-metal hinges were all selected for their comfort as well as their durability. Add in minimal clamping force, and youâ€™ll almost forget youâ€™re wearing Bluetooth wireless noise cancelling headphones.</span><br></p>', 'Iconic, Quiet, Comfort and Sound.', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Noise cancelling wireless headphones â€“ The perfect balance of quiet, comfort, and sound. Bose uses tiny mics to measure, compare, and react to outside noise, cancelling it with opposite signals.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">High-fidelity audio â€“ The TriPort acoustic architecture offers depth and fullness. Volume-optimized Active EQ maintains balanced performance at any volume, so bass stays consistent when turned down and the music remains clear when turned up.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Quiet and Aware Modes â€“ Choose Quiet Mode for full noise cancelling, or Aware Mode to bring the outside into the around ear headphones and hear your environment and your music at the same time.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Over ear headphones â€“ These comfortable wireless headphones are suitable for all-day wear. Crafted with plush synthetic leather and impact-resistant nylon, and designed with minimal clamping force, theyâ€™re as luxurious as they are durable.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Up to 24 hours battery life â€“ Enjoy 24 hours of battery life from a single charge. A quick 15-minute charge offers 3 hours when youâ€™re on the go, or plug in the included audio cable to listen for even longer in wired mode.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Around ear headphones charge via USB-C â€“ Headphones charge via the included USB-C cable.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Bluetooth wireless noise cancelling headphones â€“ These headphones are optimized for a strong, reliable Bluetooth connection within 30 feet of the paired device.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Bose Music app â€“ The app walks you through guided setup of your over ear headphones, making it easy to get started. Plus, access adjustable noise cancellation settings, manage your Bluetooth connections, enable shortcuts, and more.</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers aÂ </span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Â in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 20, 1, 0, 3),
-(96, 'Men\'s Loose Fit Heavyweight Long-Sleeve Pocket T-Shirt', '29', '23', 102, 'product-featured-96.jpg', '<p><span style=\"color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">Since 1889, Carhartt has made durable workwear you can count on as you tackle the toughest jobs. This men\'s long-sleeve t-shirt bears our logo proudly on the chest pocket. It\'s made of heavyweight cotton jersey and cut generously for a roomy fit.</span><br></p>', '<p style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">100% cotton (fiber content varies by color)</span></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">100% cotton (fiber content varies by color)</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Rib-knit crewneck and cuffs</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Left-chest pocket with sewn on Carhartt label</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Loose Fit t-shirts are cut larger with a roomier fit in the chest and shoulders</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Loose Fit, previously known as Original Fit, is a label update in name only.&nbsp; Loose and Original size and fit remains the same. Stock may vary in labeling</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Previous Product Name: K126 Workwear Pocket Long-Sleeve T-shirt</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers a&nbsp;</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">&nbsp;in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 28, 1, 0, 3),
-(97, 'Women\'s Tea Length Dress with Rosette Detail (Petite & Regular)', '87', '67', 53, 'product-featured-97.jpg', '<p><span style=\"color: rgb(51, 51, 51); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: small;\">Our t-length party dress has a solid stretch top, full soutache sequin skirt and tie belt that is perfect for any evening event.</span><br></p>', '<p style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Short-sleeve v-neck midi blue dress</span></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Sequin detail</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">This style is available in Regular and Plus Size on Amazon.com</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Center back zip</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Joanna Chen design</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Short-sleeve v-neck midi blue dress</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers aÂ </span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Â in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 34, 1, 0, 4),
-(98, 'Women\'s Fuzzy Fleece Lapel Open Front Long Cardigan Coat', '52', '43', 41, 'product-featured-98.jpg', '<h3 class=\"a-spacing-mini\" style=\"padding: 0px; margin-top: 0px; margin-right: 0px; margin-left: 0px; text-rendering: optimizelegibility; font-weight: bold; font-size: 17px; line-height: 1.255; font-family: \"Amazon Ember\", Arial, sans-serif; color: rgb(15, 17, 17); margin-bottom: 6px !important;\">Design Details - Women Fuzzy Winter Teddy Coat</h3><p class=\"a-spacing-base\" style=\"padding: 0px; color: rgb(15, 17, 17); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px; margin-bottom: 14px !important;\"></p><ul class=\"a-unordered-list a-vertical\" style=\"margin-right: 0px; margin-bottom: 18px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\"><span class=\"a-text-bold\" style=\"font-weight: 700 !important;\">Material:</span>Â 85% Cotton + 15% Spandex. This women\'s teddy coat is 100% brand new and high quality!</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\"><span class=\"a-text-bold\" style=\"font-weight: 700 !important;\">Style:</span>Â Causal, Long Sleeves, Knee Length, Fuzzy, Faux Fur, Lapel, Open Front, this women\'s teddy coat can be both chic and warm.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\"><span class=\"a-text-bold\" style=\"font-weight: 700 !important;\">Occasion:</span>Â Spring, Fall, Winter, Work, Date, Vacation, Daily Casual, At Home . This women\'s faux fur coat is suitable for both formal and casual occasions.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\"><span class=\"a-text-bold\" style=\"font-weight: 700 !important;\">Package include:</span>Â 1 Womens Fuzzy Coat</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\"><span class=\"a-text-bold\" style=\"font-weight: 700 !important;\">KINDLY NOTE: Different body types may have different fit from the model pictures, please refer to customer review images for more fitting information.</span></span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\"><span class=\"a-text-bold\" style=\"font-weight: 700 !important;\">KINDLY NOTE: this item is designed to be open front and has no button or zipper closure. Please take it into consideration before purchase.</span></span></li></ul>', '<p style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Material:85% Polyester; 15% Spandex. 100% brand new and high quality!</span></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">No closure closure</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Material:85% Polyester; 15% Spandex. 100% brand new and high quality!</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Style: Causal, Long Sleeves, Knee Length, Fuzzy, Faux Fur, Lapel, Open Front</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Occasion: Spring, Fall, Winter, Work, Date, Vacation, Daily Casual, At Home</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Pair with: This women\'s coat goes perfect with a shirt/sweater & jeans/leggings/palazoo pants underneath and with short boots.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">KINDLY NOTE: Different body types may have different fit from the model pictures, please refer to customer review images for more fitting information.</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers aÂ </span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Â in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 8, 1, 0, 4);
-INSERT INTO `tbl_product` (`p_id`, `p_name`, `p_old_price`, `p_current_price`, `p_qty`, `p_featured_photo`, `p_description`, `p_short_description`, `p_feature`, `p_condition`, `p_return_policy`, `p_total_view`, `p_is_featured`, `p_is_active`, `tcat_id`) VALUES
-(99, 'Oculus Quest 2 - Advanced All-In-One Virtual Reality Headset', '512', '495', 46, 'product-featured-99.jpg', '<p><span style=\"color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">Oculus quest 2 is our most advanced all-in-one VR system yet. Every detail has been engineered to make virtual worlds adapt to your movements, letting you explore awe-inspiring games and experiences with unparalleled freedom. No PC or Console required. Get the most out of each moment with blazing-fast performance and next-generation graphics. Stay focused with a stunning display that features 50% more pixels than the original quest. Or take a break from the action and grab front-row seats to live concerts, exclusive events and more. The redesigned touch controllers feature improved ergonomics and intuitive controls that transport your gestures, motions and actions directly into VR. You can even connect your VR headset to a gaming-compatible computer with an Oculus Link cable to access hundreds of PC VR games and experiences. Quest 2 also lets you bring your friends into the action. With live casting, you can share your VR experience with people around you. Or meet up with friends in virtual worlds to battle in multiplayer competitions or just spend some time together. With Oculus quest 2, there\'s no end in sight to what you can play, create and discover in virtual reality.</span><br></p>', '<p style=\"padding: 0px; margin-top: 0px; text-rendering: optimizelegibility; margin-bottom: 0px !important; line-height: 32px !important;\"><span id=\"productTitle\" class=\"a-size-large product-title-word-break\" style=\"text-rendering: optimizelegibility; word-break: break-word; line-height: 32px !important; font-family: Roboto;\">Advanced All-In-One Virtual Reality Headset</span></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Next-level Hardware - Make every move count with a blazing-fast processor and our highest-resolution display</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">All-In-One Gaming - With backward compatibility, you can explore new titles and old favorites in the expansive Quest content library</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Immersive Entertainment - Get the best seat in the house to live concerts, groundbreaking films, exclusive events and more</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Easy Setup - Just open the box, set up with the smartphone app and jump into VR. No PC or console needed. Requires wireless internet access and the Oculus app (free download) to set up device</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Premium Display - Catch every detail with a stunning display that features 50% more pixels than the original Quest</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Ultimate Control - Redesigned Oculus Touch controllers transport your movements directly into VR with intuitive controls</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">PC VR Compatible - Step into incredible Oculus Rift titles by connecting an Oculus Link cable to a compatible gaming PC. Oculus Link Cable sold separately</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">3D Cinematic Sound - Hear in all directions with built-in speakers that deliver cinematic 3D positional audio</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers a&nbsp;</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">&nbsp;in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 8, 1, 0, 4),
-(100, 'Men\'s Long Cuffed Jogger Yoga Sweat Pant', '105', '95', 78, 'product-featured-100.jpg', '<p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">We warmly welcome you to our \"Long\" Mens Cuffed Perfection Yoga Pant - our most exciting product launch of the year -&nbsp;<span style=\"font-weight: 700;\">and voted \"Favorite Yoga Pant\" by Instructors in YOGA JOURNAL magazine! (Spring/2015)</span></p><p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">It\'s FORM &amp; FASHION -&nbsp;<span style=\"font-weight: 700;\">you\'ll transition to errands in style!</span></p><p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">Please notice in the pictures, the fabric paneling in the upper leg area&nbsp;<span style=\"font-weight: 700;\">that allows for complete expansion of the crotch area in ALL directions.</span>&nbsp;It is simply perfect for Yoga, pilates, lounging, the gym &amp; running errands!</p><p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">Relaxed elastic waist band with 1/4\" drawcord in contrasting White with super light-weight metal tips (they will NOT clang in the dryer).</p><p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">2x1 rib cuffing at the bottom will&nbsp;<span style=\"font-weight: 700;\">keep your pants \"in place\"</span>&nbsp;for those inversions and hand stands!</p><p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\"><span style=\"font-weight: 700;\">DEEP pockets</span>&nbsp;that are sewn on top of the garment so they do not \"float.\" The pockets are 6.5\" deep to the side-seam so they can encase your large cell phones!</p><p style=\"padding: 0px; margin-top: 0em; margin-bottom: 1em; margin-left: 1em; color: rgb(51, 51, 51); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: small;\">The rib piping extends&nbsp;<span style=\"font-weight: 700;\">uninterrupted</span>&nbsp;from the side of the pant to the back of the rear -&nbsp;<span style=\"font-weight: 700;\">providing amazing flexibility &amp; stability for stretching and rigorous activity.</span></p>', '<p style=\"padding: 0px; margin-top: 0px; text-rendering: optimizelegibility; margin-bottom: 0px !important; line-height: 32px !important;\"><span id=\"productTitle\" class=\"a-size-large product-title-word-break\" style=\"text-rendering: optimizelegibility; word-break: break-word; line-height: 32px !important;\">Long Cuffed Jogger Pants</span></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Proudly brought to you by 4-rth: over 10 years in business from LA, California. Designed, manufactured &amp; shipped from Los Angeles, CA.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Fabric strips in the upper leg allow for complete expansion of the crotch area in ALL directions.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Made from our Custom MODAL French-Terry fabric from the sustainable Birch Tree wood.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Cuff at the bottom is form-fitting, yet relaxed. IDEAL for all Yoga styles - Ashtanga, Bikram, Hatha, Hot - as well as Pilates, Tennis &amp; Soccer!</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">MODEL: 6\'2, 175lbs. Size: M. (See Product Description for specific SIZE guidelines!) Please IGNORE the \"size chart\" above!!</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers a&nbsp;</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">&nbsp;in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 11, 0, 0, 4),
-(101, 'Digital Infrared Thermometer for Adults and Kids', '79', '70', 289, 'product-featured-101.jpg', '<h5 class=\"a-spacing-mini a-color-secondary\" style=\"padding: 0px; margin-top: 0px; margin-right: 0px; margin-left: 0px; font-weight: bold; font-size: 13px; line-height: 19px; font-family: \"Amazon Ember\", Arial, sans-serif; margin-bottom: 6px !important; color: rgb(86, 89, 89) !important;\">Safe and Hygienic</h5><p class=\"a-spacing-base\" style=\"padding: 0px; color: rgb(15, 17, 17); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px; margin-bottom: 14px !important;\">No-Touch measuring reads body temperature within 1.18 inches of the center of the forehead without physical contact.</p><h5 class=\"a-spacing-mini a-color-secondary\" style=\"padding: 0px; margin-top: 0px; margin-right: 0px; margin-left: 0px; font-weight: bold; font-size: 13px; line-height: 19px; font-family: \"Amazon Ember\", Arial, sans-serif; margin-bottom: 6px !important; color: rgb(86, 89, 89) !important;\">Tri-Point Sensors Accuracy</h5><p class=\"a-spacing-base\" style=\"padding: 0px; color: rgb(15, 17, 17); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px; margin-bottom: 14px !important;\">An ultra-sensitive infrared sensor collects more than 100 data points per second while distance and environmental sensors combine to account for other variables; ensuring maximum accuracy every time a temperature is taken.</p><h5 class=\"a-spacing-mini a-color-secondary\" style=\"padding: 0px; margin-top: 0px; margin-right: 0px; margin-left: 0px; font-weight: bold; font-size: 13px; line-height: 19px; font-family: \"Amazon Ember\", Arial, sans-serif; margin-bottom: 6px !important; color: rgb(86, 89, 89) !important;\">Fast, Simple, Clear and Quiet</h5><p class=\"a-spacing-base\" style=\"padding: 0px; color: rgb(15, 17, 17); font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px; margin-bottom: 14px !important;\">The intuitive single-button control design thermometer reads the temperature in just 1 second from a clear bright large LED screen, even in total darkness. The quiet vibrating alert eliminates buzzing noise or disturbance.</p>', '<p style=\"padding: 0px; margin-top: 0px; text-rendering: optimizelegibility; margin-bottom: 0px !important; line-height: 32px !important;\"><span id=\"productTitle\" class=\"a-size-large product-title-word-break\" style=\"text-rendering: optimizelegibility; word-break: break-word; line-height: 32px !important;\">No-Touch Forehead Thermometer</span></p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: \"Amazon Ember\", Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">No Touch Measuring, Just Safe and Hygienic: PT3 Built-in infrared temperature sensor, reads body temperature within 1.18 inches of the center of the forehead without physical contact.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Tri-Point Sensors Accuracy: An ultra-sensitive infrared sensor collects more than 100 data points per second while distance and environmental sensors combine to account for other variables; ensuring maximum accuracy every time temperature is taken.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Fast, Simple, Clear and Quiet: The intuitive single-button control design thermometer reads the temperature in just 1 second from a clear bright extra-large LED screen, even in total darkness. The quiet vibration alerting ensures there is no buzzing noise and no disturbance.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">Suitable for Multi-Scenario and All Ages: iHealth PT3 is designed for all ages: ranging from babies and toddlers to the elderly. An ideal choice for hospitals, hotels, school settings, and public establishments.</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\">What You Get: 1x PT3 thermometer, 2x AAA batteries, 1x Instruction manual, 1x Quick User Guide, our worry-free 12-month warranty, and friendly California-based customer service.</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers aÂ </span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Â in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 11, 1, 0, 5),
-(102, 'Women\'s Plus-Size Shirt Dress with Gold Hardware', '190', '169', 112, 'product-featured-102.jpg', '<p><span style=\"color: rgb(15, 17, 17); font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px;\">This dress has everything! Enough stretch to be forgiving. Works for my hourglass/pear shape just fine. The cap sleeves satisfy conservative dressing requirements (no sleeveless) but still works for spring/summer.</span><br></p>', '<p>From Calvin Klein</p>', '<ul class=\"a-unordered-list a-vertical a-spacing-mini\" style=\"margin-right: 0px; margin-bottom: 0px; margin-left: 18px; color: rgb(15, 17, 17); padding: 0px; font-family: &quot;Amazon Ember&quot;, Arial, sans-serif; font-size: 14px;\"><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Cap-sleeve shirt dress featuring belted waist with gold-tone hardware accents</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Split v-neckline</span></li><li style=\"list-style: disc; overflow-wrap: break-word; margin: 0px;\"><span class=\"a-list-item\" style=\"overflow-wrap: break-word; display: block;\">Exposed center back zipper</span></li></ul>', '<p><span style=\"color: rgb(51, 51, 51); font-size: 14px;\">This is a sample text for conditions.</span><br></p>', '<p><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">Offers a&nbsp;</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">15 to 30-day window</span><span style=\"margin: 0px; padding: 0px; color: rgb(32, 33, 36); font-family: arial, sans-serif; font-size: 16px;\">&nbsp;in which customers can return a product and ask for a refund. Some businesses extend that period up to 90 days. Regardless of the time frame you choose, ensuring that you actually have a time frame is essential.</span><br></p>', 19, 1, 0, 5),
-(139, 'ElecTest', '', '8', 16, 'product-featured-139.jpg', '', '', '', '', '', 213, 1, 1, 4),
-(143, 'D_Stress', '', '', 123, 'product-featured-143.jpg', '', '', '', '', '', 42, 0, 1, 4),
-(144, 'AA', '', '', 115, 'product-featured-144.png', '', '', '', '', '', 121, 0, 1, 7),
-(145, 'Anxiety1', '', '', 102, 'product-featured-145.jpg', '', '', '', '', '', 34, 1, 1, 7),
-(146, 'Anxiety2', '', '', 100, 'product-featured-146.jpg', '', '', '', '', '', 5, 0, 1, 7),
-(147, 'Sleep1', '', '', 100, 'product-featured-147.jpg', '', '', '', '', '', 6, 0, 1, 10),
-(148, 'Sleep2', '', '', 100, 'product-featured-148.jpg', '', '', '', '', '', 37, 1, 1, 10),
-(149, 'Painkiller1', '', '', 102, 'product-featured-149.jpg', '', '', '', '', '', 16, 1, 1, 8),
-(150, 'Painkiller2', '', '', 110, 'product-featured-150.jpg', '', '', '', '', '', 58, 1, 1, 8),
-(151, 'Gym1', '', '', 116, 'product-featured-151.jpg', '', '', '', '', '', 14, 1, 1, 9),
-(152, 'Gym2', '', '', 109, 'product-featured-152.jpg', '', '', '', '', '', 62, 1, 1, 9),
-(154, 'sWell2', '', '', 103, 'product-featured-154.jpg', '', '', '', '', '', 25, 0, 1, 11),
-(156, 'df', '', '', 12, 'product-featured-156.png', '', '', '', '', '', 0, 0, 1, 7),
-(157, 'xa', '', '', 120, 'product-featured-157.png', '', '', '', '', '', 10, 0, 1, 7);
+(10002, 'Cialis 20mg', '', '', 100, 'product-featured-10002.jpg', '<p><br></p>', 'Cialis is a treatment for adult men with erectile dysfunction. This is when a man cannot get, or keep a hard, erect penis suitable for sexual activity. CIALIS has been shown to significantly improve the ability to obtain a hard erect penis suitable for sexual activity.\r\nIt is also used to treat urinary symptoms caused due to an enlargement of the prostate gland (a walnut-sized gland located just below the bladder that secretes fluid to nourish and transport the sperm) in older men. ', '', '', '', 51, 1, 1, 10004),
+(10003, 'Viagra 100mg', '', '', 100, 'product-featured-10003.png', '', 'Viagra 100mg Tablet is a prescription medicine used to treat erectile dysfunction (impotence) in men. It works by increasing blood flow to the penis. This helps men to get or maintain an erection. It belongs to a group of medicines known as phosphodiesterase type 5 (PDE 5) inhibitors.', '', '', '', 38, 1, 1, 10004),
+(10004, 'Belbien (Zolpidem) 10mg', '', '', 100, 'product-featured-10004.png', '', 'Zolpidem is used for a short time to treat a certain sleep problem (insomnia) in adults. If you have trouble falling asleep, it helps you fall asleep faster, so you can get a better night\'s rest. Zolpidem belongs to a class of drugs called sedative-hypnotics. It acts on your brain to produce a calming effect.', '', '', '', 21, 1, 1, 10003),
+(10005, 'Zoltrate 10mg', '', '', 100, 'product-featured-10005.png', '', 'The name of your medicine is Zolpidem 5mg or 10mg Tablets (called zolpidem throughout this leaflet). Zolpidem contains a medicine called zolpidem tartrate. This belongs to a group of medicines called hypnotics. It works by acting on your brain to help you sleep.', '', '', '', 52, 1, 1, 10003),
+(10006, 'Lypin 10mg', '', '', 100, 'product-featured-10006.png', '', 'Lypin 10mg Tablet is used for short-term treatment of insomnia. It reduces sleep onset time and frequent awakening at night. This medicine improves sleep maintenance and therefore ensures sound sleep.', '', '', '', 38, 1, 1, 10003),
+(10007, 'Rivotril 2mg', '', '', 100, 'product-featured-10007.png', '', 'Rivotril 2mg Tablet belongs to a class of medicines called benzodiazepines and is used to treat anxiety, stop seizures (fits) or relax tense muscles. This can also help relieve difficulty sleeping (insomnia), and is usually prescribed for a short period of time, if used to treat sleeping problems.', '', '', '', 58, 1, 1, 10000),
+(10008, 'Bensedin', '', '', 100, 'product-featured-10008.png', '', 'Bensedin (Diazepam) is indicated for the management of anxiety disorders or for the short-term relief of the symptoms of anxiety. Anxiety or tension associated with the stress of everyday life usually does not require treatment with an anxiolytic.\r\n\r\nIn acute alcohol withdrawal, diazepam may be useful in the symptomatic relief of acute agitation, tremor, impending or acute delirium tremens and hallucinosis.', '', '', '', 59, 1, 1, 10000),
+(10009, 'Lorazepam', '', '', 100, 'product-featured-10009.jpg', '', 'Lorazepam is used to relieve anxiety. Lorazepam is also used to treat insomnia caused by anxiety or temporary situational stress. Lorazepam is in a class of medications called benzodiazepines. It works by slowing activity in the brain to allow for relaxation.', '', '', '', 72, 1, 1, 10000),
+(10010, 'Clonazepam 2mg', '', '', 100, 'product-featured-10010.png', '', 'Clonazepam belongs to a class of medicines called benzodiazepines and is used to treat anxiety, stop seizures (fits) or relax tense muscles.', '', '', '', 47, 1, 1, 10000),
+(10011, 'Ksalol 1mg', '', '', 100, 'product-featured-10011.png', '', 'Ksalol belongs to a class of medications known as benzodiazepines. It\'s prescribed to treat generalized anxiety disorder, panic disorder and insomnia.', '', '', '', 42, 1, 1, 10000),
+(10012, 'Xanax Alko 1mg', '', '', 100, 'product-featured-10012.png', '', 'Alko 1 MG (Xanax) Tablets are brand name for the drug alprazolam; it belongs to a group of drugs called benzodiazepines. This formula issued to treat anxiety and panic disorders. It is used to treat anxiety. It alters brain activity, calms it, and provides relief from panic attacks by relaxing the nerves.', '', '', '', 62, 1, 1, 10000),
+(10013, 'Alprazolam (Alpz-1) 1mg', '', '', 100, 'product-featured-10013.png', '', 'Alprazolam is used to relieve excess (moderate to severe) anxiety and to treat anxiety associated with depression.', '', '', '', 24, 1, 1, 10000),
+(10014, 'Rlam 1mg', '', '', 100, 'product-featured-10014.png', '', 'It belongs to a group of drugs called benzodiazepines. This formula is used to treat anxiety and panic disorders.', '', '', '', 20, 1, 1, 10000),
+(10015, 'Valium (Diazepam)', '', '', 100, 'product-featured-10015.png', '', 'Valium is a prescription medicine used to treat symptoms of anxiety, muscle spasm, alcohol withdrawal and as a sedative before surgery or to treat seizures. Valium may be used alone or with other medications.\r\nValium belongs to a class of drugs called Antianxiety Agents; Anxiolytics, Benzodiazepines; Skeletal Muscle Relaxants; Anticonvulsants, Benzodiazepine.', '', '', '', 71, 1, 1, 10000),
+(10016, 'Multivitamin Supreme, Zinc, Calcium and Vitamin D Capsule for Immunity, Energy, Overall Health', '', '', 100, 'product-featured-10016.jpeg', '', '', '', '', '', 24, 1, 0, 10001),
+(10017, 'Citra 100mg', '', '', 100, 'product-featured-10017.png', '', '<p><span style=\"font-family: robotoregular; font-size: 16px; text-align: justify;\">Citra is an analgesic that is used to provide relief from pain. It is used for treating moderate and severe pain. It is also effective in pain that is not curable by weak painkillers. Citra can also be given in pain after serious injury and operation. Buy Citra 100mg online and get free delivery.</span><br></p>', '', '', '', 7, 1, 1, 10001),
+(10018, 'Soma 350mg (Carisoprodol)', '', '', 100, 'product-featured-10018.png', '', 'Carisoprodol (Soma) is a muscle relaxant that\'s used to treat muscle pain and discomfort. It\'s taken by mouth, typically 4 times daily. Carisoprodol (Soma) is a controlled substance medication and it\'s only approved for short-term treatment of muscle pain and should only be taken for up to 2 to 3 weeks.', '', '', '', 12, 1, 1, 10001),
+(10019, 'Tapentadol 100mg', '', '', 100, 'product-featured-10019.png', '', 'Tapentadol tablets are used to treat moderate to severe acute pain (pain that begins suddenly, has a specific cause, and is expected to go away when the cause of the pain is healed). Tapentadol extended-release tablets are used to treat severe neuropathic pain (pain caused by nerve damage) in people who have diabetes. ', '', '', '', 10, 1, 1, 10001),
+(10020, 'Oltram 100mg', '', '', 100, 'product-featured-10020.png', '', 'This medication is an opioid analgesic, prescribed for moderate to severe pain in adults. It works by changing the way the body senses pain.', '', '', '', 4, 1, 1, 10001);
 
 -- --------------------------------------------------------
 
@@ -1076,98 +583,6 @@ CREATE TABLE `tbl_product_color` (
   `color_id` int(11) NOT NULL,
   `p_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_product_color`
---
-
-INSERT INTO `tbl_product_color` (`id`, `color_id`, `p_id`) VALUES
-(69, 1, 4),
-(70, 4, 4),
-(77, 6, 6),
-(82, 2, 12),
-(83, 9, 13),
-(84, 3, 14),
-(85, 2, 15),
-(86, 6, 15),
-(87, 3, 16),
-(88, 3, 17),
-(89, 2, 18),
-(90, 3, 19),
-(91, 1, 20),
-(92, 8, 21),
-(93, 2, 22),
-(94, 2, 23),
-(95, 2, 25),
-(96, 5, 26),
-(97, 2, 27),
-(98, 4, 27),
-(99, 5, 28),
-(100, 7, 29),
-(101, 10, 30),
-(102, 11, 31),
-(103, 14, 32),
-(105, 2, 34),
-(106, 1, 35),
-(107, 3, 36),
-(109, 6, 38),
-(110, 2, 39),
-(111, 11, 42),
-(149, 3, 10),
-(150, 6, 9),
-(151, 3, 8),
-(152, 7, 7),
-(159, 2, 77),
-(163, 17, 79),
-(164, 2, 78),
-(167, 3, 80),
-(168, 2, 81),
-(172, 1, 82),
-(173, 2, 82),
-(174, 4, 82),
-(195, 2, 84),
-(201, 2, 86),
-(202, 6, 86),
-(203, 17, 86),
-(222, 16, 93),
-(223, 21, 85),
-(224, 22, 85),
-(225, 23, 85),
-(226, 1, 83),
-(227, 2, 83),
-(228, 3, 83),
-(229, 4, 83),
-(230, 5, 83),
-(231, 6, 83),
-(232, 8, 83),
-(233, 14, 83),
-(234, 17, 83),
-(235, 18, 83),
-(236, 12, 89),
-(237, 27, 91),
-(239, 2, 92),
-(240, 29, 92),
-(241, 2, 88),
-(242, 8, 88),
-(243, 17, 88),
-(244, 2, 90),
-(245, 6, 90),
-(246, 25, 90),
-(247, 27, 90),
-(248, 28, 90),
-(251, 2, 95),
-(252, 6, 95),
-(253, 5, 96),
-(254, 24, 96),
-(256, 2, 94),
-(257, 3, 87),
-(258, 17, 87),
-(263, 6, 99),
-(264, 14, 100),
-(266, 6, 101),
-(267, 2, 102),
-(268, 25, 97),
-(269, 5, 98);
 
 -- --------------------------------------------------------
 
@@ -1187,28 +602,43 @@ CREATE TABLE `tbl_product_package` (
 --
 
 INSERT INTO `tbl_product_package` (`id`, `p_id`, `pkg_name`, `pkg_price`) VALUES
-(35, 141, '20 PILLS', 400),
-(63, 157, 'Normal', 10),
-(64, 154, '100 PILLS', 210),
-(65, 154, '200 PILLS', 400),
-(68, 151, '100 PILLS', 200),
-(69, 151, '200 PILLS', 400),
-(70, 150, '100 PILLS', 200),
-(71, 149, '100 PILLS', 200),
-(72, 148, '100 PILLS', 200),
-(73, 148, '200 PILLS', 400),
-(74, 147, '100 PILLS', 200),
-(75, 147, '200 PILLS', 400),
-(76, 146, '100 PILLS', 200),
-(77, 145, '100 PILLS', 200),
-(78, 145, '200 PILLS', 400),
-(79, 144, '100 PILLS', 100),
-(81, 143, '20 Pills', 100),
-(82, 156, 'sd3', 100),
-(85, 152, '100 PILLS', 200),
-(86, 152, '200 PILLS', 400),
-(87, 139, '10 Pills', 50),
-(88, 139, '50 Pills', 200);
+(10040, 10003, '180 PILLS', 210),
+(10041, 10003, '360 PILLS', 297),
+(10042, 10004, '90 PILLS', 360),
+(10043, 10004, '180 PILLS', 549),
+(10046, 10006, '90 PILLS', 330),
+(10047, 10006, '180 PILLS', 565),
+(10060, 10009, '90 PILLS', 349),
+(10061, 10009, '180 PILLS', 478),
+(10066, 10010, '90 PILLS', 350),
+(10067, 10010, '180 PILLS', 580),
+(10072, 10013, '90 PILLS', 319),
+(10073, 10013, '180 PILLS', 479),
+(10074, 10014, '90 PILLS', 329),
+(10075, 10014, '180 PILLS', 459),
+(10080, 10015, '90 PILLS', 310),
+(10081, 10015, '180 PILLS', 488),
+(10083, 10012, '90 PILLS', 355),
+(10084, 10012, '180 PILLS', 488),
+(10087, 10016, '90 PILLS', 200),
+(10098, 10011, '90 PILLS', 380),
+(10099, 10011, '180 PILLS', 470),
+(10102, 10008, '90 PILLS', 370),
+(10103, 10008, '180 PILLS', 490),
+(10106, 10007, '90 PILLS', 329),
+(10107, 10007, '180 PILLS', 459),
+(10126, 10002, '180 PILLS', 180),
+(10127, 10002, '360 PILLS', 289),
+(10128, 10005, '90 PILLS', 330),
+(10129, 10005, '180 PILLS', 510),
+(10130, 10017, '180 PILLS', 356),
+(10131, 10017, '360 PILLS', 589),
+(10136, 10018, '180 PILLS', 210),
+(10137, 10018, '360 PILLS', 396),
+(10140, 10019, '180 PILLS', 340),
+(10141, 10019, '360 PILLS', 520),
+(10144, 10020, '180 PILLS', 400),
+(10145, 10020, '360 PILLS', 670);
 
 -- --------------------------------------------------------
 
@@ -1227,33 +657,17 @@ CREATE TABLE `tbl_product_photo` (
 --
 
 INSERT INTO `tbl_product_photo` (`pp_id`, `photo`, `p_id`) VALUES
-(106, '106.jpg', 83),
-(107, '107.jpg', 83),
-(108, '108.jpg', 84),
-(109, '109.jpg', 84),
-(110, '110.jpg', 85),
-(111, '111.jpg', 85),
-(112, '112.jpg', 86),
-(113, '113.jpg', 86),
-(114, '114.jpg', 87),
-(115, '115.jpg', 87),
-(116, '116.jpg', 88),
-(117, '117.jpg', 88),
-(118, '118.jpg', 89),
-(119, '119.jpg', 89),
-(120, '120.jpg', 90),
-(121, '121.jpg', 91),
-(122, '122.jpg', 92),
-(123, '123.jpg', 92),
-(124, '124.jpg', 93),
-(125, '125.jpg', 94),
-(126, '126.jpg', 95),
-(127, '127.jpg', 96),
-(128, '128.jpg', 97),
-(129, '129.jpg', 98),
-(130, '130.jpg', 98),
-(131, '131.jpg', 100),
-(132, '132.jpg', 102);
+(10002, '10002.jpg', 10002),
+(10003, '10003.jpg', 10002),
+(10004, '10004.jpg', 10003),
+(10010, '10010.jpg', 10009),
+(10014, '10014.png', 10009),
+(10015, '10015.jpeg', 10016),
+(10016, '10016.jpeg', 10016),
+(10017, '10017.jpg', 10011),
+(10019, '10019.png', 10008),
+(10021, '10021.png', 10007),
+(10022, '10022.png', 10020);
 
 -- --------------------------------------------------------
 
@@ -1266,204 +680,6 @@ CREATE TABLE `tbl_product_size` (
   `size_id` int(11) NOT NULL,
   `p_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_product_size`
---
-
-INSERT INTO `tbl_product_size` (`id`, `size_id`, `p_id`) VALUES
-(44, 1, 6),
-(56, 8, 12),
-(57, 9, 12),
-(58, 10, 12),
-(59, 11, 12),
-(60, 12, 12),
-(61, 13, 12),
-(62, 9, 13),
-(63, 11, 13),
-(64, 13, 13),
-(65, 15, 13),
-(66, 9, 14),
-(67, 11, 14),
-(68, 12, 14),
-(69, 13, 14),
-(70, 9, 15),
-(71, 11, 15),
-(72, 13, 15),
-(73, 15, 16),
-(74, 16, 16),
-(75, 17, 16),
-(76, 16, 17),
-(77, 17, 17),
-(78, 14, 18),
-(79, 15, 18),
-(80, 16, 18),
-(81, 17, 18),
-(82, 15, 19),
-(83, 16, 19),
-(84, 17, 19),
-(85, 14, 20),
-(86, 15, 20),
-(87, 17, 20),
-(88, 15, 21),
-(89, 17, 21),
-(90, 15, 22),
-(91, 16, 22),
-(92, 17, 22),
-(93, 15, 23),
-(94, 16, 23),
-(95, 17, 23),
-(96, 18, 25),
-(97, 19, 25),
-(98, 20, 25),
-(99, 21, 25),
-(100, 19, 26),
-(101, 21, 26),
-(102, 22, 26),
-(103, 23, 26),
-(104, 19, 27),
-(105, 20, 27),
-(106, 21, 27),
-(107, 22, 27),
-(108, 19, 28),
-(109, 20, 28),
-(110, 21, 28),
-(111, 19, 29),
-(112, 20, 29),
-(113, 22, 29),
-(114, 1, 30),
-(115, 2, 30),
-(116, 3, 30),
-(117, 4, 30),
-(118, 23, 31),
-(119, 26, 32),
-(123, 2, 34),
-(124, 2, 35),
-(125, 2, 36),
-(126, 3, 36),
-(129, 2, 38),
-(130, 3, 38),
-(131, 4, 38),
-(132, 5, 38),
-(133, 27, 39),
-(134, 8, 42),
-(210, 3, 10),
-(211, 4, 10),
-(212, 5, 10),
-(213, 6, 10),
-(214, 3, 9),
-(215, 4, 9),
-(216, 3, 8),
-(217, 4, 8),
-(218, 2, 7),
-(219, 3, 7),
-(220, 4, 7),
-(249, 1, 79),
-(250, 2, 79),
-(251, 3, 79),
-(252, 1, 78),
-(253, 2, 78),
-(254, 3, 78),
-(255, 4, 78),
-(256, 5, 78),
-(259, 26, 80),
-(262, 3, 82),
-(263, 4, 82),
-(278, 2, 84),
-(279, 3, 84),
-(280, 4, 84),
-(281, 5, 84),
-(282, 6, 84),
-(305, 26, 86),
-(339, 27, 93),
-(340, 15, 85),
-(341, 16, 85),
-(342, 17, 85),
-(343, 18, 85),
-(344, 19, 85),
-(345, 20, 85),
-(346, 21, 85),
-(347, 22, 85),
-(348, 23, 85),
-(349, 24, 85),
-(350, 25, 85),
-(351, 1, 83),
-(352, 2, 83),
-(353, 3, 83),
-(354, 4, 83),
-(355, 5, 83),
-(356, 6, 83),
-(357, 7, 83),
-(358, 3, 89),
-(359, 4, 89),
-(360, 5, 89),
-(361, 6, 89),
-(362, 7, 89),
-(363, 2, 91),
-(364, 3, 91),
-(365, 4, 91),
-(366, 5, 91),
-(367, 6, 91),
-(369, 27, 92),
-(370, 3, 88),
-(371, 4, 88),
-(372, 5, 88),
-(373, 6, 88),
-(374, 7, 88),
-(375, 1, 90),
-(376, 2, 90),
-(377, 3, 90),
-(378, 4, 90),
-(380, 27, 95),
-(381, 3, 96),
-(382, 4, 96),
-(383, 5, 96),
-(384, 6, 96),
-(385, 7, 96),
-(398, 33, 94),
-(399, 29, 87),
-(400, 30, 87),
-(401, 31, 87),
-(402, 32, 87),
-(403, 33, 87),
-(404, 34, 87),
-(405, 35, 87),
-(406, 36, 87),
-(407, 37, 87),
-(408, 38, 87),
-(409, 39, 87),
-(434, 40, 99),
-(435, 41, 99),
-(436, 3, 100),
-(437, 4, 100),
-(438, 5, 100),
-(439, 6, 100),
-(441, 27, 101),
-(442, 42, 102),
-(443, 43, 102),
-(444, 44, 102),
-(445, 45, 102),
-(446, 46, 102),
-(447, 47, 102),
-(450, 18, 103),
-(457, 4, 104),
-(458, 5, 104),
-(459, 8, 97),
-(460, 9, 97),
-(461, 10, 97),
-(462, 11, 97),
-(463, 12, 97),
-(464, 13, 97),
-(465, 14, 97),
-(466, 15, 97),
-(467, 16, 97),
-(468, 17, 97),
-(469, 18, 97),
-(470, 19, 97),
-(471, 4, 98),
-(472, 5, 98),
-(473, 6, 98),
-(474, 7, 98);
 
 -- --------------------------------------------------------
 
@@ -1484,21 +700,25 @@ CREATE TABLE `tbl_rating` (
 --
 
 INSERT INTO `tbl_rating` (`rt_id`, `p_id`, `cust_id`, `comment`, `rating`) VALUES
-(1, 144, 2, 'bhut acha', 4),
-(3, 157, -2, '', 5),
-(4, 154, -2, '', 4),
-(6, 151, -2, '', 5),
-(7, 150, -2, '', 5),
-(8, 149, -2, '', 4),
-(9, 148, -2, '', 4),
-(10, 147, -2, '', 4),
-(11, 146, -2, '', 4),
-(12, 145, -2, '', 5),
-(13, 144, -2, '', 5),
-(15, 143, -2, '', 4),
-(16, 156, -2, '', 5),
-(18, 152, -2, '', 4),
-(19, 139, -2, '', 5);
+(10023, 10003, -2, '', 5),
+(10024, 10004, -2, '', 5),
+(10026, 10006, -2, '', 5),
+(10033, 10009, -2, '', 5),
+(10036, 10010, -2, '', 5),
+(10039, 10013, -2, '', 5),
+(10040, 10014, -2, '', 5),
+(10043, 10015, -2, '', 5),
+(10045, 10012, -2, '', 5),
+(10048, 10016, -2, '', 5),
+(10054, 10011, -2, '', 5),
+(10056, 10008, -2, '', 5),
+(10058, 10007, -2, '', 5),
+(10068, 10002, -2, '', 5),
+(10069, 10005, -2, '', 5),
+(10070, 10017, -2, '', 5),
+(10073, 10018, -2, '', 5),
+(10075, 10019, -2, '', 5),
+(10077, 10020, -2, '', 5);
 
 -- --------------------------------------------------------
 
@@ -1610,7 +830,7 @@ CREATE TABLE `tbl_settings` (
 --
 
 INSERT INTO `tbl_settings` (`id`, `logo`, `favicon`, `footer_about`, `footer_copyright`, `contact_address`, `contact_email`, `contact_phone`, `contact_fax`, `contact_map_iframe`, `receive_email`, `receive_email_subject`, `receive_email_thank_you_message`, `forget_password_message`, `total_recent_post_footer`, `total_popular_post_footer`, `total_recent_post_sidebar`, `total_popular_post_sidebar`, `total_featured_product_home`, `total_latest_product_home`, `total_popular_product_home`, `meta_title_home`, `meta_keyword_home`, `meta_description_home`, `banner_login`, `banner_registration`, `banner_forget_password`, `banner_reset_password`, `banner_search`, `banner_cart`, `banner_checkout`, `banner_product_category`, `banner_blog`, `cta_title`, `cta_content`, `cta_read_more_text`, `cta_read_more_url`, `cta_photo`, `featured_product_title`, `featured_product_subtitle`, `latest_product_title`, `latest_product_subtitle`, `popular_product_title`, `popular_product_subtitle`, `testimonial_title`, `testimonial_subtitle`, `testimonial_photo`, `blog_title`, `blog_subtitle`, `newsletter_text`, `paypal_email`, `stripe_public_key`, `stripe_secret_key`, `bank_detail`, `before_head`, `after_body`, `before_body`, `home_service_on_off`, `home_welcome_on_off`, `home_featured_product_on_off`, `home_latest_product_on_off`, `home_popular_product_on_off`, `home_testimonial_on_off`, `home_blog_on_off`, `newsletter_on_off`, `ads_above_welcome_on_off`, `ads_above_featured_product_on_off`, `ads_above_latest_product_on_off`, `ads_above_popular_product_on_off`, `ads_above_testimonial_on_off`, `ads_category_sidebar_on_off`) VALUES
-(1, 'logo.gif', 'favicon.png', '<p>Lorem ipsum dolor sit amet, omnis signiferumque in mei, mei ex enim concludaturque. Senserit salutandi euripidis no per, modus maiestatis scribentur est an.Â Ea suas pertinax has.</p>\r\n', 'Copyright Â© 2023 Unit Pharma. All Rights Reserved.', '93 Simpson Avenue\r\nHarrisburg, PA', 'support@unitpharma.com', '+001 10 101 0010', '', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3094.020958405712!2d-84.39261378514685!3d39.151504939531584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841acfb8da30203%3A0x193175e741781f21!2s4293%20Simpson%20Ave%2C%20Cincinnati%2C%20OH%2045227%2C%20USA!5e0!3m2!1sen!2snp!4v1647796779407!5m2!1sen!2snp\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>', 'support@ecommercephp.com', 'Visitor Email Message from Ecommerce Site PHP', 'Thank you for sending email. We will contact you shortly.', 'A confirmation link is sent to your email address. You will get the password reset information in there.', 4, 4, 5, 5, 15, 6, 8, 'Unit Pharma', 'online fashion store, garments shop, online garments', 'ecommerce php project with mysql database', 'banner_login.jpg', 'banner_registration.jpg', 'banner_forget_password.jpg', 'banner_reset_password.jpg', 'banner_search.jpg', 'banner_cart.jpg', 'banner_checkout.jpg', 'banner_product_category.jpg', 'banner_blog.jpg', 'Welcome To Our Ecommerce Website', 'Lorem ipsum dolor sit amet, an labores explicari qui, eu nostrum copiosae argumentum has. Latine propriae quo no, unum ridens expetenda id sit, \r\nat usu eius eligendi singulis. Sea ocurreret principes ne. At nonumy aperiri pri, nam quodsi copiosae intellegebat et, ex deserunt euripidis usu. ', 'Read More', '#', 'cta.jpg', 'Featured Products', 'Our list on Top Featured Products', 'Latest Products', 'Our list of recently added products', 'Popular Products', 'Popular products based on customer\'s choice', 'Testimonials', 'See what our clients tell about us', 'testimonial.jpg', 'Latest Blog', 'See all our latest articles and news from below', 'Sign-up to our newsletter for latest promotions and discounts.', 'admin@ecom.com', 'pk_test_0SwMWadgu8DwmEcPdUPRsZ7b', 'sk_test_TFcsLJ7xxUtpALbDo1L5c1PN', 'Bank Name: WestView Bank\r\nAccount Number: CA100270589600\r\nBranch Name: CA Branch\r\nCountry: USA', '', '<div id=\"fb-root\"></div>\n<script>(function(d, s, id) {\n  var js, fjs = d.getElementsByTagName(s)[0];\n  if (d.getElementById(id)) return;\n  js = d.createElement(s); js.id = id;\n  js.src = \"//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=323620764400430\";\n  fjs.parentNode.insertBefore(js, fjs);\n}(document, \'script\', \'facebook-jssdk\'));</script>', '<!--Start of Tawk.to Script-->\r\n<script type=\"text/javascript\">\r\nvar Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();\r\n(function(){\r\nvar s1=document.createElement(\"script\"),s0=document.getElementsByTagName(\"script\")[0];\r\ns1.async=true;\r\ns1.src=\'https://embed.tawk.to/5ae370d7227d3d7edc24cb96/default\';\r\ns1.charset=\'UTF-8\';\r\ns1.setAttribute(\'crossorigin\',\'*\');\r\ns0.parentNode.insertBefore(s1,s0);\r\n})();\r\n</script>\r\n<!--End of Tawk.to Script-->', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+(1, 'logo.png', 'favicon.png', '<p>Lorem ipsum dolor sit amet, omnis signiferumque in mei, mei ex enim concludaturque. Senserit salutandi euripidis no per, modus maiestatis scribentur est an.Â Ea suas pertinax has.</p>\r\n', 'Copyright Â© 2023 Unit Pharma. All Rights Reserved.', '725 Milford \r\nMt. Pleasant Road\r\nMilford , New Jersey  08848\r\nUnited States', 'support@unitpharma.com', '+1 (903) 429-5515', '', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3029.9585924651283!2d-75.05990539999999!3d40.5866694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c40b7fc1c6dfeb%3A0xf713119b0b5fa281!2s725%20Milford%20Mt%20Pleasant%20Rd%2C%20Milford%2C%20NJ%2008848%2C%20USA!5e0!3m2!1sen!2sin!4v1677488263714!5m2!1sen!2sin\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>', 'support@unitpharma.com', 'Visitor Email Message from unitpharma.com', 'Thank you for sending email. We will contact you shortly.', 'A confirmation link is sent to your email address. You will get the password reset information in there.', 4, 4, 5, 5, 8, 6, 8, 'Unit Pharma', 'online medical store, medicine shop, online medicine, pharmacy', 'Unit Pharma is a trusted online pharmacy in the USA. Unit Pharma provides high-quality painkillers, anxiety medicines, sleeping pills, sexual wellness medicines, and gym products at the best price.', 'banner_login.jpg', 'banner_registration.jpg', 'banner_forget_password.jpg', 'banner_reset_password.jpg', 'banner_search.jpg', 'banner_cart.jpg', 'banner_checkout.jpg', 'banner_product_category.jpg', 'banner_blog.jpg', 'Welcome To Our Ecommerce Website', 'Lorem ipsum dolor sit amet, an labores explicari qui, eu nostrum copiosae argumentum has. Latine propriae quo no, unum ridens expetenda id sit, \r\nat usu eius eligendi singulis. Sea ocurreret principes ne. At nonumy aperiri pri, nam quodsi copiosae intellegebat et, ex deserunt euripidis usu. ', 'Read More', '#', 'cta.jpg', 'Featured Products', 'Our list on Top Featured Products', 'Latest Products', 'Our list of recently added products', 'Popular Products', 'Popular products based on customer\'s choice', 'Testimonials', 'See what our clients tell about us', 'testimonial.jpg', 'Latest Blog', 'See all our latest articles and news from below', 'Sign-up to our newsletter for latest promotions and discounts.', 'support@unitpharma.com', 'pk_test_0SwMWadgu8DwmEcPdUPRsZ7b', 'sk_test_TFcsLJ7xxUtpALbDo1L5c1PN', '***', '<link href=\'https://fonts.googleapis.com/css?family=Poppins rel=\'stylesheet\'>\r\n<style>\r\nbody {\r\n font-family: \'Poppins\', \'Verdana\';\r\n}\r\n</style>', '', '<!--Start of Tawk.to Script-->\r\n<script type=\"text/javascript\">\r\nvar Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();\r\n(function(){\r\nvar s1=document.createElement(\"script\"),s0=document.getElementsByTagName(\"script\")[0];\r\ns1.async=true;\r\ns1.src=\'https://embed.tawk.to/63e7b3abc2f1ac1e2032b8a6/1gp0hblqn\';\r\ns1.charset=\'UTF-8\';\r\ns1.setAttribute(\'crossorigin\',\'*\');\r\ns0.parentNode.insertBefore(s1,s0);\r\n})();\r\n</script>\r\n<!--End of Tawk.to Script-->', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1623,16 +843,6 @@ CREATE TABLE `tbl_shipping_cost` (
   `country_id` int(11) NOT NULL,
   `amount` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_shipping_cost`
---
-
-INSERT INTO `tbl_shipping_cost` (`shipping_cost_id`, `country_id`, `amount`) VALUES
-(1, 228, '11'),
-(2, 167, '10'),
-(3, 13, '8'),
-(4, 230, '0');
 
 -- --------------------------------------------------------
 
@@ -1663,59 +873,6 @@ CREATE TABLE `tbl_size` (
   `size_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_size`
---
-
-INSERT INTO `tbl_size` (`size_id`, `size_name`) VALUES
-(1, 'XS'),
-(2, 'S'),
-(3, 'M'),
-(4, 'L'),
-(5, 'XL'),
-(6, 'XXL'),
-(7, '3XL'),
-(8, '31'),
-(9, '32'),
-(10, '33'),
-(11, '34'),
-(12, '35'),
-(13, '36'),
-(14, '37'),
-(15, '38'),
-(16, '39'),
-(17, '40'),
-(18, '41'),
-(19, '42'),
-(20, '43'),
-(21, '44'),
-(22, '45'),
-(23, '46'),
-(24, '47'),
-(25, '48'),
-(26, 'Free Size'),
-(27, 'One Size for All'),
-(28, '10'),
-(29, '12 Months'),
-(30, '2T'),
-(31, '3T'),
-(32, '4T'),
-(33, '5T'),
-(34, '6 Years'),
-(35, '7 Years'),
-(36, '8 Years'),
-(37, '10 Years'),
-(38, '12 Years'),
-(39, '14 Years'),
-(40, '256 GB'),
-(41, '128 GB'),
-(42, '14 Plus'),
-(43, '16 Plus'),
-(44, '18 Plus'),
-(45, '20 Plus'),
-(46, '22 Plus'),
-(47, '24 Plus');
-
 -- --------------------------------------------------------
 
 --
@@ -1737,7 +894,7 @@ CREATE TABLE `tbl_slider` (
 --
 
 INSERT INTO `tbl_slider` (`id`, `photo`, `heading`, `content`, `button_text`, `button_url`, `position`) VALUES
-(1, 'slider-1.png', 'Welcome to Unit Pharma', 'Trusted Online Medical Shop', 'View Painkillers', 'product-category.php?id=8&type=top-category', 'Center'),
+(1, 'slider-1.jpeg', 'Welcome to Unit Pharma', 'A Trusted Online Pharmacy\r\nGet the Best Quality Medicine Here', 'View Painkillers', 'product-category.php?id=8&type=top-category', 'Center'),
 (2, 'slider-2.jpg', 'Order Medicine on Best Price', 'Buy a wide range of over the counter medicines online at low prices.', 'Read More', '#', 'Center'),
 (3, 'slider-3.png', '24 Hours Customer Support', 'Our highly experienced representatives are available 24 hours a day and 7 days a week.', 'Read More', 'contact.php', 'Right');
 
@@ -1791,19 +948,6 @@ CREATE TABLE `tbl_subscriber` (
   `subs_active` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_subscriber`
---
-
-INSERT INTO `tbl_subscriber` (`subs_id`, `subs_email`, `subs_date`, `subs_date_time`, `subs_hash`, `subs_active`) VALUES
-(1, 'ruth@mail.com', '2022-03-20', '2022-03-20 10:25:18', 'f4eabc1afed38a08da8d1c6e5fb42187', 1),
-(2, 'kimberly@mail.com', '2022-03-20', '2022-03-20 10:26:07', '61f3af9cac686555a4bff9e565f88c47', 1),
-(3, 'gregobn@mail.com', '2022-03-20', '2022-03-20 10:27:21', '72d6fc3a9e9ed33dfc30b10f4de82f34', 1),
-(4, 'morgan.sarahh5@mail.com', '2022-03-20', '2022-03-20 10:27:48', 'bcdeda095a6c882803fc3aaf4a17f08e', 1),
-(5, 'greenwd1154@mail.com', '2022-03-20', '2022-03-20 10:28:09', '279ecfe9debbb091c664641f534857ee', 1),
-(6, 'awsm785@mail.com', '2022-03-20', '2022-03-20 10:28:21', '94096ae01fc65e71c50c7843d096e041', 1),
-(10, 'pankaj143giri@gmail.com', '2023-02-09', '2023-02-09 06:58:44', '584d771cde8058a2470bd9112f5186f5', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -1821,17 +965,11 @@ CREATE TABLE `tbl_top_category` (
 --
 
 INSERT INTO `tbl_top_category` (`tcat_id`, `tcat_name`, `show_on_menu`) VALUES
-(1, 'Men', 0),
-(2, 'Women', 0),
-(3, 'Kids', 0),
-(4, 'Electronics', 0),
-(5, 'Health and Household', 0),
-(6, 'Annu', 0),
-(7, 'Anxiety', 1),
-(8, 'Painkillers', 1),
-(9, 'Gym Products', 1),
-(10, 'Sleeping Pills', 1),
-(11, 'Sexual Wellness', 1);
+(10000, 'Anxiety', 1),
+(10001, 'Painkillers', 1),
+(10002, 'Gym Products', 0),
+(10003, 'Sleeping Pills', 1),
+(10004, 'Sexual Wellness', 1);
 
 -- --------------------------------------------------------
 
@@ -1855,9 +993,10 @@ CREATE TABLE `tbl_user` (
 --
 
 INSERT INTO `tbl_user` (`id`, `full_name`, `email`, `phone`, `password`, `photo`, `role`, `status`) VALUES
-(1, 'Administrator', 'admin@mail.com', '7777777777', 'd00f5d5217896fb7fd601412cb890830', 'user-1.png', 'Super Admin', 1),
-(2, 'Christine', 'christine@mail.com', '4444444444', '81dc9bdb52d04dc20036dbd8313ed055', 'user-13.jpg', 'Admin', 1),
-(4, 'Administrator', 'adminup@mail.com', '', '57936a92df81a35aec87062281b5e15a', 'user-13.png', 'Super Admin', 1);
+(1, 'Administrator', 'admin@mail.com', '7777777777', 'b17f63abfdf8aa0108fd3873a3b43bd7', 'user-1.jpg', 'Super Admin', 1),
+(2, 'Christine', 'christine@mail.com', '4444444444', '81dc9bdb52d04dc20036dbd8313ed055', 'user-2.png', 'Admin', 1),
+(4, 'Administrator', 'adminup@mail.com', '', '57936a92df81a35aec87062281b5e15a', 'user-4.jpg', 'Super Admin', 1),
+(5, 'Admin', 'up.admin@mail.com', '', 'b1c74d1f62eee4fd57c75f0684791852', 'user-5.png', 'Admin', 1);
 
 -- --------------------------------------------------------
 
@@ -1870,15 +1009,6 @@ CREATE TABLE `tbl_video` (
   `title` varchar(255) NOT NULL,
   `iframe_code` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_video`
---
-
-INSERT INTO `tbl_video` (`id`, `title`, `iframe_code`) VALUES
-(1, 'Video 1', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/L3XAFSMdVWU\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>'),
-(2, 'Video 2', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/sinQ06YzbJI\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>'),
-(4, 'Video 3', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/ViZNgU-Yt-Y\" frameborder=\"0\" allow=\"autoplay; encrypted-media\" allowfullscreen></iframe>');
 
 --
 -- Indexes for dumped tables
@@ -2078,37 +1208,37 @@ ALTER TABLE `tbl_video`
 -- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_color`
 --
 ALTER TABLE `tbl_color`
-  MODIFY `color_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `color_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_country`
 --
 ALTER TABLE `tbl_country`
-  MODIFY `country_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=246;
+  MODIFY `country_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10000;
 --
 -- AUTO_INCREMENT for table `tbl_customer`
 --
 ALTER TABLE `tbl_customer`
-  MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `cust_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_customer_message`
 --
 ALTER TABLE `tbl_customer_message`
-  MODIFY `customer_message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `customer_message_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `tbl_end_category`
 --
 ALTER TABLE `tbl_end_category`
-  MODIFY `ecat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `ecat_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_faq`
 --
 ALTER TABLE `tbl_faq`
-  MODIFY `faq_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `faq_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tbl_language`
 --
@@ -2118,12 +1248,12 @@ ALTER TABLE `tbl_language`
 -- AUTO_INCREMENT for table `tbl_mid_category`
 --
 ALTER TABLE `tbl_mid_category`
-  MODIFY `mcat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `mcat_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `tbl_page`
 --
@@ -2133,47 +1263,47 @@ ALTER TABLE `tbl_page`
 -- AUTO_INCREMENT for table `tbl_payment`
 --
 ALTER TABLE `tbl_payment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10010;
 --
 -- AUTO_INCREMENT for table `tbl_photo`
 --
 ALTER TABLE `tbl_photo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_post`
 --
 ALTER TABLE `tbl_post`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10021;
 --
 -- AUTO_INCREMENT for table `tbl_product_color`
 --
 ALTER TABLE `tbl_product_color`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=270;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_product_package`
 --
 ALTER TABLE `tbl_product_package`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10146;
 --
 -- AUTO_INCREMENT for table `tbl_product_photo`
 --
 ALTER TABLE `tbl_product_photo`
-  MODIFY `pp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
+  MODIFY `pp_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10023;
 --
 -- AUTO_INCREMENT for table `tbl_product_size`
 --
 ALTER TABLE `tbl_product_size`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=475;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_rating`
 --
 ALTER TABLE `tbl_rating`
-  MODIFY `rt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `rt_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10078;
 --
 -- AUTO_INCREMENT for table `tbl_service`
 --
@@ -2188,7 +1318,7 @@ ALTER TABLE `tbl_settings`
 -- AUTO_INCREMENT for table `tbl_shipping_cost`
 --
 ALTER TABLE `tbl_shipping_cost`
-  MODIFY `shipping_cost_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `shipping_cost_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_shipping_cost_all`
 --
@@ -2198,7 +1328,7 @@ ALTER TABLE `tbl_shipping_cost_all`
 -- AUTO_INCREMENT for table `tbl_size`
 --
 ALTER TABLE `tbl_size`
-  MODIFY `size_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `size_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_slider`
 --
@@ -2213,22 +1343,22 @@ ALTER TABLE `tbl_social`
 -- AUTO_INCREMENT for table `tbl_subscriber`
 --
 ALTER TABLE `tbl_subscriber`
-  MODIFY `subs_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `subs_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_top_category`
 --
 ALTER TABLE `tbl_top_category`
-  MODIFY `tcat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `tcat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10005;
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `tbl_video`
 --
 ALTER TABLE `tbl_video`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

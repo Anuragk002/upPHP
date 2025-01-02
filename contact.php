@@ -1,4 +1,7 @@
-<?php require_once('header.php'); ?>
+<?php require_once('header.php');
+include('maill.php');
+?>
+
 
 <?php
 $statement = $pdo->prepare("SELECT * FROM tbl_page WHERE id=1");
@@ -27,13 +30,13 @@ foreach ($result as $row) {
 
 <div class="page">
     <div class="container">
-        <div class="row">            
+        <div class="row">
             <div class="col-md-12">
                 <h3>Contact Form</h3>
                 <div class="row cform">
                     <div class="col-md-8">
                         <div class="well well-sm">
-                            
+
                             <?php
 // After form submit checking everything for email sending
 if(isset($_POST['form_contact']))
@@ -97,80 +100,120 @@ if(isset($_POST['form_contact']))
         // sending email
         $to_admin = $receive_email;
         $subject = $receive_email_subject;
-        $message = '
-<html><body>
-<table>
-<tr>
-<td>Name</td>
-<td>'.$visitor_name.'</td>
-</tr>
-<tr>
-<td>Email</td>
-<td>'.$visitor_email.'</td>
-</tr>
-<tr>
-<td>Phone</td>
-<td>'.$visitor_phone.'</td>
-</tr>
-<tr>
-<td>Comment</td>
-<td>'.nl2br($visitor_message).'</td>
-</tr>
-</table>
-</body></html>
-';
-        $headers = 'From: ' . $visitor_email . "\r\n" .
-                   'Reply-To: ' . $visitor_email . "\r\n" .
-                   'X-Mailer: PHP/' . phpversion() . "\r\n" . 
-                   "MIME-Version: 1.0\r\n" . 
-                   "Content-Type: text/html; charset=ISO-8859-1\r\n";
+        // $message = '
+        //             <html><body>
+        //             <span style="color:black"><u><b>Visitor Details-</b></u></span>
+        //             <span style="color:black">
+        //             <ul style="padding-left:20px;list-style-type:None;color:black">
+        //             <li><b>Name: </b>'. $visitor_name.'</li>
+        //             <li><b>Email ID: </b>'. $visitor_email.'</li>
+        //             <li><b>Phone Number: $</b>'. $visitor_phone.'</li>
+        //             </ul>
+        //             </span>
+        //             <span style="color:black"><u><b>Visitor Message-</b></u></span>
+        //             <span style="color:black">'.nl2br($visitor_message).'</span><br/><br/>
+        //             <span style="color:black">
+        //             <b>Thanks and Regards</b><br/>
+        //             Unit Pharma Message Service<br/>
+        //             Website: <a href="https://www.unitpharma.com">https://www.unitpharma.com</a><br>
+        //             </span>
+        //             </body>
+        //             </html>
+        //         ';
+        // $headers = 'From: ' . $visitor_email . "\r\n" .
+        //            'Reply-To: ' . $visitor_email . "\r\n" .
+        //            'X-Mailer: PHP/' . phpversion() . "\r\n" . 
+        //            "MIME-Version: 1.0\r\n" . 
+        //            "Content-Type: text/html; charset=ISO-8859-1\r\n";
 
-        // Sending email to admin                  
-        mail($to_admin, $subject, $message, $headers); 
+        // // Sending email to Message Service Teame ==>               
+        // mail($to_admin, $subject, $message, $headers); 
+
+        // '''
+        $body ='<body>
+                <span style="color:black"><u><b>Visitor Details-</b></u></span>
+                <span style="color:black">
+                <ul style="padding-left:20px;list-style-type:None;color:black">
+                <li>Name: '. $visitor_name.'</li>
+                <li>Email ID: '. $visitor_email.'</li>
+                <li>Phone Number: '. $visitor_phone.'</li>
+                </ul>
+                </span>
+                <span style="color:black"><u><b>Visitor Message-</b></u></span><br/>
+                <span style="color:black">'.nl2br($visitor_message).'</span><br/><br/>
+                <span style="color:black">
+                <b>Thanks and Regards</b><br/>
+                Unit Pharma Message Service<br/>
+                Website: <a href="https://www.unitpharma.com">https://www.unitpharma.com</a><br>
+                </span>
+                </body>
+                ';
+        $mail->addAddress($to_admin, "Message Service Team");//user mail customer
+        $mail->Subject = $subject;//subject
+        $mail->IsHTML(true);
+        $mail->Body    = $body;
+        $mail->send();
+        // ''
         
         $success_message = $receive_email_thank_you_message;
+        unset($_POST['visitor_name']);
+        unset($_POST['visitor_email']);
+        unset($_POST['visitor_phone']);
+        unset($_POST['visitor_message']);
 
     }
 }
 ?>
-                
-                <?php
-                if($error_message != '') {
-                    echo "<script>alert('".$error_message."')</script>";
-                }
-                if($success_message != '') {
-                    echo "<script>alert('".$success_message."')</script>";
-                }
+
+                            <?php
+                    if($success_message != '') {
+                        echo '<div class="alert alert-success alert-dismissible">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>'. $success_message .'</strong></div>';
+                        $success_message='';
+                    }
+                    if($error_message != '') {
+                        echo '<div class="alert alert-warning alert-dismissible">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>'. $error_message .'</strong></div>';
+                        $error_message='';
+                    }
+
                 ?>
 
 
                             <form action="" method="post">
-                            <?php $csrf->echoInputField(); ?>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="name">Name</label>
-                                        <input type="text" class="form-control" name="visitor_name" placeholder="Enter name">
+                                <?php $csrf->echoInputField(); ?>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name">Name</label>
+                                            <input type="text" class="form-control" name="visitor_name" required
+                                                placeholder="Enter name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Email Address</label>
+                                            <input type="email" class="form-control" required name="visitor_email"
+                                                placeholder="Enter email address">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Phone Number</label>
+                                            <input type="text" class="form-control" required name="visitor_phone"
+                                                placeholder="Enter phone number">
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="email">Email Address</label>
-                                        <input type="email" class="form-control" name="visitor_email" placeholder="Enter email address">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="name">Message</label>
+                                            <textarea name="visitor_message" class="form-control" required rows="9"
+                                                cols="25" placeholder="Enter message"></textarea>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="email">Phone Number</label>
-                                        <input type="text" class="form-control" name="visitor_phone" placeholder="Enter phone number">
+                                    <div class="col-md-12">
+                                        <input type="submit" value="Send Message" class="btn btn-primary pull-right"
+                                            name="form_contact">
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="name">Message</label>
-                                        <textarea name="visitor_message" class="form-control" rows="9" cols="25" placeholder="Enter message"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <input type="submit" value="Send Message" class="btn btn-primary pull-right" name="form_contact">
-                                </div>
-                            </div>
                             </form>
                         </div>
                     </div>
@@ -185,14 +228,15 @@ if(isset($_POST['form_contact']))
                         </address>
                         <address>
                             <strong>Email:</strong><br>
-                            <a href="mailto:<?php echo $contact_email; ?>"><span><?php echo $contact_email; ?></span></a>
+                            <a
+                                href="mailto:<?php echo $contact_email; ?>"><span><?php echo $contact_email; ?></span></a>
                         </address>
                     </div>
                 </div>
 
                 <h3>Find Us On Map</h3>
                 <?php echo $contact_map_iframe; ?>
-                
+
             </div>
         </div>
     </div>

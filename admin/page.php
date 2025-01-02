@@ -1,4 +1,9 @@
-<?php require_once('header.php'); ?>
+<?php require_once('header.php');
+if($_SESSION['user']['role']!="Super Admin") {
+	header('location: index.php');
+	exit;
+}
+?>
 
 <?php
 
@@ -207,17 +212,17 @@ foreach ($result as $row) {
         <div class="col-md-12">
             <?php if($error_message): ?>
             <div class="callout callout-danger">
-            
-            <p>
-            <?php echo $error_message; ?>
-            </p>
+
+                <p>
+                    <?php echo $error_message; ?>
+                </p>
             </div>
             <?php endif; ?>
 
             <?php if($success_message): ?>
             <div class="callout callout-success">
-            
-            <p><?php echo $success_message; ?></p>
+
+                <p><?php echo $success_message; ?></p>
             </div>
             <?php endif; ?>
         </div>
@@ -228,38 +233,41 @@ foreach ($result as $row) {
 
     <div class="row">
         <div class="col-md-12">
-                            
-                <div class="nav-tabs-custom">
-                    <ul class="nav nav-tabs">
-                        <li class="active"><a href="#tab_1" data-toggle="tab">About Us</a></li>
-                        <li><a href="#tab_2" data-toggle="tab">FAQ</a></li>
-                        <li><a href="#tab_4" data-toggle="tab">Contact</a></li>
 
-                    </ul>
+            <div class="nav-tabs-custom">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab_1" data-toggle="tab">About Us</a></li>
+                    <li><a href="#tab_2" data-toggle="tab">FAQ</a></li>
+                    <li><a href="#tab_4" data-toggle="tab">Contact</a></li>
 
-                    <!-- About us Page Content -->
+                </ul>
 
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="tab_1">
-                            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                <!-- About us Page Content -->
+
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab_1">
+                        <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
                             <div class="box box-info">
                                 <div class="box-body">
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label">Page Title * </label>
                                         <div class="col-sm-5">
-                                            <input class="form-control" type="text" name="about_title" value="<?php echo $about_title; ?>">
+                                            <input class="form-control" type="text" name="about_title"
+                                                value="<?php echo $about_title; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label">Page Content * </label>
                                         <div class="col-sm-8">
-                                            <textarea class="form-control" name="about_content" id="editor1"><?php echo $about_content; ?></textarea>
+                                            <textarea class="form-control" name="about_content"
+                                                id="editor1"><?php echo $about_content; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label">Existing Banner Photo</label>
                                         <div class="col-sm-6" style="padding-top:6px;">
-                                            <img src="../assets/uploads/<?php echo $about_banner; ?>" class="existing-photo" style="height:80px;">
+                                            <img src="../assets/uploads/<?php echo $about_banner; ?>"
+                                                class="existing-photo" style="height:80px;">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -271,48 +279,54 @@ foreach ($result as $row) {
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label">Meta Title</label>
                                         <div class="col-sm-8">
-                                            <input class="form-control" type="text" name="about_meta_title" value="<?php echo $about_meta_title; ?>">
+                                            <input class="form-control" type="text" name="about_meta_title"
+                                                value="<?php echo $about_meta_title; ?>">
                                         </div>
-                                    </div>             
+                                    </div>
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label">Meta Keyword </label>
                                         <div class="col-sm-8">
-                                            <textarea class="form-control" name="about_meta_keyword" style="height:100px;"><?php echo $about_meta_keyword; ?></textarea>
+                                            <textarea class="form-control" name="about_meta_keyword"
+                                                style="height:100px;"><?php echo $about_meta_keyword; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label">Meta Description </label>
                                         <div class="col-sm-8">
-                                            <textarea class="form-control" name="about_meta_description" style="height:100px;"><?php echo $about_meta_description; ?></textarea>
+                                            <textarea class="form-control" name="about_meta_description"
+                                                style="height:100px;"><?php echo $about_meta_description; ?></textarea>
                                         </div>
-                                    </div>                                    
+                                    </div>
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label"></label>
                                         <div class="col-sm-6">
-                                            <button type="submit" class="btn btn-success pull-left" name="form_about">Update</button>
+                                            <button type="submit" class="btn btn-success pull-left"
+                                                name="form_about">Update</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            </form>
-                        </div>
+                        </form>
+                    </div>
 
-        <!-- FAQ Page Content -->
+                    <!-- FAQ Page Content -->
 
-                        <div class="tab-pane" id="tab_2">
-                            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                    <div class="tab-pane" id="tab_2">
+                        <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
                             <div class="box box-info">
                                 <div class="box-body">
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label">Page Title * </label>
                                         <div class="col-sm-5">
-                                            <input class="form-control" type="text" name="faq_title" value="<?php echo $faq_title; ?>">
+                                            <input class="form-control" type="text" name="faq_title"
+                                                value="<?php echo $faq_title; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label">Existing Banner Photo</label>
                                         <div class="col-sm-6" style="padding-top:6px;">
-                                            <img src="../assets/uploads/<?php echo $faq_banner; ?>" class="existing-photo" style="height:80px;">
+                                            <img src="../assets/uploads/<?php echo $faq_banner; ?>"
+                                                class="existing-photo" style="height:80px;">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -324,48 +338,54 @@ foreach ($result as $row) {
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label">Meta Title</label>
                                         <div class="col-sm-8">
-                                            <input class="form-control" type="text" name="faq_meta_title" value="<?php echo $faq_meta_title; ?>">
+                                            <input class="form-control" type="text" name="faq_meta_title"
+                                                value="<?php echo $faq_meta_title; ?>">
                                         </div>
-                                    </div>             
+                                    </div>
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label">Meta Keyword </label>
                                         <div class="col-sm-8">
-                                            <textarea class="form-control" name="faq_meta_keyword" style="height:100px;"><?php echo $faq_meta_keyword; ?></textarea>
+                                            <textarea class="form-control" name="faq_meta_keyword"
+                                                style="height:100px;"><?php echo $faq_meta_keyword; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label">Meta Description </label>
                                         <div class="col-sm-8">
-                                            <textarea class="form-control" name="faq_meta_description" style="height:100px;"><?php echo $faq_meta_description; ?></textarea>
+                                            <textarea class="form-control" name="faq_meta_description"
+                                                style="height:100px;"><?php echo $faq_meta_description; ?></textarea>
                                         </div>
-                                    </div>                                    
+                                    </div>
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label"></label>
                                         <div class="col-sm-6">
-                                            <button type="submit" class="btn btn-success pull-left" name="form_faq">Update</button>
+                                            <button type="submit" class="btn btn-success pull-left"
+                                                name="form_faq">Update</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            </form>
-                        </div>
+                        </form>
+                    </div>
 
-                        <!-- End of FAQ Page Content -->
+                    <!-- End of FAQ Page Content -->
 
-                        <div class="tab-pane" id="tab_4">
-                            <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+                    <div class="tab-pane" id="tab_4">
+                        <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
                             <div class="box box-info">
                                 <div class="box-body">
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label">Page Title * </label>
                                         <div class="col-sm-5">
-                                            <input class="form-control" type="text" name="contact_title" value="<?php echo $contact_title; ?>">
+                                            <input class="form-control" type="text" name="contact_title"
+                                                value="<?php echo $contact_title; ?>">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label">Existing Banner Photo</label>
                                         <div class="col-sm-6" style="padding-top:6px;">
-                                            <img src="../assets/uploads/<?php echo $contact_banner; ?>" class="existing-photo" style="height:80px;">
+                                            <img src="../assets/uploads/<?php echo $contact_banner; ?>"
+                                                class="existing-photo" style="height:80px;">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -377,39 +397,43 @@ foreach ($result as $row) {
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label">Meta Title</label>
                                         <div class="col-sm-8">
-                                            <input class="form-control" type="text" name="contact_meta_title" value="<?php echo $contact_meta_title; ?>">
+                                            <input class="form-control" type="text" name="contact_meta_title"
+                                                value="<?php echo $contact_meta_title; ?>">
                                         </div>
-                                    </div>             
+                                    </div>
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label">Meta Keyword </label>
                                         <div class="col-sm-8">
-                                            <textarea class="form-control" name="contact_meta_keyword" style="height:100px;"><?php echo $contact_meta_keyword; ?></textarea>
+                                            <textarea class="form-control" name="contact_meta_keyword"
+                                                style="height:100px;"><?php echo $contact_meta_keyword; ?></textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label">Meta Description </label>
                                         <div class="col-sm-8">
-                                            <textarea class="form-control" name="contact_meta_description" style="height:100px;"><?php echo $contact_meta_description; ?></textarea>
+                                            <textarea class="form-control" name="contact_meta_description"
+                                                style="height:100px;"><?php echo $contact_meta_description; ?></textarea>
                                         </div>
-                                    </div>                                    
+                                    </div>
                                     <div class="form-group">
                                         <label for="" class="col-sm-3 control-label"></label>
                                         <div class="col-sm-6">
-                                            <button type="submit" class="btn btn-success pull-left" name="form_contact">Update</button>
+                                            <button type="submit" class="btn btn-success pull-left"
+                                                name="form_contact">Update</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            </form>
-                        </div>
+                        </form>
+                    </div>
 
 
 
-                
 
-            </form>
-        </div>
-    </div>
+
+                    </form>
+                </div>
+            </div>
 
 </section>
 

@@ -33,12 +33,12 @@ if( !isset($_REQUEST['id'])) {
 	$statement->execute(array($shipping_date,'Completed',$_REQUEST['id']));
 
 	// Getting Admin Email Address
-		// $statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
-		// $statement->execute();
-		// $result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
-		// foreach ($result as $row) {
-		// 	$admin_email = $row['contact_email'];
-		// }
+		$statement = $pdo->prepare("SELECT * FROM tbl_settings WHERE id=1");
+		$statement->execute();
+		$result = $statement->fetchAll(PDO::FETCH_ASSOC);                            
+		foreach ($result as $row) {
+			$contact_email = $row['contact_email'];
+		}
 
 		// $message_text='Your order deliverded successfully. If you have not received yet, Please contact us asap.<br>
 		// <br><b>Order ID:</b> '.$payment_id.'<br>
@@ -66,17 +66,17 @@ if( !isset($_REQUEST['id'])) {
 
 	$body ='<body>
 			<span style="color:black">Hello '.$s_name.',</span>
-			<span style="color:black">Your order deliverded successfully. If you have not received yet, Please contact us asap.
+			<span style="color:black">Your order deliverded successfully. If you have not received yet, Please contact us ASAP.
 			<ul style="padding-left:20px;list-style-type:None;color:black">
 			<li><b>Order ID: </b>'.$payment_id.'</li>
 			<li><b>Tracking ID: </b>'.$tracking_id.'</li>
-			<li><b>Tracking Link: </b><a style="color:blue; font-weight:bold" href="'.$row['tracking_link'].'">click to track</a></li>
+			<li><b>Tracking Link: </b><a style="color:blue; font-weight:bold" href="'.$tracking_link.'">click to track</a></li>
 			<li><b>Delivery Status: </b>Completed</li>
 			<li><b>Delivery Date: </b>'.$shipping_date.'</li>
 			</ul>
 			</span>
 			<span style="color:black">
-			Thanks for shopping with us. If you are facing any issue, Please contact us.</span><br/><br/>
+			Thanks for shopping with us. If you are facing any issue, Please contact us at '.$contact_email.'.</span><br/><br/>
 			<span style="color:black">
 			<b>Thanks and Regards</b><br/>
 			Unit Pharma Support Team<br/>

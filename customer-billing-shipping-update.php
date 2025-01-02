@@ -110,20 +110,20 @@ if (isset($_POST['form1'])) {
 
 <div class="page">
     <div class="container">
-        <div class="row">            
-            <div class="col-md-12"> 
+        <div class="row">
+            <div class="col-md-12">
                 <?php require_once('customer-sidebar.php'); ?>
             </div>
             <div class="col-md-12">
                 <div class="user-content">
-                    
+
                     <form action="" method="post">
                         <?php $csrf->echoInputField(); ?>
                         <div class="row">
-                            
+
                             <div class="col-md-2"></div>
                             <div class="col-md-8">
-                            
+
                                 <h3><?php echo LANG_VALUE_87; ?></h3>
                                 <?php
                                     if($success_message != '') {
@@ -141,64 +141,81 @@ if (isset($_POST['form1'])) {
                                 ?>
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_102; ?></label>
-                                    <input type="text" required class="form-control" name="cust_s_name" value="<?php echo $_SESSION['customer']['cust_s_name']; ?>">
+                                    <input type="text" required class="form-control" name="cust_s_name"
+                                        value="<?php echo $_SESSION['customer']['cust_s_name']; ?>">
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo "Gender";#LANG_VALUE_106; ?><sup>*</sup></label>
-                                    <select name="cust_s_gender" class="form-control" required >
-                                        <option value="" >Select Gender</option>                            
-                                        <option value="male" <?php if($_SESSION['customer']['cust_s_gender'] =='male') {echo 'selected';} ?>>Male</option> 
-                                        <option value="female" <?php if($_SESSION['customer']['cust_s_gender'] =='female') {echo 'selected';} ?>>Female</option>     
-                                        <option value="other" <?php if($_SESSION['customer']['cust_s_gender'] =='other') {echo 'selected';} ?>>Other</option>   
+                                    <select name="cust_s_gender" class="form-control" required>
+                                        <option value="">Select Gender</option>
+                                        <option value="male"
+                                            <?php if($_SESSION['customer']['cust_s_gender'] =='male') {echo 'selected';} ?>>
+                                            Male</option>
+                                        <option value="female"
+                                            <?php if($_SESSION['customer']['cust_s_gender'] =='female') {echo 'selected';} ?>>
+                                            Female</option>
+                                        <option value="other"
+                                            <?php if($_SESSION['customer']['cust_s_gender'] =='other') {echo 'selected';} ?>>
+                                            Other</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_94; ?> *</label>
-                                    <input type="email" required class="form-control" name="cust_s_email" value="<?php echo $_SESSION['customer']['cust_s_email']; ?>">
+                                    <input type="email" required class="form-control" name="cust_s_email"
+                                        value="<?php echo $_SESSION['customer']['cust_s_email']; ?>">
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_104; ?></label>
-                                    <input type="text" required class="form-control" name="cust_s_phone" value="<?php echo $_SESSION['customer']['cust_s_phone']; ?>">
+                                    <input type="text" required class="form-control" name="cust_s_phone"
+                                        value="<?php echo $_SESSION['customer']['cust_s_phone']; ?>">
                                 </div>
                                 <div class="col-md-12 form-group">
                                     <label for=""><?php echo LANG_VALUE_105; ?></label>
-                                    <textarea name="cust_s_address" required class="form-control" cols="30" rows="10" style="height:100px;"><?php echo $_SESSION['customer']['cust_s_address']; ?></textarea>
+                                    <textarea name="cust_s_address" required class="form-control" cols="30" rows="10"
+                                        style="height:100px;"><?php echo $_SESSION['customer']['cust_s_address']; ?></textarea>
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_106; ?></label>
-                                    <select name="cust_s_country" required  class="form-control">
+                                    <select name="cust_s_country" required class="form-control">
+                                        <option value="">Select Country</option>
                                         <?php
                                         $statement = $pdo->prepare("SELECT * FROM tbl_country ORDER BY country_name ASC");
                                         $statement->execute();
                                         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                                         foreach ($result as $row) {
                                             ?>
-                                            <option value="<?php echo $row['country_id']; ?>" <?php if($row['country_id'] == $_SESSION['customer']['cust_s_country']) {echo 'selected';} ?>><?php echo $row['country_name']; ?></option>
-                                            <?php
+                                        <option value="<?php echo $row['country_id']; ?>"
+                                            <?php if($row['country_id'] == $_SESSION['customer']['cust_s_country']) {echo 'selected';} ?>>
+                                            <?php echo $row['country_name']; ?></option>
+                                        <?php
                                         }
                                         ?>
                                     </select>
                                 </div>
-                                
+
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_107; ?></label>
-                                    <input type="text" class="form-control" required name="cust_s_city" value="<?php echo $_SESSION['customer']['cust_s_city']; ?>">
+                                    <input type="text" class="form-control" required name="cust_s_city"
+                                        value="<?php echo $_SESSION['customer']['cust_s_city']; ?>">
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_108; ?></label>
-                                    <input type="text" class="form-control" required name="cust_s_state" value="<?php echo $_SESSION['customer']['cust_s_state']; ?>">
+                                    <input type="text" class="form-control" required name="cust_s_state"
+                                        value="<?php echo $_SESSION['customer']['cust_s_state']; ?>">
                                 </div>
                                 <div class="col-md-6 form-group">
                                     <label for=""><?php echo LANG_VALUE_109; ?></label>
-                                    <input type="text" class="form-control" required name="cust_s_zip" value="<?php echo $_SESSION['customer']['cust_s_zip']; ?>">
+                                    <input type="text" class="form-control" required name="cust_s_zip"
+                                        value="<?php echo $_SESSION['customer']['cust_s_zip']; ?>">
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <input type="submit" class="btn btn-lg btn-primary" value="<?php echo LANG_VALUE_5; ?>" name="form1">
+                                    <input type="submit" class="btn btn-lg btn-primary"
+                                        value="<?php echo LANG_VALUE_5; ?>" name="form1">
                                 </div>
                             </div>
                         </div>
                     </form>
-                </div>                
+                </div>
             </div>
         </div>
     </div>

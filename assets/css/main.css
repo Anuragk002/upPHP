@@ -683,13 +683,14 @@ Mobile style's
 .product .item .thumb {
   position: relative;
   overflow: hidden;
+  background-color: white;
 }
 
 .product .item .thumb .photo {
   width: 100%;
   height: 200px;
   -webkit-background-size: cover;
-  background-size: cover;
+  background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
 }
@@ -1111,13 +1112,18 @@ Mobile style's
 }
 /* user footer end ======> */
 
+.prod-slider-outer {
+  border: 0.5px solid lightgray;
+}
 ul.prod-slider li {
   height: 450px;
+  width: 450px;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
-  background-size: cover;
+  background-size: contain;
   background-position: top center;
   position: relative;
+  /* border: 1px solid lightgray; */
 }
 ul.prod-slider li a {
   position: absolute;
@@ -1138,6 +1144,7 @@ ul.prod-slider li a {
   -webkit-background-size: cover;
   background-size: cover;
   background-position: top center;
+  border: 0.5px solid lightgray;
 }
 
 .product .p_photos {
@@ -1198,7 +1205,7 @@ ul.nav-tabs {
   margin-bottom: 5px;
 }
 .product .pkg_btn {
-  padding:10px;
+  padding: 10px;
   margin-left: 3px;
   height: 35px;
   border: none;
@@ -1209,7 +1216,7 @@ ul.nav-tabs {
 }
 
 .pkg_btn_active {
-  padding:10px;
+  padding: 10px;
   margin-left: 3px;
   height: 35px;
   font-weight: bold;
@@ -1245,41 +1252,39 @@ ul.nav-tabs {
   border: 2px solid #c7c7c7;
   font-weight: bold;
 }
-.qty-btn-parent{
-  display:flex;
-  align-items:center;
-  border:2px solid #d3d3d3;
+.qty-btn-parent {
+  display: flex;
+  align-items: center;
+  border: 2px solid #d3d3d3;
   width: 140px;
-  justify-content:space-between;
+  justify-content: space-between;
 }
 .qty-btn {
   background-color: white;
   opacity: 0.9;
-  color:#e93e58;
-  border:none;
-  outline:none;
+  color: #e93e58;
+  border: none;
+  outline: none;
 }
 .qty-btn:hover {
   /* background-color: #e93e58; */
   opacity: 1;
   transition: 0.5s;
   border: none;
-  outline:none;
-  
+  outline: none;
 }
 
-.qty-text{
-color:#e93e58;
-font-weight:bold;
-font-size:20px;
+.qty-text {
+  color: #e93e58;
+  font-weight: bold;
+  font-size: 20px;
 }
-.qty-text:hover{
-  cursor:none;
-  color:#e93e58;
-font-weight:bold;
-font-size:20px;
-
-  }
+.qty-text:hover {
+  cursor: none;
+  color: #e93e58;
+  font-weight: bold;
+  font-size: 20px;
+}
 
 .product .btn-cart {
   margin-bottom: 30px;
@@ -1298,9 +1303,9 @@ font-size:20px;
   padding: 13px 28px;
   /* background: #0d1452; */
   background: #f19000;
-  border-radius:0;
+  border-radius: 0;
   color: #fff;
-  font-size:20px;
+  font-size: 20px;
 }
 
 .product .share {
@@ -1759,10 +1764,10 @@ table.bill-address tr td:nth-of-type(1) {
 }
 
 .user-sidebar ul li a {
-  padding: 7px 20px;
+  padding: 5px 5px;
   min-height: 40px;
   line-height: 40px;
-  background: #444;
+  /* background: #444; */
   color: #fff;
 }
 
